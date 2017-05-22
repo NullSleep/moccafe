@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2338948A1ED3466900E6F78E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233894891ED3466900E6F78E /* AppDelegate.swift */; };
+		2338948C1ED3466A00E6F78E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338948B1ED3466A00E6F78E /* FirstViewController.swift */; };
+		2338948E1ED3466A00E6F78E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2338948D1ED3466A00E6F78E /* SecondViewController.swift */; };
+		233894911ED3466A00E6F78E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2338948F1ED3466A00E6F78E /* Main.storyboard */; };
+		233894931ED3466A00E6F78E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 233894921ED3466A00E6F78E /* Assets.xcassets */; };
+		233894961ED3466A00E6F78E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233894941ED3466A00E6F78E /* LaunchScreen.storyboard */; };
+		233894A11ED3466A00E6F78E /* moccafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233894A01ED3466A00E6F78E /* moccafeTests.swift */; };
+		233894AC1ED3466A00E6F78E /* moccafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233894AB1ED3466A00E6F78E /* moccafeUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2338949D1ED3466A00E6F78E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2338947E1ED3466900E6F78E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 233894851ED3466900E6F78E;
+			remoteInfo = moccafe;
+		};
+		233894A81ED3466A00E6F78E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2338947E1ED3466900E6F78E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 233894851ED3466900E6F78E;
+			remoteInfo = moccafe;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		233894861ED3466900E6F78E /* moccafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moccafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		233894891ED3466900E6F78E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2338948B1ED3466A00E6F78E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		2338948D1ED3466A00E6F78E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		233894901ED3466A00E6F78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		233894921ED3466A00E6F78E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		233894951ED3466A00E6F78E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		233894971ED3466A00E6F78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2338949C1ED3466A00E6F78E /* moccafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moccafeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		233894A01ED3466A00E6F78E /* moccafeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moccafeTests.swift; sourceTree = "<group>"; };
+		233894A21ED3466A00E6F78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		233894A71ED3466A00E6F78E /* moccafeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moccafeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		233894AB1ED3466A00E6F78E /* moccafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moccafeUITests.swift; sourceTree = "<group>"; };
+		233894AD1ED3466A00E6F78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		233894831ED3466900E6F78E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		233894991ED3466A00E6F78E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		233894A41ED3466A00E6F78E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2338947D1ED3466900E6F78E = {
+			isa = PBXGroup;
+			children = (
+				233894881ED3466900E6F78E /* moccafe */,
+				2338949F1ED3466A00E6F78E /* moccafeTests */,
+				233894AA1ED3466A00E6F78E /* moccafeUITests */,
+				233894871ED3466900E6F78E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		233894871ED3466900E6F78E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				233894861ED3466900E6F78E /* moccafe.app */,
+				2338949C1ED3466A00E6F78E /* moccafeTests.xctest */,
+				233894A71ED3466A00E6F78E /* moccafeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		233894881ED3466900E6F78E /* moccafe */ = {
+			isa = PBXGroup;
+			children = (
+				233894891ED3466900E6F78E /* AppDelegate.swift */,
+				2338948B1ED3466A00E6F78E /* FirstViewController.swift */,
+				2338948D1ED3466A00E6F78E /* SecondViewController.swift */,
+				2338948F1ED3466A00E6F78E /* Main.storyboard */,
+				233894921ED3466A00E6F78E /* Assets.xcassets */,
+				233894941ED3466A00E6F78E /* LaunchScreen.storyboard */,
+				233894971ED3466A00E6F78E /* Info.plist */,
+			);
+			path = moccafe;
+			sourceTree = "<group>";
+		};
+		2338949F1ED3466A00E6F78E /* moccafeTests */ = {
+			isa = PBXGroup;
+			children = (
+				233894A01ED3466A00E6F78E /* moccafeTests.swift */,
+				233894A21ED3466A00E6F78E /* Info.plist */,
+			);
+			path = moccafeTests;
+			sourceTree = "<group>";
+		};
+		233894AA1ED3466A00E6F78E /* moccafeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				233894AB1ED3466A00E6F78E /* moccafeUITests.swift */,
+				233894AD1ED3466A00E6F78E /* Info.plist */,
+			);
+			path = moccafeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		233894851ED3466900E6F78E /* moccafe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 233894B01ED3466A00E6F78E /* Build configuration list for PBXNativeTarget "moccafe" */;
+			buildPhases = (
+				233894821ED3466900E6F78E /* Sources */,
+				233894831ED3466900E6F78E /* Frameworks */,
+				233894841ED3466900E6F78E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = moccafe;
+			productName = moccafe;
+			productReference = 233894861ED3466900E6F78E /* moccafe.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2338949B1ED3466A00E6F78E /* moccafeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 233894B31ED3466A00E6F78E /* Build configuration list for PBXNativeTarget "moccafeTests" */;
+			buildPhases = (
+				233894981ED3466A00E6F78E /* Sources */,
+				233894991ED3466A00E6F78E /* Frameworks */,
+				2338949A1ED3466A00E6F78E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2338949E1ED3466A00E6F78E /* PBXTargetDependency */,
+			);
+			name = moccafeTests;
+			productName = moccafeTests;
+			productReference = 2338949C1ED3466A00E6F78E /* moccafeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		233894A61ED3466A00E6F78E /* moccafeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 233894B61ED3466A00E6F78E /* Build configuration list for PBXNativeTarget "moccafeUITests" */;
+			buildPhases = (
+				233894A31ED3466A00E6F78E /* Sources */,
+				233894A41ED3466A00E6F78E /* Frameworks */,
+				233894A51ED3466A00E6F78E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				233894A91ED3466A00E6F78E /* PBXTargetDependency */,
+			);
+			name = moccafeUITests;
+			productName = moccafeUITests;
+			productReference = 233894A71ED3466A00E6F78E /* moccafeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2338947E1ED3466900E6F78E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = moccafe;
+				TargetAttributes = {
+					233894851ED3466900E6F78E = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					2338949B1ED3466A00E6F78E = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 233894851ED3466900E6F78E;
+					};
+					233894A61ED3466A00E6F78E = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 233894851ED3466900E6F78E;
+					};
+				};
+			};
+			buildConfigurationList = 233894811ED3466900E6F78E /* Build configuration list for PBXProject "moccafe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2338947D1ED3466900E6F78E;
+			productRefGroup = 233894871ED3466900E6F78E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				233894851ED3466900E6F78E /* moccafe */,
+				2338949B1ED3466A00E6F78E /* moccafeTests */,
+				233894A61ED3466A00E6F78E /* moccafeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		233894841ED3466900E6F78E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				233894961ED3466A00E6F78E /* LaunchScreen.storyboard in Resources */,
+				233894931ED3466A00E6F78E /* Assets.xcassets in Resources */,
+				233894911ED3466A00E6F78E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2338949A1ED3466A00E6F78E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		233894A51ED3466A00E6F78E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		233894821ED3466900E6F78E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2338948E1ED3466A00E6F78E /* SecondViewController.swift in Sources */,
+				2338948A1ED3466900E6F78E /* AppDelegate.swift in Sources */,
+				2338948C1ED3466A00E6F78E /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		233894981ED3466A00E6F78E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				233894A11ED3466A00E6F78E /* moccafeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		233894A31ED3466A00E6F78E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				233894AC1ED3466A00E6F78E /* moccafeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2338949E1ED3466A00E6F78E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 233894851ED3466900E6F78E /* moccafe */;
+			targetProxy = 2338949D1ED3466A00E6F78E /* PBXContainerItemProxy */;
+		};
+		233894A91ED3466A00E6F78E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 233894851ED3466900E6F78E /* moccafe */;
+			targetProxy = 233894A81ED3466A00E6F78E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2338948F1ED3466A00E6F78E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				233894901ED3466A00E6F78E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		233894941ED3466A00E6F78E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				233894951ED3466A00E6F78E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		233894AE1ED3466A00E6F78E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		233894AF1ED3466A00E6F78E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		233894B11ED3466A00E6F78E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = moccafe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		233894B21ED3466A00E6F78E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = moccafe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		233894B41ED3466A00E6F78E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = moccafeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/moccafe.app/moccafe";
+			};
+			name = Debug;
+		};
+		233894B51ED3466A00E6F78E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = moccafeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/moccafe.app/moccafe";
+			};
+			name = Release;
+		};
+		233894B71ED3466A00E6F78E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = moccafeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = moccafe;
+			};
+			name = Debug;
+		};
+		233894B81ED3466A00E6F78E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = moccafeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = moccafe;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		233894811ED3466900E6F78E /* Build configuration list for PBXProject "moccafe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				233894AE1ED3466A00E6F78E /* Debug */,
+				233894AF1ED3466A00E6F78E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		233894B01ED3466A00E6F78E /* Build configuration list for PBXNativeTarget "moccafe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				233894B11ED3466A00E6F78E /* Debug */,
+				233894B21ED3466A00E6F78E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		233894B31ED3466A00E6F78E /* Build configuration list for PBXNativeTarget "moccafeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				233894B41ED3466A00E6F78E /* Debug */,
+				233894B51ED3466A00E6F78E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		233894B61ED3466A00E6F78E /* Build configuration list for PBXNativeTarget "moccafeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				233894B71ED3466A00E6F78E /* Debug */,
+				233894B81ED3466A00E6F78E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2338947E1ED3466900E6F78E /* Project object */;
+}
