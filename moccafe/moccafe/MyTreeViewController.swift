@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  moccafe
 //
 //  Created by Carlos Arenas on 5/22/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class MyTreeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
