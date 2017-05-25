@@ -43,9 +43,9 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "home", for: indexPath) as! HomeCell
-        cell.feedtitle?.text = "title"
-        cell.feedtext?.text = "text"
-        cell.feedimage?.image = UIImage(named: "mtabhome")
+//        cell.feedtitle?.text = "title"
+//        cell.feedtext?.text = "text"
+   //     cell.feedimage?.image = UIImage(named: "mtabhome")
         return cell
      }
     

@@ -23,10 +23,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         for item in [emailTextField, passwordTextField] {
             item?.delegate = self
         }
-        let myAttribute = [ NSForegroundColorAttributeName: UIColor.black ]
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes: myAttribute)
-        //emailTextField.placeholder = "EMAIL"
-        
+        let myAttribute = [ NSForegroundColorAttributeName: UIColor(red:0.94, green:0.94, blue:0.96, alpha:0.6) ]
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "Insert email", attributes: myAttribute)
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Insert password", attributes: myAttribute)
         
         passwordTextField.isSecureTextEntry = true
     }
@@ -36,21 +35,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         for item in [emailTextField, passwordTextField] {
             let subView = UIView(frame: CGRect(x: 0, y: 29, width: (item?.bounds.width)!, height: 0.5))
-            subView.backgroundColor = UIColor.lightGray
+            subView.backgroundColor = UIColor(red:0.94, green:0.94, blue:0.96, alpha:1.0)
             subView.alpha = 0.9
             item?.addSubview(subView)
         }
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.placeholder = nil
-    }
+
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.text?.isEmpty == true {
-            textField.placeholder = "fdfds"
-        }
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

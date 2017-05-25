@@ -19,6 +19,7 @@
 		B1094CBE64419F2785ED659E /* Pods_moccafeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B202489F2BC9D35979ED1BD /* Pods_moccafeTests.framework */; };
 		B959D3DF076BCA38AD05FEC4 /* Pods_moccafeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4345F3218021225DF0A8FB3 /* Pods_moccafeUITests.framework */; };
 		CD199E0C1ED5F36900590F50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E0B1ED5F36900590F50 /* LoginViewController.swift */; };
+		CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E181ED75AB700590F50 /* SignUpViewController.swift */; };
 		CD97D3E31ED4A83C00E29753 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97D3E21ED4A83C00E29753 /* APICall.swift */; };
 		CDCCB5B51ED36A7F0095E21D /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */; };
 		CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B61ED36A900095E21D /* ShopViewController.swift */; };
@@ -64,6 +65,7 @@
 		966F2883541951C2F718841C /* Pods-moccafeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeTests/Pods-moccafeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4345F3218021225DF0A8FB3 /* Pods_moccafeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD199E0B1ED5F36900590F50 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CD199E181ED75AB700590F50 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CD97D3E21ED4A83C00E29753 /* APICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		CDCCB5B61ED36A900095E21D /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */,
 				CDCCB5B61ED36A900095E21D /* ShopViewController.swift */,
 				2338948F1ED3466A00E6F78E /* Main.storyboard */,
+				CD199E181ED75AB700590F50 /* SignUpViewController.swift */,
 				CDCCB5BA1ED392B30095E21D /* HomeCell.swift */,
 				CD97D3E21ED4A83C00E29753 /* APICall.swift */,
 				233894921ED3466A00E6F78E /* Assets.xcassets */,
@@ -470,6 +473,7 @@
 				CDCCB5B51ED36A7F0095E21D /* VideosViewController.swift in Sources */,
 				CD199E0C1ED5F36900590F50 /* LoginViewController.swift in Sources */,
 				CDCCB5BB1ED392B30095E21D /* HomeCell.swift in Sources */,
+				CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */,
 				CD97D3E31ED4A83C00E29753 /* APICall.swift in Sources */,
 				2338948C1ED3466A00E6F78E /* HomeViewController.swift in Sources */,
 			);
