@@ -16,7 +16,7 @@
                     <tabBarItem key="tabBarItem" title="Item" image="mtabhome" id="M5P-wg-L5Q"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="668"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cj1-YG-GoZ">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Cj1-YG-GoZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
@@ -25,29 +25,41 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="T1I-oC-b28" kind="relationship" relationship="rootViewController" id="l3Y-At-mnm"/>
+                        <segue destination="T1I-oC-b28" kind="relationship" relationship="rootViewController" id="vLE-2d-btD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2LE-x5-Bvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-890" y="-102"/>
+            <point key="canvasLocation" x="-47" y="-95"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="7GM-G4-2N8">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Ej1-qQ-qun" customClass="PageViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="PfR-ij-iDC"/>
+                    <navigationItem key="navigationItem" id="Kaf-XW-257"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NHk-Mm-NT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-868" y="-283"/>
         </scene>
         <!--moccafe-->
         <scene sceneID="a10-QD-4hb">
             <objects>
                 <tableViewController id="T1I-oC-b28" customClass="HomeViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="157" sectionHeaderHeight="28" sectionFooterHeight="28" id="ikg-KC-Pty">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="668"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="604"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="AeW-qi-Gkr">
+                        <view key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="AeW-qi-Gkr">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm2-Vw-OG1">
-                                    <rect key="frame" x="202.5" y="7" width="152.5" height="30"/>
-                                    <color key="backgroundColor" red="0.36603599786758423" green="0.75578755140304565" blue="0.18039879202842712" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Blog">
+                                    <rect key="frame" x="202.5" y="7.5" width="152.5" height="29"/>
+                                    <color key="backgroundColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="BLOG">
                                         <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -55,11 +67,15 @@
                                             <integer key="value" value="15"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="blogClicked:" destination="T1I-oC-b28" eventType="touchUpInside" id="9ao-LP-6LX"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zav-DZ-y4e">
-                                    <rect key="frame" x="20" y="7" width="152.5" height="30"/>
-                                    <color key="backgroundColor" red="0.36603599790000002" green="0.75578755139999998" blue="0.180398792" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="News">
+                                    <rect key="frame" x="20" y="7.5" width="152.5" height="29"/>
+                                    <color key="backgroundColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="NEWS">
                                         <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -67,6 +83,9 @@
                                             <integer key="value" value="15"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="newsClicked:" destination="T1I-oC-b28" eventType="touchUpInside" id="3mN-n1-XMb"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
@@ -142,10 +161,16 @@
                             <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="blogButton" destination="Hm2-Vw-OG1" id="XQM-WM-0uN"/>
+                        <outlet property="newsButton" destination="zav-DZ-y4e" id="1Tg-Wx-ApN"/>
+                        <outlet property="profileButton" destination="iwo-yn-ls5" id="yEd-jU-4aF"/>
+                        <outlet property="view2222" destination="AeW-qi-Gkr" id="SlF-r3-tPz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaA-OD-tQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52" y="-112.44377811094454"/>
+            <point key="canvasLocation" x="887.20000000000005" y="-112.44377811094454"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dax-ef-bIS">
@@ -156,7 +181,7 @@
                         <viewControllerLayoutGuide type="bottom" id="j6D-pw-c6g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DgU-nR-DSz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="668"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="604"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="News title Lorem ipsum dolor sit amet!!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1B-1N-AeL">
@@ -169,7 +194,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRp-hG-ia0">
                                 <rect key="frame" x="16" y="204" width="343" height="443"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">Lorem ipsum dolor sit amet, iriure prodesset ei has, an novum altera pertinax his. Cu his summo epicurei necessitatibus, ex oratio deserunt mea, salutandi tincidunt ei vix. Postea interesset instructior per ut, homero animal appetere no nec. An nibh propriae constituto pri.
+                                <string key="text">Lorem ipsum dolor sit amet, iriure prodesset ei has, an novum altera pertinax his. Cu his summo epicurei necessitatibus, ex oratio deserunt mea, salutandi tincidunt ei vix. Postea interesset instructior per ut, homero animal appetere no nec. An nibh propriae constituto pri.
 
 Est antiopam facilisis adolescens id. Pri graecis suscipiantur no, in usu altera virtute, eam ei enim wisi. Pro probo vidisse appetere te, odio mollis et mei. Epicurei laboramus mei ut, usu ea affert quaerendum. Delicata urbanitas has an, eum eu omnium dissentiunt.
 
@@ -177,7 +202,7 @@ Laoreet veritus temporibus est ne, at vero eirmod aperiri per. Quis volutpat scr
 
 Paulo everti suscipiantur in vel, cu mei iisque propriae corrumpit. Ex vix prompta forensibus, ea movet incorrupte elaboraret eos, etiam eripuit vix an. Quo te ignota phaedrum appellantur, in pri justo partiendo adolescens, mea agam democritum ex. Alii invidunt maluisset sit an. An nec labores perpetua. Ex ridens aperiam vix, vel ex alia nemore rationibus.
 
-Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea, eu est aeterno scribentur. Ne unum scripserit duo. Ad eos tincidunt contentiones, no zril urbanitas argumentum usu. Ferri oblique tacimates ne nec, vero mollis probatus vis ne. Vis at qualisque definitiones.</mutableString>
+Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea, eu est aeterno scribentur. Ne unum scripserit duo. Ad eos tincidunt contentiones, no zril urbanitas argumentum usu. Ferri oblique tacimates ne nec, vero mollis probatus vis ne. Vis at qualisque definitiones.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -195,7 +220,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cy6-gx-HrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="735.20000000000005" y="-108.84557721139431"/>
+            <point key="canvasLocation" x="1674.4000000000001" y="-108.84557721139431"/>
         </scene>
         <!--MyTree-->
         <scene sceneID="wg7-f3-ORb">
@@ -221,7 +246,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.5" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="MyTree" image="mtabbean" id="cPa-gy-q4n"/>
                 </viewController>
@@ -380,10 +405,10 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="aCW-IC-fh7" kind="relationship" relationship="viewControllers" id="5wp-bP-AZX"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Zas-6X-WMl" kind="relationship" relationship="viewControllers" id="kYa-K2-fh8"/>
                         <segue destination="cuO-TB-HVr" kind="relationship" relationship="viewControllers" id="KDa-3b-S29"/>
+                        <segue destination="Ej1-qQ-qun" kind="relationship" relationship="viewControllers" id="LvK-t3-LTK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -469,13 +494,18 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                     <navigationItem title="Moccafe" id="fWm-Bu-E6a"/>
                                 </items>
                             </navigationBar>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWF-8Y-T2q">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWF-8Y-T2q">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gWF-8Y-T2q" firstAttribute="centerX" secondItem="dxv-df-U9a" secondAttribute="centerX" id="0GA-CX-Lvc"/>
+                            <constraint firstItem="gWF-8Y-T2q" firstAttribute="top" secondItem="lVL-n8-L93" secondAttribute="bottom" constant="24" id="80k-lS-YlR"/>
+                            <constraint firstItem="gWF-8Y-T2q" firstAttribute="width" secondItem="dxv-df-U9a" secondAttribute="width" id="Xyh-ZZ-S4U"/>
+                            <constraint firstItem="qR7-xg-BYD" firstAttribute="top" secondItem="gWF-8Y-T2q" secondAttribute="bottom" id="s1j-hx-euO"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shop" image="mtabeshop" id="QBY-y5-thT"/>
                     <connections>
@@ -638,6 +668,210 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMP-C7-PbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3348" y="497.90104947526243"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="GMT-bV-BAJ">
+            <objects>
+                <navigationController id="N3W-QI-B2t" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="mtabhome" id="PMx-HJ-Fro"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="668"/>
+                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" translucent="NO" id="ncR-kS-lFd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZNE-w9-YfZ" kind="relationship" relationship="rootViewController" id="55U-Dl-Op9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DCR-CQ-DSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-47" y="-866"/>
+        </scene>
+        <!--moccafe-->
+        <scene sceneID="fwR-ds-frS">
+            <objects>
+                <tableViewController id="ZNE-w9-YfZ" customClass="HomeViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="157" sectionHeaderHeight="28" sectionFooterHeight="28" id="3gK-ll-0a0">
+                        <rect key="frame" x="0.0" y="64" width="375" height="604"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <view key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="DlF-rH-DyM">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ia0-qw-F5N">
+                                    <rect key="frame" x="202.5" y="7.5" width="152.5" height="29"/>
+                                    <color key="backgroundColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="BLOG">
+                                        <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="blogClicked:" destination="ZNE-w9-YfZ" eventType="touchUpInside" id="91H-B4-zeg"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cl-0R-j5L">
+                                    <rect key="frame" x="20" y="7.5" width="152.5" height="29"/>
+                                    <color key="backgroundColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="NEWS">
+                                        <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="newsClicked:" destination="ZNE-w9-YfZ" eventType="touchUpInside" id="eHT-Tq-P5w"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="2Cl-0R-j5L" firstAttribute="leading" secondItem="DlF-rH-DyM" secondAttribute="leading" constant="20" id="4tt-qN-GWw"/>
+                                <constraint firstItem="2Cl-0R-j5L" firstAttribute="width" secondItem="ia0-qw-F5N" secondAttribute="width" id="7iG-hX-qLf"/>
+                                <constraint firstItem="ia0-qw-F5N" firstAttribute="leading" secondItem="2Cl-0R-j5L" secondAttribute="trailing" constant="30" id="YlH-Eb-ZhO"/>
+                                <constraint firstAttribute="trailing" secondItem="ia0-qw-F5N" secondAttribute="trailing" constant="20" id="e61-Eg-UQm"/>
+                                <constraint firstItem="2Cl-0R-j5L" firstAttribute="centerY" secondItem="DlF-rH-DyM" secondAttribute="centerY" id="hiO-R7-dHV"/>
+                                <constraint firstItem="ia0-qw-F5N" firstAttribute="centerY" secondItem="DlF-rH-DyM" secondAttribute="centerY" id="w5i-AH-XAU"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="home" rowHeight="157" id="FQT-gB-KFl" customClass="HomeCell" customModule="moccafe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="157"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FQT-gB-KFl" id="i0J-eO-Asw">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="156.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZX-lD-mKZ">
+                                            <rect key="frame" x="8" y="14" width="214" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEl-Pe-Kgp">
+                                            <rect key="frame" x="8" y="55" width="214" height="87"/>
+                                            <string key="text">Lorem ipsum dolor sit amet, doming delenit perpetua ius in, suscipit constituto eam te. Mei nostrud corpora cu, meliore invenire posidonium ut nam. Ei has prima viris aliquando, vitae accumsan sea in, ferri interpretaris his ei. No has erat aeterno, eum quem facilis luptatum eu. Te amet blandit efficiantur sea.</string>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DJI_0007" translatesAutoresizingMaskIntoConstraints="NO" id="Fxw-AF-wQ2">
+                                            <rect key="frame" x="242" y="14" width="125" height="125"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="125" id="Epm-MO-0Y0"/>
+                                                <constraint firstAttribute="width" constant="125" id="xM9-m3-Xul"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Fxw-AF-wQ2" secondAttribute="trailing" id="Cyt-si-fwo"/>
+                                        <constraint firstItem="iEl-Pe-Kgp" firstAttribute="baseline" secondItem="Fxw-AF-wQ2" secondAttribute="baseline" id="Fiy-hj-CCS"/>
+                                        <constraint firstItem="iEl-Pe-Kgp" firstAttribute="top" secondItem="uZX-lD-mKZ" secondAttribute="bottom" constant="20" id="JqS-sY-Rbv"/>
+                                        <constraint firstItem="uZX-lD-mKZ" firstAttribute="trailing" secondItem="iEl-Pe-Kgp" secondAttribute="trailing" id="L10-LV-Dx5"/>
+                                        <constraint firstItem="uZX-lD-mKZ" firstAttribute="leading" secondItem="iEl-Pe-Kgp" secondAttribute="leading" id="dRC-4N-cf6"/>
+                                        <constraint firstItem="uZX-lD-mKZ" firstAttribute="top" secondItem="i0J-eO-Asw" secondAttribute="topMargin" constant="6" id="kCp-jA-vC7"/>
+                                        <constraint firstItem="uZX-lD-mKZ" firstAttribute="top" secondItem="Fxw-AF-wQ2" secondAttribute="top" id="o8q-AA-SNc"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="uZX-lD-mKZ" secondAttribute="leading" id="oqN-Um-6nP"/>
+                                        <constraint firstItem="Fxw-AF-wQ2" firstAttribute="leading" secondItem="iEl-Pe-Kgp" secondAttribute="trailing" constant="20" id="uL3-eK-qFp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="feedimage" destination="Fxw-AF-wQ2" id="mX5-vw-qIN"/>
+                                    <outlet property="feedtext" destination="iEl-Pe-Kgp" id="jUN-DC-tvT"/>
+                                    <outlet property="feedtitle" destination="uZX-lD-mKZ" id="TKj-lO-4xi"/>
+                                    <segue destination="fQu-Xx-WJd" kind="show" id="aT4-ZY-oOu">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ZNE-w9-YfZ" id="Jz3-7i-Uor"/>
+                            <outlet property="delegate" destination="ZNE-w9-YfZ" id="8IZ-QC-FL2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="moccafe" id="vpK-nL-gZL">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="m5d-OH-7Ya">
+                            <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="user" id="Sbz-Ew-sWd">
+                            <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="blogButton" destination="ia0-qw-F5N" id="Dv9-BP-8Ad"/>
+                        <outlet property="newsButton" destination="2Cl-0R-j5L" id="dRE-4K-ts7"/>
+                        <outlet property="profileButton" destination="Sbz-Ew-sWd" id="fW8-bG-kWd"/>
+                        <outlet property="view2222" destination="DlF-rH-DyM" id="wfj-ml-OeW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mfJ-iA-NTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887" y="-883"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SuG-L5-gjP">
+            <objects>
+                <viewController id="fQu-Xx-WJd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gUN-sj-TlZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="MNe-VH-Qaz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tCT-re-7WC">
+                        <rect key="frame" x="0.0" y="64" width="375" height="604"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="News title Lorem ipsum dolor sit amet!!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7Y-6u-pgU">
+                                <rect key="frame" x="16" y="72" width="196" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZK-KO-LSc">
+                                <rect key="frame" x="16" y="204" width="343" height="443"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Lorem ipsum dolor sit amet, iriure prodesset ei has, an novum altera pertinax his. Cu his summo epicurei necessitatibus, ex oratio deserunt mea, salutandi tincidunt ei vix. Postea interesset instructior per ut, homero animal appetere no nec. An nibh propriae constituto pri.
+
+Est antiopam facilisis adolescens id. Pri graecis suscipiantur no, in usu altera virtute, eam ei enim wisi. Pro probo vidisse appetere te, odio mollis et mei. Epicurei laboramus mei ut, usu ea affert quaerendum. Delicata urbanitas has an, eum eu omnium dissentiunt.
+
+Laoreet veritus temporibus est ne, at vero eirmod aperiri per. Quis volutpat scripserit mel at, duo fugit vidisse admodum ne. Ei mea noster quaestio, duo ne dicat mundi tantas. Nisl assum bonorum te usu, doming corrumpit ei nam. Ne sed suscipit argumentum.
+
+Paulo everti suscipiantur in vel, cu mei iisque propriae corrumpit. Ex vix prompta forensibus, ea movet incorrupte elaboraret eos, etiam eripuit vix an. Quo te ignota phaedrum appellantur, in pri justo partiendo adolescens, mea agam democritum ex. Alii invidunt maluisset sit an. An nec labores perpetua. Ex ridens aperiam vix, vel ex alia nemore rationibus.
+
+Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea, eu est aeterno scribentur. Ne unum scripserit duo. Ad eos tincidunt contentiones, no zril urbanitas argumentum usu. Ferri oblique tacimates ne nec, vero mollis probatus vis ne. Vis at qualisque definitiones.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="DJI_0007" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-2f-nda">
+                                <rect key="frame" x="234" y="72" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="3eX-Da-cfC"/>
+                                    <constraint firstAttribute="width" constant="125" id="L0e-FO-7qW"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tfY-yx-nEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1674" y="-880"/>
         </scene>
     </scenes>
     <resources>

@@ -11,16 +11,41 @@ import UIKit
 class HomeViewController: UITableViewController {
 
     
+    @IBOutlet var profileButton: UIBarButtonItem!
+    @IBOutlet var newsButton: UIButton!
+    @IBOutlet var blogButton: UIButton!
+    
+    @IBOutlet var view2222: UIView!
+    
+    @IBAction func newsClicked(_ sender: UIButton) {
+        sender.backgroundColor = UIColor(red:0.36, green:0.76, blue:0.18, alpha:1.0)
+        blogButton.backgroundColor = UIColor(red:0.35, green:0.83, blue:0.15, alpha:1.0)
+    }
+    
+    @IBAction func blogClicked(_ sender: UIButton) {
+        sender.backgroundColor = UIColor(red:0.36, green:0.76, blue:0.18, alpha:1.0)
+        newsButton.backgroundColor = UIColor(red:0.35, green:0.83, blue:0.15, alpha:1.0)
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        newsClicked(newsButton)
+        view2222.backgroundColor = UIColor(red:0.35, green:0.83, blue:0.15, alpha:1.0)
+        navigationController?.navigationBar.backgroundColor = UIColor(red:0.35, green:0.83, blue:0.15, alpha:1.0)
+        navigationController?.navigationBar.shadowImage = navigationController?.navigationBar.shadowImage?.imageWithColor(color: UIColor(red:0.35, green:0.83, blue:0.15, alpha:1.0))
+
+       
+
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
+         self.navigationItem.rightBarButtonItem = self.profileButton
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,5 +120,17 @@ class HomeViewController: UITableViewController {
      }
      */
 
+}
+
+extension UIImage {
+    func imageWithColor(color: UIColor) -> UIImage? {
+        var image = withRenderingMode(.alwaysTemplate)
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        color.set()
+        image.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+}
 }
 
