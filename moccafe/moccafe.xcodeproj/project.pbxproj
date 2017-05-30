@@ -20,11 +20,13 @@
 		B959D3DF076BCA38AD05FEC4 /* Pods_moccafeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4345F3218021225DF0A8FB3 /* Pods_moccafeUITests.framework */; };
 		CD199E0C1ED5F36900590F50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E0B1ED5F36900590F50 /* LoginViewController.swift */; };
 		CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E181ED75AB700590F50 /* SignUpViewController.swift */; };
-		CD199E1B1ED8D44B00590F50 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E1A1ED8D44B00590F50 /* PageViewController.swift */; };
+		CD199E1B1ED8D44B00590F50 /* PagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E1A1ED8D44B00590F50 /* PagesViewController.swift */; };
 		CD97D3E31ED4A83C00E29753 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97D3E21ED4A83C00E29753 /* APICall.swift */; };
 		CDCCB5B51ED36A7F0095E21D /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */; };
 		CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B61ED36A900095E21D /* ShopViewController.swift */; };
 		CDCCB5BB1ED392B30095E21D /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5BA1ED392B30095E21D /* HomeCell.swift */; };
+		CDE674A61EDBD73800583904 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE674A51EDBD73800583904 /* BlogViewController.swift */; };
+		CDE674A81EDE286000583904 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE674A71EDE286000583904 /* extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,11 +69,13 @@
 		B4345F3218021225DF0A8FB3 /* Pods_moccafeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD199E0B1ED5F36900590F50 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD199E181ED75AB700590F50 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		CD199E1A1ED8D44B00590F50 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		CD199E1A1ED8D44B00590F50 /* PagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesViewController.swift; sourceTree = "<group>"; };
 		CD97D3E21ED4A83C00E29753 /* APICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		CDCCB5B61ED36A900095E21D /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		CDCCB5BA1ED392B30095E21D /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		CDE674A51EDBD73800583904 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
+		CDE674A71EDE286000583904 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D1E6193415F829071E55A709 /* Pods-moccafeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeUITests/Pods-moccafeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E7354DCB6391C960C377B8B8 /* Pods_moccafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F28F341141675C0C0364FB99 /* Pods-moccafeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeTests/Pods-moccafeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,17 +147,19 @@
 				233894891ED3466900E6F78E /* AppDelegate.swift */,
 				CD199E0B1ED5F36900590F50 /* LoginViewController.swift */,
 				2338948B1ED3466A00E6F78E /* HomeViewController.swift */,
+				CDE674A51EDBD73800583904 /* BlogViewController.swift */,
 				2338948D1ED3466A00E6F78E /* MyTreeViewController.swift */,
 				CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */,
 				CDCCB5B61ED36A900095E21D /* ShopViewController.swift */,
 				2338948F1ED3466A00E6F78E /* Main.storyboard */,
-				CD199E1A1ED8D44B00590F50 /* PageViewController.swift */,
+				CD199E1A1ED8D44B00590F50 /* PagesViewController.swift */,
 				CD199E181ED75AB700590F50 /* SignUpViewController.swift */,
 				CDCCB5BA1ED392B30095E21D /* HomeCell.swift */,
 				CD97D3E21ED4A83C00E29753 /* APICall.swift */,
 				233894921ED3466A00E6F78E /* Assets.xcassets */,
 				233894941ED3466A00E6F78E /* LaunchScreen.storyboard */,
 				233894971ED3466A00E6F78E /* Info.plist */,
+				CDE674A71EDE286000583904 /* extensions.swift */,
 			);
 			path = moccafe;
 			sourceTree = "<group>";
@@ -471,7 +477,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2338948E1ED3466A00E6F78E /* MyTreeViewController.swift in Sources */,
-				CD199E1B1ED8D44B00590F50 /* PageViewController.swift in Sources */,
+				CD199E1B1ED8D44B00590F50 /* PagesViewController.swift in Sources */,
+				CDE674A61EDBD73800583904 /* BlogViewController.swift in Sources */,
 				2338948A1ED3466900E6F78E /* AppDelegate.swift in Sources */,
 				CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */,
 				CDCCB5B51ED36A7F0095E21D /* VideosViewController.swift in Sources */,
@@ -480,6 +487,7 @@
 				CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */,
 				CD97D3E31ED4A83C00E29753 /* APICall.swift in Sources */,
 				2338948C1ED3466A00E6F78E /* HomeViewController.swift in Sources */,
+				CDE674A81EDE286000583904 /* extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,15 +1,16 @@
 //
-//  FirstViewController.swift
+//  BlogViewController.swift
 //  moccafe
 //
-//  Created by Carlos Arenas on 5/22/17.
+//  Created by Valentina Henao on 5/28/17.
 //  Copyright © 2017 moccafe. All rights reserved.
 //
 
 import UIKit
 
-class NewsViewController: UITableViewController {
 
+class BlogViewController: UITableViewController {
+    
     
     @IBOutlet var profileButton: UIBarButtonItem!
     @IBOutlet var newsButton: UIButton!
@@ -25,12 +26,9 @@ class NewsViewController: UITableViewController {
     @IBAction func blogClicked(_ sender: UIButton) {
         sender.backgroundColor = UIColor(red:0.36, green:0.76, blue:0.18, alpha:1.0)
         newsButton.backgroundColor = UIColor.clear
-        if let superVC = self.parent as? HomeViewController {
-            superVC.pageViewController(superVC.pageViewController, viewControllerAfter: superVC.viewControllerAtIndex(index: 0)!)
-        }
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
@@ -41,8 +39,8 @@ class NewsViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
-
-         self.navigationItem.rightBarButtonItem = self.profileButton
+        
+        self.navigationItem.rightBarButtonItem = self.profileButton
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,11 +63,11 @@ class NewsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "home", for: indexPath) as! HomeCell
-//        cell.feedtitle?.text = "title"
-//        cell.feedtext?.text = "text"
-   //     cell.feedimage?.image = UIImage(named: "mtabhome")
+        //        cell.feedtitle?.text = "title"
+        //        cell.feedtext?.text = "text"
+        //     cell.feedimage?.image = UIImage(named: "mtabhome")
         return cell
-     }
+    }
     
     
     /*
@@ -116,7 +114,7 @@ class NewsViewController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
-
+    
 }
 
 

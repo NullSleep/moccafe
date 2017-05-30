@@ -12,11 +12,11 @@
         <!--Item-->
         <scene sceneID="WZk-5b-qig">
             <objects>
-                <navigationController id="aCW-IC-fh7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BlogViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aCW-IC-fh7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="mtabhome" id="M5P-wg-L5Q"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="668"/>
-                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Cj1-YG-GoZ">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Cj1-YG-GoZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
@@ -30,23 +30,42 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2LE-x5-Bvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-47" y="-95"/>
+            <point key="canvasLocation" x="684" y="823"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="XQI-FU-96a">
+            <objects>
+                <viewController id="b5V-oA-OSM" customClass="HomeViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JA0-cZ-1Fy"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Au-5h-Afn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1mZ-oV-otg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="mtabhome" id="LoP-yU-xxc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4sc-T9-HBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-794" y="457"/>
         </scene>
         <!--Item-->
         <scene sceneID="7GM-G4-2N8">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Ej1-qQ-qun" customClass="PageViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Ej1-qQ-qun" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="PfR-ij-iDC"/>
                     <navigationItem key="navigationItem" id="Kaf-XW-257"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHk-Mm-NT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-868" y="-283"/>
+            <point key="canvasLocation" x="-52" y="457"/>
         </scene>
         <!--moccafe-->
         <scene sceneID="a10-QD-4hb">
             <objects>
-                <tableViewController id="T1I-oC-b28" customClass="HomeViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="T1I-oC-b28" customClass="BlogViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="157" sectionHeaderHeight="28" sectionFooterHeight="28" id="ikg-KC-Pty">
                         <rect key="frame" x="0.0" y="64" width="375" height="604"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,12 +184,12 @@
                         <outlet property="blogButton" destination="Hm2-Vw-OG1" id="XQM-WM-0uN"/>
                         <outlet property="newsButton" destination="zav-DZ-y4e" id="1Tg-Wx-ApN"/>
                         <outlet property="profileButton" destination="iwo-yn-ls5" id="yEd-jU-4aF"/>
-                        <outlet property="view2222" destination="AeW-qi-Gkr" id="SlF-r3-tPz"/>
+                        <outlet property="viewPagesNavigation" destination="AeW-qi-Gkr" id="UVf-nW-oVn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaA-OD-tQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887.20000000000005" y="-112.44377811094454"/>
+            <point key="canvasLocation" x="1532" y="823"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dax-ef-bIS">
@@ -220,7 +239,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cy6-gx-HrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1674.4000000000001" y="-108.84557721139431"/>
+            <point key="canvasLocation" x="2321" y="823"/>
         </scene>
         <!--MyTree-->
         <scene sceneID="wg7-f3-ORb">
@@ -230,13 +249,15 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nos-Pd-6wT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar clipsSubviews="YES" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nos-Pd-6wT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="yE6-Rq-oLH"/>
+                                </constraints>
                                 <color key="barTintColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -247,12 +268,17 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.5" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nos-Pd-6wT" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="-20" id="cvH-GI-O0I"/>
+                            <constraint firstItem="nos-Pd-6wT" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="kUv-vA-FU3"/>
+                            <constraint firstItem="nos-Pd-6wT" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" id="nrQ-r5-yob"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="MyTree" image="mtabbean" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-641" y="617"/>
+            <point key="canvasLocation" x="-794" y="-415"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="WDX-hz-eyS">
@@ -405,10 +431,10 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
+                        <segue destination="b5V-oA-OSM" kind="relationship" relationship="viewControllers" id="93q-2b-r03"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Zas-6X-WMl" kind="relationship" relationship="viewControllers" id="kYa-K2-fh8"/>
                         <segue destination="cuO-TB-HVr" kind="relationship" relationship="viewControllers" id="KDa-3b-S29"/>
-                        <segue destination="Ej1-qQ-qun" kind="relationship" relationship="viewControllers" id="LvK-t3-LTK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -672,7 +698,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
         <!--Item-->
         <scene sceneID="GMT-bV-BAJ">
             <objects>
-                <navigationController id="N3W-QI-B2t" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N3W-QI-B2t" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="mtabhome" id="PMx-HJ-Fro"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="668"/>
@@ -690,12 +716,12 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DCR-CQ-DSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-47" y="-866"/>
+            <point key="canvasLocation" x="684" y="94"/>
         </scene>
         <!--moccafe-->
         <scene sceneID="fwR-ds-frS">
             <objects>
-                <tableViewController id="ZNE-w9-YfZ" customClass="HomeViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ZNE-w9-YfZ" customClass="NewsViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="157" sectionHeaderHeight="28" sectionFooterHeight="28" id="3gK-ll-0a0">
                         <rect key="frame" x="0.0" y="64" width="375" height="604"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -816,12 +842,12 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                         <outlet property="blogButton" destination="ia0-qw-F5N" id="Dv9-BP-8Ad"/>
                         <outlet property="newsButton" destination="2Cl-0R-j5L" id="dRE-4K-ts7"/>
                         <outlet property="profileButton" destination="Sbz-Ew-sWd" id="fW8-bG-kWd"/>
-                        <outlet property="view2222" destination="DlF-rH-DyM" id="wfj-ml-OeW"/>
+                        <outlet property="viewPagesNavigation" destination="DlF-rH-DyM" id="JoT-q1-NVU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfJ-iA-NTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="-883"/>
+            <point key="canvasLocation" x="1532" y="92"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="SuG-L5-gjP">
@@ -871,7 +897,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfY-yx-nEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1674" y="-880"/>
+            <point key="canvasLocation" x="2321" y="94"/>
         </scene>
     </scenes>
     <resources>
