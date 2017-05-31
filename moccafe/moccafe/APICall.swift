@@ -53,17 +53,68 @@ class APICall: NSObject {
         }
     }
     
+
+
+//POST Profile
+func postProfile(name: String, last_name: String, email: String, address: String, shipping: String, completionHandler: @escaping (JSON?, Error?) -> ()) {
+    
+    let url = "https://app.moccafeusa.com/api/v1/customers/update_profile"
+    
+    let profileAttributes = [String: Any]()
+    
+    
+    let parameters = [ "name": name, "last_name": last_name, "email": email, "address": address, "shipping": shipping ]
+    let params = ["customer": parameters]
+ //   let json = JSON("customer", parameters)
+    
+
+    Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseString { response in
+        print("Response String: \(response.result.value)")
+        
+       // let response = String(data: data, encoding: String.Encoding )
+        print(response)
+//        switch response.result {
+//        case .success(let value):
+//            print("value edit profile \(value)")
+//            let json = JSON(rawValue: value)
+//            completionHandler(json, nil)
+//            
+//        case .failure(let error): print("Error")
+//        completionHandler(nil, error)
+//            return
+//        }
+    }
+}
 }
 
 
+//var hourly_pays_attributes = [[String: Any]]()
+//var loads_attributes = [[String: Any]]()
+//let payTypes = jsonToUpdateInterviewAPI.array?[5]["answer"].array ?? [JSON]()
+//for item in (payTypes) {
+//    if (item["pay"].string ?? "pay").lowercased().contains("hour") {
+//        let hourlyPay = ["name" : "\(item["title"].string ?? "")", "rate" : "\(item["fee"].string ?? "name")" ]
+//        hourly_pays_attributes.append(hourlyPay)
+//    } else {
+//        let loadType = ["title" : "\(item["title"].string ?? "")", "fee" : "\(item["fee"].string ?? "name")", "pay" : "\(item["pay"].string ?? "")"]
+//        loads_attributes.append(loadType)
+//    }
+//}
+
+//POST https://app.moccafeusa.com/api/v1/customers/update_profile
 //{
-//    "blog": {
-//        "id": 12531,
-//        "title": "My Blog",
-//        "commentable": "yes",
-//        "likeable": "yes",
-//        "tags": "Coffee, Colombia"
-//        "updated_at": "2017-01-05T15:36:16-05:00",
-//        "created_at": "2017-01-05T15:36:16-05:00",
+//    "customer": {
+//        "name": "Pepito",
+//        "last_name": "Perez",
+//        "email": "micorreo@moccafeusa.com",
+//        "address": "Direccion uno",
+//        "shipping": "Direccion dos - tal vez diferente a la direccion 1",
+//        "phone": "00000 tel fijo",
+//        "mobile": "315 00000",
+//        "info": "Hola, soy Pepito y en este campo pongo informacion sobre mi mismo. Me gusta el cafe.",
+//        "city": "New York",
+//        "country_id": 1,
+//        "user_status_id": 1,
+//        "gender_id": 1
 //    }
 //}

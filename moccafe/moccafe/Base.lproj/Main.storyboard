@@ -762,6 +762,16 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                         <action selector="newsClicked:" destination="ZNE-w9-YfZ" eventType="touchUpInside" id="eHT-Tq-P5w"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5V-ue-RaG">
+                                    <rect key="frame" x="180" y="8" width="46" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" red="1" green="0.068115234375" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="testButtonaction:" destination="ZNE-w9-YfZ" eventType="touchUpInside" id="c4a-BX-7IN"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -842,6 +852,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                         <outlet property="blogButton" destination="ia0-qw-F5N" id="Dv9-BP-8Ad"/>
                         <outlet property="newsButton" destination="2Cl-0R-j5L" id="dRE-4K-ts7"/>
                         <outlet property="profileButton" destination="Sbz-Ew-sWd" id="fW8-bG-kWd"/>
+                        <outlet property="testButton" destination="z5V-ue-RaG" id="5tg-TW-8XW"/>
                         <outlet property="viewPagesNavigation" destination="DlF-rH-DyM" id="JoT-q1-NVU"/>
                     </connections>
                 </tableViewController>
