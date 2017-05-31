@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class NewsViewController: UITableViewController {
 
@@ -34,11 +35,26 @@ class NewsViewController: UITableViewController {
     @IBOutlet var testButton: UIButton!
 
     @IBAction func testButtonaction(_ sender: UIButton) {
-        request.postProfile(name: "pepo", last_name: "pereo", email: "pepo@yoc.com", address: "tokyo", shipping: "hotel") {
-        json, error in
-            print("json response \(json)")
-            print("error response \(error)")
+        var profile:JSON = [:] {
+            didSet {
+                request.postProfile(json: profile) {
+                    json, error in
+                    print("json response \(json)")
+                    print("error response \(error)")
+                }
+            }
         }
+        
+        request.getProfile() {
+            json, error in
+            print("json response \(json)")
+            if json != nil {
+            profile = json!["profile"]
+            }
+
+        }
+        
+       
     }
     
     

@@ -53,38 +53,67 @@ class APICall: NSObject {
         }
     }
     
-
-
-//POST Profile
-func postProfile(name: String, last_name: String, email: String, address: String, shipping: String, completionHandler: @escaping (JSON?, Error?) -> ()) {
     
-    let url = "https://app.moccafeusa.com/api/v1/customers/update_profile"
-    
-    let profileAttributes = [String: Any]()
-    
-    
-    let parameters = [ "name": name, "last_name": last_name, "email": email, "address": address, "shipping": shipping ]
-    let params = ["customer": parameters]
- //   let json = JSON("customer", parameters)
-    
-
-    Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseString { response in
-        print("Response String: \(response.result.value)")
+//GET Profile
+    func getProfile(completionHandler: @escaping (JSON?, Error?) -> ()) {
         
-       // let response = String(data: data, encoding: String.Encoding )
-        print(response)
-//        switch response.result {
-//        case .success(let value):
-//            print("value edit profile \(value)")
-//            let json = JSON(rawValue: value)
-//            completionHandler(json, nil)
-//            
-//        case .failure(let error): print("Error")
-//        completionHandler(nil, error)
-//            return
-//        }
+        let url = "https://app.moccafeusa.com/api/v1/customers/profile"
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON {
+            response in
+            switch response.result {
+            case .success(let value):
+                print("value \(value)")
+                let json = JSON(rawValue: value)
+                completionHandler(json, nil)
+                
+            case .failure(let error): print("Error")
+            completionHandler(nil, error)
+                return
+            }
+        }
     }
-}
+
+
+    //POST Profile
+    func postProfile(json: JSON, completionHandler: @escaping (JSON?, Error?) -> ()) {
+        
+        let url = "https://app.moccafeusa.com/api/v1/customers/update_profile"
+        
+        let profileAttributes = [String: Any]()
+        
+        
+        let params = ["customer": json.arrayObject]
+     //   let json = JSON("customer", parameters)
+        
+
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            
+            switch response.result {
+            case .success(let value): print("value \(value)")
+            let json = JSON(rawValue: value)
+            completionHandler(json, nil)
+            case .failure(let error): print("ERROR")
+            completionHandler(nil, error)
+
+                
+            }
+            print("Response String: \(response.result.value)")
+            
+            
+           // let response = String(data: data, encoding: String.Encoding )
+            print("response \(response)")
+    //        switch response.result {
+    //        case .success(let value):
+    //            print("value edit profile \(value)")
+    //            let json = JSON(rawValue: value)
+    //            completionHandler(json, nil)
+    //            
+    //        case .failure(let error): print("Error")
+    //        completionHandler(nil, error)
+    //            return
+    //        }
+        }
+    }
 }
 
 
