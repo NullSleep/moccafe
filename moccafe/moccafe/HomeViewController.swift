@@ -11,7 +11,6 @@ import SwiftyJSON
 
 class NewsViewController: UITableViewController {
 
-    let request = APICall()
     
     @IBOutlet var profileButton: UIBarButtonItem!
     @IBOutlet var newsButton: UIButton!
@@ -31,37 +30,7 @@ class NewsViewController: UITableViewController {
             superVC.pageViewController(superVC.pageViewController, viewControllerAfter: superVC.viewControllerAtIndex(index: 0)!)
         }
     }
-    
-    @IBOutlet var testButton: UIButton!
-
-    @IBAction func testButtonaction(_ sender: UIButton) {
-        var profile:JSON = [:] {
-            didSet {
-                request.postProfile(json: profile) {
-                    json, error in
-                    print("json response \(json)")
-                    print("error response \(error)")
-                }
-            }
-        }
-        
-        request.getProfile() {
-            json, error in
-            print("json response \(json)")
-            if json != nil {
-            profile = json!["profile"]
-            }
-
-        }
-        
-       
-    }
-    
-    
    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self

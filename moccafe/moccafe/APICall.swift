@@ -78,15 +78,12 @@ class APICall: NSObject {
     func postProfile(json: JSON, completionHandler: @escaping (JSON?, Error?) -> ()) {
         
         let url = "https://app.moccafeusa.com/api/v1/customers/update_profile"
+     //   let json1 = json.dictionaryObject
         
-        let profileAttributes = [String: Any]()
-        
-        
-        let params = ["customer": json.arrayObject]
+        let params = ["customer": json.dictionaryObject]
      //   let json = JSON("customer", parameters)
-        
 
-        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseString { response in
             
             switch response.result {
             case .success(let value): print("value \(value)")
@@ -97,7 +94,7 @@ class APICall: NSObject {
 
                 
             }
-            print("Response String: \(response.result.value)")
+            print("Response String: \(response)")
             
             
            // let response = String(data: data, encoding: String.Encoding )

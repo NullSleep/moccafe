@@ -16,7 +16,7 @@
                     <tabBarItem key="tabBarItem" title="Item" image="mtabhome" id="M5P-wg-L5Q"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="668"/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Cj1-YG-GoZ">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="Cj1-YG-GoZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
@@ -190,6 +190,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaA-OD-tQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1532" y="823"/>
+        </scene>
+        <!--Profile Table View Controller-->
+        <scene sceneID="0O3-c1-yHg">
+            <objects>
+                <tableViewController id="UOh-eY-9ai" customClass="ProfileTableViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pB5-Lg-RFN">
+                        <rect key="frame" x="0.0" y="64" width="375" height="604"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" textLabel="7D4-Sw-yKd" detailTextLabel="0D2-WW-DQY" style="IBUITableViewCellStyleValue1" id="nvj-h5-ZA7">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nvj-h5-ZA7" id="XQt-TE-V4U">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7D4-Sw-yKd">
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0D2-WW-DQY">
+                                            <rect key="frame" x="316" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UOh-eY-9ai" id="dLJ-ky-WmL"/>
+                            <outlet property="delegate" destination="UOh-eY-9ai" id="41X-dk-eOx"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dDz-bN-aci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2294" y="-570"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dax-ef-bIS">
@@ -762,16 +806,6 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                         <action selector="newsClicked:" destination="ZNE-w9-YfZ" eventType="touchUpInside" id="eHT-Tq-P5w"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5V-ue-RaG">
-                                    <rect key="frame" x="180" y="8" width="46" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button">
-                                        <color key="titleColor" red="1" green="0.068115234375" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="testButtonaction:" destination="ZNE-w9-YfZ" eventType="touchUpInside" id="c4a-BX-7IN"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -846,13 +880,15 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="user" id="Sbz-Ew-sWd">
                             <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="UOh-eY-9ai" kind="show" id="qeG-8Q-oJF"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="blogButton" destination="ia0-qw-F5N" id="Dv9-BP-8Ad"/>
                         <outlet property="newsButton" destination="2Cl-0R-j5L" id="dRE-4K-ts7"/>
                         <outlet property="profileButton" destination="Sbz-Ew-sWd" id="fW8-bG-kWd"/>
-                        <outlet property="testButton" destination="z5V-ue-RaG" id="5tg-TW-8XW"/>
                         <outlet property="viewPagesNavigation" destination="DlF-rH-DyM" id="JoT-q1-NVU"/>
                     </connections>
                 </tableViewController>
