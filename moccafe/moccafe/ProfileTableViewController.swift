@@ -11,7 +11,10 @@ import SwiftyJSON
 
 class ProfileTableViewController: UITableViewController {
 
+    @IBOutlet var headerView: UIView!
+    
     let request = APICall()
+    var keys: [Any]?
     
     var profile:JSON = [:] {
         didSet {
@@ -19,7 +22,9 @@ class ProfileTableViewController: UITableViewController {
                 json, error in
                 print("json response \(json)")
                 print("profile response \(self.profile)")
+                self.keys = Array(self.profile.dictionary!.keys)
                 self.tableView.reloadData()
+                
             }
         }
     }
@@ -27,6 +32,8 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+
         self.tableView.tableFooterView = UIView()
 
             request.getProfile() {
@@ -62,14 +69,17 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        let keys = Array(self.profile.dictionary!.keys)
-        cell.textLabel?.text = keys[indexPath.row]
-        cell.detailTextLabel?.text = self.profile["\(cell.textLabel?.text)"].string
+        let key = self.keys?[indexPath.row] as? String
+        print(key)
+        cell.textLabel?.text = key
+        cell.detailTextLabel?.text = self.profile["\(key!)"].string
         return cell
     }
  
 
-    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return self.headerView
+    }
  
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
  

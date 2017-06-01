@@ -17,7 +17,9 @@ class ShopViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         
         shopWebView.delegate = self
-        let url = URL(string: "https://www.simplifiedios.net")
+        self.shopWebView.scalesPageToFit = true
+        self.shopWebView.contentMode = UIViewContentMode.scaleAspectFit
+        let url = URL(string: "https://github.myshopify.com/")
         let request = URLRequest(url: url!)
         shopWebView.loadRequest(request)
         activityIndicator.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
