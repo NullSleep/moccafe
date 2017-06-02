@@ -31,11 +31,22 @@ class HomeViewController: UIViewController, UIPageViewControllerDelegate, UIPage
             
         }
         
+        
+        
        
         
 
         // Do any additional setup after loading the view.
     }
+    
+    func showBlog(vc: UIViewController) {
+        self.pageViewController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
+    }
+    
+    func showNews() {
+        self.pageViewController.setViewControllers([viewControllerAtIndex(index: 0)!], direction: .reverse, animated: true, completion: nil)
+    }
+
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -58,6 +69,7 @@ class HomeViewController: UIViewController, UIPageViewControllerDelegate, UIPage
         return nil 
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

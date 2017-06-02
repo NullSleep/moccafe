@@ -21,7 +21,10 @@
 		CD199E0C1ED5F36900590F50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E0B1ED5F36900590F50 /* LoginViewController.swift */; };
 		CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E181ED75AB700590F50 /* SignUpViewController.swift */; };
 		CD199E1B1ED8D44B00590F50 /* PagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E1A1ED8D44B00590F50 /* PagesViewController.swift */; };
+		CD8036761EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */; };
 		CD8C98461EDF67CC00903A61 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */; };
+		CD8C98481EE0911300903A61 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */; };
+		CD8C984A1EE0A12100903A61 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */; };
 		CD97D3E31ED4A83C00E29753 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97D3E21ED4A83C00E29753 /* APICall.swift */; };
 		CDCCB5B51ED36A7F0095E21D /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */; };
 		CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B61ED36A900095E21D /* ShopViewController.swift */; };
@@ -71,7 +74,10 @@
 		CD199E0B1ED5F36900590F50 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD199E181ED75AB700590F50 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CD199E1A1ED8D44B00590F50 /* PagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesViewController.swift; sourceTree = "<group>"; };
+		CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		CD97D3E21ED4A83C00E29753 /* APICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		CDCCB5B61ED36A900095E21D /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +169,9 @@
 				233894971ED3466A00E6F78E /* Info.plist */,
 				CDE674A71EDE286000583904 /* extensions.swift */,
 				CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */,
+				CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */,
+				CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */,
+				CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */,
 			);
 			path = moccafe;
 			sourceTree = "<group>";
@@ -480,6 +489,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2338948E1ED3466A00E6F78E /* MyTreeViewController.swift in Sources */,
+				CD8C98481EE0911300903A61 /* EditProfileTableViewController.swift in Sources */,
+				CD8C984A1EE0A12100903A61 /* ContactUsViewController.swift in Sources */,
+				CD8036761EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift in Sources */,
 				CD199E1B1ED8D44B00590F50 /* PagesViewController.swift in Sources */,
 				CDE674A61EDBD73800583904 /* BlogViewController.swift in Sources */,
 				2338948A1ED3466900E6F78E /* AppDelegate.swift in Sources */,
