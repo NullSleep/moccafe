@@ -20,3 +20,8 @@ extension UIImage {
         return image
     }
 }
+
+protocol switchHomeOptionDelegate {
+    func loadBlog()
+    func loadNews()
+}

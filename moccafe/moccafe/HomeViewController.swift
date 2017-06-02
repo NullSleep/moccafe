@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class NewsViewController: UITableViewController {
 
-    
+    var delegate: switchHomeOptionDelegate?
     
     @IBOutlet var profileButton: UIBarButtonItem!
     @IBOutlet var newsButton: UIButton!
@@ -28,28 +28,10 @@ class NewsViewController: UITableViewController {
         sender.backgroundColor = UIColor(red:0.36, green:0.76, blue:0.18, alpha:1.0)
         newsButton.backgroundColor = UIColor.clear
         
+        if delegate != nil {
+            delegate!.loadBlog()
+        }
         
-        
-          let pagevc = self.presentingViewController as? UIPageViewController
-        let blogVC = storyboard?.instantiateViewController(withIdentifier: "BlogViewController")
-
-        pagevc?.setViewControllers([blogVC!], direction: .forward, animated: true, completion: nil)
-        
-//        let parentVC = HomeViewController()
-//        
-//        
-//        parentVC.showBlog(vc: blogVC!)
-    //    if let superVC = self.parent as? HomeViewController {
-            print("paretntttt")
-//            let x = superVC.pageViewController(superVC.pageViewController, viewControllerAfter: superVC.viewControllerAtIndex(index: 1)!)
-//            superVC.pageViewController.setViewControllers([superVC.viewControllerAtIndex(index: 1)!], direction: .forward, animated: true, completion: nil)
-          //  superVC.pageViewController(page, viewControllerAfter: <#T##UIViewController#>)
-            
-//            superVC.pageViewController.setViewControllers([superVC.viewControllerAtIndex(index: 1)!], direction: .forward, animated: true, completion: nil)
-//            superVC.pageViewController.show(superVC.viewControllerAtIndex(index: 1)!, sender: self)
-       //     superVC.showBlog()
-            
-       // }
     }
    
     override func viewDidLoad() {

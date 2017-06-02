@@ -875,7 +875,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
         <!--Item-->
         <scene sceneID="GMT-bV-BAJ">
             <objects>
-                <navigationController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N3W-QI-B2t" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N3W-QI-B2t" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="mtabhome" id="PMx-HJ-Fro"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="668"/>

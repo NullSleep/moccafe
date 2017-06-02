@@ -8,13 +8,11 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-
+class HomeViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, switchHomeOptionDelegate {
     
     var pageViewController: UIPageViewController!
     
-    let pages = ["HomeViewController", "BlogViewController"]
-    
+    let pages = ["NewsViewController", "BlogViewController"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,27 +24,17 @@ class HomeViewController: UIViewController, UIPageViewControllerDelegate, UIPage
             pageViewController = vc as! UIPageViewController
             pageViewController.dataSource = self
             pageViewController.delegate = self
-            
             pageViewController.setViewControllers([viewControllerAtIndex(index: 0)!], direction: .forward, animated: true, completion: nil)
-            
         }
-        
-        
-        
-       
-        
-
-        // Do any additional setup after loading the view.
     }
     
-    func showBlog(vc: UIViewController) {
-        self.pageViewController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
+    func loadBlog() {
+        self.pageViewController.setViewControllers([viewControllerAtIndex(index: 1)!], direction: .forward, animated: true, completion: nil)
     }
     
-    func showNews() {
+    func loadNews() {
         self.pageViewController.setViewControllers([viewControllerAtIndex(index: 0)!], direction: .reverse, animated: true, completion: nil)
     }
-
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -55,7 +43,6 @@ class HomeViewController: UIViewController, UIPageViewControllerDelegate, UIPage
                 return viewControllerAtIndex(index: index-1)
             }
         }
-        
         return nil
     }
     
@@ -68,20 +55,23 @@ class HomeViewController: UIViewController, UIPageViewControllerDelegate, UIPage
         }
         return nil 
     }
-
+    
+    func viewControllerAtIndex(index: Int) -> UIViewController? {
+        let vc = storyboard?.instantiateViewController(withIdentifier: pages[index])
+        
+        if pages[index] == "NewsViewController" {
+        ((vc as! UINavigationController).topViewController as! NewsViewController).delegate = self
+        } else if pages[index] == "BlogViewController" {
+            ((vc as! UINavigationController).topViewController as! BlogViewController).delegate = self
+        }
+        return vc
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func viewControllerAtIndex(index: Int) -> UIViewController? {
-        let vc = storyboard?.instantiateViewController(withIdentifier: pages[index])
-        return vc
-    }
-    
-
     /*
     // MARK: - Navigation
 

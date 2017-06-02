@@ -11,6 +11,7 @@ import UIKit
 
 class BlogViewController: UITableViewController {
     
+    var delegate: switchHomeOptionDelegate?
     
     @IBOutlet var profileButton: UIBarButtonItem!
     @IBOutlet var newsButton: UIButton!
@@ -21,6 +22,10 @@ class BlogViewController: UITableViewController {
     @IBAction func newsClicked(_ sender: UIButton) {
         sender.backgroundColor = UIColor(red:0.36, green:0.76, blue:0.18, alpha:1.0)
         blogButton.backgroundColor = UIColor.clear
+        
+        if delegate != nil {
+            delegate?.loadBlog()
+        }
     }
     
     @IBAction func blogClicked(_ sender: UIButton) {
@@ -34,10 +39,7 @@ class BlogViewController: UITableViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        newsClicked(newsButton)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        blogClicked(blogButton)
         
         
         self.navigationItem.rightBarButtonItem = self.profileButton
