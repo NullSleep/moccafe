@@ -9,33 +9,44 @@
 import UIKit
 import SwiftyJSON
 
+struct Field {
+    var title: String?
+    var value: String?
+    var placeHolder: String?
+}
+
 class EditProfileTableViewController: UITableViewController {
     
+    var fields = [Field]()
+    
     let request = APICall()
-    var keys: [Any]?
 
+    var doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneEditing))
 
+    var profileDataCopy: JSON = [:]
+    
     var profileData: JSON = [:] {
         didSet {
-            request.postProfile(json: profileData) {
-                json, error in
-                print("json response \(json)")
-                print("profile response \(self.profileData)")
-                self.keys = Array(self.profileData.dictionary!.keys)
-                self.tableView.reloadData()
-                
-            }
+            profileDataCopy = profileData
+            fields = [Field(title: "NAME", value: profileData["name"].string, placeHolder: "Insert Name"),
+                      Field(title: "LAST NAME", value: profileData["last_name"].string, placeHolder: "Insert Last Name"),
+                      Field(title: "ABOUT ME", value: profileData["info"].string, placeHolder: "About me"),
+                      Field(title: "EMAIL", value: profileData["email"].string, placeHolder: "Insert Email"),
+                      Field(title: "CITY", value: profileData["city"].string, placeHolder: "Insert City"),
+                      Field(title: "MOBILE", value: profileData["mobile"].string, placeHolder: "Insert Mobile"),
+                      Field(title: "ADDRESS", value: profileData["address"].string, placeHolder: "Insert Address"),
+                      Field(title: "PHONE", value: profileData["phone"].string, placeHolder: "Insert Phone"),
+                      Field(title: "SHIPPING ADDRESS", value: profileData["shipping"].string, placeHolder: "Insert Shipping Address")]
+            self.tableView.reloadData()
+
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+         self.navigationItem.rightBarButtonItem = self.doneButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,69 +61,49 @@ class EditProfileTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return profileData.count
+        return fields.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as? EditProfileTableViewCell
 
-
-        
-        let key = self.keys?[indexPath.row] as? String
-        print(key)
-        cell?.fieldTitle.text = key
-        cell?.fieldTextField.text = profileData["\((key ?? ""))"].string
-        //self.profileData["\(key!)"].string
+        cell?.fieldTitle.text = fields[indexPath.row].title
+        cell?.fieldTextField.text = fields[indexPath.row].value
+        cell?.fieldTextField.placeholder = fields[indexPath.row].placeHolder
 
         return cell!
-
     }
  
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    func doneEditing() {
+        
+        profileDataCopy["name"].string = getCellValue(index: 0)
+        profileDataCopy["last_name"].string = getCellValue(index: 1)
+        profileDataCopy["info"].string = getCellValue(index: 2)
+        profileDataCopy["email"].string = getCellValue(index: 3)
+        profileDataCopy["city"].string = getCellValue(index: 4)
+        profileDataCopy["mobile"].string = getCellValue(index: 5)
+        profileDataCopy["address"].string = getCellValue(index: 6)
+        profileDataCopy["phone"].string = getCellValue(index: 7)
+        profileDataCopy["shipping"].string = getCellValue(index: 8)
+        
+        request.postProfile(json: profileDataCopy) {
+            json, error in
+            print("profile response \(self.profileData)")
+        }
+        self.navigationController?.popViewController(animated: true)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func getCellValue(index: Int) -> String {
+        
+        if let cell = tableView.cellForRow(at: IndexPath.init(row: index, section: 0)) as? EditProfileTableViewCell {
+            return cell.fieldTextField.text ?? ""
+        }
+        return ""
+        
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

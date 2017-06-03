@@ -58,11 +58,13 @@ class APICall: NSObject {
     func getProfile(completionHandler: @escaping (JSON?, Error?) -> ()) {
         
         let url = "https://app.moccafeusa.com/api/v1/customers/profile"
+        
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON {
+            
             response in
             switch response.result {
             case .success(let value):
-                print("value \(value)")
+                print("get profile result \(value)")
                 let json = JSON(rawValue: value)
                 completionHandler(json, nil)
                 
