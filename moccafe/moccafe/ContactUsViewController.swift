@@ -7,12 +7,27 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ContactUsViewController: UIViewController {
 
+    @IBOutlet var nameLabel: UILabel!
+    
+    @IBOutlet var emailLabel: UILabel!
+    
+    @IBOutlet var commentsLabel: UILabel!
+    
+    @IBOutlet var commentsField: UITextView!
+    
+    var json : JSON = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        nameLabel.text = json["name"].string
+        emailLabel.text = json["email"].string
+        commentsField.layer.borderColor = UIColor.darkGray.cgColor
+        
         // Do any additional setup after loading the view.
     }
 
