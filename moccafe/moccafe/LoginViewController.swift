@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -19,6 +19,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.delegate = self
+        view.addGestureRecognizer(tap)
+        
+        
 
         for item in [emailTextField, passwordTextField] {
             item?.delegate = self
@@ -41,7 +47,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-
+func dismissKeyboard() {
+            view.endEditing(true)
+        }
     
     
     override func didReceiveMemoryWarning() {
