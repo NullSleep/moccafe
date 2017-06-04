@@ -11,6 +11,8 @@ import XLPagerTabStrip
 
 class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     
+    var delegate: showDetailDelegate?
+    
     let cellIdentifier = "postCell"
     var blackTheme = false
     var itemInfo = IndicatorInfo(title: "View")
@@ -26,7 +28,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 320
         tableView.register(UINib(nibName: "PostCell", bundle: Bundle.main), forCellReuseIdentifier: cellIdentifier)
@@ -74,6 +76,14 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         cell.configureWithData(data)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        if delegate != nil {
+            delegate?.loadDetail()
+        }
+        
     }
 
     // MARK: - IndicatorInfoProvider

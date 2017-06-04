@@ -10,7 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
-class HomeViewController: ButtonBarPagerTabStripViewController {
+class HomeViewController: ButtonBarPagerTabStripViewController, showDetailDelegate {
     
     let graySpotifyColor = UIColor(red: 21/255.0, green: 21/255.0, blue: 24/255.0, alpha: 1.0)
     let darkGraySpotifyColor = UIColor(red: 19/255.0, green: 20/255.0, blue: 20/255.0, alpha: 1.0)
@@ -39,6 +39,7 @@ class HomeViewController: ButtonBarPagerTabStripViewController {
             oldCell?.label.textColor = UIColor(red: 138/255.0, green: 138/255.0, blue: 144/255.0, alpha: 1.0)
             newCell?.label.textColor = .white
         }
+        
         super.viewDidLoad()
     }
     
@@ -47,9 +48,12 @@ class HomeViewController: ButtonBarPagerTabStripViewController {
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let child_1 = NewsTableViewController(style: .plain, itemInfo: IndicatorInfo(title: "NEWS"))
         child_1.blackTheme = true
+        child_1.delegate = self
         
         let child_2 = NewsTableViewController(style: .plain, itemInfo: IndicatorInfo(title: "BLOG"))
         child_2.blackTheme = true
+        child_2.delegate = self
+
         
         return [child_1, child_2]
     }
@@ -58,5 +62,11 @@ class HomeViewController: ButtonBarPagerTabStripViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func loadDetail() {
+        performSegue(withIdentifier: "showDetail", sender: self)
+
+    }
+    
 
 }

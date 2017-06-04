@@ -25,3 +25,7 @@ protocol switchHomeOptionDelegate {
     func loadBlog()
     func loadNews()
 }
+
+protocol showDetailDelegate {
+    func loadDetail()
+}
