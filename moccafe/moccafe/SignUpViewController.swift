@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
@@ -20,6 +20,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.delegate = self
+        view.addGestureRecognizer(tap)
+        
+       
         
         for item in [emailTextField, passwordTextField, nameTextField] {
             item?.delegate = self
@@ -43,6 +49,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             subView.alpha = 0.9
             item?.addSubview(subView)
         }
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     
