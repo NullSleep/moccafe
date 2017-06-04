@@ -1034,7 +1034,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
     </scenes>
     <resources>
         <image name="DJI_0007" width="4000" height="3000"/>
-        <image name="beanicon" width="240" height="240"/>
+        <image name="beanicon" width="80" height="80"/>
         <image name="commentsoutline" width="50" height="50"/>
         <image name="messageoutline" width="50" height="50"/>
         <image name="mtabbean" width="24" height="24"/>

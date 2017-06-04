@@ -228,6 +228,7 @@
 				233894841ED3466900E6F78E /* Resources */,
 				60A756A27B87B5BDBDFF46E9 /* [CP] Embed Pods Frameworks */,
 				02FDF7392773AB7BC67A5BE8 /* [CP] Copy Pods Resources */,
+				23A7C4711EE3BA7B0001461D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -292,7 +293,8 @@
 				TargetAttributes = {
 					233894851ED3466900E6F78E = {
 						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 4U2S8Z38EC;
+						ProvisioningStyle = Manual;
 					};
 					2338949B1ED3466A00E6F78E = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -384,6 +386,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-moccafeTests/Pods-moccafeTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		23A7C4711EE3BA7B0001461D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" e7d0326b7de1285a7509eb2b5c2b108e4274045c a07aabdaf0fcace41da0fb0f9b824e8f7d35b2c51c6a82d4fd7f5b0f4830778a";
 		};
 		2DEFAD5F3198DFA0EAB8831F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -667,10 +682,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 4U2S8Z38EC;
 				INFOPLIST_FILE = moccafe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6b89ec29-7f6a-4b32-97da-e6d70e4392be";
+				PROVISIONING_PROFILE_SPECIFIER = "Moccafe Ad Hoc";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -681,10 +701,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 4U2S8Z38EC;
 				INFOPLIST_FILE = moccafe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6b89ec29-7f6a-4b32-97da-e6d70e4392be";
+				PROVISIONING_PROFILE_SPECIFIER = "Moccafe Ad Hoc";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

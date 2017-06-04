@@ -6,6 +6,7 @@ target 'moccafe' do
   pod 'Alamofire', '~> 4.4'
   pod 'SwiftyJSON'
   pod 'XLPagerTabStrip', '~> 7.0'
+  pod 'Crashlytics'
   use_frameworks!
 
   # Pods for moccafe
