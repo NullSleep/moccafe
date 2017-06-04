@@ -1,126 +1,62 @@
 //
-//  FirstViewController.swift
+//  HomeViewController.swift
 //  moccafe
 //
-//  Created by Carlos Arenas on 5/22/17.
+//  Created by Carlos Arenas on 6/3/17.
 //  Copyright © 2017 moccafe. All rights reserved.
 //
 
 import UIKit
-import SwiftyJSON
 
-class NewsViewController: UITableViewController {
+import XLPagerTabStrip
 
-    var delegate: switchHomeOptionDelegate?
+class HomeViewController: ButtonBarPagerTabStripViewController {
     
-    @IBOutlet var profileButton: UIBarButtonItem!
-    @IBOutlet var newsButton: UIButton!
-    @IBOutlet var blogButton: UIButton!
-    
-    @IBOutlet var viewPagesNavigation: UIView!
-    
-    @IBAction func newsClicked(_ sender: UIButton) {
-        sender.backgroundColor = UIColor(red:0.36, green:0.76, blue:0.18, alpha:1.0)
-        blogButton.backgroundColor = UIColor.clear
-    }
-    
-    @IBAction func blogClicked(_ sender: UIButton) {
-        sender.backgroundColor = UIColor(red:0.36, green:0.76, blue:0.18, alpha:1.0)
-        newsButton.backgroundColor = UIColor.clear
-        
-        if delegate != nil {
-            delegate!.loadBlog()
-        }
-        
-    }
-   
+    let graySpotifyColor = UIColor(red: 21/255.0, green: 21/255.0, blue: 24/255.0, alpha: 1.0)
+    let darkGraySpotifyColor = UIColor(red: 19/255.0, green: 20/255.0, blue: 20/255.0, alpha: 1.0)
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
-        newsClicked(newsButton)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
 
-         self.navigationItem.rightBarButtonItem = self.profileButton
+        settings.style.buttonBarBackgroundColor = graySpotifyColor
+        settings.style.buttonBarItemBackgroundColor = graySpotifyColor
+        settings.style.selectedBarBackgroundColor = UIColor(red: 33/255.0, green: 174/255.0, blue: 67/255.0, alpha: 1.0)
+        settings.style.buttonBarItemFont = UIFont(name: "HelveticaNeue-Light", size:14) ?? UIFont.systemFont(ofSize: 14)
+        settings.style.selectedBarHeight = 3.0
+        settings.style.buttonBarMinimumLineSpacing = 0
+        settings.style.buttonBarItemTitleColor = .black
+        settings.style.buttonBarItemsShouldFillAvailableWidth = true
+        
+        settings.style.buttonBarLeftContentInset = 20
+        settings.style.buttonBarRightContentInset = 20
+        
+        changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
+            
+            guard changeCurrentIndex == true else {
+                return
+            }
+            
+            oldCell?.label.textColor = UIColor(red: 138/255.0, green: 138/255.0, blue: 144/255.0, alpha: 1.0)
+            newCell?.label.textColor = .white
+        }
+        super.viewDidLoad()
     }
     
+    // MARK: - PagerTabStripDataSource
+    
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        let child_1 = NewsTableViewController(style: .plain, itemInfo: IndicatorInfo(title: "NEWS"))
+        child_1.blackTheme = true
+        
+        let child_2 = NewsTableViewController(style: .plain, itemInfo: IndicatorInfo(title: "BLOG"))
+        child_2.blackTheme = true
+        
+        return [child_1, child_2]
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 20
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "home", for: indexPath) as! HomeCell
-//        cell.feedtitle?.text = "title"
-//        cell.feedtext?.text = "text"
-   //     cell.feedimage?.image = UIImage(named: "mtabhome")
-        return cell
-     }
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
 
 }
-
-
-

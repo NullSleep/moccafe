@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PostCell" customModule="moccafe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="328"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffp-vk-YpR">
+                    <rect key="frame" x="5" y="5" width="404" height="318"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ancient_tree" translatesAutoresizingMaskIntoConstraints="NO" id="zod-kh-jIO">
+                            <rect key="frame" x="6" y="115" width="387" height="176.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="zod-kh-jIO" secondAttribute="height" multiplier="329:150" id="X16-MC-MeT"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee Drinkers May Have One Less Type Of Cancer To Worry About" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qw-bH-L4d">
+                            <rect key="frame" x="6" y="26" width="387" height="42.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="May 29" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9A-mi-cic">
+                            <rect key="frame" x="6" y="3" width="387" height="16"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read more..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAm-Ce-Sfz">
+                            <rect key="frame" x="6" y="298" width="76.5" height="16"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVz-5N-A82">
+                            <rect key="frame" x="6" y="72" width="387" height="38"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                            <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="0qw-bH-L4d" secondAttribute="trailing" constant="11" id="30n-iz-kEE"/>
+                        <constraint firstItem="PVz-5N-A82" firstAttribute="top" secondItem="0qw-bH-L4d" secondAttribute="bottom" constant="3.5" id="58D-Ow-I6F"/>
+                        <constraint firstItem="aAm-Ce-Sfz" firstAttribute="leading" secondItem="PVz-5N-A82" secondAttribute="leading" id="C85-Va-rYT"/>
+                        <constraint firstItem="zod-kh-jIO" firstAttribute="leading" secondItem="PVz-5N-A82" secondAttribute="leading" id="Gtc-V4-To6"/>
+                        <constraint firstItem="0qw-bH-L4d" firstAttribute="leading" secondItem="ffp-vk-YpR" secondAttribute="leading" constant="6" id="LL2-Qb-svM"/>
+                        <constraint firstItem="zod-kh-jIO" firstAttribute="top" secondItem="PVz-5N-A82" secondAttribute="bottom" constant="5" id="NgL-JY-cjZ"/>
+                        <constraint firstAttribute="bottom" secondItem="aAm-Ce-Sfz" secondAttribute="bottom" constant="4" id="QGS-EZ-K1i"/>
+                        <constraint firstItem="zod-kh-jIO" firstAttribute="trailing" secondItem="i9A-mi-cic" secondAttribute="trailing" id="Ran-kX-Pcm"/>
+                        <constraint firstItem="i9A-mi-cic" firstAttribute="leading" secondItem="0qw-bH-L4d" secondAttribute="leading" id="S8E-dE-6Dj"/>
+                        <constraint firstItem="zod-kh-jIO" firstAttribute="leading" secondItem="i9A-mi-cic" secondAttribute="leading" id="SQB-xJ-7JT"/>
+                        <constraint firstItem="i9A-mi-cic" firstAttribute="trailing" secondItem="0qw-bH-L4d" secondAttribute="trailing" id="doJ-TH-ZF3"/>
+                        <constraint firstItem="PVz-5N-A82" firstAttribute="trailing" secondItem="zod-kh-jIO" secondAttribute="trailing" id="mzv-ay-hY6"/>
+                        <constraint firstItem="aAm-Ce-Sfz" firstAttribute="top" secondItem="zod-kh-jIO" secondAttribute="bottom" constant="6.5" id="pFr-2R-a7O"/>
+                        <constraint firstItem="0qw-bH-L4d" firstAttribute="top" secondItem="i9A-mi-cic" secondAttribute="bottom" constant="7" id="tRE-SX-655"/>
+                        <constraint firstItem="i9A-mi-cic" firstAttribute="top" secondItem="ffp-vk-YpR" secondAttribute="top" constant="3" id="yGZ-vE-3h2"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ffp-vk-YpR" secondAttribute="trailing" constant="5" id="7Dt-ty-m9T"/>
+                <constraint firstItem="ffp-vk-YpR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="AMd-Gu-BgW"/>
+                <constraint firstItem="ffp-vk-YpR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="CpO-gN-xtm"/>
+                <constraint firstAttribute="bottom" secondItem="ffp-vk-YpR" secondAttribute="bottom" constant="5" id="SG3-TJ-DVy"/>
+                <constraint firstItem="0qw-bH-L4d" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="11" id="f1z-2i-LIb"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="postDate" destination="i9A-mi-cic" id="APd-5s-Hbs"/>
+                <outlet property="postImage" destination="zod-kh-jIO" id="tZd-Y2-IAP"/>
+                <outlet property="postSubtitle" destination="PVz-5N-A82" id="v4s-qk-z28"/>
+                <outlet property="postTitle" destination="0qw-bH-L4d" id="pE8-hO-iQ1"/>
+            </connections>
+            <point key="canvasLocation" x="17" y="-23"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ancient_tree" width="937" height="528"/>
+    </resources>
+</document>

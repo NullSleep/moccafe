@@ -15,12 +15,14 @@
 		233894961ED3466A00E6F78E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233894941ED3466A00E6F78E /* LaunchScreen.storyboard */; };
 		233894A11ED3466A00E6F78E /* moccafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233894A01ED3466A00E6F78E /* moccafeTests.swift */; };
 		233894AC1ED3466A00E6F78E /* moccafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233894AB1ED3466A00E6F78E /* moccafeUITests.swift */; };
+		23A7C46D1EE39BBD0001461D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7C46B1EE39BBD0001461D /* PostCell.swift */; };
+		23A7C46E1EE39BBD0001461D /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A7C46C1EE39BBD0001461D /* PostCell.xib */; };
+		23A7C4701EE39BCB0001461D /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7C46F1EE39BCB0001461D /* NewsTableViewController.swift */; };
 		5A873593138284BAFA87E96E /* Pods_moccafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7354DCB6391C960C377B8B8 /* Pods_moccafe.framework */; };
 		B1094CBE64419F2785ED659E /* Pods_moccafeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B202489F2BC9D35979ED1BD /* Pods_moccafeTests.framework */; };
 		B959D3DF076BCA38AD05FEC4 /* Pods_moccafeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4345F3218021225DF0A8FB3 /* Pods_moccafeUITests.framework */; };
 		CD199E0C1ED5F36900590F50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E0B1ED5F36900590F50 /* LoginViewController.swift */; };
 		CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E181ED75AB700590F50 /* SignUpViewController.swift */; };
-		CD199E1B1ED8D44B00590F50 /* PagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E1A1ED8D44B00590F50 /* PagesViewController.swift */; };
 		CD8036761EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */; };
 		CD8C98461EDF67CC00903A61 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */; };
 		CD8C98481EE0911300903A61 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */; };
@@ -28,8 +30,6 @@
 		CD97D3E31ED4A83C00E29753 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97D3E21ED4A83C00E29753 /* APICall.swift */; };
 		CDCCB5B51ED36A7F0095E21D /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */; };
 		CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B61ED36A900095E21D /* ShopViewController.swift */; };
-		CDCCB5BB1ED392B30095E21D /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5BA1ED392B30095E21D /* HomeCell.swift */; };
-		CDE674A61EDBD73800583904 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE674A51EDBD73800583904 /* BlogViewController.swift */; };
 		CDE674A81EDE286000583904 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE674A71EDE286000583904 /* extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,12 +68,14 @@
 		233894A71ED3466A00E6F78E /* moccafeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moccafeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		233894AB1ED3466A00E6F78E /* moccafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moccafeUITests.swift; sourceTree = "<group>"; };
 		233894AD1ED3466A00E6F78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23A7C46B1EE39BBD0001461D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		23A7C46C1EE39BBD0001461D /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		23A7C46F1EE39BCB0001461D /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		4B202489F2BC9D35979ED1BD /* Pods_moccafeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		966F2883541951C2F718841C /* Pods-moccafeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeTests/Pods-moccafeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4345F3218021225DF0A8FB3 /* Pods_moccafeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD199E0B1ED5F36900590F50 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD199E181ED75AB700590F50 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		CD199E1A1ED8D44B00590F50 /* PagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesViewController.swift; sourceTree = "<group>"; };
 		CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -81,8 +83,6 @@
 		CD97D3E21ED4A83C00E29753 /* APICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		CDCCB5B61ED36A900095E21D /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
-		CDCCB5BA1ED392B30095E21D /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
-		CDE674A51EDBD73800583904 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		CDE674A71EDE286000583904 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D1E6193415F829071E55A709 /* Pods-moccafeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeUITests/Pods-moccafeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E7354DCB6391C960C377B8B8 /* Pods_moccafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,17 +152,16 @@
 		233894881ED3466900E6F78E /* moccafe */ = {
 			isa = PBXGroup;
 			children = (
+				23A7C46A1EE39BBD0001461D /* NewsCell */,
 				233894891ED3466900E6F78E /* AppDelegate.swift */,
 				CD199E0B1ED5F36900590F50 /* LoginViewController.swift */,
 				2338948B1ED3466A00E6F78E /* HomeViewController.swift */,
-				CDE674A51EDBD73800583904 /* BlogViewController.swift */,
+				23A7C46F1EE39BCB0001461D /* NewsTableViewController.swift */,
 				2338948D1ED3466A00E6F78E /* MyTreeViewController.swift */,
 				CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */,
 				CDCCB5B61ED36A900095E21D /* ShopViewController.swift */,
 				2338948F1ED3466A00E6F78E /* Main.storyboard */,
-				CD199E1A1ED8D44B00590F50 /* PagesViewController.swift */,
 				CD199E181ED75AB700590F50 /* SignUpViewController.swift */,
-				CDCCB5BA1ED392B30095E21D /* HomeCell.swift */,
 				CD97D3E21ED4A83C00E29753 /* APICall.swift */,
 				233894921ED3466A00E6F78E /* Assets.xcassets */,
 				233894941ED3466A00E6F78E /* LaunchScreen.storyboard */,
@@ -192,6 +191,15 @@
 				233894AD1ED3466A00E6F78E /* Info.plist */,
 			);
 			path = moccafeUITests;
+			sourceTree = "<group>";
+		};
+		23A7C46A1EE39BBD0001461D /* NewsCell */ = {
+			isa = PBXGroup;
+			children = (
+				23A7C46B1EE39BBD0001461D /* PostCell.swift */,
+				23A7C46C1EE39BBD0001461D /* PostCell.xib */,
+			);
+			path = NewsCell;
 			sourceTree = "<group>";
 		};
 		99AA663207BFF5D9E2DA5BB1 /* Pods */ = {
@@ -326,6 +334,7 @@
 				233894961ED3466A00E6F78E /* LaunchScreen.storyboard in Resources */,
 				233894931ED3466A00E6F78E /* Assets.xcassets in Resources */,
 				233894911ED3466A00E6F78E /* Main.storyboard in Resources */,
+				23A7C46E1EE39BBD0001461D /* PostCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,13 +501,12 @@
 				CD8C98481EE0911300903A61 /* EditProfileTableViewController.swift in Sources */,
 				CD8C984A1EE0A12100903A61 /* ContactUsViewController.swift in Sources */,
 				CD8036761EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift in Sources */,
-				CD199E1B1ED8D44B00590F50 /* PagesViewController.swift in Sources */,
-				CDE674A61EDBD73800583904 /* BlogViewController.swift in Sources */,
 				2338948A1ED3466900E6F78E /* AppDelegate.swift in Sources */,
 				CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */,
 				CDCCB5B51ED36A7F0095E21D /* VideosViewController.swift in Sources */,
+				23A7C46D1EE39BBD0001461D /* PostCell.swift in Sources */,
+				23A7C4701EE39BCB0001461D /* NewsTableViewController.swift in Sources */,
 				CD199E0C1ED5F36900590F50 /* LoginViewController.swift in Sources */,
-				CDCCB5BB1ED392B30095E21D /* HomeCell.swift in Sources */,
 				CD8C98461EDF67CC00903A61 /* ProfileTableViewController.swift in Sources */,
 				CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */,
 				CD97D3E31ED4A83C00E29753 /* APICall.swift in Sources */,

@@ -1,210 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
-        <scene sceneID="WZk-5b-qig">
-            <objects>
-                <navigationController storyboardIdentifier="BlogViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aCW-IC-fh7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="mtabhome" id="M5P-wg-L5Q"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="668"/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="Cj1-YG-GoZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35908139454420018" green="0.57380741834640503" blue="0.019206970316110832" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="T1I-oC-b28" kind="relationship" relationship="rootViewController" id="vLE-2d-btD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2LE-x5-Bvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="684" y="823"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="XQI-FU-96a">
-            <objects>
-                <viewController id="b5V-oA-OSM" customClass="HomeViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JA0-cZ-1Fy"/>
-                        <viewControllerLayoutGuide type="bottom" id="5Au-5h-Afn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1mZ-oV-otg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="mtabhome" id="LoP-yU-xxc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4sc-T9-HBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-794" y="457"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="7GM-G4-2N8">
-            <objects>
-                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Ej1-qQ-qun" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="PfR-ij-iDC"/>
-                    <navigationItem key="navigationItem" id="Kaf-XW-257"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NHk-Mm-NT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-52" y="457"/>
-        </scene>
-        <!--Moccafe-->
-        <scene sceneID="a10-QD-4hb">
-            <objects>
-                <tableViewController id="T1I-oC-b28" customClass="BlogViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="350" sectionHeaderHeight="28" sectionFooterHeight="28" id="ikg-KC-Pty">
-                        <rect key="frame" x="0.0" y="64" width="375" height="604"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="AeW-qi-Gkr">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm2-Vw-OG1">
-                                    <rect key="frame" x="202.66666666666663" y="8" width="152.33333333333337" height="29"/>
-                                    <color key="backgroundColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <state key="normal" title="BLOG">
-                                        <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="blogClicked:" destination="T1I-oC-b28" eventType="touchUpInside" id="9ao-LP-6LX"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zav-DZ-y4e">
-                                    <rect key="frame" x="20" y="8" width="152.66666666666666" height="29"/>
-                                    <color key="backgroundColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <state key="normal" title="NEWS">
-                                        <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="newsClicked:" destination="T1I-oC-b28" eventType="touchUpInside" id="3mN-n1-XMb"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstItem="Hm2-Vw-OG1" firstAttribute="centerY" secondItem="AeW-qi-Gkr" secondAttribute="centerY" id="2MM-6W-ZAd"/>
-                                <constraint firstAttribute="trailing" secondItem="Hm2-Vw-OG1" secondAttribute="trailing" constant="20" id="FgV-dq-e5Q"/>
-                                <constraint firstItem="zav-DZ-y4e" firstAttribute="centerY" secondItem="AeW-qi-Gkr" secondAttribute="centerY" id="Ifd-kZ-dAg"/>
-                                <constraint firstItem="Hm2-Vw-OG1" firstAttribute="leading" secondItem="zav-DZ-y4e" secondAttribute="trailing" constant="30" id="dqN-WO-dkc"/>
-                                <constraint firstItem="zav-DZ-y4e" firstAttribute="width" secondItem="Hm2-Vw-OG1" secondAttribute="width" id="mqQ-y3-oL8"/>
-                                <constraint firstItem="zav-DZ-y4e" firstAttribute="leading" secondItem="AeW-qi-Gkr" secondAttribute="leading" constant="20" id="qYa-8S-5kb"/>
-                            </constraints>
-                        </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="home" rowHeight="350" id="gGK-pI-qpB" customClass="HomeCell" customModule="moccafe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="350"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gGK-pI-qpB" id="bsx-9K-MVM">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="349.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ns-EG-fK6">
-                                            <rect key="frame" x="15" y="11" width="256" height="21"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmh-br-Qr1">
-                                            <rect key="frame" x="15" y="208" width="345" height="86"/>
-                                            <string key="text">Lorem ipsum dolor sit amet, doming delenit perpetua ius in, suscipit constituto eam te. Mei nostrud corpora cu, meliore invenire posidonium ut nam. Ei has prima viris aliquando, vitae accumsan sea in, ferri interpretaris his ei. No has erat aeterno, eum quem facilis luptatum eu. Te amet blandit efficiantur sea.</string>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DJI_0007" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-hb-y0W">
-                                            <rect key="frame" x="15" y="40" width="345" height="172"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="345" id="0tb-cx-paA"/>
-                                                <constraint firstAttribute="height" constant="172" id="PfN-Nw-wAA"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hr-8Y-8lP">
-                                            <rect key="frame" x="15" y="284" width="214" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="214" id="qhc-Sc-gN8"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Qqv-hb-y0W" secondAttribute="trailing" constant="7" id="5cb-pj-Tas"/>
-                                        <constraint firstItem="7Ns-EG-fK6" firstAttribute="trailing" secondItem="hmh-br-Qr1" secondAttribute="trailing" constant="-89" id="KBS-bg-ZF8"/>
-                                        <constraint firstItem="7hr-8Y-8lP" firstAttribute="leading" secondItem="hmh-br-Qr1" secondAttribute="leading" id="KWh-fp-4Ee"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="7hr-8Y-8lP" secondAttribute="bottom" constant="36" id="Odd-kV-3p6"/>
-                                        <constraint firstItem="7Ns-EG-fK6" firstAttribute="leading" secondItem="hmh-br-Qr1" secondAttribute="leading" id="PY7-k5-WH0"/>
-                                        <constraint firstItem="hmh-br-Qr1" firstAttribute="top" secondItem="7Ns-EG-fK6" secondAttribute="bottom" constant="176" id="UON-JF-zWp"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="7Ns-EG-fK6" secondAttribute="leading" constant="-7" id="W7u-TE-ysk"/>
-                                        <constraint firstItem="7Ns-EG-fK6" firstAttribute="top" secondItem="Qqv-hb-y0W" secondAttribute="top" constant="-29" id="Xa2-Jl-fsM"/>
-                                        <constraint firstItem="hmh-br-Qr1" firstAttribute="baseline" secondItem="Qqv-hb-y0W" secondAttribute="baseline" constant="79" id="iK0-2c-rsO"/>
-                                        <constraint firstItem="Qqv-hb-y0W" firstAttribute="leading" secondItem="hmh-br-Qr1" secondAttribute="trailing" constant="-345" id="ikO-iS-PAn"/>
-                                        <constraint firstItem="7hr-8Y-8lP" firstAttribute="top" secondItem="Qqv-hb-y0W" secondAttribute="bottom" constant="72" id="n3m-rG-0nN"/>
-                                        <constraint firstItem="7Ns-EG-fK6" firstAttribute="top" secondItem="bsx-9K-MVM" secondAttribute="topMargin" constant="3" id="vxJ-mz-bVz"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="feedimage" destination="Qqv-hb-y0W" id="8eM-zE-VNX"/>
-                                    <outlet property="feedtext" destination="hmh-br-Qr1" id="ExT-KN-pjM"/>
-                                    <outlet property="feedtitle" destination="7Ns-EG-fK6" id="1Ps-rL-3TE"/>
-                                    <segue destination="iRg-OX-dWE" kind="show" id="o0m-QP-sTZ"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="T1I-oC-b28" id="1f1-hR-skJ"/>
-                            <outlet property="delegate" destination="T1I-oC-b28" id="t0O-fH-TTH"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Moccafe" id="gO3-gb-3mk">
-                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="3kZ-5q-4SQ">
-                            <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="user" id="iwo-yn-ls5">
-                            <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="blogButton" destination="Hm2-Vw-OG1" id="XQM-WM-0uN"/>
-                        <outlet property="newsButton" destination="zav-DZ-y4e" id="1Tg-Wx-ApN"/>
-                        <outlet property="profileButton" destination="iwo-yn-ls5" id="yEd-jU-4aF"/>
-                        <outlet property="viewPagesNavigation" destination="AeW-qi-Gkr" id="UVf-nW-oVn"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WaA-OD-tQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1531.1594202898552" y="822.554347826087"/>
-        </scene>
         <!--Profile-->
         <scene sceneID="0O3-c1-yHg">
             <objects>
@@ -311,7 +117,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDz-bN-aci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2292.0289855072465" y="-557.60869565217399"/>
+            <point key="canvasLocation" x="1905" y="-905"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="eee-9Z-4vh">
@@ -368,57 +174,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SnV-Rt-gag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3107.971014492754" y="-864.13043478260875"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="dax-ef-bIS">
-            <objects>
-                <viewController id="iRg-OX-dWE" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ly8-ve-l1v"/>
-                        <viewControllerLayoutGuide type="bottom" id="j6D-pw-c6g"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DgU-nR-DSz">
-                        <rect key="frame" x="0.0" y="64" width="375" height="604"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="News title Lorem ipsum dolor sit amet!!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1B-1N-AeL">
-                                <rect key="frame" x="16" y="215" width="343" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRp-hG-ia0">
-                                <rect key="frame" x="16" y="280" width="343" height="316"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Lorem ipsum dolor sit amet, iriure prodesset ei has, an novum altera pertinax his. Cu his summo epicurei necessitatibus, ex oratio deserunt mea, salutandi tincidunt ei vix. Postea interesset instructior per ut, homero animal appetere no nec. An nibh propriae constituto pri.
-
-Est antiopam facilisis adolescens id. Pri graecis suscipiantur no, in usu altera virtute, eam ei enim wisi. Pro probo vidisse appetere te, odio mollis et mei. Epicurei laboramus mei ut, usu ea affert quaerendum. Delicata urbanitas has an, eum eu omnium dissentiunt.
-
-Laoreet veritus temporibus est ne, at vero eirmod aperiri per. Quis volutpat scripserit mel at, duo fugit vidisse admodum ne. Ei mea noster quaestio, duo ne dicat mundi tantas. Nisl assum bonorum te usu, doming corrumpit ei nam. Ne sed suscipit argumentum.
-
-Paulo everti suscipiantur in vel, cu mei iisque propriae corrumpit. Ex vix prompta forensibus, ea movet incorrupte elaboraret eos, etiam eripuit vix an. Quo te ignota phaedrum appellantur, in pri justo partiendo adolescens, mea agam democritum ex. Alii invidunt maluisset sit an. An nec labores perpetua. Ex ridens aperiam vix, vel ex alia nemore rationibus.
-
-Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea, eu est aeterno scribentur. Ne unum scripserit duo. Ad eos tincidunt contentiones, no zril urbanitas argumentum usu. Ferri oblique tacimates ne nec, vero mollis probatus vis ne. Vis at qualisque definitiones.</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="DJI_0007" translatesAutoresizingMaskIntoConstraints="NO" id="4SA-46-StC">
-                                <rect key="frame" x="90" y="20" width="195" height="195"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="Bcc-FU-odb"/>
-                                    <constraint firstAttribute="height" constant="125" id="jLl-IY-yEt"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cy6-gx-HrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2319.5652173913045" y="822.554347826087"/>
+            <point key="canvasLocation" x="2721" y="-1211"/>
         </scene>
         <!--MyTree-->
         <scene sceneID="wg7-f3-ORb">
@@ -457,7 +213,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-794" y="-415"/>
+            <point key="canvasLocation" x="-1691" y="-299"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="WDX-hz-eyS">
@@ -559,7 +315,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="I1R-eC-LWm" firstAttribute="leading" secondItem="Zvd-5d-GEk" secondAttribute="trailing" constant="-42" id="4hk-73-YhV"/>
                             <constraint firstItem="tkT-Ys-NOD" firstAttribute="top" secondItem="JEv-sr-EN3" secondAttribute="bottom" constant="13" id="5dc-eI-0pZ"/>
@@ -597,7 +353,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Wz-Jt-K4Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2478" y="498"/>
+            <point key="canvasLocation" x="1098" y="1448"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -610,7 +366,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="b5V-oA-OSM" kind="relationship" relationship="viewControllers" id="93q-2b-r03"/>
+                        <segue destination="J0q-at-cra" kind="relationship" relationship="viewControllers" id="TZo-zb-Irb"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Zas-6X-WMl" kind="relationship" relationship="viewControllers" id="kYa-K2-fh8"/>
                         <segue destination="cuO-TB-HVr" kind="relationship" relationship="viewControllers" id="KDa-3b-S29"/>
@@ -645,11 +401,6 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sho-ks-cES">
-                                <rect key="frame" x="16" y="74" width="343" height="182"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Z2-7H-Zg9">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -661,6 +412,11 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                     <navigationItem title="Moccafe" id="H0W-hr-o4W"/>
                                 </items>
                             </navigationBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sho-ks-cES">
+                                <rect key="frame" x="36" y="86" width="343" height="182"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -674,7 +430,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rP-od-8Tg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-759" y="1393"/>
+            <point key="canvasLocation" x="-703" y="1476"/>
         </scene>
         <!--Shop-->
         <scene sceneID="BqM-GV-33h">
@@ -721,6 +477,53 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
             </objects>
             <point key="canvasLocation" x="-1690.4000000000001" y="1476.6116941529237"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="raj-Ij-9oC">
+            <objects>
+                <navigationController id="J0q-at-cra" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="mtabhome" id="f7b-L9-aY5"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dm6-q2-anL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35908139449999998" green="0.57380741830000004" blue="0.019206970319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ymg-Wf-oh6" kind="relationship" relationship="rootViewController" id="kEd-Tg-woH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PB5-yW-SQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-820" y="483"/>
+        </scene>
+        <!--Moccafe-->
+        <scene sceneID="LYH-xd-ap5">
+            <objects>
+                <viewController id="ymg-Wf-oh6" customClass="HomeViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YsS-f4-kp6"/>
+                        <viewControllerLayoutGuide type="bottom" id="wPT-6A-Ul5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9WR-lZ-pJM">
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ret-1j-zR9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="PEr-4J-8Mj"/>
+                    <navigationItem key="navigationItem" title="Moccafe" id="Khm-zO-ESy"/>
+                    <connections>
+                        <outlet property="containerView" destination="Ret-1j-zR9" id="mvc-Fu-dHr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HqV-hH-EFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="63.768115942028992" y="482.60869565217394"/>
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="9Pg-2A-Nd1">
             <objects>
@@ -745,7 +548,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="UqH-Ch-87u"/>
                                 </constraints>
-                                <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -760,7 +563,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="MJa-Xf-gzo"/>
                                 </constraints>
-                                <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -818,7 +621,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="bep-XL-n1L"/>
                                 </constraints>
-                                <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -872,13 +675,13 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMP-C7-PbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3348" y="497.90104947526243"/>
+            <point key="canvasLocation" x="230" y="1448"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="GMT-bV-BAJ">
             <objects>
                 <navigationController storyboardIdentifier="NewsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N3W-QI-B2t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="mtabhome" id="PMx-HJ-Fro"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="mtabhome" id="PMx-HJ-Fro"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="668"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" translucent="NO" id="ncR-kS-lFd">
@@ -895,12 +698,12 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DCR-CQ-DSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="684" y="94"/>
+            <point key="canvasLocation" x="420" y="-300"/>
         </scene>
         <!--Moccafe-->
         <scene sceneID="fwR-ds-frS">
             <objects>
-                <tableViewController id="ZNE-w9-YfZ" customClass="NewsViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ZNE-w9-YfZ" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="353" sectionHeaderHeight="28" sectionFooterHeight="28" id="3gK-ll-0a0">
                         <rect key="frame" x="0.0" y="64" width="375" height="604"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -921,9 +724,6 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                             <integer key="value" value="15"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="blogClicked:" destination="ZNE-w9-YfZ" eventType="touchUpInside" id="91H-B4-zeg"/>
-                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cl-0R-j5L">
                                     <rect key="frame" x="20" y="8" width="152.66666666666666" height="29"/>
@@ -937,9 +737,6 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                             <integer key="value" value="15"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="newsClicked:" destination="ZNE-w9-YfZ" eventType="touchUpInside" id="eHT-Tq-P5w"/>
-                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.35294117650000001" green="0.83137254900000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
@@ -1042,16 +839,10 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
-                    <connections>
-                        <outlet property="blogButton" destination="ia0-qw-F5N" id="Dv9-BP-8Ad"/>
-                        <outlet property="newsButton" destination="2Cl-0R-j5L" id="dRE-4K-ts7"/>
-                        <outlet property="profileButton" destination="Sbz-Ew-sWd" id="fW8-bG-kWd"/>
-                        <outlet property="viewPagesNavigation" destination="DlF-rH-DyM" id="JoT-q1-NVU"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfJ-iA-NTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1531.1594202898552" y="91.304347826086968"/>
+            <point key="canvasLocation" x="1128" y="-298"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="SuG-L5-gjP">
@@ -1120,7 +911,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfY-yx-nEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2319.5652173913045" y="127.98913043478262"/>
+            <point key="canvasLocation" x="1904" y="-300"/>
         </scene>
         <!--Contact Us-->
         <scene sceneID="oUF-Dx-IOf">
@@ -1238,7 +1029,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPn-mX-LtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3107.971014492754" y="-236.41304347826087"/>
+            <point key="canvasLocation" x="2721" y="-583"/>
         </scene>
     </scenes>
     <resources>
