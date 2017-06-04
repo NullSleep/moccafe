@@ -75,6 +75,10 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         
         return cell
     }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "showDetail", sender: self)
+//    }
 
     // MARK: - IndicatorInfoProvider
     
