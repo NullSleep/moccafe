@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class ContactUsViewController: UIViewController {
+class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet var nameLabel: UILabel!
     
@@ -27,6 +27,10 @@ class ContactUsViewController: UIViewController {
         nameLabel.text = json["name"].string
         emailLabel.text = json["email"].string
         commentsField.layer.borderColor = UIColor.darkGray.cgColor
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.delegate = self
+        view.addGestureRecognizer(tap)
         
         // Do any additional setup after loading the view.
     }
@@ -46,5 +50,10 @@ class ContactUsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
 }

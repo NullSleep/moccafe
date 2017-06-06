@@ -10,7 +10,9 @@ import UIKit
 
 import XLPagerTabStrip
 
-class HomeViewController: ButtonBarPagerTabStripViewController, showDetailDelegate {
+class HomeViewController: ButtonBarPagerTabStripViewController, performNavigationDelegate {
+
+
     
     let graySpotifyColor = UIColor(red: 21/255.0, green: 21/255.0, blue: 24/255.0, alpha: 1.0)
     let darkGraySpotifyColor = UIColor(red: 19/255.0, green: 20/255.0, blue: 20/255.0, alpha: 1.0)
@@ -63,10 +65,14 @@ class HomeViewController: ButtonBarPagerTabStripViewController, showDetailDelega
         // Dispose of any resources that can be recreated.
     }
     
+    
     func loadDetail() {
         performSegue(withIdentifier: "showDetail", sender: self)
 
     }
     
+//    func loadQuestions() {
+//        <#code#>
+//    }
 
 }

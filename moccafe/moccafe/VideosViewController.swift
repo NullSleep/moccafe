@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MediaPlayer
 import AVKit
 import AVFoundation
 
@@ -85,8 +84,6 @@ class VideosViewController: UIViewController {
         stopButton?.addTarget(self, action: #selector(handleStop), for: .touchUpInside)
         videoView.addSubview(stopButton!)
 
-
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,15 +96,4 @@ class VideosViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

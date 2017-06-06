@@ -11,7 +11,7 @@ import XLPagerTabStrip
 
 class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     
-    var delegate: showDetailDelegate?
+    var delegate: performNavigationDelegate?
     
     let cellIdentifier = "postCell"
     var blackTheme = false
@@ -81,7 +81,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         if delegate != nil {
-            delegate?.loadDetail()
+            delegate?.loadDetail!()
         }
         
     }
