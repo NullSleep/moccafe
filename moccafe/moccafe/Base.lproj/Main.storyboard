@@ -1037,7 +1037,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="loginAction:" destination="2iJ-If-dFj" eventType="touchUpInside" id="aAg-xn-qfZ"/>
+                                    <action selector="submitQuestion:" destination="bwR-eE-23k" eventType="touchUpInside" id="Y5p-gi-Rdw"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sen-wv-KoT">
@@ -1095,7 +1095,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLs-7O-f2e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Videos" image="mtabevideo" id="reg-PB-K53"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="pG6-vs-6I4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pG6-vs-6I4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.36078431372549019" green="0.5725490196078431" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
