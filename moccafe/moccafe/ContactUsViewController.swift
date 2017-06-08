@@ -10,30 +10,116 @@ import UIKit
 import SwiftyJSON
 
 class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
-
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var emailLabel: UILabel!
-    @IBOutlet var commentsLabel: UILabel!
+    
+    
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var phoneTextField: UITextField!
+    
     @IBOutlet var commentsField: UITextView!
+    
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var questionTypeButton: UIButton!
+    @IBOutlet var separatorView: UIView!
     
     var json : JSON = [:]
     
     let apiHandler = APICall()
     
+    var typeOptions = ["":""] {
+        didSet {
+            questionTypeButton.setTitle(self.typeOptions.first?.value, for: .normal)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLabel.text = json["name"].string
-        emailLabel.text = json["email"].string
-        commentsField.layer.borderColor = UIColor.darkGray.cgColor
+        nameTextField.text = json["name"].string
+        emailTextField.text = json["email"].string
+        phoneTextField.text = json["mobile"].string
+        commentsField.layer.borderColor = UIColor.lightGray.cgColor
+        commentsField.layer.borderWidth = 0.5
+        commentsField.layer.cornerRadius = 5
+        questionTypeButton.layer.cornerRadius = 5
+        questionTypeButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        questionTypeButton.addTarget(self, action: #selector(changeType), for: .touchUpInside)
+        
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.delegate = self
         view.addGestureRecognizer(tap)
         
+        getQuestionTypes()
+        setLabels()
+        
+        
+        
+        
+    }
+    
+    func getQuestionTypes() {
+    
         apiHandler.getList { json, error in
-            print("json response get list \(json)")
+            if json != nil {
+                
+                var options = [String: String]()
+                
+                let optionList = json!["options"].arrayValue
+                print(optionList)
+                for item in optionList {
+                    let idAsArray = Array((item.dictionaryObject ?? ["":""]).keys)
+                    let id = idAsArray[0]
+                    options[id] = item[id].string
+                }
+                
+                self.typeOptions = options
+            }
         }
+    
+    }
+    
+    func changeType() {
+        
+        let alertView = UIAlertController(title: "Choose the type of question", message: nil, preferredStyle: .actionSheet)
+        
+        for item in typeOptions {
+            let action = UIAlertAction(title: "\(item.value)", style: .default) { Void in
+                self.questionTypeButton.setTitle(item.value, for: .normal)
+            }
+            alertView.addAction(action)
+        }
+        let action = UIAlertAction(title: "Cancel", style: .destructive) { Void in }
+        alertView.addAction(action)
+        self.present(alertView, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    func setLabels() {
+        for textField in [nameTextField, emailTextField, phoneTextField] {
+            textField?.leftViewMode = UITextFieldViewMode.always
+            textField?.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+            textField?.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium)
+        }
+        
+        nameTextField?.leftView = createLeftLabel(name: "NAME")
+        emailTextField?.leftView = createLeftLabel(name: "EMAIL")
+        phoneTextField?.leftView = createLeftLabel(name: "PHONE")
+        
+    }
+    
+    func createLeftLabel(name: String) -> UILabel {
+        let label = UILabel(frame: CGRect(x: 10, y: 0, width: 60, height: 26))
+        label.text = name
+        label.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightMedium)
+    
+        label.textColor = UIColor.darkGray
+        return label
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,18 +134,28 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
             var json: JSON = [:]
             var params = [String: Any]()
         
-            params["name"] = nameLabel.text
-            params["email"] = emailLabel.text
-            params["phone"] = "987345"
-            params["title"] = "Pregunta para el programa"
+            params["name"] = nameTextField.text
+            params["email"] = emailTextField.text
+            params["phone"] = phoneTextField.text
+            params["title"] = titleTextField.text
             params["content"] = commentsField.text
-            params["question_type_id"] = 1
+            if questionTypeButton.titleLabel?.text != nil {
+                let key = typeOptions.keysForValue(value:(questionTypeButton.titleLabel?.text)!)
+                params["question_type_id"] = key[0]
+            }
 
             json["question"] = JSON(params)
-                
             apiHandler.postQuestion(json: json) {
             json, error in
-                print("respomse post question\(json ?? "")")
+                if json != nil {
+                    let alertView = UIAlertController(title: "Success", message: "Thanks for contacting us, will reply to you shortly", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "OK", style: .default) { Void in
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    alertView.addAction(action)
+                    self.present(alertView, animated: true, completion: nil)
+                }
+                
             }
         } else {
             let alertView = UIAlertController(title: "Error", message: "Required fields must be filled out before proceeding", preferredStyle: .alert)
@@ -70,7 +166,7 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func checkFields() -> Bool {
-        guard (nameLabel.text?.isEmpty == false), (emailLabel.text?.isEmpty == false), (commentsField.text.isEmpty == false) else { return false }
+        guard (nameTextField.text?.isEmpty == false), (emailTextField.text?.isEmpty == false), (commentsField.text.isEmpty == false), (titleTextField.text?.isEmpty == false) else { return false }
         return true
     }
     
@@ -102,3 +198,5 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
 }
+
+

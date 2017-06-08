@@ -34,4 +34,11 @@ protocol switchHomeOptionDelegate {
 
 }
 
+extension Dictionary where Value: Equatable {
 
+    func keysForValue(value: Value) -> [Key] {
+        return flatMap { (key: Key, val: Value) -> Key? in
+            value == val ? key : nil
+        }
+    }
+}

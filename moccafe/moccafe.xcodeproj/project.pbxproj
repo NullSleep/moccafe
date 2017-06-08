@@ -31,7 +31,6 @@
 		CDB19F591EE5FF09004C2E11 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB19F581EE5FF09004C2E11 /* AVKit.framework */; };
 		CDB19F5B1EE6040B004C2E11 /* VIdeosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB19F5A1EE6040B004C2E11 /* VIdeosTableViewController.swift */; };
 		CDB19F5D1EE613A2004C2E11 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB19F5C1EE613A2004C2E11 /* VideoTableViewCell.swift */; };
-		CDCCB5B51ED36A7F0095E21D /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */; };
 		CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B61ED36A900095E21D /* ShopViewController.swift */; };
 		CDE674A81EDE286000583904 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE674A71EDE286000583904 /* extensions.swift */; };
 /* End PBXBuildFile section */
@@ -87,7 +86,6 @@
 		CDB19F581EE5FF09004C2E11 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		CDB19F5A1EE6040B004C2E11 /* VIdeosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIdeosTableViewController.swift; sourceTree = "<group>"; };
 		CDB19F5C1EE613A2004C2E11 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
-		CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		CDCCB5B61ED36A900095E21D /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		CDE674A71EDE286000583904 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D1E6193415F829071E55A709 /* Pods-moccafeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeUITests/Pods-moccafeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,27 +158,20 @@
 		233894881ED3466900E6F78E /* moccafe */ = {
 			isa = PBXGroup;
 			children = (
-				23A7C46A1EE39BBD0001461D /* NewsCell */,
 				233894891ED3466900E6F78E /* AppDelegate.swift */,
-				CD199E0B1ED5F36900590F50 /* LoginViewController.swift */,
-				2338948B1ED3466A00E6F78E /* HomeViewController.swift */,
-				23A7C46F1EE39BCB0001461D /* NewsTableViewController.swift */,
-				2338948D1ED3466A00E6F78E /* MyTreeViewController.swift */,
-				CDCCB5B41ED36A7F0095E21D /* VideosViewController.swift */,
-				CDCCB5B61ED36A900095E21D /* ShopViewController.swift */,
-				CD199E181ED75AB700590F50 /* SignUpViewController.swift */,
-				CD97D3E21ED4A83C00E29753 /* APICall.swift */,
 				233894921ED3466A00E6F78E /* Assets.xcassets */,
 				2338948F1ED3466A00E6F78E /* Main.storyboard */,
 				233894941ED3466A00E6F78E /* LaunchScreen.storyboard */,
 				233894971ED3466A00E6F78E /* Info.plist */,
-				CDE674A71EDE286000583904 /* extensions.swift */,
-				CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */,
-				CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */,
+				CD1388D21EE9BECC00CBE40E /* Login and Register */,
+				CD1388D01EE9BE3300CBE40E /* Home Tab */,
+				CD1388D11EE9BE8E00CBE40E /* User Profile */,
+				CD1388D31EE9BFED00CBE40E /* Videos Tab */,
+				2338948D1ED3466A00E6F78E /* MyTreeViewController.swift */,
+				CDCCB5B61ED36A900095E21D /* ShopViewController.swift */,
 				CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */,
-				CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */,
-				CDB19F5A1EE6040B004C2E11 /* VIdeosTableViewController.swift */,
-				CDB19F5C1EE613A2004C2E11 /* VideoTableViewCell.swift */,
+				CD97D3E21ED4A83C00E29753 /* APICall.swift */,
+				CDE674A71EDE286000583904 /* extensions.swift */,
 			);
 			path = moccafe;
 			sourceTree = "<group>";
@@ -223,6 +214,44 @@
 				2086631CCDCA2A2D681B52A0 /* Pods-moccafeUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CD1388D01EE9BE3300CBE40E /* Home Tab */ = {
+			isa = PBXGroup;
+			children = (
+				23A7C46A1EE39BBD0001461D /* NewsCell */,
+				23A7C46F1EE39BCB0001461D /* NewsTableViewController.swift */,
+				2338948B1ED3466A00E6F78E /* HomeViewController.swift */,
+			);
+			name = "Home Tab";
+			sourceTree = "<group>";
+		};
+		CD1388D11EE9BE8E00CBE40E /* User Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */,
+				CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */,
+				CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */,
+			);
+			name = "User Profile";
+			sourceTree = "<group>";
+		};
+		CD1388D21EE9BECC00CBE40E /* Login and Register */ = {
+			isa = PBXGroup;
+			children = (
+				CD199E0B1ED5F36900590F50 /* LoginViewController.swift */,
+				CD199E181ED75AB700590F50 /* SignUpViewController.swift */,
+			);
+			name = "Login and Register";
+			sourceTree = "<group>";
+		};
+		CD1388D31EE9BFED00CBE40E /* Videos Tab */ = {
+			isa = PBXGroup;
+			children = (
+				CDB19F5A1EE6040B004C2E11 /* VIdeosTableViewController.swift */,
+				CDB19F5C1EE613A2004C2E11 /* VideoTableViewCell.swift */,
+			);
+			name = "Videos Tab";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,7 +558,6 @@
 				CD8036761EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift in Sources */,
 				2338948A1ED3466900E6F78E /* AppDelegate.swift in Sources */,
 				CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */,
-				CDCCB5B51ED36A7F0095E21D /* VideosViewController.swift in Sources */,
 				23A7C46D1EE39BBD0001461D /* PostCell.swift in Sources */,
 				23A7C4701EE39BCB0001461D /* NewsTableViewController.swift in Sources */,
 				CD199E0C1ED5F36900590F50 /* LoginViewController.swift in Sources */,
