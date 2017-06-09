@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UIApplication.shared.statusBarStyle = .lightContent
+
+        
         
         Fabric.with([Crashlytics.self])
         

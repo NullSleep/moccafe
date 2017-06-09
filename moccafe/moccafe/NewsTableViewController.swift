@@ -8,8 +8,11 @@
 
 import UIKit
 import XLPagerTabStrip
+import SwiftyJSON
 
 class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
+    
+    let apiHandler = APICall()
     
     var delegate: performNavigationDelegate?
     
@@ -35,11 +38,16 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         tableView.separatorStyle = .none
         
         tableView.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+        
+        retrieveArticle()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        self.tabBarController?.tabBar.isHidden = false
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,6 +92,20 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
             delegate?.loadDetail!()
         }
         
+    }
+    
+    func retrieveArticle() {
+        var json: JSON = [:]
+        
+        json["blog"] = ["pagina": 1]
+        
+        apiHandler.retrieveArticles(json: json) {
+            json, error in
+            if json != nil {
+        //        json["articles"]
+            print("retrieve article \(json)")
+            }
+        }
     }
 
     // MARK: - IndicatorInfoProvider

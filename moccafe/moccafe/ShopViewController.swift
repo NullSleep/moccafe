@@ -23,7 +23,7 @@ class ShopViewController: UIViewController, UIWebViewDelegate {
         let request = URLRequest(url: url!)
         shopWebView.loadRequest(request)
         activityIndicator.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
-        activityIndicator.color = UIColor(red:0.35, green:0.83, blue:0.15, alpha:1.0)
+        activityIndicator.color = UIColor(red:0.36, green:0.57, blue:0.02, alpha:1.0)
 
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()

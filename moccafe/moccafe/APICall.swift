@@ -53,9 +53,8 @@ class APICall: NSObject {
 
     //MARK: Submit Questions and question type options
 
-    func getList(completionHandler: @escaping (JSON?, Error?) -> ()) {
+    func getList(url: String, completionHandler: @escaping (JSON?, Error?) -> ()) {
         
-        let url = "https://app.moccafeusa.com/api/v1/questions/support_options"
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON{ response in
             switch response.result {

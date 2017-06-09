@@ -17,6 +17,11 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,7 +35,7 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
 
     
@@ -46,7 +51,9 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if let nextvc = segue.destination as? ContactUsViewController {
+            nextvc.calledFrom = "https://app.moccafeusa.com/api/v1/questions/video_options"
+        }
     }
     
     func loadQuestions() {

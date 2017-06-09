@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    var calledFrom = "https://app.moccafeusa.com/api/v1/questions/support_options"
     
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
@@ -34,6 +35,11 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+
+        self.tabBarController?.tabBar.isHidden = true
+
         
         nameTextField.text = json["name"].string
         emailTextField.text = json["email"].string
@@ -61,7 +67,7 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func getQuestionTypes() {
     
-        apiHandler.getList { json, error in
+        apiHandler.getList(url: calledFrom) { json, error in
             if json != nil {
                 
                 var options = [String: String]()
@@ -170,16 +176,6 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
         return true
     }
     
-    func retrieveArticle() {
-        var json: JSON = [:]
-        
-        json["blog"] = ["pagina": 1]
-        
-        apiHandler.retrieveArticles(json: json) {
-            json, error in
-            print(json)
-        }
-    }
     
 
     /*

@@ -50,6 +50,7 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.tableView.tableFooterView = UIView()
         
