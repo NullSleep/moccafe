@@ -442,7 +442,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="containingView" destination="KVN-3d-Mcb" id="gOY-0s-mmq"/>
-                                    <outlet property="questionButton" destination="OXD-2S-70o" id="jhd-gZ-bar"/>
                                     <outlet property="videoThumbnail" destination="zLp-mo-lFV" id="EPB-sF-ZZy"/>
                                 </connections>
                             </tableViewCell>
@@ -478,6 +477,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="questionButton" destination="OXD-2S-70o" id="2fj-3k-7xa"/>
                         <segue destination="bwR-eE-23k" kind="show" identifier="showQuestions" id="Rgz-yT-dEn"/>
                     </connections>
                 </tableViewController>

@@ -13,8 +13,14 @@ import AVFoundation
 
 class VideosTableViewController: UITableViewController, performNavigationDelegate {
 
+    @IBOutlet var questionButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+            questionButton.layer.borderColor = UIColor.white.cgColor//UIColor(red:0.36, green:0.57, blue:0.02, alpha:1.0).cgColor
+                questionButton.layer.cornerRadius = 12.5
+                questionButton.layer.borderWidth = 1
+                questionButton.addTarget(self, action: #selector(loadQuestions), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
