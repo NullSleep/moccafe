@@ -15,12 +15,19 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
 
     @IBOutlet var questionButton: UIButton!
     
+    
+    @IBAction func profileAction(_ sender: UIBarButtonItem) {
+        loadProfile()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            questionButton.layer.borderColor = UIColor.white.cgColor//UIColor(red:0.36, green:0.57, blue:0.02, alpha:1.0).cgColor
-                questionButton.layer.cornerRadius = 12.5
-                questionButton.layer.borderWidth = 1
-                questionButton.addTarget(self, action: #selector(loadQuestions), for: .touchUpInside)
+            questionButton.layer.borderColor = UIColor.white.cgColor
+            questionButton.layer.cornerRadius = 12.5
+            questionButton.layer.borderWidth = 1
+            questionButton.addTarget(self, action: #selector(loadQuestions), for: .touchUpInside)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,15 +60,8 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         loadVideo()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nextvc = segue.destination as? ContactUsViewController {
-            nextvc.calledFrom = "https://app.moccafeusa.com/api/v1/questions/video_options"
-        }
-    }
-    
-    func loadQuestions() {
-        performSegue(withIdentifier: "showQuestions", sender: self)
-    }
+ 
+
     
     func loadVideo() {
 
@@ -72,6 +72,23 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         self.present(playerViewController, animated: true) {
             playerViewController.player!.play()
         }
+    }
+    
+    func loadQuestions() {
+        
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "contactUs") as! ContactUsViewController
+        
+        vc.calledFrom = "https://app.moccafeusa.com/api/v1/questions/video_options"
+        self.navigationController?.pushViewController(vc, animated:true)
+        
+        
+    }
+    
+    func loadProfile() {
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
+        
+
+        self.navigationController?.pushViewController(vc, animated:true)
     }
 
 }

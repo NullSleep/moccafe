@@ -10,8 +10,18 @@ import UIKit
 
 class ShopViewController: UIViewController, UIWebViewDelegate {
 
+    @IBAction func profileAction(_ sender: UIBarButtonItem) {
+        loadProfile()
+    }
+    
     @IBOutlet var shopWebView: UIWebView!
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,16 +50,14 @@ class ShopViewController: UIViewController, UIWebViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func loadProfile() {
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
+        
+        
+        self.navigationController?.pushViewController(vc, animated:true)
     }
-    */
+
+    
 
     
    

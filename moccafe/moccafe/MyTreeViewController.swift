@@ -10,11 +10,31 @@ import UIKit
 
 class MyTreeViewController: UITableViewController {
 
+    @IBOutlet var questionButton: UIButton!
+    
+    @IBAction func profileAction(_ sender: UIBarButtonItem) {
+        loadProfile()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
 
-        // Do any additional setup after loading the view, typically from a nib.
+        questionButton.layer.borderColor = UIColor.white.cgColor
+        questionButton.layer.cornerRadius = 12.5
+        questionButton.layer.borderWidth = 1
+        questionButton.addTarget(self, action: #selector(loadQuestions), for: .touchUpInside)
+        
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+
+    }
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -40,7 +60,26 @@ class MyTreeViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func loadQuestions() {
+        
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "contactUs") as! ContactUsViewController
+        
+        vc.calledFrom = "https://app.moccafeusa.com/api/v1/questions/tree_options"
+        self.navigationController?.pushViewController(vc, animated:true)
+        
+        
+    }
+    
+    func loadProfile() {
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
+        
+        
+        self.navigationController?.pushViewController(vc, animated:true)
+    }
 
 
+
+    
 }
 
