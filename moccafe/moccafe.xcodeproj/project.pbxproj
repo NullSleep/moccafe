@@ -28,6 +28,8 @@
 		CD8C98481EE0911300903A61 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */; };
 		CD8C984A1EE0A12100903A61 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */; };
 		CD97D3E31ED4A83C00E29753 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97D3E21ED4A83C00E29753 /* APICall.swift */; };
+		CDB00C8B1EEB99F9003B03FF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB00C8A1EEB99F9003B03FF /* Article.swift */; };
+		CDB00C8D1EEFC95E003B03FF /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB00C8C1EEFC95E003B03FF /* NewsDetailViewController.swift */; };
 		CDB19F591EE5FF09004C2E11 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB19F581EE5FF09004C2E11 /* AVKit.framework */; };
 		CDB19F5B1EE6040B004C2E11 /* VIdeosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB19F5A1EE6040B004C2E11 /* VIdeosTableViewController.swift */; };
 		CDB19F5D1EE613A2004C2E11 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB19F5C1EE613A2004C2E11 /* VideoTableViewCell.swift */; };
@@ -83,6 +85,8 @@
 		CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		CD97D3E21ED4A83C00E29753 /* APICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		CDB00C8A1EEB99F9003B03FF /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		CDB00C8C1EEFC95E003B03FF /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		CDB19F581EE5FF09004C2E11 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		CDB19F5A1EE6040B004C2E11 /* VIdeosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIdeosTableViewController.swift; sourceTree = "<group>"; };
 		CDB19F5C1EE613A2004C2E11 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 				CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */,
 				CD97D3E21ED4A83C00E29753 /* APICall.swift */,
 				CDE674A71EDE286000583904 /* extensions.swift */,
+				CDB00C8A1EEB99F9003B03FF /* Article.swift */,
+				CDB00C8C1EEFC95E003B03FF /* NewsDetailViewController.swift */,
 			);
 			path = moccafe;
 			sourceTree = "<group>";
@@ -557,6 +563,7 @@
 				CD8C984A1EE0A12100903A61 /* ContactUsViewController.swift in Sources */,
 				CD8036761EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift in Sources */,
 				2338948A1ED3466900E6F78E /* AppDelegate.swift in Sources */,
+				CDB00C8D1EEFC95E003B03FF /* NewsDetailViewController.swift in Sources */,
 				CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */,
 				23A7C46D1EE39BBD0001461D /* PostCell.swift in Sources */,
 				23A7C4701EE39BCB0001461D /* NewsTableViewController.swift in Sources */,
@@ -565,6 +572,7 @@
 				CDB19F5B1EE6040B004C2E11 /* VIdeosTableViewController.swift in Sources */,
 				CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */,
 				CD97D3E31ED4A83C00E29753 /* APICall.swift in Sources */,
+				CDB00C8B1EEB99F9003B03FF /* Article.swift in Sources */,
 				2338948C1ED3466A00E6F78E /* HomeViewController.swift in Sources */,
 				CDE674A81EDE286000583904 /* extensions.swift in Sources */,
 			);

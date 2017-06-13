@@ -40,10 +40,10 @@ class VideoTableViewCell: UITableViewCell {
         playButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         playButton.addTarget(self, action: #selector(loadVideo), for: .touchUpInside)
-        questionButton.layer.borderColor = UIColor.white.cgColor//UIColor(red:0.36, green:0.57, blue:0.02, alpha:1.0).cgColor
-        questionButton.layer.cornerRadius = 12.5
-        questionButton.layer.borderWidth = 1
-        questionButton.addTarget(self, action: #selector(loadQuestionView), for: .touchUpInside)
+    //    questionButton.layer.borderColor = UIColor.white.cgColor//UIColor(red:0.36, green:0.57, blue:0.02, alpha:1.0).cgColor
+//        questionButton.layer.cornerRadius = 12.5
+//        questionButton.layer.borderWidth = 1
+//        questionButton.addTarget(self, action: #selector(loadQuestionView), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

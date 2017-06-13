@@ -106,13 +106,15 @@ class APICall: NSObject {
     }
     
     func retrieveArticles(json: JSON, completionHandler: @escaping (JSON?, Error?) -> ()) {
-    
-    let url = "https://app.moccafeusa.com/api/v1/blogs/tree_articles"
+        
+    let url = "https://app.moccafeusa.com/api/v1/blogs/news_articles"
     let params = json.dictionaryObject
 
-        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON{ response in
+            print(response)
             switch response.result {
             case .success(let value):
+                print(value)
                 let json = JSON(rawValue: value)
                 completionHandler(json, nil)
             case .failure(let error): print("Error")

@@ -14,6 +14,13 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     
     let apiHandler = APICall()
     
+    var articles = [Article]() {
+        didSet {
+        //    self.tableView.reloadData()
+        }
+    }
+    var atPage: Int?
+    
     var delegate: performNavigationDelegate?
     
     let cellIdentifier = "postCell"
@@ -39,7 +46,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         
         tableView.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         
-        retrieveArticle()
+        retrieveArticle(page: 1)
         
     }
     
@@ -52,13 +59,11 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -67,20 +72,20 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 5
+        return articles.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellData: NSDictionary = [
-            "date": "May 29, 2017",
-            "title": "Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
-            "subtitle": "Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
-        ]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostCell,
-        let data = cellData as? NSDictionary else { return PostCell() }
         
+        let cellData: NSDictionary = [
+            "date": articles[indexPath.row].created ?? "",
+            "title": articles[indexPath.row].title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
+            "subtitle": articles[indexPath.row].content ?? ""
+            //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+        ]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostCell else { return PostCell() }
+        let data = cellData
         cell.configureWithData(data)
         
         return cell
@@ -94,19 +99,64 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         
     }
     
-    func retrieveArticle() {
+    func retrieveArticle(page: Int) {
+        
+        
         var json: JSON = [:]
         
-        json["blog"] = ["pagina": 1]
+        json["blog"] = ["pagina": page]
         
         apiHandler.retrieveArticles(json: json) {
             json, error in
             if json != nil {
-        //        json["articles"]
-            print("retrieve article \(json)")
+                let articles = json!["blog"]["articles"].arrayValue
+                let pageRetrieved = json!["blog"]["page"].int
+                
+                if pageRetrieved == page {
+                
+                self.atPage = page
+
+                    for item in articles {
+                                                
+                        let article = Article()
+                        
+                        if let created = item["created_at"].string {
+                            let formatter = DateFormatter()
+                            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                            if let date = formatter.date(from: created) {
+                                formatter.dateStyle = .medium
+                                let dato = formatter.string(from: date)
+                                article.created = dato
+
+                            }
+                            
+                        }
+                        
+                        article.content = item["info"].string
+//                        article.created = item["created_at"].string
+                        article.picUrl = item["picture_url"].string
+                        article.liked = item["liked"].bool
+                        article.title = item["title"].string
+                        article.videoUrl = item["video_url"].string
+                        
+                        self.articles.append(article)
+                    }
+                    self.tableView.reloadData()
+
+                    print("retrieve article \(String(describing: json))")
+                }
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.articles.count-1 {
+            if atPage != nil {
+            retrieveArticle(page: atPage!+1)
+            }
+        }
+    }
+    
 
     // MARK: - IndicatorInfoProvider
     
