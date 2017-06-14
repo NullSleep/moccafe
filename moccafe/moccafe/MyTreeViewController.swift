@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MyTreeViewController: UITableViewController {
 
     @IBOutlet var questionButton: UIButton!
+    
+    let apiHandler = APICall()
+    var articles = [Article]()
+    var atPage: Int?
+
     
     @IBAction func profileAction(_ sender: UIBarButtonItem) {
         loadProfile()
@@ -26,11 +32,19 @@ class MyTreeViewController: UITableViewController {
         questionButton.layer.borderWidth = 1
         questionButton.addTarget(self, action: #selector(loadQuestions), for: .touchUpInside)
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 370
+        tableView.tableFooterView = UIView()
+
+        
+        retrieveArticle(page: 1)
+
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
         self.tabBarController?.tabBar.isHidden = false
 
     }
@@ -43,18 +57,31 @@ class MyTreeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5
+        return articles.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "home", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "home", for: indexPath) as? MyTreeTableViewCell
+        
+        
+        let cellData: NSDictionary = [
+            "date": articles[indexPath.row].created ?? "",
+            "title": articles[indexPath.row].title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
+            "subtitle": articles[indexPath.row].content ?? ""
+            //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+        ]
+        
         
 //        cell.textLabel?.text = profileOptions[indexPath.row]
 //        if indexPath.row == 2 {
 //            cell.accessoryType = .none
 //        }
-        return cell
+        cell?.configureWithData(cellData)
+
+        return cell!
     }
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,6 +103,46 @@ class MyTreeViewController: UITableViewController {
         
         
         self.navigationController?.pushViewController(vc, animated:true)
+    }
+    
+    func retrieveArticle(page: Int) {
+        
+        var json: JSON = [:]
+        json["blog"] = ["pagina": page]
+        let url = "https://app.moccafeusa.com/api/v1/blogs/tree_articles"
+        
+        apiHandler.retrieveArticles(url: url, json: json) {
+            json, error in
+            if json != nil {
+                let articles = json!["articles"]["articles"].arrayValue
+                let pageRetrieved = json!["articles"]["page"].int
+                
+                if pageRetrieved == page {
+                    self.atPage = page
+                    
+                    for item in articles {
+                        let article = Article()
+                        if let created = item["created_at"].string {
+                            let formatter = DateFormatter()
+                            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                            if let date = formatter.date(from: created) {
+                                formatter.dateStyle = .medium
+                                let dato = formatter.string(from: date)
+                                article.created = dato
+                            }
+                        }
+                        article.content = item["info"].string
+                        article.picUrl = item["picture_url"].string
+                        article.liked = item["liked"].bool
+                        article.title = item["title"].string
+                        article.videoUrl = item["video_url"].string
+                        
+                        self.articles.append(article)
+                    }
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
 

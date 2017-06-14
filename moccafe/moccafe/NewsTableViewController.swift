@@ -14,14 +14,11 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     
     let apiHandler = APICall()
     
-    var articles = [Article]() {
-        didSet {
-        //    self.tableView.reloadData()
-        }
-    }
+    var articles = [Article]()
     var atPage: Int?
     
     var delegate: performNavigationDelegate?
+    var url = "https://app.moccafeusa.com/api/v1/blogs/news_articles"
     
     let cellIdentifier = "postCell"
     var blackTheme = false
@@ -38,11 +35,20 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 320
+        tableView.estimatedRowHeight = 370
         tableView.register(UINib(nibName: "PostCell", bundle: Bundle.main), forCellReuseIdentifier: cellIdentifier)
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = UIColor.lightGray
+        tableView.separatorInset = UIEdgeInsets.zero
+        tableView.tableFooterView = UIView()
+
+
+
         
         tableView.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         
@@ -67,9 +73,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 320
-    }
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
@@ -103,23 +107,19 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         
         
         var json: JSON = [:]
-        
         json["blog"] = ["pagina": page]
         
-        apiHandler.retrieveArticles(json: json) {
+        apiHandler.retrieveArticles(url: self.url, json: json) {
             json, error in
             if json != nil {
                 let articles = json!["blog"]["articles"].arrayValue
                 let pageRetrieved = json!["blog"]["page"].int
                 
                 if pageRetrieved == page {
-                
-                self.atPage = page
+                    self.atPage = page
 
                     for item in articles {
-                                                
                         let article = Article()
-                        
                         if let created = item["created_at"].string {
                             let formatter = DateFormatter()
                             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -127,13 +127,10 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
                                 formatter.dateStyle = .medium
                                 let dato = formatter.string(from: date)
                                 article.created = dato
-
                             }
-                            
                         }
                         
                         article.content = item["info"].string
-//                        article.created = item["created_at"].string
                         article.picUrl = item["picture_url"].string
                         article.liked = item["liked"].bool
                         article.title = item["title"].string
@@ -142,8 +139,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
                         self.articles.append(article)
                     }
                     self.tableView.reloadData()
-
-                    print("retrieve article \(String(describing: json))")
                 }
             }
         }

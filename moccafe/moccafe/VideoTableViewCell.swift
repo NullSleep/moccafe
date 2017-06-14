@@ -10,10 +10,12 @@ import UIKit
 
 class VideoTableViewCell: UITableViewCell {
     
+    @IBOutlet var videoDate: UILabel!
+    @IBOutlet var videoTitle: UILabel!
+    @IBOutlet var videoThumbnail: UIImageView!
+    @IBOutlet var videoSubtitle: UILabel!
     
     var delegate: performNavigationDelegate?
-
-    @IBOutlet var videoThumbnail: UIImageView!
 
     @IBOutlet var containingView: UIView!
     @IBOutlet var questionButton: UIButton!
@@ -63,4 +65,10 @@ class VideoTableViewCell: UITableViewCell {
         }
     }
     
+    func configureWithData(_ data: NSDictionary) {
+        videoDate.text = data["date"] as? String
+        videoTitle.text = data["title"] as? String
+        videoSubtitle.text = data["subtitle"] as? String
+        //        thumbnail.image = UIImage(named: postName.text!.replacingOccurrences(of: " ", with: "_"))
+    }
 }
