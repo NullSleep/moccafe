@@ -491,6 +491,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="8Zo-cc-NkM">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <outlet property="questionButton" destination="OXD-2S-70o" id="2fj-3k-7xa"/>
                         <segue destination="bwR-eE-23k" kind="show" identifier="showQuestions" id="Rgz-yT-dEn"/>
@@ -929,6 +932,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="6vh-Vd-g8K">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <outlet property="questionButton" destination="9zj-kO-Gjm" id="Hm5-is-mQm"/>
                     </connections>

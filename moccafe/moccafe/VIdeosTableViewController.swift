@@ -12,10 +12,10 @@ import AVFoundation
 import SwiftyJSON
 
 
-
 class VideosTableViewController: UITableViewController, performNavigationDelegate {
 
     @IBOutlet var questionButton: UIButton!
+
     
     let apiHandler = APICall()
     var articles = [Article]()
@@ -36,8 +36,9 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 370
         tableView.tableFooterView = UIView()
-
         
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+
         retrieveArticle(page: 1)
 
     }
@@ -127,7 +128,7 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
                 let articles = json!["blog"]["articles"].arrayValue
                 let pageRetrieved = json!["blog"]["page"].int
                 
-                if pageRetrieved == page {
+               // if pageRetrieved == page {
                     self.atPage = page
                     
                     for item in articles {
@@ -150,9 +151,24 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
                         self.articles.append(article)
                     }
                     self.tableView.reloadData()
-                }
+                //}
             }
         }
     }
 
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.articles.count-1 {
+            if atPage != nil {
+                retrieveArticle(page: atPage!+1)
+            }
+        }
+    }
+    
+
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        articles.removeAll()
+        retrieveArticle(page: 1)
+        refreshControl.endRefreshing()
+    }
+    
 }

@@ -35,7 +35,9 @@ class MyTreeViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 370
         tableView.tableFooterView = UIView()
-
+        
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        
         
         retrieveArticle(page: 1)
 
@@ -144,7 +146,21 @@ class MyTreeViewController: UITableViewController {
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.articles.count-1 {
+            if atPage != nil {
+                retrieveArticle(page: atPage!+1)
+            }
+        }
+    }
 
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        articles.removeAll()
+        retrieveArticle(page: 1)
+        refreshControl.endRefreshing()
+    }
 
 
     

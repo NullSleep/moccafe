@@ -15,6 +15,7 @@ class ShopViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBOutlet var shopWebView: UIWebView!
+    
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     override func viewWillAppear(_ animated: Bool) {

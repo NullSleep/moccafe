@@ -29,13 +29,13 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         super.init(style: style)
     }
     
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
@@ -46,14 +46,16 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         tableView.separatorColor = UIColor.lightGray
         tableView.separatorInset = UIEdgeInsets.zero
         tableView.tableFooterView = UIView()
-
-
-
-        
         tableView.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         
+        self.refreshControl = {
+            let refreshControl = UIRefreshControl()
+            return refreshControl
+        }()
+        self.refreshControl!.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        tableView.addSubview(self.refreshControl!)
+
         retrieveArticle(page: 1)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,8 +74,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
@@ -147,7 +147,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == self.articles.count-1 {
             if atPage != nil {
-            retrieveArticle(page: atPage!+1)
+                retrieveArticle(page: atPage!+1)
             }
         }
     }
@@ -157,6 +157,12 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return itemInfo
+    }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        articles.removeAll()
+        retrieveArticle(page: 1)
+        self.refreshControl!.endRefreshing()
     }
 
 }
