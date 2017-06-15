@@ -14,7 +14,20 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     
     let apiHandler = APICall()
     
-    var articles = [Article]()
+    var articles = [Article]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
+    var retrievedArticles = [Article]() {
+        didSet {
+            if !retrievedArticles.isEmpty {
+                articles = retrievedArticles
+            }
+        }
+    }
+    
     var atPage: Int?
     
     var delegate: performNavigationDelegate?
@@ -56,6 +69,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         tableView.addSubview(self.refreshControl!)
 
         retrieveArticle(page: 1)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,43 +119,40 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     
     func retrieveArticle(page: Int) {
         
-        
         var json: JSON = [:]
         json["blog"] = ["pagina": page]
-        
-        apiHandler.retrieveArticles(url: self.url, json: json) {
-            json, error in
-            if json != nil {
-                let articles = json!["blog"]["articles"].arrayValue
-                let pageRetrieved = json!["blog"]["page"].int
-                
-                if pageRetrieved == page {
-                    self.atPage = page
 
-                    for item in articles {
-                        let article = Article()
-                        if let created = item["created_at"].string {
-                            let formatter = DateFormatter()
-                            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                            if let date = formatter.date(from: created) {
-                                formatter.dateStyle = .medium
-                                let dato = formatter.string(from: date)
-                                article.created = dato
+            self.apiHandler.retrieveArticles(url: self.url, json: json) {
+                json, error in
+                if json != nil {
+                    let articles = json!["blog"]["articles"].arrayValue
+                    let pageRetrieved = json!["blog"]["page"].int
+                    
+                    if pageRetrieved == page {
+                        self.atPage = page
+
+                        for item in articles {
+                            let article = Article()
+                            if let created = item["created_at"].string {
+                                let formatter = DateFormatter()
+                                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                                if let date = formatter.date(from: created) {
+                                    formatter.dateStyle = .medium
+                                    let dato = formatter.string(from: date)
+                                    article.created = dato
+                                }
                             }
+                            article.content = item["info"].string
+                            article.picUrl = item["picture_url"].string
+                            article.liked = item["liked"].bool
+                            article.title = item["title"].string
+                            article.videoUrl = item["video_url"].string
+                            
+                            self.retrievedArticles.append(article)
                         }
-                        
-                        article.content = item["info"].string
-                        article.picUrl = item["picture_url"].string
-                        article.liked = item["liked"].bool
-                        article.title = item["title"].string
-                        article.videoUrl = item["video_url"].string
-                        
-                        self.articles.append(article)
                     }
-                    self.tableView.reloadData()
                 }
             }
-        }
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -152,7 +163,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         }
     }
     
-
     // MARK: - IndicatorInfoProvider
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
@@ -160,7 +170,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        articles.removeAll()
+        retrievedArticles.removeAll()
         retrieveArticle(page: 1)
         self.refreshControl!.endRefreshing()
     }

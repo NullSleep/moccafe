@@ -15,10 +15,23 @@ import SwiftyJSON
 class VideosTableViewController: UITableViewController, performNavigationDelegate {
 
     @IBOutlet var questionButton: UIButton!
-
     
     let apiHandler = APICall()
-    var articles = [Article]()
+    
+    var articles = [Article]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
+    var retrievedArticles = [Article]() {
+        didSet {
+            if !retrievedArticles.isEmpty {
+                articles = retrievedArticles
+            }
+        }
+    }
+    
     var atPage: Int?
     
     @IBAction func profileAction(_ sender: UIBarButtonItem) {
@@ -148,9 +161,8 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
                         article.title = item["title"].string
                         article.videoUrl = item["video_url"].string
                         
-                        self.articles.append(article)
+                        self.retrievedArticles.append(article)
                     }
-                    self.tableView.reloadData()
                 //}
             }
         }
@@ -166,7 +178,7 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
     
 
     func handleRefresh(refreshControl: UIRefreshControl) {
-        articles.removeAll()
+        retrievedArticles.removeAll()
         retrieveArticle(page: 1)
         refreshControl.endRefreshing()
     }
