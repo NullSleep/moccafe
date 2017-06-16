@@ -492,6 +492,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="8Zo-cc-NkM">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
@@ -933,6 +934,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="6vh-Vd-g8K">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
@@ -952,11 +954,11 @@
                         <viewControllerLayoutGuide type="bottom" id="MNe-VH-Qaz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tCT-re-7WC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="604"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-z8-xbG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psd-K3-lXt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
@@ -1315,6 +1317,6 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
     <inferredMetricsTieBreakers>
         <segue reference="NW3-XN-pfb"/>
         <segue reference="Rgz-yT-dEn"/>
-        <segue reference="4ZF-cY-rwW"/>
+        <segue reference="Iix-kX-LXH"/>
     </inferredMetricsTieBreakers>
 </document>

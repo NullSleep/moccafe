@@ -14,7 +14,6 @@ class ProfileTableViewController: UITableViewController {
     let profileOptions = ["Edit Profile", "Contact us", "Logout"]
     
     @IBOutlet var headerView: UIView!
-    
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
@@ -28,6 +27,10 @@ class ProfileTableViewController: UITableViewController {
             nameLabel.text = profile["name"].string
             emailLabel.text = profile["email"].string
             cityLabel.text = profile["city"].string
+            
+            UserDefaults.standard.set(profile["name"].string, forKey: "userName")
+            UserDefaults.standard.set(profile["email"].string, forKey: "userEmail")
+            UserDefaults.standard.set(profile["city"].string, forKey: "userCity")
 
         }
     }
@@ -53,6 +56,10 @@ class ProfileTableViewController: UITableViewController {
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.tableView.tableFooterView = UIView()
+        
+        nameLabel.text = (UserDefaults.standard.value(forKey: "userName") as? String) ?? "Name"
+        emailLabel.text = UserDefaults.standard.value(forKey: "userEmail") as? String ?? "Email"
+        cityLabel.text = UserDefaults.standard.value(forKey: "userCity") as? String ?? "City"
         
     }
 

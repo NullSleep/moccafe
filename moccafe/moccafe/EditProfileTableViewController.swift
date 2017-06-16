@@ -38,15 +38,22 @@ class EditProfileTableViewController: UITableViewController {
                       Field(title: "PHONE", value: profileData["phone"].string, placeHolder: "Insert Phone"),
                       Field(title: "SHIPPING ADDRESS", value: profileData["shipping"].string, placeHolder: "Insert Shipping Address")]
             self.tableView.reloadData()
-
         }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-         self.navigationItem.rightBarButtonItem = self.doneButton
+        self.navigationItem.rightBarButtonItem = self.doneButton
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if profileData.count == 0 {
+            let alert = UIAlertController(title: "Error", message: "Could not retrieve profile data", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default){ Void in self.navigationController?.popViewController(animated: true) }
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {

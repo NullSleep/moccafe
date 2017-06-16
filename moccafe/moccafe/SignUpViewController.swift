@@ -7,25 +7,35 @@
 //
 
 import UIKit
+import SwiftyJSON
+
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
+    
+    let request = APICall()
+    let myDefaults = UserDefaults.standard
+    
+    var profile:JSON = [:] {
+        didSet {
+            self.myDefaults.set(profile["name"].string, forKey: "userName")
+            self.myDefaults.set(profile["email"].string, forKey: "userEmail")
+            self.myDefaults.set(profile["city"].string, forKey: "userCity")
+            self.myDefaults.set(profile["last_name"].string, forKey: "userLastName")
+            self.myDefaults.set(profile["info"].string, forKey: "userInfo")
+            self.myDefaults.set(profile["mobile"].string, forKey: "userMobile")
+        }
+    }
     
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
-    @IBAction func showPassword(_ sender: UIButton) {
-        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.delegate = self
         view.addGestureRecognizer(tap)
-        
-       
         
         for item in [emailTextField, passwordTextField, nameTextField] {
             item?.delegate = self
@@ -34,11 +44,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         nameTextField.attributedPlaceholder = NSAttributedString(string: "Insert name", attributes: myAttribute)
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Insert email", attributes: myAttribute)
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Insert password", attributes: myAttribute)
-        
-        
         passwordTextField.isSecureTextEntry = true
     }
-    
     
     override func viewDidLayoutSubviews() {
         
@@ -55,13 +62,25 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         view.endEditing(true)
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func showPassword(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
     }
     
     @IBAction func loginAction(_ sender: UIButton) {
+        request.getProfile() {
+            json, error in
+            
+            if json != nil {
+                self.profile = json!["profile"]
+                print("json response \(json!)")
+            } else if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
     }
     
     

@@ -37,21 +37,17 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
-
         self.tabBarController?.tabBar.isHidden = true
-
         
-        nameTextField.text = json["name"].string
-        emailTextField.text = json["email"].string
-        phoneTextField.text = json["mobile"].string
+        nameTextField.text = (UserDefaults.standard.value(forKey: "userName") as? String) ?? json["name"].string
+        emailTextField.text = (UserDefaults.standard.value(forKey: "userEmail") as? String) ?? json["email"].string
+        phoneTextField.text = (UserDefaults.standard.value(forKey: "userMobile") as? String) ?? json["mobile"].string
         commentsField.layer.borderColor = UIColor.lightGray.cgColor
         commentsField.layer.borderWidth = 0.5
         commentsField.layer.cornerRadius = 5
         questionTypeButton.layer.cornerRadius = 5
         questionTypeButton.layer.borderColor = UIColor.lightGray.cgColor
-        
         questionTypeButton.addTarget(self, action: #selector(changeType), for: .touchUpInside)
-        
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.delegate = self
@@ -59,10 +55,6 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
         
         getQuestionTypes()
         setLabels()
-        
-        
-        
-        
     }
     
     func getQuestionTypes() {
@@ -71,7 +63,6 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
             if json != nil {
                 
                 var options = [String: String]()
-                
                 let optionList = json!["options"].arrayValue
                 print(optionList)
                 for item in optionList {
@@ -79,11 +70,9 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
                     let id = idAsArray[0]
                     options[id] = item[id].string
                 }
-                
                 self.typeOptions = options
             }
         }
-    
     }
     
     func changeType() {
@@ -145,7 +134,7 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
             params["phone"] = phoneTextField.text
             params["title"] = titleTextField.text
             params["content"] = commentsField.text
-            if questionTypeButton.titleLabel?.text != nil {
+            if questionTypeButton.titleLabel?.text != "Type" {
                 let key = typeOptions.keysForValue(value:(questionTypeButton.titleLabel?.text)!)
                 params["question_type_id"] = key[0]
             }
@@ -157,6 +146,13 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
                     let alertView = UIAlertController(title: "Success", message: "Thanks for contacting us, will reply to you shortly", preferredStyle: .alert)
                     let action = UIAlertAction(title: "OK", style: .default) { Void in
                         self.navigationController?.popViewController(animated: true)
+                    }
+                    alertView.addAction(action)
+                    self.present(alertView, animated: true, completion: nil)
+                }
+                else {
+                    let alertView = UIAlertController(title: "Error", message: "Please check your Internet connection", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "OK", style: .default) { Void in
                     }
                     alertView.addAction(action)
                     self.present(alertView, animated: true, completion: nil)
