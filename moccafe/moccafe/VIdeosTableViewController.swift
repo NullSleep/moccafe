@@ -52,13 +52,12 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
 
-        retrieveArticle(page: 1)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-        tableView.reloadData()
+        //tableView.reloadData()
+        retrieveArticle(page: 1)
 
     }
     
@@ -136,37 +135,75 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         let url = "https://app.moccafeusa.com/api/v1/blogs/video_articles"
         
         apiHandler.retrieveArticles(url: url, json: json) {
-            json, error in
-            if json != nil {
-                let articles = json!["blog"]["articles"].arrayValue
-                let pageRetrieved = json!["blog"]["page"].int
+            response, error in
+            
+            var jsonValue: JSON = [:] {
+                didSet {
+                    self.createArray(json: jsonValue, page: page)
+                }
+            }
+            if response != nil {
+                jsonValue = response!
+                self.storeArticles(json: response!)
                 
-               // if pageRetrieved == page {
-                    self.atPage = page
-                    
-                    for item in articles {
-                        let article = Article()
-                        if let created = item["created_at"].string {
-                            let formatter = DateFormatter()
-                            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                            if let date = formatter.date(from: created) {
-                                formatter.dateStyle = .medium
-                                let dato = formatter.string(from: date)
-                                article.created = dato
-                            }
-                        }
-                        article.content = item["info"].string
-                        article.picUrl = item["picture_url"].string
-                        article.liked = item["liked"].bool
-                        article.title = item["title"].string
-                        article.videoUrl = item["video_url"].string
-                        
-                        self.retrievedArticles.append(article)
-                    }
-                //}
+            } else if response == nil {
+                jsonValue = self.retrieveStoredData() ?? [:]
             }
         }
     }
+    
+    func createArray(json: JSON, page: Int) {
+        let articles = json["blog"]["articles"].arrayValue
+        let pageRetrieved = json["blog"]["page"].int
+        
+        // if pageRetrieved == page {
+        self.atPage = page
+        
+        for item in articles {
+            let article = Article()
+            if let created = item["created_at"].string {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                if let date = formatter.date(from: created) {
+                    formatter.dateStyle = .medium
+                    let dato = formatter.string(from: date)
+                    article.created = dato
+                }
+            }
+            article.content = item["info"].string
+            article.picUrl = item["picture_url"].string
+            article.liked = item["liked"].bool
+            article.title = item["title"].string
+            article.videoUrl = item["video_url"].string
+            
+            self.retrievedArticles.append(article)
+        }
+        //}
+    }
+    
+    func storeArticles(json: JSON) {
+        
+        let filePath = NSURL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent("/Library/Caches/videos.txt")
+        do {
+            let data = try json.rawData()
+            do {
+                try data.write(to: filePath!, options: Data.WritingOptions.atomic)
+            } catch { }
+        } catch { }
+    }
+    
+    func retrieveStoredData() -> JSON? {
+        let filePath = URL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent("/Library/Caches/videos.txt")
+        do {
+            let data = try Data(contentsOf: filePath, options: Data.ReadingOptions.mappedIfSafe)
+            let jsonData = JSON(data: data)
+            return jsonData
+        }
+        catch {
+            return nil
+        }
+    }
+    
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == self.articles.count-1 {

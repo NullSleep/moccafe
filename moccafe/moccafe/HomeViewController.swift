@@ -50,11 +50,14 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
         child_1.blackTheme = true
         child_1.delegate = self
         child_1.url = "https://app.moccafeusa.com/api/v1/blogs/news_articles"
+        child_1.filePath = "/Library/Caches/news.txt"
         
         let child_2 = NewsTableViewController(style: .plain, itemInfo: IndicatorInfo(title: "BLOG"))
         child_2.blackTheme = true
         child_2.delegate = self
         child_2.url = "https://app.moccafeusa.com/api/v1/blogs/articles"
+        child_2.filePath = "/Library/Caches/blog.txt"
+
 
         
         return [child_1, child_2]
