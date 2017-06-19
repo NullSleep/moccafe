@@ -7,6 +7,8 @@ target 'moccafe' do
   pod 'SwiftyJSON'
   pod 'XLPagerTabStrip', '~> 7.0'
   pod 'Crashlytics'
+  pod 'SDWebImage', '~> 4.0'
+
   use_frameworks!
 
   # Pods for moccafe

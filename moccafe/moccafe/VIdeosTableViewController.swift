@@ -10,9 +10,13 @@ import UIKit
 import AVKit
 import AVFoundation
 import SwiftyJSON
+import SDWebImage
+
+
 
 
 class VideosTableViewController: UITableViewController, performNavigationDelegate {
+    
 
     @IBOutlet var questionButton: UIButton!
     
@@ -87,6 +91,14 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
             //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
         ]
         
+        let imageStringURL = "https://s-media-cache-ak0.pinimg.com/originals/33/1a/fe/331afef4a5fac893e41c4b6ca1fe8ab4.gif"
+        articles[indexPath.row].picUrl = imageStringURL
+        
+        if let imageURL = URL.init(string: imageStringURL) {
+            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in
+            }
+            cell?.videoThumbnail.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
+        }
 
         cell?.configureWithData(cellData)
         
@@ -117,14 +129,11 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         
         vc.calledFrom = "https://app.moccafeusa.com/api/v1/questions/video_options"
         self.navigationController?.pushViewController(vc, animated:true)
-        
-        
     }
     
     func loadProfile() {
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
         
-
         self.navigationController?.pushViewController(vc, animated:true)
     }
     

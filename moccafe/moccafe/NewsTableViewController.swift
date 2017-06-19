@@ -9,6 +9,8 @@
 import UIKit
 import XLPagerTabStrip
 import SwiftyJSON
+import SDWebImage
+
 
 class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     
@@ -93,25 +95,33 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
+       
         let cellData: NSDictionary = [
             "date": articles[indexPath.row].created ?? "",
             "title": articles[indexPath.row].title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
-            "subtitle": articles[indexPath.row].content ?? ""
+            "subtitle": articles[indexPath.row].content ?? "",
+            "image":  1//  data["image"] as? UIImage
             //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
         ]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostCell else { return PostCell() }
         let data = cellData
-        cell.configureWithData(data)
         
+        cell.configureWithData(data)
+        let imageStringURL = "https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
+        articles[indexPath.row].picUrl = imageStringURL
+        if let imageURL = URL.init(string: imageStringURL) {
+            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in
+            }
+            cell.postImage.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
+        }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         if delegate != nil {
-            delegate?.loadDetail!()
+            delegate?.loadDetail!(article: articles[indexPath.row])
+            
         }
     }
     
@@ -184,9 +194,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
             let jsonData = JSON(data: data)
             return jsonData
         }
-        catch {
-            return nil
-        }
+        catch { return nil }
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -208,5 +216,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         retrieveArticle(page: 1)
         self.refreshControl!.endRefreshing()
     }
+    
+
 
 }

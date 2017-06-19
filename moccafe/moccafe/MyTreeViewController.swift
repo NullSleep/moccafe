@@ -8,8 +8,12 @@
 
 import UIKit
 import SwiftyJSON
+import SDWebImage
+
 
 class MyTreeViewController: UITableViewController {
+
+    var articleToSegue: Article?
 
     @IBOutlet var questionButton: UIButton!
     
@@ -85,11 +89,15 @@ class MyTreeViewController: UITableViewController {
             //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
         ]
         
-        
-//        cell.textLabel?.text = profileOptions[indexPath.row]
-//        if indexPath.row == 2 {
-//            cell.accessoryType = .none
-//        }
+         let imageStringURL = "https://regmedia.co.uk/2015/11/18/coffee_beans.jpg?x=1200&y=794"
+        articles[indexPath.row].picUrl = imageStringURL
+
+        if let imageURL = URL.init(string: imageStringURL) {
+            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in
+            }
+            cell?.thumbnail.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
+        }
+
         cell?.configureWithData(cellData)
 
         return cell!
@@ -205,7 +213,17 @@ class MyTreeViewController: UITableViewController {
         retrieveArticle(page: 1)
         refreshControl.endRefreshing()
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        articleToSegue = articles[indexPath.row]
+        performSegue(withIdentifier: "showDetail", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextvc = segue.destination as? DetailViewController {
+            nextvc.article = articleToSegue
+        }
+    }
 
     
 }

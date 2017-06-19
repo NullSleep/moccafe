@@ -30,12 +30,13 @@
 		CD8C984A1EE0A12100903A61 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */; };
 		CD97D3E31ED4A83C00E29753 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97D3E21ED4A83C00E29753 /* APICall.swift */; };
 		CDB00C8B1EEB99F9003B03FF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB00C8A1EEB99F9003B03FF /* Article.swift */; };
-		CDB00C8D1EEFC95E003B03FF /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB00C8C1EEFC95E003B03FF /* NewsDetailViewController.swift */; };
 		CDB19F591EE5FF09004C2E11 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB19F581EE5FF09004C2E11 /* AVKit.framework */; };
 		CDB19F5B1EE6040B004C2E11 /* VIdeosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB19F5A1EE6040B004C2E11 /* VIdeosTableViewController.swift */; };
 		CDB19F5D1EE613A2004C2E11 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB19F5C1EE613A2004C2E11 /* VideoTableViewCell.swift */; };
+		CDCBEB841EF6332A004A830D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCBEB831EF6332A004A830D /* DetailViewController.swift */; };
 		CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B61ED36A900095E21D /* ShopViewController.swift */; };
 		CDE674A81EDE286000583904 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE674A71EDE286000583904 /* extensions.swift */; };
+		CDF65DB91EF64BCF00967136 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF65DB81EF64BCF00967136 /* SDWebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,12 +89,13 @@
 		CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		CD97D3E21ED4A83C00E29753 /* APICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		CDB00C8A1EEB99F9003B03FF /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		CDB00C8C1EEFC95E003B03FF /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		CDB19F581EE5FF09004C2E11 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		CDB19F5A1EE6040B004C2E11 /* VIdeosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIdeosTableViewController.swift; sourceTree = "<group>"; };
 		CDB19F5C1EE613A2004C2E11 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		CDCBEB831EF6332A004A830D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CDCCB5B61ED36A900095E21D /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		CDE674A71EDE286000583904 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		CDF65DB81EF64BCF00967136 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		D1E6193415F829071E55A709 /* Pods-moccafeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeUITests/Pods-moccafeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E7354DCB6391C960C377B8B8 /* Pods_moccafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F28F341141675C0C0364FB99 /* Pods-moccafeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeTests/Pods-moccafeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF65DB91EF64BCF00967136 /* SDWebImage.framework in Frameworks */,
 				CDB19F591EE5FF09004C2E11 /* AVKit.framework in Frameworks */,
 				5A873593138284BAFA87E96E /* Pods_moccafe.framework in Frameworks */,
 			);
@@ -131,6 +134,7 @@
 		10E7031D25A355B00FB9C0FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDF65DB81EF64BCF00967136 /* SDWebImage.framework */,
 				CDB19F581EE5FF09004C2E11 /* AVKit.framework */,
 				E7354DCB6391C960C377B8B8 /* Pods_moccafe.framework */,
 				4B202489F2BC9D35979ED1BD /* Pods_moccafeTests.framework */,
@@ -172,13 +176,14 @@
 				CD1388D21EE9BECC00CBE40E /* Login and Register */,
 				CD1388D01EE9BE3300CBE40E /* Home Tab */,
 				CD3D5BB81EF1C2F90022298D /* My Tree */,
-				CD1388D11EE9BE8E00CBE40E /* User Profile */,
 				CD1388D31EE9BFED00CBE40E /* Videos Tab */,
+				CD1388D11EE9BE8E00CBE40E /* User Profile */,
 				CDCCB5B61ED36A900095E21D /* ShopViewController.swift */,
 				CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */,
 				CD97D3E21ED4A83C00E29753 /* APICall.swift */,
 				CDE674A71EDE286000583904 /* extensions.swift */,
 				CDB00C8A1EEB99F9003B03FF /* Article.swift */,
+				CDCBEB831EF6332A004A830D /* DetailViewController.swift */,
 			);
 			path = moccafe;
 			sourceTree = "<group>";
@@ -226,10 +231,9 @@
 		CD1388D01EE9BE3300CBE40E /* Home Tab */ = {
 			isa = PBXGroup;
 			children = (
-				23A7C46A1EE39BBD0001461D /* NewsCell */,
 				2338948B1ED3466A00E6F78E /* HomeViewController.swift */,
 				23A7C46F1EE39BCB0001461D /* NewsTableViewController.swift */,
-				CDB00C8C1EEFC95E003B03FF /* NewsDetailViewController.swift */,
+				23A7C46A1EE39BBD0001461D /* NewsCell */,
 			);
 			name = "Home Tab";
 			sourceTree = "<group>";
@@ -575,7 +579,7 @@
 				CD8C984A1EE0A12100903A61 /* ContactUsViewController.swift in Sources */,
 				CD8036761EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift in Sources */,
 				2338948A1ED3466900E6F78E /* AppDelegate.swift in Sources */,
-				CDB00C8D1EEFC95E003B03FF /* NewsDetailViewController.swift in Sources */,
+				CDCBEB841EF6332A004A830D /* DetailViewController.swift in Sources */,
 				CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */,
 				23A7C46D1EE39BBD0001461D /* PostCell.swift in Sources */,
 				23A7C4701EE39BCB0001461D /* NewsTableViewController.swift in Sources */,
@@ -745,6 +749,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CN4W3YSZKE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
+				);
 				INFOPLIST_FILE = moccafe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafe;
@@ -764,6 +772,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CN4W3YSZKE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
+				);
 				INFOPLIST_FILE = moccafe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafe;

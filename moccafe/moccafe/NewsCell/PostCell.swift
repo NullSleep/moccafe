@@ -24,7 +24,7 @@ class PostCell: UITableViewCell {
         postDate.text = data["date"] as? String
         postTitle.text = data["title"] as? String
         postSubtitle.text = data["subtitle"] as? String
-//        postImage.image = UIImage(named: postName.text!.replacingOccurrences(of: " ", with: "_"))
+        //postImage.image = data["image"] as? UIImage //UIImage(named: postName.text!.replacingOccurrences(of: " ", with: "_"))
     }
 
     func changeStylToBlack() {

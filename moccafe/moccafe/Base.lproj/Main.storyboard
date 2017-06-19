@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EM0-Dn-RdM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EM0-Dn-RdM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -889,7 +889,6 @@
                                     <outlet property="subtitle" destination="iEl-Pe-Kgp" id="mPX-o1-acb"/>
                                     <outlet property="thumbnail" destination="Fxw-AF-wQ2" id="qem-zD-Q1f"/>
                                     <outlet property="title" destination="uZX-lD-mKZ" id="kdz-3v-vv3"/>
-                                    <segue destination="fQu-Xx-WJd" kind="show" id="4ZF-cY-rwW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -939,26 +938,27 @@
                     </refreshControl>
                     <connections>
                         <outlet property="questionButton" destination="9zj-kO-Gjm" id="Hm5-is-mQm"/>
+                        <segue destination="fQu-Xx-WJd" kind="show" identifier="showDetail" id="RKq-Q9-Xwm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfJ-iA-NTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="153" y="-276"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="SuG-L5-gjP">
             <objects>
-                <viewController storyboardIdentifier="detailVC" id="fQu-Xx-WJd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailVC" id="fQu-Xx-WJd" customClass="DetailViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gUN-sj-TlZ"/>
                         <viewControllerLayoutGuide type="bottom" id="MNe-VH-Qaz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tCT-re-7WC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="604"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-z8-xbG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psd-K3-lXt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
@@ -996,6 +996,17 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                                     <constraint firstAttribute="width" secondItem="5fR-2f-nda" secondAttribute="height" multiplier="329:150" id="X48-0M-mVK"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdg-Zg-9jl">
+                                                <rect key="frame" x="340" y="172" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="QuG-lS-EdF"/>
+                                                    <constraint firstAttribute="width" constant="24" id="omd-ll-t8i"/>
+                                                </constraints>
+                                                <state key="normal" image="download"/>
+                                                <connections>
+                                                    <action selector="downloadPic:" destination="fQu-Xx-WJd" eventType="touchUpInside" id="VhY-t5-eMT"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1012,6 +1023,8 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0ZK-KO-LSc" secondAttribute="bottom" constant="10" id="dAx-x5-mmX"/>
                                             <constraint firstItem="QLx-DK-P8a" firstAttribute="top" secondItem="psd-K3-lXt" secondAttribute="top" constant="8" id="fXV-3z-hUO"/>
                                             <constraint firstItem="5fR-2f-nda" firstAttribute="top" secondItem="QLx-DK-P8a" secondAttribute="bottom" constant="12" id="ige-tw-90K"/>
+                                            <constraint firstItem="Mdg-Zg-9jl" firstAttribute="leading" secondItem="5fR-2f-nda" secondAttribute="trailing" constant="-35" id="tfV-rf-xve"/>
+                                            <constraint firstItem="Mdg-Zg-9jl" firstAttribute="top" secondItem="5fR-2f-nda" secondAttribute="bottom" constant="-35" id="uV7-ds-UhM"/>
                                             <constraint firstItem="0ZK-KO-LSc" firstAttribute="top" secondItem="M7Y-6u-pgU" secondAttribute="bottom" constant="12" id="vwI-vV-73V"/>
                                         </constraints>
                                     </view>
@@ -1033,6 +1046,12 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                             <constraint firstItem="aQs-z8-xbG" firstAttribute="top" secondItem="gUN-sj-TlZ" secondAttribute="bottom" id="naX-Tm-SWQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="articleDate" destination="QLx-DK-P8a" id="pXU-Pw-r46"/>
+                        <outlet property="articleImage" destination="5fR-2f-nda" id="ikg-Br-fzp"/>
+                        <outlet property="articleText" destination="0ZK-KO-LSc" id="4Uy-Rt-rGc"/>
+                        <outlet property="articleTitle" destination="M7Y-6u-pgU" id="41m-lM-VAt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfY-yx-nEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1306,6 +1325,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
         <image name="ancient_tree" width="937" height="528"/>
         <image name="beanicon" width="240" height="240"/>
         <image name="commentsoutline" width="50" height="50"/>
+        <image name="download" width="32" height="32"/>
         <image name="messageoutline" width="50" height="50"/>
         <image name="mtabbean" width="24" height="24"/>
         <image name="mtabeshop" width="25" height="25"/>
@@ -1317,6 +1337,6 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
     <inferredMetricsTieBreakers>
         <segue reference="NW3-XN-pfb"/>
         <segue reference="Rgz-yT-dEn"/>
-        <segue reference="Iix-kX-LXH"/>
+        <segue reference="RKq-Q9-Xwm"/>
     </inferredMetricsTieBreakers>
 </document>

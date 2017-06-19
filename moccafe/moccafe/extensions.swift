@@ -27,7 +27,7 @@ protocol switchHomeOptionDelegate {
 }
 
 @objc protocol performNavigationDelegate {
-    @objc optional func loadDetail()
+    @objc optional func loadDetail(article: Article)
     @objc optional func loadQuestions()
     @objc optional func loadVideo()
 
