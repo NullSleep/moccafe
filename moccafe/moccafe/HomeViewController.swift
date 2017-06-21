@@ -19,6 +19,7 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         settings.style.buttonBarBackgroundColor = graySpotifyColor
         settings.style.buttonBarItemBackgroundColor = graySpotifyColor
         settings.style.selectedBarBackgroundColor = UIColor(red: 33/255.0, green: 174/255.0, blue: 67/255.0, alpha: 1.0)
