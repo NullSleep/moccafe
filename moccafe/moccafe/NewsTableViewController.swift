@@ -15,14 +15,18 @@ import SDWebImage
 class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     
     let apiHandler = APICall()
+    var atPage: Int?
+    var delegate: performNavigationDelegate?
+    
+    var filteredArticles = [Article]()
     
     var articles = [Article]() {
-        didSet {
-            self.tableView.reloadData()
-        }
+        
+        didSet { self.tableView.reloadData() }
     }
     
     var retrievedArticles = [Article]() {
+        
         didSet {
             if !retrievedArticles.isEmpty {
                 articles = retrievedArticles
@@ -30,9 +34,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         }
     }
     
-    var atPage: Int?
-    
-    var delegate: performNavigationDelegate?
     var url = "https://app.moccafeusa.com/api/v1/blogs/news_articles"
     var filePath = "/Library/Caches/news.txt"
     
@@ -74,14 +75,13 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        
+        /* if !(delegate?.searchController.searchBar.text?.isEmpty)! {
+            delegate?.startWithSearch!()
+        } */
+        
+        retrievedArticles.removeAll()
         retrieveArticle(page: 1)
-
         self.tabBarController?.tabBar.isHidden = false
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
     // MARK: - Table view data source
@@ -91,27 +91,40 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if (delegate?.searchController.isActive)! && delegate?.searchController.searchBar.text != "" {
+            return filteredArticles.count
+        }
         return articles.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostCell else { return PostCell() }
+
+        let article: Article
+        
+        if (delegate?.searchController.isActive)! && delegate?.searchController.searchBar.text != "" {
+            article = filteredArticles[indexPath.row]
+        } else {
+            article = articles[indexPath.row]
+        }
        
         let cellData: NSDictionary = [
-            "date": articles[indexPath.row].created ?? "",
-            "title": articles[indexPath.row].title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
-            "subtitle": articles[indexPath.row].content ?? "",
-            "image":  1//  data["image"] as? UIImage
-            //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+            "date": article.created ?? "",
+            "title": article.title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
+            "subtitle": article.content ?? "", //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+            "image":  1 //  data["image"] as? UIImage
         ]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostCell else { return PostCell() }
-        let data = cellData
         
+        let data = cellData
         cell.configureWithData(data)
+        
         let imageStringURL = "https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
-        articles[indexPath.row].picUrl = imageStringURL
+        article.picUrl = imageStringURL
+        
         if let imageURL = URL.init(string: imageStringURL) {
-            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in
-            }
+            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in }
             cell.postImage.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
         }
         return cell
@@ -121,9 +134,18 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
 
         if delegate != nil {
             delegate?.loadDetail!(article: articles[indexPath.row])
-            
         }
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.articles.count-1 {
+            if atPage != nil {
+                retrieveArticle(page: atPage!+1)
+            }
+        }
+    }
+    
+    // MARK: - Retrieve API Data and Populate Content
     
     func retrieveArticle(page: Int) {
         
@@ -176,14 +198,14 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         }
     }
     
+    // MARK: - Manage Cache
+    
     func storeArticles(json: JSON) {
         
         let filePath = NSURL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent(self.filePath)
         do {
             let data = try json.rawData()
-            do {
-                try data.write(to: filePath!, options: Data.WritingOptions.atomic)
-            } catch { }
+            do { try data.write(to: filePath!, options: Data.WritingOptions.atomic) } catch { }
         } catch { }
     }
     
@@ -197,13 +219,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         catch { return nil }
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == self.articles.count-1 {
-            if atPage != nil {
-                retrieveArticle(page: atPage!+1)
-            }
-        }
-    }
     
     // MARK: - IndicatorInfoProvider
     
@@ -212,7 +227,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        retrievedArticles.removeAll()
+    //    retrievedArticles.removeAll()
         retrieveArticle(page: 1)
         self.refreshControl!.endRefreshing()
     }

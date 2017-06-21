@@ -10,14 +10,21 @@ import UIKit
 import SwiftyJSON
 import SDWebImage
 
-
-class MyTreeViewController: UITableViewController {
+class MyTreeViewController: UITableViewController, UISearchBarDelegate {
 
     var articleToSegue: Article?
-
-    @IBOutlet var questionButton: UIButton!
-    
+    var atPage: Int?
     let apiHandler = APICall()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+
+    @IBOutlet var searchBarButton: UIBarButtonItem!
+    @IBOutlet var profileButton: UIBarButtonItem!
+    @IBOutlet var questionButton: UIButton!
+    @IBOutlet var questionButtonItem: UIBarButtonItem!
+    
+    var filteredArticles = [Article]()
+    
     var articles = [Article]() {
         didSet {
             self.tableView.reloadData()
@@ -32,14 +39,8 @@ class MyTreeViewController: UITableViewController {
         }
     }
     
-    var atPage: Int?
-    
     let urlQuestions = "https://app.moccafeusa.com/api/v1/questions/tree_options"
     let urlArticles = "https://app.moccafeusa.com/api/v1/blogs/tree_articles"
-    
-    @IBAction func profileAction(_ sender: UIBarButtonItem) {
-        loadProfile()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,54 +61,40 @@ class MyTreeViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      //  tableView.reloadData()
+        
+        retrievedArticles.removeAll()
         retrieveArticle(page: 1)
-
         self.tabBarController?.tabBar.isHidden = false
-
     }
     
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    // MARK: - Navigation Bar Actions
+    
+    @IBAction func searchButtonTapped(_ sender: UIBarButtonItem) {
         
-        return 1
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.rightBarButtonItems = nil
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        self.definesPresentationContext = true
+        self.navigationItem.titleView = searchController.searchBar
+        searchController.searchBar.delegate = self
+        searchController.searchBar.becomeFirstResponder()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return articles.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "home", for: indexPath) as? MyTreeTableViewCell
-        
-        
-        let cellData: NSDictionary = [
-            "date": articles[indexPath.row].created ?? "",
-            "title": articles[indexPath.row].title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
-            "subtitle": articles[indexPath.row].content ?? ""
-            //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
-        ]
-        
-         let imageStringURL = "https://regmedia.co.uk/2015/11/18/coffee_beans.jpg?x=1200&y=794"
-        articles[indexPath.row].picUrl = imageStringURL
-
-        if let imageURL = URL.init(string: imageStringURL) {
-            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in
-            }
-            cell?.thumbnail.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredArticles = articles.filter { article in
+            return (article.title?.lowercased().contains(searchText.lowercased()))!
         }
-
-        cell?.configureWithData(cellData)
-
-        return cell!
+        tableView.reloadData()
     }
     
-
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.navigationItem.leftBarButtonItem = searchBarButton
+        self.navigationItem.rightBarButtonItems = [questionButtonItem, profileButton]
+        self.navigationItem.hidesBackButton = false
+        self.navigationItem.titleView = nil
     }
     
     func loadQuestions() {
@@ -117,10 +104,75 @@ class MyTreeViewController: UITableViewController {
         self.navigationController?.pushViewController(vc, animated:true)
     }
     
+    @IBAction func profileAction(_ sender: UIBarButtonItem) {
+        loadProfile()
+    }
+    
     func loadProfile() {
+        
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
         self.navigationController?.pushViewController(vc, animated:true)
     }
+    
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredArticles.count
+        }
+        return articles.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "home", for: indexPath) as? MyTreeTableViewCell
+        
+        let article: Article
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            article = filteredArticles[indexPath.row]
+        } else {
+            article = articles[indexPath.row]
+        }
+        
+        let cellData: NSDictionary = [
+            "date": article.created ?? "",
+            "title": article.title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
+            "subtitle": article.content ?? "" //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+        ]
+        
+        let imageStringURL = "https://regmedia.co.uk/2015/11/18/coffee_beans.jpg?x=1200&y=794"
+        article.picUrl = imageStringURL
+
+        if let imageURL = URL.init(string: imageStringURL) {
+            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in }
+            cell?.thumbnail.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
+        }
+        cell?.configureWithData(cellData)
+        
+        return cell!
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == self.articles.count-1 {
+            if atPage != nil {
+                retrieveArticle(page: atPage!+1)
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        articleToSegue = articles[indexPath.row]
+        performSegue(withIdentifier: "showDetail", sender: self)
+    }
+    
+    // MARK: - Retrieve API Data and Populate Content
     
     func retrieveArticle(page: Int) {
         
@@ -128,13 +180,9 @@ class MyTreeViewController: UITableViewController {
         json["blog"] = ["pagina": page]
         let url = urlArticles
         
-        apiHandler.retrieveArticles(url: url, json: json) {
-            response, error in
-            //
+        apiHandler.retrieveArticles(url: url, json: json) { response, error in
             var jsonValue: JSON = [:] {
-                didSet {
-                    self.createArray(json: jsonValue, page: page)
-                }
+                didSet { self.createArray(json: jsonValue, page: page) }
             }
             if response != nil {
                 jsonValue = response!
@@ -144,9 +192,9 @@ class MyTreeViewController: UITableViewController {
             }
         }
     }
-            //
     
     func createArray(json: JSON, page: Int) {
+        
         let articles = json["articles"]["articles"].arrayValue
         let pageRetrieved = json["articles"]["page"].int
         
@@ -158,6 +206,7 @@ class MyTreeViewController: UITableViewController {
                 if let created = item["created_at"].string {
                     let formatter = DateFormatter()
                     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    
                     if let date = formatter.date(from: created) {
                         formatter.dateStyle = .medium
                         let dato = formatter.string(from: date)
@@ -175,6 +224,8 @@ class MyTreeViewController: UITableViewController {
         }
     }
     
+    // MARK: - Manage Cache
+    
     func storeArticles(json: JSON) {
         
         let filePath = NSURL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent("/Library/Caches/tree.txt")
@@ -187,44 +238,37 @@ class MyTreeViewController: UITableViewController {
     }
     
     func retrieveStoredData() -> JSON? {
+        
         let filePath = URL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent("/Library/Caches/tree.txt")
         do {
             let data = try Data(contentsOf: filePath, options: Data.ReadingOptions.mappedIfSafe)
             let jsonData = JSON(data: data)
             return jsonData
         }
-        catch {
-            return nil
-        }
+        catch { return nil }
     }
-    
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == self.articles.count-1 {
-            if atPage != nil {
-                retrieveArticle(page: atPage!+1)
-            }
-        }
-    }
-
     
     func handleRefresh(refreshControl: UIRefreshControl) {
+        
         retrievedArticles.removeAll()
         retrieveArticle(page: 1)
         refreshControl.endRefreshing()
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        articleToSegue = articles[indexPath.row]
-        performSegue(withIdentifier: "showDetail", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //self.searchBarCancelButtonClicked(searchController.searchBar)
+        self.searchController.searchBar.resignFirstResponder()
         if let nextvc = segue.destination as? DetailViewController {
             nextvc.article = articleToSegue
         }
     }
-
     
+}
+
+extension MyTreeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
 }
 

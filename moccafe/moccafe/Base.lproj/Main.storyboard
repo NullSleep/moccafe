@@ -458,6 +458,12 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Moccafe" id="m2W-g2-PCv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="W2Q-yk-66c">
+                            <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="searchButtonTapped:" destination="HPq-sL-IBl" id="6b4-XI-Tvh"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="user" id="Ok6-CO-tnD">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -496,13 +502,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
+                        <outlet property="profileButton" destination="Ok6-CO-tnD" id="OBu-v8-jnx"/>
                         <outlet property="questionButton" destination="OXD-2S-70o" id="2fj-3k-7xa"/>
+                        <outlet property="questionButtonItem" destination="Xxm-8P-5EL" id="JE9-YE-JnE"/>
+                        <outlet property="searchBarButton" destination="W2Q-yk-66c" id="xGY-Pe-ucM"/>
                         <segue destination="bwR-eE-23k" kind="show" identifier="showQuestions" id="Rgz-yT-dEn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xpj-f1-bNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="222" y="1450"/>
+            <point key="canvasLocation" x="153" y="1001"/>
         </scene>
         <!--Moccafe-->
         <scene sceneID="BqM-GV-33h">
@@ -548,7 +557,7 @@
         <!--Home-->
         <scene sceneID="raj-Ij-9oC">
             <objects>
-                <navigationController id="J0q-at-cra" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J0q-at-cra" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="mtabhome" id="f7b-L9-aY5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dm6-q2-anL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -570,29 +579,13 @@
         <scene sceneID="LYH-xd-ap5">
             <objects>
                 <viewController id="ymg-Wf-oh6" customClass="HomeViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YsS-f4-kp6"/>
-                        <viewControllerLayoutGuide type="bottom" id="wPT-6A-Ul5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9WR-lZ-pJM">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ret-1j-zR9">
-                                <rect key="frame" x="0.0" y="44" width="375" height="515"/>
-                            </scrollView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="Ret-1j-zR9" firstAttribute="top" secondItem="YsS-f4-kp6" secondAttribute="bottom" constant="44" id="AD7-hV-WRh"/>
-                            <constraint firstItem="Ret-1j-zR9" firstAttribute="leading" secondItem="9WR-lZ-pJM" secondAttribute="leading" id="HkE-NH-KYZ"/>
-                            <constraint firstItem="wPT-6A-Ul5" firstAttribute="top" secondItem="Ret-1j-zR9" secondAttribute="bottom" id="O32-09-uFr"/>
-                            <constraint firstAttribute="trailing" secondItem="Ret-1j-zR9" secondAttribute="trailing" id="yDe-nj-Afn"/>
-                        </constraints>
-                    </view>
                     <tabBarItem key="tabBarItem" title="Item" id="PEr-4J-8Mj"/>
                     <navigationItem key="navigationItem" title="Moccafe" id="Khm-zO-ESy">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="m5d-OH-7Ya">
                             <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="searchButtonTapped:" destination="ymg-Wf-oh6" id="va3-Hq-KAe"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="user" id="Sbz-Ew-sWd">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -603,7 +596,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="containerView" destination="Ret-1j-zR9" id="mvc-Fu-dHr"/>
+                        <outlet property="profileButton" destination="Sbz-Ew-sWd" id="GWo-ja-0k8"/>
+                        <outlet property="searchBarButton" destination="m5d-OH-7Ya" id="u5R-yd-w89"/>
                         <segue destination="fQu-Xx-WJd" kind="show" identifier="showDetail" id="Iix-kX-LXH"/>
                     </connections>
                 </viewController>
@@ -899,6 +893,12 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Moccafe" id="vpK-nL-gZL">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="GZm-cW-zqG">
+                            <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="searchButtonTapped:" destination="ZNE-w9-YfZ" id="sA0-cP-m4Q"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="user" id="dHJ-P6-eqr">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -937,7 +937,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
+                        <outlet property="profileButton" destination="dHJ-P6-eqr" id="Sv3-Mk-1cr"/>
                         <outlet property="questionButton" destination="9zj-kO-Gjm" id="Hm5-is-mQm"/>
+                        <outlet property="questionButtonItem" destination="5Sm-IQ-XdL" id="gfB-me-TiA"/>
+                        <outlet property="searchBarButton" destination="GZm-cW-zqG" id="Uho-CJ-tEJ"/>
                         <segue destination="fQu-Xx-WJd" kind="show" identifier="showDetail" id="RKq-Q9-Xwm"/>
                     </connections>
                 </tableViewController>
@@ -1336,7 +1339,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NW3-XN-pfb"/>
-        <segue reference="Rgz-yT-dEn"/>
         <segue reference="RKq-Q9-Xwm"/>
+        <segue reference="Rgz-yT-dEn"/>
     </inferredMetricsTieBreakers>
 </document>

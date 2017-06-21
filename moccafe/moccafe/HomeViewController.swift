@@ -10,12 +10,17 @@ import UIKit
 
 import XLPagerTabStrip
 
-class HomeViewController: ButtonBarPagerTabStripViewController, performNavigationDelegate {
+class HomeViewController: ButtonBarPagerTabStripViewController, performNavigationDelegate, UISearchBarDelegate {
     
     let graySpotifyColor = UIColor(red: 21/255.0, green: 21/255.0, blue: 24/255.0, alpha: 1.0)
     let darkGraySpotifyColor = UIColor(red: 19/255.0, green: 20/255.0, blue: 20/255.0, alpha: 1.0)
+    
+    @IBOutlet var searchBarButton: UIBarButtonItem!
+    @IBOutlet var profileButton: UIBarButtonItem!
+    
     var articleToSegue: Article?
-
+    var searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +32,6 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarItemTitleColor = .black
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
-        
         settings.style.buttonBarLeftContentInset = 20
         settings.style.buttonBarRightContentInset = 20
         
@@ -40,6 +44,33 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
             newCell?.label.textColor = .white
         }
         super.viewDidLoad()
+    }
+    
+    @IBAction func searchButtonTapped(_ sender: UIBarButtonItem) {
+        
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.rightBarButtonItem = nil
+        self.navigationItem.hidesBackButton = true
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        self.definesPresentationContext = false
+        self.navigationItem.titleView = searchController.searchBar
+        searchController.searchBar.delegate = self
+        searchController.searchBar.becomeFirstResponder()
+
+    }
+    
+    func startWithSearch() {
+        searchButtonTapped(searchBarButton)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.navigationItem.leftBarButtonItem = searchBarButton
+        self.navigationItem.rightBarButtonItem = profileButton
+        self.navigationItem.hidesBackButton = false
+        self.navigationItem.titleView = nil
     }
     
     // MARK: - PagerTabStripDataSource
@@ -62,17 +93,38 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
     }
     
     func loadDetail(article: Article) {
+        
+     //   self.searchBarCancelButtonClicked(searchController.searchBar)
         articleToSegue = article
         performSegue(withIdentifier: "showDetail", sender: self)
     }
     
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        
+        let vc = viewControllers[self.currentIndex] as? NewsTableViewController
+        vc?.filteredArticles = (vc?.articles.filter { article in
+            return (article.title?.lowercased().contains(searchText.lowercased()))!
+            })!
+        vc?.tableView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        self.searchController.searchBar.resignFirstResponder()
+
         if let nextvc = segue.destination as? DetailViewController {
             nextvc.article = articleToSegue
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func viewDidDisappear(_ animated: Bool) {
+        searchController.searchBar.isHidden = true
+    }
+}
+
+extension HomeViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
 }

@@ -27,6 +27,10 @@ protocol switchHomeOptionDelegate {
 }
 
 @objc protocol performNavigationDelegate {
+    var searchController: UISearchController {
+        get
+    }
+    @objc optional func startWithSearch()
     @objc optional func loadDetail(article: Article)
     @objc optional func loadQuestions()
     @objc optional func loadVideo()
