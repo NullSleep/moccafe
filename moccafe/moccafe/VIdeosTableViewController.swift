@@ -109,8 +109,6 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         loadVideo()
     }
 
- 
-
     
     func loadVideo() {
 

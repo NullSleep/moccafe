@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
         
         articleDate.text = article?.created
         
-        let imageStringURL = article?.picUrl ?? ""//"https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
+        let imageStringURL = article?.picUrl ?? ""
         if let imageURL = URL.init(string: imageStringURL) {
             let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in
             }
@@ -39,13 +39,12 @@ class DetailViewController: UIViewController {
     
     func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
-            // we got back an error!
-            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            let ac = UIAlertController(title: NSLocalizedString("Save error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default))
             present(ac, animated: true)
         } else {
-            let ac = UIAlertController(title: "Saved!", message: "The image has been saved to your photos.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            let ac = UIAlertController(title: NSLocalizedString("Saved!", comment: ""), message: NSLocalizedString("The image has been saved to your photos.", comment: ""), preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default))
             present(ac, animated: true)
         }
     }

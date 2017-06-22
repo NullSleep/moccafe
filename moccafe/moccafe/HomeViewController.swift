@@ -47,13 +47,13 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
-        let child_1 = NewsTableViewController(style: .plain, itemInfo: IndicatorInfo(title: "NEWS"))
+        let child_1 = NewsTableViewController(style: .plain, itemInfo: IndicatorInfo(title: NSLocalizedString("NEWS", comment: "")))
         child_1.blackTheme = true
         child_1.delegate = self
         child_1.url = "https://app.moccafeusa.com/api/v1/blogs/news_articles"
         child_1.filePath = "/Library/Caches/news.txt"
         
-        let child_2 = NewsTableViewController(style: .plain, itemInfo: IndicatorInfo(title: "BLOG"))
+        let child_2 = NewsTableViewController(style: .plain, itemInfo: IndicatorInfo(title: NSLocalizedString("BLOG", comment: "")))
         child_2.blackTheme = true
         child_2.delegate = self
         child_2.url = "https://app.moccafeusa.com/api/v1/blogs/articles"

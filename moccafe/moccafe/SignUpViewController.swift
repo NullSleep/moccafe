@@ -41,9 +41,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
             item?.delegate = self
         }
         let myAttribute = [ NSForegroundColorAttributeName: UIColor(red:0.94, green:0.94, blue:0.96, alpha:0.6) ]
-        nameTextField.attributedPlaceholder = NSAttributedString(string: "Insert name", attributes: myAttribute)
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "Insert email", attributes: myAttribute)
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Insert password", attributes: myAttribute)
+        nameTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Insert name", comment: ""), attributes: myAttribute)
+        emailTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Insert email", comment: ""), attributes: myAttribute)
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Insert password", comment: ""), attributes: myAttribute)
         passwordTextField.isSecureTextEntry = true
     }
     

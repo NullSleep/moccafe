@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class ProfileTableViewController: UITableViewController {
 
-    let profileOptions = ["Edit Profile", "Contact us", "Logout"]
+    let profileOptions = [NSLocalizedString("Edit Profile", comment: ""), NSLocalizedString("Contact us", comment: ""), NSLocalizedString("Logout", comment: "")]
     
     @IBOutlet var headerView: UIView!
     @IBOutlet var profileImage: UIImageView!
@@ -57,9 +57,9 @@ class ProfileTableViewController: UITableViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.tableView.tableFooterView = UIView()
         
-        nameLabel.text = (UserDefaults.standard.value(forKey: "userName") as? String) ?? "Name"
-        emailLabel.text = UserDefaults.standard.value(forKey: "userEmail") as? String ?? "Email"
-        cityLabel.text = UserDefaults.standard.value(forKey: "userCity") as? String ?? "City"
+        nameLabel.text = (UserDefaults.standard.value(forKey: "userName") as? String) ?? NSLocalizedString("Name", comment: "")
+        emailLabel.text = UserDefaults.standard.value(forKey: "userEmail") as? String ?? NSLocalizedString("Email", comment: "")
+        cityLabel.text = UserDefaults.standard.value(forKey: "userCity") as? String ?? NSLocalizedString("City", comment: "")
         
     }
 

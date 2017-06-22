@@ -6,4 +6,58 @@
   Copyright © 2017 moccafe. All rights reserved.
 */
 
-"Welcome" = "Welcome";
+"Insert email" = "Insert email";
+"Insert password" = "Insert password";
+"Insert name" = "Insert name";
+"Insert email" = "Insert email";
+"Insert password" = "Insert password";
+"NEWS" = "NEWS";
+"BLOG" = "BLOG";
+"Play Video" = "Play Video";
+
+
+"Edit Profile" = "Edit Profile";
+"Contact us" = "Contact us";
+"Logout" = "Logout";
+
+
+"Name" = "Name";
+"Email" = "Email";
+"City" = "City";
+"Done" = "Done";
+"NAME" = "NAME";
+"Insert Name" = "Insert Name";
+"LAST NAME" = "LAST NAME";
+"Insert Last Name" = "Insert Last Name";
+"ABOUT ME" = "ABOUT ME";
+"About me" = "About me";
+"EMAIL" = "EMAIL";
+"Insert Email" = "Insert Email";
+"CITY" = "CITY";
+"Insert City" = "Insert City";
+"MOBILE" = "MOBILE";
+"Insert Mobile" = "Insert Mobile";
+"ADDRESS" = "ADDRESS";
+"Insert Address" = "Insert Address";
+"PHONE" = "PHONE";
+"Insert Phone" = "Insert Phone";
+"SHIPPING ADDRESS" = "SHIPPING ADDRESS";
+"Insert Shipping Address" = "Insert Shipping Address";
+"Error" = "Error";
+"Could not retrieve profile data" = "Could not retrieve profile data";
+"OK" = "OK";
+"Choose the type of question" = "Choose the type of question";
+"Cancel" = "Cancel";
+"Type" = "Type";
+"Success" = "Success";
+"Thanks for contacting us, will reply to you shortly" = "Thanks for contacting us, will reply to you shortly";
+"Please check your Internet connection" = "Please check your Internet connection";
+"Required fields must be filled out before proceeding" = "Required fields must be filled out before proceeding";
+"Save error" = "Save error";
+"Saved!" = "Saved!";
+"The image has been saved to your photos." = "The image has been saved to your photos.";
+
+
+
+
+

@@ -22,7 +22,7 @@ class VideoTableViewCell: UITableViewCell {
     
     lazy var playButton: UIButton = {
         let button = UIButton(type: UIButtonType.system)
-        button.setTitle("Play Video", for: .normal)
+        button.setTitle(NSLocalizedString("Play Video", comment: ""), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(named: "play")
         button.setImage(image, for: .normal)

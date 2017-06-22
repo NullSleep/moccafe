@@ -77,7 +77,7 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func changeType() {
         
-        let alertView = UIAlertController(title: "Choose the type of question", message: nil, preferredStyle: .actionSheet)
+        let alertView = UIAlertController(title: NSLocalizedString("Choose the type of question", comment: ""), message: nil, preferredStyle: .actionSheet)
         
         for item in typeOptions {
             let action = UIAlertAction(title: "\(item.value)", style: .default) { Void in
@@ -85,7 +85,7 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
             }
             alertView.addAction(action)
         }
-        let action = UIAlertAction(title: "Cancel", style: .destructive) { Void in }
+        let action = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .destructive) { Void in }
         alertView.addAction(action)
         self.present(alertView, animated: true, completion: nil)
     }
@@ -100,9 +100,9 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
             textField?.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium)
         }
         
-        nameTextField?.leftView = createLeftLabel(name: "NAME")
-        emailTextField?.leftView = createLeftLabel(name: "EMAIL")
-        phoneTextField?.leftView = createLeftLabel(name: "PHONE")
+        nameTextField?.leftView = createLeftLabel(name: NSLocalizedString("NAME", comment: ""))
+        emailTextField?.leftView = createLeftLabel(name: NSLocalizedString("EMAIL", comment: ""))
+        phoneTextField?.leftView = createLeftLabel(name: NSLocalizedString("PHONE", comment: ""))
         
     }
     
@@ -134,7 +134,7 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
             params["phone"] = phoneTextField.text
             params["title"] = titleTextField.text
             params["content"] = commentsField.text
-            if questionTypeButton.titleLabel?.text != "Type" {
+            if questionTypeButton.titleLabel?.text != NSLocalizedString("Type", comment: "") {
                 let key = typeOptions.keysForValue(value:(questionTypeButton.titleLabel?.text)!)
                 params["question_type_id"] = key[0]
             }
@@ -143,7 +143,7 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
             apiHandler.postQuestion(json: json) {
             json, error in
                 if json != nil {
-                    let alertView = UIAlertController(title: "Success", message: "Thanks for contacting us, will reply to you shortly", preferredStyle: .alert)
+                    let alertView = UIAlertController(title: NSLocalizedString("Success", comment: ""), message: NSLocalizedString("Thanks for contacting us, will reply to you shortly", comment: ""), preferredStyle: .alert)
                     let action = UIAlertAction(title: "OK", style: .default) { Void in
                         self.navigationController?.popViewController(animated: true)
                     }
@@ -152,7 +152,7 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
                 else {
                     let alertView = UIAlertController(title: "Error", message: "Please check your Internet connection", preferredStyle: .alert)
-                    let action = UIAlertAction(title: "OK", style: .default) { Void in
+                    let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { Void in
                     }
                     alertView.addAction(action)
                     self.present(alertView, animated: true, completion: nil)
@@ -160,8 +160,8 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
                 
             }
         } else {
-            let alertView = UIAlertController(title: "Error", message: "Required fields must be filled out before proceeding", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default) { Void in }
+            let alertView = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Required fields must be filled out before proceeding", comment: ""), preferredStyle: .alert)
+            let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { Void in }
             alertView.addAction(action)
             self.present(alertView, animated: true, completion: nil)
         }

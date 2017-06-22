@@ -21,22 +21,22 @@ class EditProfileTableViewController: UITableViewController {
     
     let request = APICall()
 
-    var doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneEditing))
+    var doneButton = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: .done, target: self, action: #selector(doneEditing))
 
     var profileDataCopy: JSON = [:]
     
     var profileData: JSON = [:] {
         didSet {
             profileDataCopy = profileData
-            fields = [Field(title: "NAME", value: profileData["name"].string, placeHolder: "Insert Name"),
-                      Field(title: "LAST NAME", value: profileData["last_name"].string, placeHolder: "Insert Last Name"),
-                      Field(title: "ABOUT ME", value: profileData["info"].string, placeHolder: "About me"),
-                      Field(title: "EMAIL", value: profileData["email"].string, placeHolder: "Insert Email"),
-                      Field(title: "CITY", value: profileData["city"].string, placeHolder: "Insert City"),
-                      Field(title: "MOBILE", value: profileData["mobile"].string, placeHolder: "Insert Mobile"),
-                      Field(title: "ADDRESS", value: profileData["address"].string, placeHolder: "Insert Address"),
-                      Field(title: "PHONE", value: profileData["phone"].string, placeHolder: "Insert Phone"),
-                      Field(title: "SHIPPING ADDRESS", value: profileData["shipping"].string, placeHolder: "Insert Shipping Address")]
+            fields = [Field(title: NSLocalizedString("NAME", comment: ""), value: profileData["name"].string, placeHolder: NSLocalizedString("Insert Name", comment: "")),
+                      Field(title: NSLocalizedString("LAST NAME", comment: ""), value: profileData["last_name"].string, placeHolder: NSLocalizedString("Insert Last Name", comment: "")),
+                      Field(title: NSLocalizedString("ABOUT ME", comment: ""), value: profileData["info"].string, placeHolder: NSLocalizedString("About me", comment: "")),
+                      Field(title: NSLocalizedString("EMAIL", comment: ""), value: profileData["email"].string, placeHolder: NSLocalizedString("Insert Email", comment: "")),
+                      Field(title: NSLocalizedString("CITY", comment: ""), value: profileData["city"].string, placeHolder: NSLocalizedString("Insert City", comment: "")),
+                      Field(title: NSLocalizedString("MOBILE", comment: ""), value: profileData["mobile"].string, placeHolder: NSLocalizedString("Insert Mobile", comment: "")),
+                      Field(title: NSLocalizedString("ADDRESS", comment: ""), value: profileData["address"].string, placeHolder: NSLocalizedString("Insert Address", comment: "")),
+                      Field(title: NSLocalizedString("PHONE", comment: ""), value: profileData["phone"].string, placeHolder: NSLocalizedString("Insert Phone", comment: "")),
+                      Field(title: NSLocalizedString("SHIPPING ADDRESS", comment: ""), value: profileData["shipping"].string, placeHolder: NSLocalizedString("Insert Shipping Address", comment: ""))]
             self.tableView.reloadData()
         }
     }
@@ -49,8 +49,8 @@ class EditProfileTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if profileData.count == 0 {
-            let alert = UIAlertController(title: "Error", message: "Could not retrieve profile data", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default){ Void in self.navigationController?.popViewController(animated: true) }
+            let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Could not retrieve profile data", comment: ""), preferredStyle: .alert)
+            let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default){ Void in self.navigationController?.popViewController(animated: true) }
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
         }
