@@ -39,8 +39,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         for item in [emailTextField, passwordTextField] {
             item?.delegate = self
         }
+        let string = NSLocalizedString("Welcome", comment: "")
         let myAttribute = [ NSForegroundColorAttributeName: UIColor(red:0.94, green:0.94, blue:0.96, alpha:0.6) ]
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "Insert email", attributes: myAttribute)
+        emailTextField.attributedPlaceholder = NSAttributedString(string: string, attributes: myAttribute)
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Insert password", attributes: myAttribute)
         passwordTextField.isSecureTextEntry = true
     }

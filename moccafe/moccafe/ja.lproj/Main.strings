@@ -1,0 +1,174 @@
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, iriure prodesset ei has, an novum altera pertinax his. Cu his summo epicurei necessitatibus, ex oratio deserunt mea, salutandi tincidunt ei vix. Postea interesset instructior per ut, homero animal appetere no nec. An nibh propriae constituto pri.\n\nEst antiopam facilisis adolescens id. Pri graecis suscipiantur no, in usu altera virtute, eam ei enim wisi. Pro probo vidisse appetere te, odio mollis et mei. Epicurei laboramus mei ut, usu ea affert quaerendum. Delicata urbanitas has an, eum eu omnium dissentiunt.\n\nLaoreet veritus temporibus est ne, at vero eirmod aperiri per. Quis volutpat scripserit mel at, duo fugit vidisse admodum ne. Ei mea noster quaestio, duo ne dicat mundi tantas. Nisl assum bonorum te usu, doming corrumpit ei nam. Ne sed suscipit argumentum.\n\nPaulo everti suscipiantur in vel, cu mei iisque propriae corrumpit. Ex vix prompta forensibus, ea movet incorrupte elaboraret eos, etiam eripuit vix an. Quo te ignota phaedrum appellantur, in pri justo partiendo adolescens, mea agam democritum ex. Alii invidunt maluisset sit an. An nec labores perpetua. Ex ridens aperiam vix, vel ex alia nemore rationibus.\n\nEtiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea, eu est aeterno scribentur. Ne unum scripserit duo. Ad eos tincidunt contentiones, no zril urbanitas argumentum usu. Ferri oblique tacimates ne nec, vero mollis probatus vis ne. Vis at qualisque definitiones."; ObjectID = "0ZK-KO-LSc"; */
+"0ZK-KO-LSc.text" = "Lorem ipsum dolor sit amet, iriure prodesset ei has, an novum altera pertinax his. Cu his summo epicurei necessitatibus, ex oratio deserunt mea, salutandi tincidunt ei vix. Postea interesset instructior per ut, homero animal appetere no nec. An nibh propriae constituto pri.\n\nEst antiopam facilisis adolescens id. Pri graecis suscipiantur no, in usu altera virtute, eam ei enim wisi. Pro probo vidisse appetere te, odio mollis et mei. Epicurei laboramus mei ut, usu ea affert quaerendum. Delicata urbanitas has an, eum eu omnium dissentiunt.\n\nLaoreet veritus temporibus est ne, at vero eirmod aperiri per. Quis volutpat scripserit mel at, duo fugit vidisse admodum ne. Ei mea noster quaestio, duo ne dicat mundi tantas. Nisl assum bonorum te usu, doming corrumpit ei nam. Ne sed suscipit argumentum.\n\nPaulo everti suscipiantur in vel, cu mei iisque propriae corrumpit. Ex vix prompta forensibus, ea movet incorrupte elaboraret eos, etiam eripuit vix an. Quo te ignota phaedrum appellantur, in pri justo partiendo adolescens, mea agam democritum ex. Alii invidunt maluisset sit an. An nec labores perpetua. Ex ridens aperiam vix, vel ex alia nemore rationibus.\n\nEtiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea, eu est aeterno scribentur. Ne unum scripserit duo. Ad eos tincidunt contentiones, no zril urbanitas argumentum usu. Ferri oblique tacimates ne nec, vero mollis probatus vis ne. Vis at qualisque definitiones.";
+
+/* Class = "UILabel"; text = "NAME"; ObjectID = "2I6-tX-mN9"; */
+"2I6-tX-mN9.text" = "NAME";
+
+/* Class = "UITextField"; placeholder = "Insert email address"; ObjectID = "2gr-NS-Sme"; */
+"2gr-NS-Sme.placeholder" = "Insert email address";
+
+/* Class = "UILabel"; text = "COMMENTS"; ObjectID = "5x8-Bw-eNZ"; */
+"5x8-Bw-eNZ.text" = "COMMENTS";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "7D4-Sw-yKd"; */
+"7D4-Sw-yKd.text" = "Title";
+
+/* Class = "UITextField"; placeholder = "Insert password"; ObjectID = "8cx-Yl-vOO"; */
+"8cx-Yl-vOO.placeholder" = "Insert password";
+
+/* Class = "UIButton"; normalTitle = "?"; ObjectID = "9zj-kO-Gjm"; */
+"9zj-kO-Gjm.normalTitle" = "?";
+
+/* Class = "UILabel"; text = "TITLE"; ObjectID = "B0g-sE-bOr"; */
+"B0g-sE-bOr.text" = "TITLE";
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "Dw1-VP-Tru"; */
+"Dw1-VP-Tru.normalTitle" = "LOGIN";
+
+/* Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "Ea1-oM-wAK"; */
+"Ea1-oM-wAK.normalTitle" = "SHOW";
+
+/* Class = "UITextField"; placeholder = "Insert name"; ObjectID = "FAy-xp-EJ6"; */
+"FAy-xp-EJ6.placeholder" = "Insert name";
+
+/* Class = "UITextField"; placeholder = "Insert name"; ObjectID = "GCV-gD-1ti"; */
+"GCV-gD-1ti.placeholder" = "Insert name";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "HCT-zD-2Dv"; */
+"HCT-zD-2Dv.text" = "City";
+
+/* Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "I1R-eC-LWm"; */
+"I1R-eC-LWm.normalTitle" = "SHOW";
+
+/* Class = "UILabel"; text = "EMAIL"; ObjectID = "I2k-kZ-tJt"; */
+"I2k-kZ-tJt.text" = "EMAIL";
+
+/* Class = "UITextField"; placeholder = "Insert Email"; ObjectID = "JEv-sr-EN3"; */
+"JEv-sr-EN3.placeholder" = "Insert Email";
+
+/* Class = "UINavigationItem"; title = "Moccafe"; ObjectID = "Khm-zO-ESy"; */
+"Khm-zO-ESy.title" = "Moccafe";
+
+/* Class = "UILabel"; text = "May 29"; ObjectID = "LRC-MI-v0V"; */
+"LRC-MI-v0V.text" = "May 29";
+
+/* Class = "UILabel"; text = "News title Lorem ipsum dolor sit amet!!"; ObjectID = "M7Y-6u-pgU"; */
+"M7Y-6u-pgU.text" = "News title Lorem ipsum dolor sit amet!!";
+
+/* Class = "UILabel"; text = "May 29"; ObjectID = "Mle-f4-Imc"; */
+"Mle-f4-Imc.text" = "May 29";
+
+/* Class = "UILabel"; text = "Video title Lorem ipsum dolor sitam et!!, doming delenit perpetua"; ObjectID = "Mvg-vy-Wjt"; */
+"Mvg-vy-Wjt.text" = "Video title Lorem ipsum dolor sitam et!!, doming delenit perpetua";
+
+/* Class = "UIButton"; normalTitle = "?"; ObjectID = "OXD-2S-70o"; */
+"OXD-2S-70o.normalTitle" = "?";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "PEr-4J-8Mj"; */
+"PEr-4J-8Mj.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "MyTree"; ObjectID = "PMx-HJ-Fro"; */
+"PMx-HJ-Fro.title" = "MyTree";
+
+/* Class = "UITabBarItem"; title = "Shop"; ObjectID = "QBY-y5-thT"; */
+"QBY-y5-thT.title" = "Shop";
+
+/* Class = "UILabel"; text = "May 29"; ObjectID = "QLx-DK-P8a"; */
+"QLx-DK-P8a.text" = "May 29";
+
+/* Class = "UIButton"; normalTitle = "Forgot Password"; ObjectID = "RIa-Jk-OAp"; */
+"RIa-Jk-OAp.normalTitle" = "Forgot Password";
+
+/* Class = "UILabel"; text = "QUESTION TYPE"; ObjectID = "Ryt-6N-E7h"; */
+"Ryt-6N-E7h.text" = "QUESTION TYPE";
+
+/* Class = "UILabel"; text = "Moccafe"; ObjectID = "TVz-uC-wGw"; */
+"TVz-uC-wGw.text" = "Moccafe";
+
+/* Class = "UITableViewController"; title = "Profile"; ObjectID = "UOh-eY-9ai"; */
+"UOh-eY-9ai.title" = "Profile";
+
+/* Class = "UITextField"; placeholder = "Insert password"; ObjectID = "Zvd-5d-GEk"; */
+"Zvd-5d-GEk.placeholder" = "Insert password";
+
+/* Class = "UILabel"; text = "EMAIL"; ObjectID = "bV6-xc-8yX"; */
+"bV6-xc-8yX.text" = "EMAIL";
+
+/* Class = "UIViewController"; title = "Contact Us"; ObjectID = "bwR-eE-23k"; */
+"bwR-eE-23k.title" = "Contact Us";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "eFN-ZX-gn4"; */
+"eFN-ZX-gn4.text" = "Name";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "f7b-L9-aY5"; */
+"f7b-L9-aY5.title" = "Home";
+
+/* Class = "UINavigationItem"; title = "Moccafe"; ObjectID = "fAi-Wj-RpL"; */
+"fAi-Wj-RpL.title" = "Moccafe";
+
+/* Class = "UILabel"; text = "Moccafe"; ObjectID = "fTF-Pg-MuF"; */
+"fTF-Pg-MuF.text" = "Moccafe";
+
+/* Class = "UIButton"; normalTitle = "Return to create an Account"; ObjectID = "gHI-hr-8nx"; */
+"gHI-hr-8nx.normalTitle" = "Return to create an Account";
+
+/* Class = "UIButton"; normalTitle = "I have an Account"; ObjectID = "hae-9r-j8d"; */
+"hae-9r-j8d.normalTitle" = "I have an Account";
+
+/* Class = "UITableViewController"; title = "Edit Profile"; ObjectID = "i8e-yw-T7H"; */
+"i8e-yw-T7H.title" = "Edit Profile";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices tellus tellus, vel suscipit dui consequat ultrices. Etiam volutpat."; ObjectID = "iEl-Pe-Kgp"; */
+"iEl-Pe-Kgp.text" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices tellus tellus, vel suscipit dui consequat ultrices. Etiam volutpat.";
+
+/* Class = "UITextField"; placeholder = "Insert Email"; ObjectID = "jBC-yU-5wX"; */
+"jBC-yU-5wX.placeholder" = "Insert Email";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, doming delenit perpetua ius in, suscipit constituto eam te. "; ObjectID = "jS0-Fy-xV0"; */
+"jS0-Fy-xV0.text" = "Lorem ipsum dolor sit amet, doming delenit perpetua ius in, suscipit constituto eam te. ";
+
+/* Class = "UITextField"; placeholder = "Insert phone number"; ObjectID = "k91-WO-HzT"; */
+"k91-WO-HzT.placeholder" = "Insert phone number";
+
+/* Class = "UILabel"; text = "email"; ObjectID = "lJX-iC-Feu"; */
+"lJX-iC-Feu.text" = "email";
+
+/* Class = "UINavigationItem"; title = "Moccafe"; ObjectID = "m2W-g2-PCv"; */
+"m2W-g2-PCv.title" = "Moccafe";
+
+/* Class = "UIButton"; normalTitle = "SIGN UP"; ObjectID = "mya-o7-58k"; */
+"mya-o7-58k.normalTitle" = "SIGN UP";
+
+/* Class = "UITextField"; placeholder = "Insert Email"; ObjectID = "pS7-63-qCW"; */
+"pS7-63-qCW.placeholder" = "Insert Email";
+
+/* Class = "UILabel"; text = "Read more..."; ObjectID = "qDf-st-rg3"; */
+"qDf-st-rg3.text" = "Read more...";
+
+/* Class = "UITabBarItem"; title = "Videos"; ObjectID = "reg-PB-K53"; */
+"reg-PB-K53.title" = "Videos";
+
+/* Class = "UILabel"; text = "PASSWORD"; ObjectID = "s8d-tg-M7p"; */
+"s8d-tg-M7p.text" = "PASSWORD";
+
+/* Class = "UILabel"; text = "PASSWORD"; ObjectID = "tkT-Ys-NOD"; */
+"tkT-Ys-NOD.text" = "PASSWORD";
+
+/* Class = "UILabel"; text = "Paris climate deal: Trump pulls US out of 2015 accord"; ObjectID = "uZX-lD-mKZ"; */
+"uZX-lD-mKZ.text" = "Paris climate deal: Trump pulls US out of 2015 accord";
+
+/* Class = "UILabel"; text = "EMAIL"; ObjectID = "vL2-oD-5dq"; */
+"vL2-oD-5dq.text" = "EMAIL";
+
+/* Class = "UINavigationItem"; title = "Moccafe"; ObjectID = "vpK-nL-gZL"; */
+"vpK-nL-gZL.title" = "Moccafe";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "xIQ-fT-JNL"; */
+"xIQ-fT-JNL.normalTitle" = "SUBMIT";
+
+/* Class = "UITextField"; placeholder = "Insert Title"; ObjectID = "xRO-cl-yop"; */
+"xRO-cl-yop.placeholder" = "Insert Title";
+
+/* Class = "UIButton"; normalTitle = "Type"; ObjectID = "yrd-50-9sv"; */
+"yrd-50-9sv.normalTitle" = "Type";

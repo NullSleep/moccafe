@@ -16,7 +16,6 @@
 		233894A11ED3466A00E6F78E /* moccafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233894A01ED3466A00E6F78E /* moccafeTests.swift */; };
 		233894AC1ED3466A00E6F78E /* moccafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233894AB1ED3466A00E6F78E /* moccafeUITests.swift */; };
 		23A7C46D1EE39BBD0001461D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7C46B1EE39BBD0001461D /* PostCell.swift */; };
-		23A7C46E1EE39BBD0001461D /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A7C46C1EE39BBD0001461D /* PostCell.xib */; };
 		23A7C4701EE39BCB0001461D /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7C46F1EE39BCB0001461D /* NewsTableViewController.swift */; };
 		5A873593138284BAFA87E96E /* Pods_moccafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7354DCB6391C960C377B8B8 /* Pods_moccafe.framework */; };
 		B1094CBE64419F2785ED659E /* Pods_moccafeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B202489F2BC9D35979ED1BD /* Pods_moccafeTests.framework */; };
@@ -37,6 +36,8 @@
 		CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCB5B61ED36A900095E21D /* ShopViewController.swift */; };
 		CDE674A81EDE286000583904 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE674A71EDE286000583904 /* extensions.swift */; };
 		CDF65DB91EF64BCF00967136 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF65DB81EF64BCF00967136 /* SDWebImage.framework */; };
+		CDF65DDC1EFB33B300967136 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDF65DDA1EFB33B300967136 /* Localizable.strings */; };
+		CDF65DDE1EFB38D200967136 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF65DE01EFB38D200967136 /* PostCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +76,6 @@
 		233894AB1ED3466A00E6F78E /* moccafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moccafeUITests.swift; sourceTree = "<group>"; };
 		233894AD1ED3466A00E6F78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23A7C46B1EE39BBD0001461D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		23A7C46C1EE39BBD0001461D /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		23A7C46F1EE39BCB0001461D /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		4B202489F2BC9D35979ED1BD /* Pods_moccafeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		966F2883541951C2F718841C /* Pods-moccafeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeTests/Pods-moccafeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +96,12 @@
 		CDCCB5B61ED36A900095E21D /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		CDE674A71EDE286000583904 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		CDF65DB81EF64BCF00967136 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		CDF65DD81EFB2BD100967136 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		CDF65DD91EFB2BD200967136 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CDF65DDB1EFB33B300967136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = moccafe/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CDF65DDD1EFB38C300967136 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = moccafe/ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CDF65DDF1EFB38D200967136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PostCell.xib; sourceTree = "<group>"; };
+		CDF65DE21EFB38D500967136 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PostCell.strings; sourceTree = "<group>"; };
 		D1E6193415F829071E55A709 /* Pods-moccafeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeUITests/Pods-moccafeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E7354DCB6391C960C377B8B8 /* Pods_moccafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F28F341141675C0C0364FB99 /* Pods-moccafeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeTests/Pods-moccafeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 				2338948F1ED3466A00E6F78E /* Main.storyboard */,
 				233894941ED3466A00E6F78E /* LaunchScreen.storyboard */,
 				233894971ED3466A00E6F78E /* Info.plist */,
+				CDF65DDA1EFB33B300967136 /* Localizable.strings */,
 				CD1388D21EE9BECC00CBE40E /* Login and Register */,
 				CD1388D01EE9BE3300CBE40E /* Home Tab */,
 				CD3D5BB81EF1C2F90022298D /* My Tree */,
@@ -210,7 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				23A7C46B1EE39BBD0001461D /* PostCell.swift */,
-				23A7C46C1EE39BBD0001461D /* PostCell.xib */,
+				CDF65DE01EFB38D200967136 /* PostCell.xib */,
 			);
 			path = NewsCell;
 			sourceTree = "<group>";
@@ -375,6 +382,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 2338947D1ED3466900E6F78E;
 			productRefGroup = 233894871ED3466900E6F78E /* Products */;
@@ -393,10 +401,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF65DDC1EFB33B300967136 /* Localizable.strings in Resources */,
 				233894961ED3466A00E6F78E /* LaunchScreen.storyboard in Resources */,
 				233894931ED3466A00E6F78E /* Assets.xcassets in Resources */,
 				233894911ED3466A00E6F78E /* Main.storyboard in Resources */,
-				23A7C46E1EE39BBD0001461D /* PostCell.xib in Resources */,
+				CDF65DDE1EFB38D200967136 /* PostCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +639,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				233894901ED3466A00E6F78E /* Base */,
+				CDF65DD81EFB2BD100967136 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -638,8 +648,28 @@
 			isa = PBXVariantGroup;
 			children = (
 				233894951ED3466A00E6F78E /* Base */,
+				CDF65DD91EFB2BD200967136 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CDF65DDA1EFB33B300967136 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDF65DDB1EFB33B300967136 /* Base */,
+				CDF65DDD1EFB38C300967136 /* ja */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CDF65DE01EFB38D200967136 /* PostCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDF65DDF1EFB38D200967136 /* Base */,
+				CDF65DE21EFB38D500967136 /* ja */,
+			);
+			name = PostCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -649,6 +679,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -700,6 +731,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
