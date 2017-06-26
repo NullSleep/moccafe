@@ -168,7 +168,12 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            articleToSegue = filteredArticles[indexPath.row]
+        } else {
         articleToSegue = articles[indexPath.row]
+        }
         performSegue(withIdentifier: "showDetail", sender: self)
     }
     

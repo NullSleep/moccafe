@@ -30,10 +30,14 @@ protocol switchHomeOptionDelegate {
     var searchController: UISearchController {
         get
     }
+    @objc optional var searchText: String? { get }
+    
     @objc optional func startWithSearch()
     @objc optional func loadDetail(article: Article)
     @objc optional func loadQuestions()
     @objc optional func loadVideo()
+    @objc optional func cancelSearch()
+    @objc optional func updateSearch()
 
 
 }
