@@ -461,7 +461,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="W2Q-yk-66c">
                             <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="searchButtonTapped:" destination="HPq-sL-IBl" id="6b4-XI-Tvh"/>
+                                <action selector="searchButtonTapped:" destination="HPq-sL-IBl" id="bFk-Lm-jcK"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
@@ -502,9 +502,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
-                        <outlet property="profileButton" destination="Ok6-CO-tnD" id="OBu-v8-jnx"/>
+                        <outlet property="profileButton" destination="Ok6-CO-tnD" id="lFg-1c-KJo"/>
                         <outlet property="questionButton" destination="OXD-2S-70o" id="2fj-3k-7xa"/>
-                        <outlet property="questionButtonItem" destination="Xxm-8P-5EL" id="JE9-YE-JnE"/>
+                        <outlet property="questionButtonItem" destination="Xxm-8P-5EL" id="965-Ao-6Pb"/>
                         <outlet property="searchBarButton" destination="W2Q-yk-66c" id="xGY-Pe-ucM"/>
                         <segue destination="bwR-eE-23k" kind="show" identifier="showQuestions" id="Rgz-yT-dEn"/>
                     </connections>

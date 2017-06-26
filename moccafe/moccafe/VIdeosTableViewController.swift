@@ -15,10 +15,18 @@ import SDWebImage
 
 
 
-class VideosTableViewController: UITableViewController, performNavigationDelegate {
+class VideosTableViewController: UITableViewController, performNavigationDelegate, UISearchBarDelegate {
     
+    var searchController = UISearchController(searchResultsController: nil)
 
+    
+    @IBOutlet var searchBarButton: UIBarButtonItem!
+    @IBOutlet var profileButton: UIBarButtonItem!
+    @IBOutlet var questionButtonItem: UIBarButtonItem!
     @IBOutlet var questionButton: UIButton!
+    
+    var filteredArticles = [Article]()
+
     
     let apiHandler = APICall()
     
@@ -45,6 +53,8 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         self.navigationController?.navigationBar.tintColor = UIColor.white
         questionButton.layer.borderColor = UIColor.white.cgColor
         questionButton.layer.cornerRadius = 12.5
         questionButton.layer.borderWidth = 1
@@ -76,6 +86,9 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredArticles.count
+        }
         return articles.count
     }
 
@@ -83,16 +96,24 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "videoCell", for: indexPath) as? VideoTableViewCell
         cell?.delegate = self
+        
+        let article: Article
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            article = filteredArticles[indexPath.row]
+        } else {
+            article = articles[indexPath.row]
+        }
 
         let cellData: NSDictionary = [
-            "date": articles[indexPath.row].created ?? "",
-            "title": articles[indexPath.row].title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
-            "subtitle": articles[indexPath.row].content ?? ""
+            "date": article.created ?? "",
+            "title": article.title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
+            "subtitle": article.content ?? ""
             //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
         ]
         
         let imageStringURL = "https://s-media-cache-ak0.pinimg.com/originals/33/1a/fe/331afef4a5fac893e41c4b6ca1fe8ab4.gif"
-        articles[indexPath.row].picUrl = imageStringURL
+        article.picUrl = imageStringURL
         
         if let imageURL = URL.init(string: imageStringURL) {
             let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in
@@ -119,6 +140,36 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         self.present(playerViewController, animated: true) {
             playerViewController.player!.play()
         }
+    }
+    
+    // MARK: - Navigation Bar Actions
+    
+    @IBAction func searchButtonTapped(_ sender: UIBarButtonItem) {
+        
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.rightBarButtonItems = nil
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        self.definesPresentationContext = true
+        self.navigationItem.titleView = searchController.searchBar
+        searchController.searchBar.delegate = self
+        searchController.searchBar.becomeFirstResponder()
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredArticles = articles.filter { article in
+            return (article.title?.lowercased().contains(searchText.lowercased()))!
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.navigationItem.leftBarButtonItem = searchBarButton
+        self.navigationItem.rightBarButtonItems = [questionButtonItem, profileButton]
+        self.navigationItem.hidesBackButton = false
+        self.navigationItem.titleView = nil
     }
     
     func loadQuestions() {
@@ -228,3 +279,10 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
     }
     
 }
+
+extension VideosTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+}
+
