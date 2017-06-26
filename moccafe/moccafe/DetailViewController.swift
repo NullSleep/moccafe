@@ -12,6 +12,7 @@ import SDWebImage
 class DetailViewController: UIViewController {
     
     var article: Article?
+    var searchText: String?
 
     @IBOutlet var articleDate: UILabel!
     @IBOutlet var articleImage: UIImageView!
@@ -21,7 +22,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        
+
         articleDate.text = article?.created
         
         let imageStringURL = article?.picUrl ?? ""
@@ -49,8 +50,15 @@ class DetailViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextvc = segue.destination as? HomeViewController {
+            nextvc.searchText = self.searchText
+        }
     }
-
+    
+    override func didMove(toParentViewController parent: UIViewController?) {
+        if let nextvc = parent as? HomeViewController {
+            nextvc.searchText = self.searchText
+        }
+    }
 }

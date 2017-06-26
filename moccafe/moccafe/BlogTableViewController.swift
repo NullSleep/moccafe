@@ -1,8 +1,8 @@
 //
-//  NewsTableViewController.swift
+//  BlogTableViewController.swift
 //  moccafe
 //
-//  Created by Carlos Arenas on 6/3/17.
+//  Created by Valentina Henao on 6/22/17.
 //  Copyright © 2017 moccafe. All rights reserved.
 //
 
@@ -12,13 +12,8 @@ import SwiftyJSON
 import SDWebImage
 
 
-class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
+class BlogTableViewController: UITableViewController, IndicatorInfoProvider {
     
-    var searchText: String? {
-        didSet {
-        
-        }
-    }
     let apiHandler = APICall()
     var atPage: Int?
     var delegate: performNavigationDelegate?
@@ -26,9 +21,12 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     var filteredArticles = [Article]()
     
     var articles = [Article]() {
+        
         didSet { self.tableView.reloadData() }
     }
     
+    var activeSearch = false
+
     var retrievedArticles = [Article]() {
         
         didSet {
@@ -74,60 +72,49 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         }()
         self.refreshControl!.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         tableView.addSubview(self.refreshControl!)
-
+        
+        print("didloadnews")
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(false)
+        super.viewWillAppear(animated)
         
-
+//        if activeSearch {
+//            delegate?.startWithSearch!()
+//        }
+        
+        print("willappearnews")
         retrievedArticles.removeAll()
         retrieveArticle(page: 1)
         self.tabBarController?.tabBar.isHidden = false
-        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(false)
-        
-        if (delegate?.searchController.searchBar.text != "") {
-            if tableView.numberOfRows(inSection: 0) != filteredArticles.count {
-                
-                DispatchQueue.main.async {
-                    self.delegate?.searchController.searchBar.becomeFirstResponder()
-                }
-            }
-        }
-    }
-    
-
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if delegate?.searchController.searchBar.text != "" {
+        if (delegate?.searchController.isActive)! && delegate?.searchController.searchBar.text != "" {
             return filteredArticles.count
         }
         return articles.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostCell else { return PostCell() }
-
+        
         let article: Article
         
-        if delegate?.searchController.searchBar.text != "" && !filteredArticles.isEmpty {
+        if (delegate?.searchController.isActive)! && delegate?.searchController.searchBar.text != "" {
             article = filteredArticles[indexPath.row]
         } else {
             article = articles[indexPath.row]
         }
-
+        
         let cellData: NSDictionary = [
             "date": article.created ?? "",
             "title": article.title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
@@ -158,15 +145,12 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
         if indexPath.row == self.articles.count-1 {
             if atPage != nil {
-            retrieveArticle(page: atPage!+1)
+                retrieveArticle(page: atPage!+1)
             }
         }
-        
     }
-    
     
     // MARK: - Retrieve API Data and Populate Content
     
@@ -174,14 +158,13 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         
         var json: JSON = [:]
         json["blog"] = ["pagina": page]
-
+        
         self.apiHandler.retrieveArticles(url: self.url, json: json) {
             response, error in
-                            
+            
             var jsonValue: JSON = [:] {
                 didSet {
                     self.createArray(json: jsonValue, page: page)
-
                 }
             }
             if response != nil {
@@ -221,7 +204,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
                 self.retrievedArticles.append(article)
             }
         }
-        
     }
     
     // MARK: - Manage Cache
@@ -245,6 +227,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         catch { return nil }
     }
     
+    
     // MARK: - IndicatorInfoProvider
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
@@ -257,6 +240,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         self.refreshControl!.endRefreshing()
     }
     
-
-
+    
+    
 }
