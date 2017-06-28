@@ -15,7 +15,7 @@ struct Field {
     var placeHolder: String?
 }
 
-class EditProfileTableViewController: UITableViewController {
+class EditProfileTableViewController: UITableViewController, ProfileActionsDelegate {
     
     var fields = [Field]()
     
@@ -74,6 +74,8 @@ class EditProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as? EditProfileTableViewCell
 
+        cell?.delegate = self
+        cell?.index = indexPath.row
         cell?.fieldTitle.text = fields[indexPath.row].title
         cell?.fieldTextField.text = fields[indexPath.row].value
         cell?.fieldTextField.placeholder = fields[indexPath.row].placeHolder
@@ -87,30 +89,39 @@ class EditProfileTableViewController: UITableViewController {
 
     func doneEditing() {
         
-        profileDataCopy["name"].string = getCellValue(index: 0)
-        profileDataCopy["last_name"].string = getCellValue(index: 1)
-        profileDataCopy["info"].string = getCellValue(index: 2)
-        profileDataCopy["email"].string = getCellValue(index: 3)
-        profileDataCopy["city"].string = getCellValue(index: 4)
-        profileDataCopy["mobile"].string = getCellValue(index: 5)
-        profileDataCopy["address"].string = getCellValue(index: 6)
-        profileDataCopy["phone"].string = getCellValue(index: 7)
-        profileDataCopy["shipping"].string = getCellValue(index: 8)
+        for cell in tableView.visibleCells as! [EditProfileTableViewCell] {
+            cell.textFieldDidEndEditing(cell.fieldTextField)
+        }
+        profileDataCopy["name"].string = fields[0].value
+        profileDataCopy["last_name"].string = fields[1].value
+        profileDataCopy["info"].string = fields[2].value
+        profileDataCopy["email"].string = fields[3].value
+        profileDataCopy["city"].string = fields[4].value
+        profileDataCopy["mobile"].string = fields[5].value
+        profileDataCopy["address"].string = fields[6].value
+        profileDataCopy["phone"].string = fields[7].value
+        profileDataCopy["shipping"].string = fields[8].value
         
         request.postProfile(json: profileDataCopy) {
             json, error in
-            print("profile response \(self.profileData)")
+            if json != nil {
+                print("profile response \(self.profileDataCopy)")
+
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
         }
-        self.navigationController?.popViewController(animated: true)
     }
     
-    func getCellValue(index: Int) -> String {
-        
-        if let cell = tableView.cellForRow(at: IndexPath.init(row: index, section: 0)) as? EditProfileTableViewCell {
-            return cell.fieldTextField.text ?? ""
-        }
-        return ""
-        
+    func modifyFields(index: Int, value: String) {
+        fields[index].value = value
     }
+    
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        modifyFields(index: indexPath.row, value: (cell as! EditProfileTableViewCell).fieldTextField.text ?? "")
+    }
+    
 
 }

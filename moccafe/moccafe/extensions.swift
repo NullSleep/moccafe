@@ -26,6 +26,11 @@ protocol switchHomeOptionDelegate {
     func loadNews()
 }
 
+
+protocol ProfileActionsDelegate {
+    func modifyFields(index: Int, value: String)
+}
+
 @objc protocol performNavigationDelegate {
     var searchController: UISearchController {
         get
@@ -50,3 +55,6 @@ extension Dictionary where Value: Equatable {
         }
     }
 }
+
+
+

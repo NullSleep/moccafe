@@ -559,7 +559,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" providesPresentationContextTransitionStyle="YES" id="J0q-at-cra" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="mtabhome" id="f7b-L9-aY5"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dm6-q2-anL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="dm6-q2-anL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35908139449999998" green="0.57380741830000004" blue="0.019206970319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -793,7 +793,7 @@
                     <tabBarItem key="tabBarItem" title="MyTree" image="mtabbean" id="PMx-HJ-Fro"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="668"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ncR-kS-lFd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ncR-kS-lFd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.35908139449999998" green="0.57380741830000004" blue="0.019206970319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1278,7 +1278,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLs-7O-f2e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Videos" image="mtabevideo" id="reg-PB-K53"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pG6-vs-6I4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="pG6-vs-6I4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.36078431372549019" green="0.5725490196078431" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1303,7 +1303,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Eer-et-UlK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Eer-et-UlK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
