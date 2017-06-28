@@ -170,5 +170,5 @@
 /* Class = "UITextField"; placeholder = "Insert Title"; ObjectID = "xRO-cl-yop"; */
 "xRO-cl-yop.placeholder" = "Insert Title";
 
-/* Class = "UIButton"; normalTitle = "Type"; ObjectID = "yrd-50-9sv"; */
-"yrd-50-9sv.normalTitle" = "Type";
+/* Class = "UIButton"; normalTitle = "Choose Type"; ObjectID = "yrd-50-9sv"; */
+"yrd-50-9sv.normalTitle" = "Choose Type";

@@ -134,7 +134,7 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
             params["phone"] = phoneTextField.text
             params["title"] = titleTextField.text
             params["content"] = commentsField.text
-            if questionTypeButton.titleLabel?.text != NSLocalizedString("Type", comment: "") {
+            if questionTypeButton.titleLabel?.text != NSLocalizedString("Choose Type", comment: "") {
                 let key = typeOptions.keysForValue(value:(questionTypeButton.titleLabel?.text)!)
                 params["question_type_id"] = key[0]
             }
