@@ -176,7 +176,6 @@
 		233894881ED3466900E6F78E /* moccafe */ = {
 			isa = PBXGroup;
 			children = (
-				233894891ED3466900E6F78E /* AppDelegate.swift */,
 				233894921ED3466A00E6F78E /* Assets.xcassets */,
 				2338948F1ED3466A00E6F78E /* Main.storyboard */,
 				233894941ED3466A00E6F78E /* LaunchScreen.storyboard */,
@@ -184,9 +183,10 @@
 				CDF65DDA1EFB33B300967136 /* Localizable.strings */,
 				CD1388D21EE9BECC00CBE40E /* Login and Register */,
 				CD1388D01EE9BE3300CBE40E /* Home Tab */,
-				CD3D5BB81EF1C2F90022298D /* My Tree */,
+				CD3D5BB81EF1C2F90022298D /* My Tree Tab */,
 				CD1388D31EE9BFED00CBE40E /* Videos Tab */,
-				CD1388D11EE9BE8E00CBE40E /* User Profile */,
+				CD1388D11EE9BE8E00CBE40E /* User Profile Tab */,
+				233894891ED3466900E6F78E /* AppDelegate.swift */,
 				CDCCB5B61ED36A900095E21D /* ShopViewController.swift */,
 				CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */,
 				CD97D3E21ED4A83C00E29753 /* APICall.swift */,
@@ -248,14 +248,14 @@
 			name = "Home Tab";
 			sourceTree = "<group>";
 		};
-		CD1388D11EE9BE8E00CBE40E /* User Profile */ = {
+		CD1388D11EE9BE8E00CBE40E /* User Profile Tab */ = {
 			isa = PBXGroup;
 			children = (
 				CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */,
 				CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */,
 				CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */,
 			);
-			name = "User Profile";
+			name = "User Profile Tab";
 			sourceTree = "<group>";
 		};
 		CD1388D21EE9BECC00CBE40E /* Login and Register */ = {
@@ -276,13 +276,13 @@
 			name = "Videos Tab";
 			sourceTree = "<group>";
 		};
-		CD3D5BB81EF1C2F90022298D /* My Tree */ = {
+		CD3D5BB81EF1C2F90022298D /* My Tree Tab */ = {
 			isa = PBXGroup;
 			children = (
 				2338948D1ED3466A00E6F78E /* MyTreeViewController.swift */,
 				CD3D5BB61EF1C1590022298D /* MyTreeTableViewCell.swift */,
 			);
-			name = "My Tree";
+			name = "My Tree Tab";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,8 +363,8 @@
 				TargetAttributes = {
 					233894851ED3466900E6F78E = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = CN4W3YSZKE;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 4U2S8Z38EC;
+						ProvisioningStyle = Manual;
 					};
 					2338949B1ED3466A00E6F78E = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -783,8 +783,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = CN4W3YSZKE;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 4U2S8Z38EC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
@@ -793,8 +793,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "11cba6d7-5cdd-40de-af05-cb1090d0f8e3";
+				PROVISIONING_PROFILE_SPECIFIER = "Moccafe Ad Hoc";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -806,8 +806,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = CN4W3YSZKE;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 4U2S8Z38EC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
@@ -816,8 +816,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = moccafe.moccafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "11cba6d7-5cdd-40de-af05-cb1090d0f8e3";
+				PROVISIONING_PROFILE_SPECIFIER = "Moccafe Ad Hoc";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

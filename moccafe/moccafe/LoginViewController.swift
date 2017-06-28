@@ -29,6 +29,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +46,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         passwordTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Insert password", comment: ""), attributes: myAttribute)
         passwordTextField.isSecureTextEntry = true
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.registerForKeyboardNotifications()
+    }
 
     override func viewDidLayoutSubviews() {
         
@@ -56,12 +64,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     }
     
     func dismissKeyboard() {
-            view.endEditing(true)
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    // MARK: - Actions
     
     @IBAction func showPassword(_ sender: UIButton) {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
@@ -81,6 +91,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         }
     }
     
+    // MARK: - Private Methods
+    
+    func registerForKeyboardNotifications() -> Void {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
     
     /*
     // MARK: - Navigation
@@ -91,5 +108,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         // Pass the selected object to the new view controller.
     }
     */
-
 }
