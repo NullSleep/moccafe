@@ -9,9 +9,14 @@
 import UIKit
 import Fabric
 import Crashlytics
+import UserNotifications
+import Firebase
+import FirebaseInstanceID
+import FirebaseMessaging
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -23,7 +28,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UIApplication.shared.statusBarStyle = .lightContent
         
+        
+        application.registerForRemoteNotifications()
+        FirebaseApp.configure()
+
         Fabric.with([Crashlytics.self])
+        
+        if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
+            let aps = notification["aps"] as! [String: AnyObject]
+            if let category = (aps["category"] as? String) {
+            var index = Int()
+            switch category {
+                case "News": index = 0
+                case "Blog": index = 0
+                NotificationCenter.default.post(name: Notification.Name(rawValue: HomeViewController.ReceivedBlogNotification), object: self)
+                case "Tree": index = 1
+                case "Video": index = 2
+            default: break
+            }
+                (window?.rootViewController as? UITabBarController)?.selectedIndex = index
+            }
+        }
         
         return true
     }
@@ -49,7 +74,70 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func registerForPushNotifications() {
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+                (granted, error) in
+                print("Permission granted: \(granted)")
+                
+                guard granted else { return }
+                self.getNotificationSettings()
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    func getNotificationSettings() {
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+                print("Notification settings: \(settings)")
+                guard settings.authorizationStatus == .authorized else { return }
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+    
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data -> String in
+            return String(format: "%02.2hhx", data)
+        }
+        
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        let aps = userInfo["aps"] as! [String: AnyObject]
+        if let category = (aps["category"] as? String) {
+            var index = Int()
+            switch category {
+            case "News": index = 0
+                NotificationCenter.default.post(name: Notification.Name(rawValue: HomeViewController.ReceivedNewsNotification), object: self)
+            case "Blog": index = 0
+                NotificationCenter.default.post(name: Notification.Name(rawValue: HomeViewController.ReceivedBlogNotification), object: self)
+            case "Tree": index = 1
+            case "Video": index = 2
+            default: break
+            }
+            (window?.rootViewController as? UITabBarController)?.selectedIndex = index
+        }
+    }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+        
+    
+    func application(received remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
+    }
 }
 

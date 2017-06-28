@@ -12,6 +12,9 @@ import XLPagerTabStrip
 
 class HomeViewController: ButtonBarPagerTabStripViewController, performNavigationDelegate, UISearchBarDelegate {
     
+    static let ReceivedBlogNotification = "ReceivedBlogNotification"
+    static let ReceivedNewsNotification = "ReceivedNewsNotification"
+    
     let graySpotifyColor = UIColor(red: 21/255.0, green: 21/255.0, blue: 24/255.0, alpha: 1.0)
     let darkGraySpotifyColor = UIColor(red: 19/255.0, green: 20/255.0, blue: 20/255.0, alpha: 1.0)
     
@@ -25,6 +28,10 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.receivedBlog(_:)), name: NSNotification.Name(rawValue: HomeViewController.ReceivedBlogNotification), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.receivedNews(_:)), name: NSNotification.Name(rawValue: HomeViewController.ReceivedNewsNotification), object: nil)
         
         buttonBarView.frame.size.height = 50
 
@@ -52,6 +59,23 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
         }
         super.viewDidLoad()
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func receivedBlog(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.moveToViewController(at: 1)
+        }
+    }
+    
+    func receivedNews(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.moveToViewController(at: 0)
+        }
+    }
+
     
     @IBAction func searchButtonTapped(_ sender: UIBarButtonItem) {
         

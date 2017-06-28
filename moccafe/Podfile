@@ -8,6 +8,8 @@ target 'moccafe' do
   pod 'XLPagerTabStrip', '~> 7.0'
   pod 'Crashlytics'
   pod 'SDWebImage', '~> 4.0'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
   use_frameworks!
 
