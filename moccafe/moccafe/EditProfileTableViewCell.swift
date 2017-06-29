@@ -8,20 +8,27 @@
 
 import UIKit
 
-class EditProfileTableViewCell: UITableViewCell {
+class EditProfileTableViewCell: UITableViewCell, UITextFieldDelegate {
+    
+    var delegate: ProfileActionsDelegate?
+    var index = Int()
 
     @IBOutlet var fieldTitle: UILabel!
     @IBOutlet var fieldTextField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        fieldTextField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.modifyFields(index: self.index, value: fieldTextField.text ?? "")
     }
 
 }

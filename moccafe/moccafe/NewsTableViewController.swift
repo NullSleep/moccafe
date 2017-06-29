@@ -92,12 +92,9 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         super.viewDidAppear(false)
         
         if (delegate?.searchController.searchBar.text != "") {
-            if tableView.numberOfRows(inSection: 0) != filteredArticles.count {
-                
-                DispatchQueue.main.async {
-             //       self.delegate?.updateSearch!()
-                    self.delegate?.searchController.searchBar.becomeFirstResponder()
-                }
+            
+             DispatchQueue.main.async {
+                self.delegate?.searchController.searchBar.becomeFirstResponder()
             }
         }
     }

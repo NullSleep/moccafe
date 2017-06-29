@@ -171,7 +171,6 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
     func updateSearch() {
         
         self.updateSearchResults(for: self.searchController)
-
     }
 
 }

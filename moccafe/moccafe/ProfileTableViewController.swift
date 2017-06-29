@@ -31,7 +31,6 @@ class ProfileTableViewController: UITableViewController {
             UserDefaults.standard.set(profile["name"].string, forKey: "userName")
             UserDefaults.standard.set(profile["email"].string, forKey: "userEmail")
             UserDefaults.standard.set(profile["city"].string, forKey: "userCity")
-
         }
     }
     
@@ -47,7 +46,6 @@ class ProfileTableViewController: UITableViewController {
             }
         }
         self.clearsSelectionOnViewWillAppear = true
-
     }
     
     override func viewDidLoad() {
