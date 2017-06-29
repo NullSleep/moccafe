@@ -880,8 +880,8 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="date" destination="LRC-MI-v0V" id="7rR-JM-g7F"/>
+                                    <outlet property="postImage" destination="Fxw-AF-wQ2" id="qi8-j8-Bcy"/>
                                     <outlet property="subtitle" destination="iEl-Pe-Kgp" id="mPX-o1-acb"/>
-                                    <outlet property="thumbnail" destination="Fxw-AF-wQ2" id="qem-zD-Q1f"/>
                                     <outlet property="title" destination="uZX-lD-mKZ" id="kdz-3v-vv3"/>
                                 </connections>
                             </tableViewCell>

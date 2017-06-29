@@ -9,8 +9,10 @@
 import UIKit
 import SwiftyJSON
 import SDWebImage
+import AVKit
+import AVFoundation
 
-class MyTreeViewController: UITableViewController, UISearchBarDelegate {
+class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCellTableViewDelegate {
 
     var articleToSegue: Article?
     var atPage: Int?
@@ -132,6 +134,8 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "home", for: indexPath) as? MyTreeTableViewCell
         
+        cell?.delegate = self
+        
         let article: Article
         
         if searchController.isActive && searchController.searchBar.text != "" {
@@ -143,19 +147,27 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate {
         let cellData: NSDictionary = [
             "date": article.created ?? "",
             "title": article.title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
-            "subtitle": article.content ?? "" //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+            "subtitle": article.content ?? "", //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+            "picUrl":  article.picUrl ?? "",
+            "thumbUrl": article.thumbUrl ?? "",
+            "videoUrl": article.videoUrl ?? "",
+            "index": indexPath.row
         ]
         
-        let imageStringURL = "https://regmedia.co.uk/2015/11/18/coffee_beans.jpg?x=1200&y=794"
-        article.picUrl = imageStringURL
-
-        if let imageURL = URL.init(string: imageStringURL) {
-            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in }
-            cell?.thumbnail.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
-        }
+       
         cell?.configureWithData(cellData)
         
         return cell!
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            articleToSegue = filteredArticles[indexPath.row]
+        } else {
+            articleToSegue = articles[indexPath.row]
+        }
+        performSegue(withIdentifier: "showDetail", sender: self)
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -165,16 +177,6 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate {
                 retrieveArticle(page: atPage!+1)
             }
         }
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if searchController.isActive && searchController.searchBar.text != "" {
-            articleToSegue = filteredArticles[indexPath.row]
-        } else {
-        articleToSegue = articles[indexPath.row]
-        }
-        performSegue(withIdentifier: "showDetail", sender: self)
     }
     
     // MARK: - Retrieve API Data and Populate Content
@@ -219,6 +221,7 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate {
                     }
                 }
                 article.content = item["info"].string
+                article.thumbUrl = item["thumb_url"].string
                 article.picUrl = item["picture_url"].string
                 article.liked = item["liked"].bool
                 article.title = item["title"].string
@@ -268,6 +271,28 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate {
             nextvc.article = articleToSegue
         }
     }
+    
+    func playVideo(index: Int) {
+        
+        tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .none)
+        tableView.delegate?.tableView!(tableView, didSelectRowAt: IndexPath(row: index, section: 0))
+        DispatchQueue.main.async {
+            self.loadVideo()
+        }
+    }
+    
+    func loadVideo() {
+        
+        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+        let player = AVPlayer(url: videoURL!)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
+        }
+    }
+    
+
     
 }
 

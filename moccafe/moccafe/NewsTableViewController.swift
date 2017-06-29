@@ -208,7 +208,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider, pos
                     }
                 }
                 article.content = item["info"].string
-                
                 article.thumbUrl = item["thumb_url"].string
                 article.picUrl = item["picture_url"].string
                 article.liked = item["liked"].bool
