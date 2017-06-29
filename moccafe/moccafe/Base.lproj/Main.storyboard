@@ -404,7 +404,7 @@
                                                     <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ancient_tree" translatesAutoresizingMaskIntoConstraints="NO" id="zLp-mo-lFV">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image-128" translatesAutoresizingMaskIntoConstraints="NO" id="zLp-mo-lFV">
                                                     <rect key="frame" x="15" y="88.5" width="329" height="151"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="zLp-mo-lFV" secondAttribute="height" multiplier="329:151" id="e48-1O-sxG"/>
@@ -831,7 +831,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ancient_tree" translatesAutoresizingMaskIntoConstraints="NO" id="Fxw-AF-wQ2">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image-128" translatesAutoresizingMaskIntoConstraints="NO" id="Fxw-AF-wQ2">
                                             <rect key="frame" x="23" y="95.5" width="329" height="150"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Fxw-AF-wQ2" secondAttribute="height" multiplier="329:150" id="OAY-Hn-gZi"/>
@@ -957,11 +957,11 @@
                         <viewControllerLayoutGuide type="bottom" id="MNe-VH-Qaz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tCT-re-7WC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="604"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-z8-xbG">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psd-K3-lXt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
@@ -993,7 +993,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ancient_tree" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-2f-nda">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image-128" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-2f-nda">
                                                 <rect key="frame" x="0.0" y="36" width="375" height="171"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="5fR-2f-nda" secondAttribute="height" multiplier="329:150" id="X48-0M-mVK"/>
@@ -1325,7 +1325,6 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
         </scene>
     </scenes>
     <resources>
-        <image name="ancient_tree" width="937" height="528"/>
         <image name="beanicon" width="240" height="240"/>
         <image name="commentsoutline" width="50" height="50"/>
         <image name="download" width="32" height="32"/>
@@ -1334,12 +1333,13 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
         <image name="mtabeshop" width="25" height="25"/>
         <image name="mtabevideo" width="25" height="25"/>
         <image name="mtabhome" width="25" height="25"/>
+        <image name="no_image-128" width="1500" height="1500"/>
         <image name="profileoutline" width="50" height="50"/>
         <image name="user" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NW3-XN-pfb"/>
-        <segue reference="Cjs-bz-FWX"/>
         <segue reference="Rgz-yT-dEn"/>
+        <segue reference="RKq-Q9-Xwm"/>
     </inferredMetricsTieBreakers>
 </document>

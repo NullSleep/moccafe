@@ -13,6 +13,7 @@ class Article: NSObject {
     var content: String?
     var videoUrl: String?
     var picUrl: String?
+    var thumbUrl: String?
     var created: String?
     var liked: Bool?
     

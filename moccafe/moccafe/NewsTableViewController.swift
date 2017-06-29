@@ -9,10 +9,10 @@
 import UIKit
 import XLPagerTabStrip
 import SwiftyJSON
-import SDWebImage
+import AVKit
+import AVFoundation
 
-
-class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
+class NewsTableViewController: UITableViewController, IndicatorInfoProvider, postCellTableViewDelegate {
     
     var searchText: String? {
         didSet {
@@ -117,6 +117,8 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostCell else { return PostCell() }
+        
+        cell.delegate = self
 
         let article: Article
         
@@ -130,19 +132,14 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
             "date": article.created ?? "",
             "title": article.title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
             "subtitle": article.content ?? "", //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
-            "image":  1 //  data["image"] as? UIImage
+            "picUrl":  article.picUrl ?? "",
+            "thumbUrl": article.thumbUrl ?? "",
+            "videoUrl": article.videoUrl ?? "",
+            "index": indexPath.row
         ]
-        
         let data = cellData
         cell.configureWithData(data)
         
-        let imageStringURL = "https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
-        article.picUrl = imageStringURL
-        
-        if let imageURL = URL.init(string: imageStringURL) {
-            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in }
-            cell.postImage.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
-        }
         return cell
     }
     
@@ -162,7 +159,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
             retrieveArticle(page: atPage!+1)
             }
         }
-        
     }
     
     
@@ -212,6 +208,8 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
                     }
                 }
                 article.content = item["info"].string
+                
+                article.thumbUrl = item["thumb_url"].string
                 article.picUrl = item["picture_url"].string
                 article.liked = item["liked"].bool
                 article.title = item["title"].string
@@ -255,6 +253,26 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         self.refreshControl!.endRefreshing()
     }
     
-
+    // MARK: - PostCellTableViewDelegate
+    
+    func playVideo(index: Int) {
+        
+         tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .none)
+        tableView.delegate?.tableView!(tableView, didSelectRowAt: IndexPath(row: index, section: 0))
+        DispatchQueue.main.async {
+            self.loadVideo()
+        }
+    }
+    
+    func loadVideo() {
+        
+        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+        let player = AVPlayer(url: videoURL!)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
+        }
+    }
 
 }
