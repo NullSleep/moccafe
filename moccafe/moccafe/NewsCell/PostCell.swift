@@ -17,6 +17,8 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var postSubtitle: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     
+    @IBOutlet var likeButton: UIButton!
+    
     @IBOutlet var containerView: UIView!
     
     var delegate: postCellTableViewDelegate?
@@ -34,6 +36,10 @@ class PostCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        likeButton.setImage(UIImage(named: "thumb"), for: .normal)
+        likeButton.setImage(UIImage(named: "thumbfilled"), for: .selected)
+
+        
     }
 
     func configureWithData(_ data: NSDictionary) {
@@ -41,6 +47,9 @@ class PostCell: UITableViewCell {
         postDate.text = data["date"] as? String
         postTitle.text = data["title"] as? String
         postSubtitle.text = data["subtitle"] as? String
+        likeButton.isSelected = data["liked"] as! Bool
+        
+        
         
         let urlPic = "https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
             // (data["picUrl"] as? String) ?? ""

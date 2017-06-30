@@ -48,6 +48,14 @@
                             <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xa-tk-vag">
+                            <rect key="frame" x="342" y="311.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="7aX-Rd-Yyu"/>
+                                <constraint firstAttribute="width" constant="25" id="poV-C6-vRL"/>
+                            </constraints>
+                            <state key="normal" image="thumb"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -55,8 +63,10 @@
                         <constraint firstItem="aAm-Ce-Sfz" firstAttribute="top" secondItem="PVz-5N-A82" secondAttribute="bottom" constant="10" id="8sa-Em-64g"/>
                         <constraint firstItem="aAm-Ce-Sfz" firstAttribute="leading" secondItem="PVz-5N-A82" secondAttribute="leading" id="C85-Va-rYT"/>
                         <constraint firstItem="zod-kh-jIO" firstAttribute="top" secondItem="0qw-bH-L4d" secondAttribute="bottom" constant="10" id="DGs-f7-xoG"/>
+                        <constraint firstItem="6xa-tk-vag" firstAttribute="baseline" secondItem="aAm-Ce-Sfz" secondAttribute="baseline" id="ER7-0d-1tr"/>
                         <constraint firstItem="zod-kh-jIO" firstAttribute="leading" secondItem="PVz-5N-A82" secondAttribute="leading" id="Gtc-V4-To6"/>
                         <constraint firstItem="PVz-5N-A82" firstAttribute="top" secondItem="zod-kh-jIO" secondAttribute="bottom" constant="10" id="Hq0-KI-rgn"/>
+                        <constraint firstItem="6xa-tk-vag" firstAttribute="trailing" secondItem="zod-kh-jIO" secondAttribute="trailing" id="KGs-cC-f1U"/>
                         <constraint firstItem="0qw-bH-L4d" firstAttribute="leading" secondItem="ffp-vk-YpR" secondAttribute="leading" constant="2" id="LL2-Qb-svM"/>
                         <constraint firstItem="zod-kh-jIO" firstAttribute="trailing" secondItem="i9A-mi-cic" secondAttribute="trailing" id="Ran-kX-Pcm"/>
                         <constraint firstItem="i9A-mi-cic" firstAttribute="leading" secondItem="0qw-bH-L4d" secondAttribute="leading" id="S8E-dE-6Dj"/>
@@ -85,6 +95,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="containerView" destination="ffp-vk-YpR" id="vgo-bY-zoq"/>
+                <outlet property="likeButton" destination="6xa-tk-vag" id="N41-l7-Hru"/>
                 <outlet property="postDate" destination="i9A-mi-cic" id="APd-5s-Hbs"/>
                 <outlet property="postImage" destination="zod-kh-jIO" id="tZd-Y2-IAP"/>
                 <outlet property="postSubtitle" destination="PVz-5N-A82" id="v4s-qk-z28"/>
@@ -93,4 +104,7 @@
             <point key="canvasLocation" x="14.5" y="-15.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="thumb" width="50" height="50"/>
+    </resources>
 </document>

@@ -135,7 +135,8 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider, pos
             "picUrl":  article.picUrl ?? "",
             "thumbUrl": article.thumbUrl ?? "",
             "videoUrl": article.videoUrl ?? "",
-            "index": indexPath.row
+            "index": indexPath.row,
+            "liked": article.liked ?? false
         ]
         let data = cellData
         cell.configureWithData(data)

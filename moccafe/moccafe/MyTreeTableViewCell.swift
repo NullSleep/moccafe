@@ -17,6 +17,8 @@ class MyTreeTableViewCell: UITableViewCell {
     @IBOutlet var postImage: UIImageView!
     @IBOutlet var subtitle: UILabel!
     
+    @IBOutlet var likeButton: UIButton!
+    
     var delegate: postCellTableViewDelegate?
     var index: Int?
     
@@ -32,6 +34,8 @@ class MyTreeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        likeButton.setImage(UIImage(named: "thumb"), for: .normal)
+        likeButton.setImage(UIImage(named: "thumbfilled"), for: .selected)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -44,6 +48,8 @@ class MyTreeTableViewCell: UITableViewCell {
         date.text = data["date"] as? String
         title.text = data["title"] as? String
         subtitle.text = data["subtitle"] as? String
+        likeButton.isSelected = data["liked"] as! Bool
+
         
         let urlPic = ""//"https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"// (data["picUrl"] as? String) ?? ""
         let urlPlaceHolderImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjhfpaXnErAFp2f6vcCEVsQv7dKQa5NfWcvOKyYr0pdLS59ryL"// data["thumbUrl"] as? String) ?? ""
