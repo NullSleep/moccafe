@@ -28,6 +28,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var mainScrollView: UIScrollView!
     
     // MARK: - View Life Cycle
     
@@ -45,11 +46,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         emailTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Insert email", comment: ""), attributes: myAttribute)
         passwordTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Insert password", comment: ""), attributes: myAttribute)
         passwordTextField.isSecureTextEntry = true
+        
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         self.registerForKeyboardNotifications()
     }
 
@@ -94,8 +95,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     // MARK: - Private Methods
     
     func registerForKeyboardNotifications() -> Void {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown", name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden", name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func deregisterFromKeyboardNotifications () -> Void {
+        let center:  NotificationCenter = NotificationCenter.default
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            print("HELLO")
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
     
     

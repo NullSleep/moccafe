@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2iJ-If-dFj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -337,6 +337,7 @@
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="emailTextField" destination="JEv-sr-EN3" id="6Oy-Qu-BBV"/>
+                        <outlet property="mainScrollView" destination="q4e-Hu-YCl" id="5pK-Eh-OYw"/>
                         <outlet property="passwordTextField" destination="Zvd-5d-GEk" id="niG-1Y-9gs"/>
                     </connections>
                 </viewController>
@@ -1338,7 +1339,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
         <image name="user" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NW3-XN-pfb"/>
+        <segue reference="2XY-qZ-wAG"/>
         <segue reference="Cjs-bz-FWX"/>
         <segue reference="Rgz-yT-dEn"/>
     </inferredMetricsTieBreakers>
