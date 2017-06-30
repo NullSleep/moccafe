@@ -24,7 +24,6 @@
 		CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E181ED75AB700590F50 /* SignUpViewController.swift */; };
 		CD3131261F04FB2E00484BCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */; };
 		CD3D5BB71EF1C1590022298D /* MyTreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D5BB61EF1C1590022298D /* MyTreeTableViewCell.swift */; };
-		CD3F37A71EFCEFB80043BEAB /* BlogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3F37A61EFCEFB80043BEAB /* BlogTableViewController.swift */; };
 		CD8036761EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */; };
 		CD8C98461EDF67CC00903A61 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */; };
 		CD8C98481EE0911300903A61 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */; };
@@ -86,7 +85,6 @@
 		CD199E181ED75AB700590F50 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD3D5BB61EF1C1590022298D /* MyTreeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTreeTableViewCell.swift; sourceTree = "<group>"; };
-		CD3F37A61EFCEFB80043BEAB /* BlogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogTableViewController.swift; sourceTree = "<group>"; };
 		CD5D9AB91F01C8D600DC96B1 /* moccafe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = moccafe.entitlements; sourceTree = "<group>"; };
 		CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 			children = (
 				2338948B1ED3466A00E6F78E /* HomeViewController.swift */,
 				23A7C46F1EE39BCB0001461D /* NewsTableViewController.swift */,
-				CD3F37A61EFCEFB80043BEAB /* BlogTableViewController.swift */,
 				23A7C46A1EE39BBD0001461D /* NewsCell */,
 			);
 			name = "Home Tab";
@@ -606,7 +603,6 @@
 				CDCCB5B71ED36A900095E21D /* ShopViewController.swift in Sources */,
 				23A7C46D1EE39BBD0001461D /* PostCell.swift in Sources */,
 				23A7C4701EE39BCB0001461D /* NewsTableViewController.swift in Sources */,
-				CD3F37A71EFCEFB80043BEAB /* BlogTableViewController.swift in Sources */,
 				CD199E0C1ED5F36900590F50 /* LoginViewController.swift in Sources */,
 				CD8C98461EDF67CC00903A61 /* ProfileTableViewController.swift in Sources */,
 				CDB19F5B1EE6040B004C2E11 /* VIdeosTableViewController.swift in Sources */,

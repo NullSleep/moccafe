@@ -34,7 +34,6 @@ class PostCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        postImage.layer.cornerRadius = 10.0
     }
 
     func configureWithData(_ data: NSDictionary) {
@@ -43,9 +42,13 @@ class PostCell: UITableViewCell {
         postTitle.text = data["title"] as? String
         postSubtitle.text = data["subtitle"] as? String
         
-        let urlPic = ""//"https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"// (data["picUrl"] as? String) ?? ""
-        let urlPlaceHolderImage = ""//"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjhfpaXnErAFp2f6vcCEVsQv7dKQa5NfWcvOKyYr0pdLS59ryL"// data["thumbUrl"] as? String) ?? ""
-        let videoURL = "c"//(data["videoUrl"] as? String) ?? ""
+        let urlPic = "https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
+            // (data["picUrl"] as? String) ?? ""
+        let urlPlaceHolderImage = ""//"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjhfpaXnErAFp2f6vcCEVsQv7dKQa5NfWcvOKyYr0pdLS59ryL"
+            //"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjhfpaXnErAFp2f6vcCEVsQv7dKQa5NfWcvOKyYr0pdLS59ryL"
+            // data["thumbUrl"] as? String) ?? ""
+        let videoURL = "c"
+            //(data["videoUrl"] as? String) ?? ""
         
         let video = URL.init(string: videoURL)
         
@@ -59,19 +62,22 @@ class PostCell: UITableViewCell {
             playButton.addTarget(self, action: #selector(loadVideo), for: .touchUpInside)
         }
         
+        self.contentView.setNeedsLayout()
+        self.contentView.layoutIfNeeded()
         
-        if setImage(url: urlPic) {
-            
-        } else if setImage(url: urlPlaceHolderImage) {
-            
+        if setImage(url: urlPic, placeHolder: false, video: nil) {
+        } else if setImage(url: urlPlaceHolderImage, placeHolder: true, video: video) {
         } else if video != nil {
-             let image = UIImage(color: UIColor(red:0.09, green:0.10, blue:0.11, alpha:1.0), size: CGSize(width: 10, height: 10))
-            postImage.image = image
+            let image = UIImage(color: UIColor(red:0.09, green:0.10, blue:0.11, alpha:1.0), size: CGSize(width: 10, height: 10))
+            self.postImage.image = image
         }
+        
+        
+        
         
     }
     
-    func setImage(url: String) -> Bool {
+    func setImage(url: String, placeHolder: Bool, video: URL?) -> Bool {
         var bool = false
         if let imageURL = URL.init(string: url) {
             let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in
@@ -79,8 +85,15 @@ class PostCell: UITableViewCell {
                     bool = true
                 }
             }
-            postImage.sd_setImage(with: imageURL, placeholderImage: nil, options: SDWebImageOptions.progressiveDownload, completed: myBlock)
+            postImage.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
+        } else if (placeHolder == true) && (postImage.image == nil) && (video == nil) {
+            self.postImage.isHidden = true
+            let constraint = NSLayoutConstraint(item: self.postTitle, attribute: .bottom, relatedBy: .equal, toItem: self.postSubtitle, attribute: .top, multiplier: 1, constant: -10)
+            self.containerView.addConstraint(constraint)
         }
+        
+        
+        
         
         return bool
     }

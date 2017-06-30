@@ -831,7 +831,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image-128" translatesAutoresizingMaskIntoConstraints="NO" id="Fxw-AF-wQ2">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fxw-AF-wQ2">
                                             <rect key="frame" x="23" y="95.5" width="329" height="150"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Fxw-AF-wQ2" secondAttribute="height" multiplier="329:150" id="OAY-Hn-gZi"/>
