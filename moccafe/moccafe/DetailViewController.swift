@@ -8,11 +8,24 @@
 
 import UIKit
 import SDWebImage
+import AVFoundation
+import AVKit
+
 
 class DetailViewController: UIViewController {
     
     var article: Article?
     var searchText: String?
+    
+    lazy var playButton: UIButton = {
+        let button = UIButton(type: UIButtonType.system)
+        button.setTitle(NSLocalizedString("Play Video", comment: ""), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let image = UIImage(named: "play")
+        button.setImage(image, for: .normal)
+        button.tintColor = UIColor.white
+        return button
+    }()
 
     @IBOutlet var articleDate: UILabel!
     @IBOutlet var articleImage: UIImageView!
@@ -27,6 +40,15 @@ class DetailViewController: UIViewController {
         articleDate.text = article?.created
         let video = URL.init(string: article?.videoUrl ?? "")
 
+        if video != nil {
+            self.view.addSubview(playButton)
+            playButton.centerXAnchor.constraint(equalTo: articleImage.centerXAnchor).isActive = true
+            playButton.centerYAnchor.constraint(equalTo: articleImage.centerYAnchor).isActive = true
+            playButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            playButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            
+            playButton.addTarget(self, action: #selector(loadVideo), for: .touchUpInside)
+        }
         
         if setImage(url: article?.picUrl ?? "", placeHolder: false, video: nil) {
         } else if setImage(url: article?.thumbUrl ?? "", placeHolder: true, video: video) {
@@ -74,6 +96,17 @@ class DetailViewController: UIViewController {
             let ac = UIAlertController(title: NSLocalizedString("Saved!", comment: ""), message: NSLocalizedString("The image has been saved to your photos.", comment: ""), preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default))
             present(ac, animated: true)
+        }
+    }
+    
+    func loadVideo() {
+        
+        let videoURL = URL(string: article?.videoUrl ?? "")
+        let player = AVPlayer(url: videoURL!)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
         }
     }
     
