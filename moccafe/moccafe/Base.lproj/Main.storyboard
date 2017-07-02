@@ -1076,6 +1076,7 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                         <outlet property="articleImage" destination="5fR-2f-nda" id="ikg-Br-fzp"/>
                         <outlet property="articleText" destination="0ZK-KO-LSc" id="4Uy-Rt-rGc"/>
                         <outlet property="articleTitle" destination="M7Y-6u-pgU" id="41m-lM-VAt"/>
+                        <outlet property="downloadVector" destination="Mdg-Zg-9jl" id="Y1R-Hh-OBq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfY-yx-nEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

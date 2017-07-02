@@ -51,9 +51,10 @@ class MyTreeTableViewCell: UITableViewCell {
         likeButton.isSelected = data["liked"] as! Bool
 
         
-        let urlPic = ""//"https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"// (data["picUrl"] as? String) ?? ""
-        let urlPlaceHolderImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjhfpaXnErAFp2f6vcCEVsQv7dKQa5NfWcvOKyYr0pdLS59ryL"// data["thumbUrl"] as? String) ?? ""
-        let videoURL = "c"//(data["videoUrl"] as? String) ?? ""
+        let urlPic = (data["picUrl"] as? String) ?? ""
+
+        let urlPlaceHolderImage = (data["thumbUrl"] as? String) ?? ""
+        let videoURL = (data["videoUrl"] as? String) ?? ""
         
         let video = URL.init(string: videoURL)
         
@@ -76,7 +77,6 @@ class MyTreeTableViewCell: UITableViewCell {
                 let image = UIImage(color: UIColor(red:0.09, green:0.10, blue:0.11, alpha:1.0), size: CGSize(width: 10, height: 10))
                 self.postImage.image = image
             }        
-        
     }
     
     func setImage(url: String, placeHolder: Bool, video: URL?) -> Bool {

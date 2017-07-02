@@ -81,7 +81,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider, pos
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
-
         retrievedArticles.removeAll()
         retrieveArticle(page: 1)
         self.tabBarController?.tabBar.isHidden = false
@@ -127,11 +126,20 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider, pos
         } else {
             article = articles[indexPath.row]
         }
+        
+        //To Delete
+        article.picUrl = ""//"https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
+
+        article.title = "Coffee Drinkers May Have One Less Type Of Cancer To Worry About"
+        article.content = ""//"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+        article.thumbUrl = ""//"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjhfpaXnErAFp2f6vcCEVsQv7dKQa5NfWcvOKyYr0pdLS59ryL"
+        article.videoUrl = "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+
 
         let cellData: NSDictionary = [
             "date": article.created ?? "",
-            "title": article.title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
-            "subtitle": article.content ?? "", //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+            "title": article.title ?? "",
+            "subtitle": article.content ?? "",
             "picUrl":  article.picUrl ?? "",
             "thumbUrl": article.thumbUrl ?? "",
             "videoUrl": article.videoUrl ?? "",
@@ -144,12 +152,17 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider, pos
         return cell
     }
     
+    var articleToSegue: Article?
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (delegate?.searchController.isActive)! && delegate?.searchController.searchBar.text != "" {
-            delegate?.loadDetail!(article: filteredArticles[indexPath.row])
+            articleToSegue = filteredArticles[indexPath.row]
+            delegate?.loadDetail!(article: articleToSegue!)
+
         } else {
-            delegate?.loadDetail!(article: articles[indexPath.row])
+            articleToSegue = articles[indexPath.row]
+            delegate?.loadDetail!(article: articleToSegue!)
         }
     }
     
@@ -266,7 +279,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider, pos
     
     func loadVideo() {
         
-        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+        let videoURL = URL(string: (articleToSegue?.videoUrl)!)
         let player = AVPlayer(url: videoURL!)
         let playerViewController = AVPlayerViewController()
         playerViewController.player = player
