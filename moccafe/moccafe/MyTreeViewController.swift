@@ -145,9 +145,10 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCell
         }
         
         //To Delete
+
         article.picUrl = "https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
-        article.content = ""//"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
-        article.title = ""//"Coffee Drinkers May Have One Less Type Of Cancer To Worry About"
+        article.content = "Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+        article.title = "Coffee Drinkers May Have One Less Type Of Cancer To Worry About"
         article.thumbUrl = ""//"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjhfpaXnErAFp2f6vcCEVsQv7dKQa5NfWcvOKyYr0pdLS59ryL"
         article.videoUrl = "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
         //

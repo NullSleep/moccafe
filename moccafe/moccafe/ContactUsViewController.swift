@@ -151,7 +151,7 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
                     self.present(alertView, animated: true, completion: nil)
                 }
                 else {
-                    let alertView = UIAlertController(title: "Error", message: "Please check your Internet connection", preferredStyle: .alert)
+                    let alertView = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please check your Internet connection", comment: ""), preferredStyle: .alert)
                     let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { Void in
                     }
                     alertView.addAction(action)

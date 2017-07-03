@@ -855,20 +855,20 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEl-Pe-Kgp">
-                                            <rect key="frame" x="23" y="255.5" width="329" height="93.5"/>
+                                            <rect key="frame" x="23" y="255.5" width="329" height="92"/>
                                             <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices tellus tellus, vel suscipit dui consequat ultrices. Etiam volutpat.</string>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read more..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDf-st-rg3">
-                                            <rect key="frame" x="23" y="359" width="329" height="16"/>
+                                            <rect key="frame" x="23" y="357.5" width="329" height="16"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yb-Yc-l6L">
-                                            <rect key="frame" x="327" y="346.5" width="25" height="25"/>
+                                            <rect key="frame" x="327" y="353" width="25" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="25" id="2f6-ms-XHY"/>
                                                 <constraint firstAttribute="height" constant="25" id="PlH-Xg-Xb9"/>
@@ -879,10 +879,11 @@
                                     <constraints>
                                         <constraint firstItem="qDf-st-rg3" firstAttribute="top" secondItem="iEl-Pe-Kgp" secondAttribute="bottom" constant="10" id="24y-f5-T3c"/>
                                         <constraint firstItem="2Yb-Yc-l6L" firstAttribute="trailing" secondItem="Fxw-AF-wQ2" secondAttribute="trailing" id="8QM-rv-84U"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="qDf-st-rg3" secondAttribute="bottom" constant="6.5" id="BqH-Ib-DTP"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="qDf-st-rg3" secondAttribute="bottom" constant="8" id="BqH-Ib-DTP"/>
                                         <constraint firstItem="iEl-Pe-Kgp" firstAttribute="leading" secondItem="LRC-MI-v0V" secondAttribute="leading" id="F96-1B-N5X"/>
                                         <constraint firstItem="LRC-MI-v0V" firstAttribute="leading" secondItem="uZX-lD-mKZ" secondAttribute="leading" id="FKo-uR-X3O"/>
                                         <constraint firstAttribute="topMargin" secondItem="LRC-MI-v0V" secondAttribute="top" constant="-15" id="GDS-Vk-z28"/>
+                                        <constraint firstItem="2Yb-Yc-l6L" firstAttribute="centerY" secondItem="qDf-st-rg3" secondAttribute="centerY" id="Gbt-L4-NA0"/>
                                         <constraint firstItem="qDf-st-rg3" firstAttribute="leading" secondItem="iEl-Pe-Kgp" secondAttribute="leading" id="MsP-R0-Rvt"/>
                                         <constraint firstItem="Fxw-AF-wQ2" firstAttribute="leading" secondItem="uZX-lD-mKZ" secondAttribute="leading" id="PrW-0E-BWE"/>
                                         <constraint firstItem="qDf-st-rg3" firstAttribute="trailing" secondItem="iEl-Pe-Kgp" secondAttribute="trailing" id="Rhu-iJ-fsP"/>
@@ -892,7 +893,6 @@
                                         <constraint firstItem="iEl-Pe-Kgp" firstAttribute="trailing" secondItem="LRC-MI-v0V" secondAttribute="trailing" id="eOJ-3T-FyG"/>
                                         <constraint firstItem="uZX-lD-mKZ" firstAttribute="top" secondItem="LRC-MI-v0V" secondAttribute="bottom" constant="4" id="fD6-7m-Qka"/>
                                         <constraint firstItem="Fxw-AF-wQ2" firstAttribute="trailing" secondItem="uZX-lD-mKZ" secondAttribute="trailing" id="jIn-hB-oCM"/>
-                                        <constraint firstItem="2Yb-Yc-l6L" firstAttribute="baseline" secondItem="qDf-st-rg3" secondAttribute="baseline" id="lOi-rv-sjS"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="LRC-MI-v0V" secondAttribute="trailing" constant="15" id="w0s-R5-cEO"/>
                                         <constraint firstItem="LRC-MI-v0V" firstAttribute="leading" secondItem="i0J-eO-Asw" secondAttribute="leadingMargin" constant="15" id="xh5-Li-0Dv"/>
                                     </constraints>
