@@ -985,8 +985,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-z8-xbG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psd-K3-lXt">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="600" translatesAutoresizingMaskIntoConstraints="NO" id="psd-K3-lXt">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="May 29" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLx-DK-P8a">
                                                 <rect key="frame" x="15" y="8" width="345" height="16"/>
@@ -1000,17 +1000,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZK-KO-LSc">
-                                                <rect key="frame" x="15" y="251.5" width="345" height="738"/>
-                                                <string key="text">Lorem ipsum dolor sit amet, iriure prodesset ei has, an novum altera pertinax his. Cu his summo epicurei necessitatibus, ex oratio deserunt mea, salutandi tincidunt ei vix. Postea interesset instructior per ut, homero animal appetere no nec. An nibh propriae constituto pri.
-
-Est antiopam facilisis adolescens id. Pri graecis suscipiantur no, in usu altera virtute, eam ei enim wisi. Pro probo vidisse appetere te, odio mollis et mei. Epicurei laboramus mei ut, usu ea affert quaerendum. Delicata urbanitas has an, eum eu omnium dissentiunt.
-
-Laoreet veritus temporibus est ne, at vero eirmod aperiri per. Quis volutpat scripserit mel at, duo fugit vidisse admodum ne. Ei mea noster quaestio, duo ne dicat mundi tantas. Nisl assum bonorum te usu, doming corrumpit ei nam. Ne sed suscipit argumentum.
-
-Paulo everti suscipiantur in vel, cu mei iisque propriae corrumpit. Ex vix prompta forensibus, ea movet incorrupte elaboraret eos, etiam eripuit vix an. Quo te ignota phaedrum appellantur, in pri justo partiendo adolescens, mea agam democritum ex. Alii invidunt maluisset sit an. An nec labores perpetua. Ex ridens aperiam vix, vel ex alia nemore rationibus.
-
-Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea, eu est aeterno scribentur. Ne unum scripserit duo. Ad eos tincidunt contentiones, no zril urbanitas argumentum usu. Ferri oblique tacimates ne nec, vero mollis probatus vis ne. Vis at qualisque definitiones.</string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZK-KO-LSc">
+                                                <rect key="frame" x="15" y="251.5" width="345" height="0.0"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1037,7 +1028,6 @@ Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea,
                                         <constraints>
                                             <constraint firstItem="0ZK-KO-LSc" firstAttribute="trailing" secondItem="M7Y-6u-pgU" secondAttribute="trailing" id="19P-sI-0Au"/>
                                             <constraint firstItem="5fR-2f-nda" firstAttribute="leading" secondItem="psd-K3-lXt" secondAttribute="leading" id="3iG-x7-oaf"/>
-                                            <constraint firstAttribute="height" constant="1000" id="58F-B4-CAg"/>
                                             <constraint firstAttribute="trailing" secondItem="5fR-2f-nda" secondAttribute="trailing" id="AMX-mh-VWB"/>
                                             <constraint firstItem="M7Y-6u-pgU" firstAttribute="leading" secondItem="QLx-DK-P8a" secondAttribute="leading" id="Bb9-jj-dmj"/>
                                             <constraint firstItem="M7Y-6u-pgU" firstAttribute="trailing" secondItem="QLx-DK-P8a" secondAttribute="trailing" id="Ikq-Vd-OhF"/>

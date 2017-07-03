@@ -37,16 +37,11 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
-
-        
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.estimatedRowHeight = 370
         
         articleDate.text = article?.created
-        articleText.text = "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        articleText.text = article?.content
+        articleTitle.text = article?.title
         
-        contentView.sizeToFit()
-
         
         let video = URL.init(string: article?.videoUrl ?? "")
 
@@ -68,13 +63,8 @@ class DetailViewController: UIViewController {
             self.articleImage.image = image
         }
         
-//        let imageStringURL = article?.picUrl ?? ""
-//        if let imageURL = URL.init(string: imageStringURL) {
-//            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in
-//            }
-//        
-//        articleImage.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
-//        }
+        //var sizeOfContent = contentView.con
+        
     }
     
     func setImage(url: String, placeHolder: Bool, video: URL?) -> Bool {
