@@ -32,15 +32,26 @@ class DetailViewController: UIViewController {
     @IBOutlet var articleTitle: UILabel!
     @IBOutlet var articleText: UILabel!
     @IBOutlet var downloadVector: UIButton!
+    @IBOutlet var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
 
+        
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 370
+        
         articleDate.text = article?.created
+        articleText.text = "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        
+        contentView.sizeToFit()
+
+        
         let video = URL.init(string: article?.videoUrl ?? "")
 
         if video != nil {
+            downloadVector.isHidden = true
             self.view.addSubview(playButton)
             playButton.centerXAnchor.constraint(equalTo: articleImage.centerXAnchor).isActive = true
             playButton.centerYAnchor.constraint(equalTo: articleImage.centerYAnchor).isActive = true
@@ -76,9 +87,10 @@ class DetailViewController: UIViewController {
             }
             articleImage.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
         } else if (placeHolder == true) && (articleImage.image == nil) && (video == nil) {
-            self.articleImage.isHidden = true
-            let constraint = NSLayoutConstraint(item: self.articleTitle, attribute: .bottom, relatedBy: .equal, toItem: self.articleDate, attribute: .top, multiplier: 1, constant: -10)
-            self.articleTitle.addConstraint(constraint)
+            self.downloadVector.isHidden = true
+            self.articleImage.removeFromSuperview()
+            let constraint = NSLayoutConstraint(item: self.articleDate, attribute: .bottom, relatedBy: .equal, toItem: self.articleTitle, attribute: .top, multiplier: 1, constant: -10)
+            self.view.addConstraint(constraint)
         }
         return bool
     }
