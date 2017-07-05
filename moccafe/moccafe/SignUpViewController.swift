@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
+    // MARK: - Class Constants and Variables
+    
     let request = APICall()
     let myDefaults = UserDefaults.standard
     
@@ -29,6 +31,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var mainScrollView: UIScrollView!
+    
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +52,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         passwordTextField.isSecureTextEntry = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.registerForKeyboardNotifications()
+    }
+    
     override func viewDidLayoutSubviews() {
         
         for item in [emailTextField, passwordTextField, nameTextField] {
@@ -59,12 +69,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
     }
     
     func dismissKeyboard() {
+        self.view.frame.origin.y = 0
         view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    // MARK: - Actions
     
     @IBAction func showPassword(_ sender: UIButton) {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
@@ -83,16 +96,35 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         }
     }
     
+    // MARK: - Keboard Notifications Methods
     
+    func registerForKeyboardNotifications() -> Void {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func deregisterFromKeyboardNotifications () -> Void {
+        let center:  NotificationCenter = NotificationCenter.default
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            } else if self.view.frame.origin.y < 0 {
+                self.view.frame.origin.y = 0
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    // Called when 'return' key pressed. return false to ignore.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.frame.origin.y = 0
+        textField.resignFirstResponder()
+        return true
+    }
     
 }

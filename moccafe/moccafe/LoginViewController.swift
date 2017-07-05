@@ -11,6 +11,8 @@ import SwiftyJSON
 
 
 class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
+   
+    // MARK: - Class Constants and Variables
     
     let request = APICall()
     let myDefaults = UserDefaults.standard
@@ -65,6 +67,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     }
     
     func dismissKeyboard() {
+        self.view.frame.origin.y = 0
         view.endEditing(true)
     }
     
@@ -79,7 +82,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     }
     
     @IBAction func loginAction(_ sender: UIButton) {
-        
+
         request.getProfile() {
             json, error in
             
@@ -92,47 +95,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         }
     }
     
-    // MARK: - Private Methods
+    // MARK: - Keboard Notifications Methods
     
     func registerForKeyboardNotifications() -> Void {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     func deregisterFromKeyboardNotifications () -> Void {
         let center:  NotificationCenter = NotificationCenter.default
-        center.removeObserver(self, name: NSNotification.Name.UIKeyboardDidHide, object: nil)
-        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            print("HELLO")
             if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            } else if self.view.frame.origin.y < 0 {
+                self.view.frame.origin.y = 0
                 self.view.frame.origin.y -= keyboardSize.height
             }
         }
-        
     }
     
-    func keyboardWillHide(notification: NSNotification) {
-        
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
-    }
+    // MARK: - UITextFieldDelegate
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Called when 'return' key pressed. return false to ignore.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.frame.origin.y = 0
+        textField.resignFirstResponder()
+        return true
     }
-    */
 }
