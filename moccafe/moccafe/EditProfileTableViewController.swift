@@ -25,6 +25,7 @@ class EditProfileTableViewController: UITableViewController, ProfileActionsDeleg
 
     var profileDataCopy: JSON = [:]
     
+    
     var profileData: JSON = [:] {
         didSet {
             profileDataCopy = profileData
@@ -92,6 +93,8 @@ class EditProfileTableViewController: UITableViewController, ProfileActionsDeleg
         for cell in tableView.visibleCells as! [EditProfileTableViewCell] {
             cell.textFieldDidEndEditing(cell.fieldTextField)
         }
+        
+        
         profileDataCopy["name"].string = fields[0].value
         profileDataCopy["last_name"].string = fields[1].value
         profileDataCopy["info"].string = fields[2].value

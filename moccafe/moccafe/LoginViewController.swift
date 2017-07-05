@@ -14,8 +14,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     
     let request = APICall()
     let myDefaults = UserDefaults.standard
+    var delegate: SignUpTransitionDelegate?
     
-    var profile:JSON = [:] {
+    /* var profile:JSON = [:] {
         didSet {
             self.myDefaults.set(profile["name"].string, forKey: "userName")
             self.myDefaults.set(profile["email"].string, forKey: "userEmail")
@@ -24,7 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
             self.myDefaults.set(profile["info"].string, forKey: "userInfo")
             self.myDefaults.set(profile["mobile"].string, forKey: "userMobile")
         }
-    }
+    } */
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -67,9 +68,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
     }
     
+    @IBAction func dismissLogin(_ sender: UIButton) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+
+    }
+    
     @IBAction func loginAction(_ sender: UIButton) {
         
-        request.getProfile() {
+        var loginData: JSON = [:]
+        
+        loginData["email"].string = emailTextField.text
+        loginData["password"].string = passwordTextField.text
+        
+        request.login(json: loginData) { json, error in
+            
+            if let token = json?["data"]["token"].string {
+                UserDefaults.standard.set(token, forKey: "token")
+            self.delegate?.signupDismissed()
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+            }
+        }
+        
+       /*  request.getProfile() {
             json, error in
             
             if json != nil {
@@ -79,8 +99,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
                 print(error!.localizedDescription)
             }
         }
+        */
     }
     
+    @IBAction func cancelLogin(_ sender: UIButton) {
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     
     /*
     // MARK: - Navigation

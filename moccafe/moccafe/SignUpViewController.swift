@@ -12,9 +12,12 @@ import SwiftyJSON
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
+    var delegate: SignUpTransitionDelegate?
+    
     let request = APICall()
     let myDefaults = UserDefaults.standard
     
+    /*
     var profile:JSON = [:] {
         didSet {
             self.myDefaults.set(profile["name"].string, forKey: "userName")
@@ -24,7 +27,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
             self.myDefaults.set(profile["info"].string, forKey: "userInfo")
             self.myDefaults.set(profile["mobile"].string, forKey: "userMobile")
         }
-    }
+    } */
     
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
@@ -71,7 +74,23 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
     }
     
     @IBAction func loginAction(_ sender: UIButton) {
-        request.getProfile() {
+        
+        var signupData: JSON = [:]
+        
+        signupData["name"].string = nameTextField.text
+        signupData["email"].string = emailTextField.text
+        signupData["password"].string = passwordTextField.text
+
+        //if token -> save token***
+        
+        request.signup(json: signupData) {
+            _ in
+            self.delegate?.signupDismissed()
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
+      
+        /*
+         request.getProfile() {
             json, error in
             
             if json != nil {
@@ -80,9 +99,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
             } else if error != nil {
                 print(error!.localizedDescription)
             }
-        }
+        } 
+         */
     }
     
+    @IBAction func existingAccount(_ sender: UIButton) {
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        vc.delegate = self.delegate
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelSignup(_ sender: UIButton) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+
+        }
     
     
     /*

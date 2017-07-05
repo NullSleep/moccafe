@@ -24,9 +24,9 @@ class ProfileTableViewController: UITableViewController {
     
     var profile:JSON = [:] {
         didSet {
-            nameLabel.text = profile["name"].string
-            emailLabel.text = profile["email"].string
-            cityLabel.text = profile["city"].string
+            nameLabel.text = profile["name"].string ?? nameLabel.text
+            emailLabel.text = profile["email"].string ?? emailLabel.text
+            cityLabel.text = profile["city"].string ?? cityLabel.text
             
             UserDefaults.standard.set(profile["name"].string, forKey: "userName")
             UserDefaults.standard.set(profile["email"].string, forKey: "userEmail")
@@ -35,17 +35,20 @@ class ProfileTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        request.getProfile() {
-            json, error in
-            
-            if json != nil {
-                self.profile = json!["profile"]
-                print("json response \(json!)")
-            } else if error != nil {
-                print(error!.localizedDescription)
+        
+            request.getProfile() {
+                json, error in
+                
+                if json != nil {
+                    self.profile = json!["profile"]
+                    print("json response \(json!)")
+                } else if error != nil {
+                    print(error!.localizedDescription)
+                }
             }
-        }
-        self.clearsSelectionOnViewWillAppear = true
+            self.clearsSelectionOnViewWillAppear = true
+       
+        
     }
     
     override func viewDidLoad() {
@@ -60,6 +63,7 @@ class ProfileTableViewController: UITableViewController {
         cityLabel.text = UserDefaults.standard.value(forKey: "userCity") as? String ?? NSLocalizedString("City", comment: "")
         
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -103,6 +107,10 @@ class ProfileTableViewController: UITableViewController {
         }
         if indexPath.row == 1 {
             performSegue(withIdentifier: "showContactUs", sender: self)
+        }
+        if indexPath.row == 2 {
+            UserDefaults.standard.removeObject(forKey: "token")
+            self.navigationController?.popViewController(animated: true)
         }
     }
  
