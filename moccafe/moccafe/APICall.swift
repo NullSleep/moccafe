@@ -12,13 +12,54 @@ import SwiftyJSON
 
 class APICall: NSObject {
     
+    //MARK: Authentication
+    
+    func signup(json: JSON, completionHandler: @escaping (JSON?, Error?) -> ()) {
+        
+        let url = "https://app.moccafeusa.com/api/v1/customers/signup"
+        let params = ["customer": json.dictionaryObject ?? ["":""]]
+        
+        
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseString { response in
+            print("data signup \(params)")
+            switch response.result {
+            case .success(let value): print("value signup \(value)")
+            let json = JSON(rawValue: value)
+            completionHandler(json, nil)
+            case .failure(let error): print("ERROR signup")
+            completionHandler(nil, error)
+                
+            }
+        }
+    }
+    
+    func login(json: JSON, completionHandler: @escaping (JSON?, Error?) -> ()) {
+        
+        let url = "https://app.moccafeusa.com/api/v1/customers/login"
+        let params = ["customer": json.dictionaryObject ?? ["":""]]
+        
+        
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            
+            switch response.result {
+            case .success(let value): print("value \(value)")
+            let json = JSON(rawValue: value)
+            completionHandler(json, nil)
+            case .failure(let error): print("ERROR")
+            completionHandler(nil, error)
+                
+            }
+        }
+    }
+    
     //MARK: View and Edit Profile
     
     func getProfile(completionHandler: @escaping (JSON?, Error?) -> ()) {
         
         let url = "https://app.moccafeusa.com/api/v1/customers/profile"
+        let headers = ["Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJtb2NjYWZldXNhLmNvbSIsInVzZXJfaWQiOjcsIm5hbWUiOiJwZXBpdG8ifQ.Q3XO7UFvN2wKn7YbUxUFjAeZie2xqYnsqSe47DzeMVk"]
         
-        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON {
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
             switch response.result {
             case .success(let value):

@@ -15,7 +15,7 @@ import SDWebImage
 
 
 
-class VideosTableViewController: UITableViewController, performNavigationDelegate, UISearchBarDelegate {
+class VideosTableViewController: UITableViewController, performNavigationDelegate, UISearchBarDelegate, SignUpTransitionDelegate {
     
     var searchController = UISearchController(searchResultsController: nil)
 
@@ -177,9 +177,15 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
     }
     
     func loadProfile() {
-        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
-        
-        self.navigationController?.pushViewController(vc, animated:true)
+        if (UserDefaults.standard.value(forKey: "token") as? String) != nil {
+            
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
+            self.navigationController?.pushViewController(vc, animated:true)
+        } else {
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+            vc.delegate = self
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     func retrieveArticle(page: Int) {
@@ -272,6 +278,11 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         retrievedArticles.removeAll()
         retrieveArticle(page: 1)
         refreshControl.endRefreshing()
+    }
+    
+    func signupDismissed() {
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

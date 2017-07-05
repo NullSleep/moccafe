@@ -44,6 +44,10 @@ protocol postCellTableViewDelegate {
     func playVideo(index: Int)
 }
 
+protocol SignUpTransitionDelegate {
+    func signupDismissed()
+}
+
 
 protocol ProfileActionsDelegate {
     func modifyFields(index: Int, value: String)

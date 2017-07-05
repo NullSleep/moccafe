@@ -10,7 +10,8 @@ import UIKit
 
 import XLPagerTabStrip
 
-class HomeViewController: ButtonBarPagerTabStripViewController, performNavigationDelegate, UISearchBarDelegate {
+class HomeViewController: ButtonBarPagerTabStripViewController, performNavigationDelegate, UISearchBarDelegate, SignUpTransitionDelegate {
+    
     
     static let ReceivedBlogNotification = "ReceivedBlogNotification"
     static let ReceivedNewsNotification = "ReceivedNewsNotification"
@@ -20,6 +21,17 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
     
     @IBOutlet var searchBarButton: UIBarButtonItem!
     @IBOutlet var profileButton: UIBarButtonItem!
+    
+    @IBAction func loadProfile(_ sender: UIBarButtonItem) {
+        if (UserDefaults.standard.value(forKey: "token") as? String) != nil {
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
+            self.navigationController?.pushViewController(vc, animated:true)
+        } else {
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+            vc.delegate = self
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
     
     var articleToSegue: Article?
     var searchText: String?
@@ -164,6 +176,11 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
     func updateSearch() {
         
         self.updateSearchResults(for: self.searchController)
+    }
+    
+    func signupDismissed() {
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

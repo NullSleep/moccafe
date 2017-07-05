@@ -12,7 +12,7 @@ import SDWebImage
 import AVKit
 import AVFoundation
 
-class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCellTableViewDelegate {
+class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCellTableViewDelegate, SignUpTransitionDelegate {
 
     var articleToSegue: Article?
     var atPage: Int?
@@ -111,10 +111,17 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCell
     }
     
     func loadProfile() {
+        if (UserDefaults.standard.value(forKey: "token") as? String) != nil {
         
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
         self.navigationController?.pushViewController(vc, animated:true)
+        } else {
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+            vc.delegate = self
+            self.present(vc, animated: true, completion: nil)
+        }
     }
+        
     
     // MARK: - Table view data source
 
@@ -301,7 +308,10 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCell
         }
     }
     
-
+    func signupDismissed() {
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 

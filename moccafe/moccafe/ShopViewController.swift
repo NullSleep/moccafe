@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShopViewController: UIViewController, UIWebViewDelegate {
+class ShopViewController: UIViewController, UIWebViewDelegate, SignUpTransitionDelegate {
 
     @IBAction func profileAction(_ sender: UIBarButtonItem) {
         loadProfile()
@@ -52,13 +52,21 @@ class ShopViewController: UIViewController, UIWebViewDelegate {
     }
     
     func loadProfile() {
-        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
-        
-        
-        self.navigationController?.pushViewController(vc, animated:true)
+        if (UserDefaults.standard.value(forKey: "token") as? String) != nil {
+            
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
+            self.navigationController?.pushViewController(vc, animated:true)
+        } else {
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+            vc.delegate = self
+            self.present(vc, animated: true, completion: nil)
+        }
     }
 
-    
+    func signupDismissed() {
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
     
    
