@@ -6,4 +6,55 @@
   Copyright © 2017 moccafe. All rights reserved.
 */
 
-"Welcome" = "ようこそ";
+
+"Insert email" = "Eメールアドレスを入力してください";
+"Insert password" = "パスワードを入力してください";
+"Insert name" = "名前を入力してください";
+"Insert email" = "Eメールアドレスを入力してください";
+"Insert password" = "パスワードを入力してください";
+"NEWS" = "最新情報";
+"BLOG" = "ブログ";
+"Play Video" = "ビデオを再生する";
+
+
+"Edit Profile" = "プロフィールを編集する";
+"Contact us" = "問い合わせ";
+"Logout" = "ログアウト";
+
+
+"Name" = "名前";
+"Email" = "Eメール";
+"City" = "都市";
+"Done" = "登録する";
+"NAME" = "名前";
+"Insert Name" = "名前を入力してください";
+"LAST NAME" = "姓";
+"Insert Last Name" = "名前を入力してください";
+
+"ABOUT ME" = "ひとこと";
+"About me" = "ひとこと";
+"EMAIL" = "Eメール";
+"Insert Email" = "Eメールアドレスを入力してください";
+"CITY" = "都市";
+"Insert City" = "都市を入力してください";
+"MOBILE" = "携帯電話番号";
+"Insert Mobile" = "携帯電話の番号を入力してください";
+"ADDRESS" = "住所";
+"Insert Address" = "住所を入力してください";
+"PHONE" = "電話番号";
+"Insert Phone" = "電話番号を入力してください";
+"SHIPPING ADDRESS" = "発送先住所";
+"Insert Shipping Address" = "発送先住所を入力してください";
+"Error" = "Error";
+"Could not retrieve profile data" = "プロフィール編集が完了していません";
+"OK" = "OK";
+"Choose the type of question" = "質問の種類を選んでください";
+"Cancel" = "キャンセル";
+"Choose Type" = "質問の種類を選んでください";
+"Success" = "成功";
+"Thanks for contacting us, will reply to you shortly" = "お問い合わせありがとうございます,返答まで少々お待ちください";
+"Please check your Internet connection" = "インターネットの通信状況をご確認ください";
+"Required fields must be filled out before proceeding" = "次のステップに進むにはすべての情報のご記入が必要となります";
+"Save error" = "エラー";
+"Saved!" = "保存されました";
+"The image has been saved to your photos." = "お客様のプロフィール写真を保存しました";

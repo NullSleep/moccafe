@@ -104,18 +104,12 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
         searchBarCancelButtonClicked(searchController.searchBar)
     }
     
-    
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
         self.navigationItem.leftBarButtonItem = searchBarButton
         self.navigationItem.rightBarButtonItem = profileButton
         self.navigationItem.hidesBackButton = false
         self.navigationItem.titleView = nil
-//        searchController.searchBar.text = ""
-//        self.navigationController?.definesPresentationContext = false
-//        self.definesPresentationContext = true
-
     }
     
     // MARK: - PagerTabStripDataSource
@@ -154,7 +148,6 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        //super.viewWillDisappear(false)
         self.searchController.dismiss(animated: true, completion: nil)
     }
     
@@ -172,7 +165,6 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
         
         self.updateSearchResults(for: self.searchController)
     }
-
 }
 
 extension HomeViewController: UISearchResultsUpdating {

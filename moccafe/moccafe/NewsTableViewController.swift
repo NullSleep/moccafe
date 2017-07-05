@@ -9,10 +9,10 @@
 import UIKit
 import XLPagerTabStrip
 import SwiftyJSON
-import SDWebImage
+import AVKit
+import AVFoundation
 
-
-class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
+class NewsTableViewController: UITableViewController, IndicatorInfoProvider, postCellTableViewDelegate {
     
     var searchText: String? {
         didSet {
@@ -81,7 +81,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
-
         retrievedArticles.removeAll()
         retrieveArticle(page: 1)
         self.tabBarController?.tabBar.isHidden = false
@@ -117,6 +116,8 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostCell else { return PostCell() }
+        
+        cell.delegate = self
 
         let article: Article
         
@@ -125,33 +126,44 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         } else {
             article = articles[indexPath.row]
         }
+        
+        //To Delete
+        article.picUrl = "https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
+
+        article.title = "Coffee Drinkers May Have One Less Type Of Cancer To Worry About"
+        article.content = "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Est antiopam facilisis adolescens id. Pri graecis suscipiantur no, in usu altera virtute, eam ei enim wisi. Pro probo vidisse appetere te, odio mollis et mei. Epicurei laboramus mei ut, usu ea affert quaerendum. Delicata urbanitas has an, eum eu omnium dissentiunt. Laoreet veritus temporibus est ne, at vero eirmod aperiri per. Quis volutpat scripserit mel at, duo fugit vidisse admodum ne. Ei mea noster quaestio, duo ne dicat mundi tantas. Nisl assum bonorum te usu, doming corrumpit ei nam. Ne sed suscipit argumentum. Paulo everti suscipiantur in vel, cu mei iisque propriae corrumpit. Ex vix prompta forensibus, ea movet incorrupte elaboraret eos, etiam eripuit vix an. Quo te ignota phaedrum appellantur, in pri justo partiendo adolescens, mea agam democritum ex. Alii invidunt maluisset sit an. An nec labores perpetua. Ex ridens aperiam vix, vel ex alia nemore rationibus. Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea, eu est aeterno scribentur. Ne unum scripserit duo. Ad eos tincidunt contentiones, no zril urbanitas argumentum usu. Ferri oblique tacimates ne nec, vero mollis probatus vis ne. Vis at qualisque definitiones."
+        
+        article.thumbUrl = ""//"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjhfpaXnErAFp2f6vcCEVsQv7dKQa5NfWcvOKyYr0pdLS59ryL"
+        article.videoUrl = ""//"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+
 
         let cellData: NSDictionary = [
             "date": article.created ?? "",
-            "title": article.title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
-            "subtitle": article.content ?? "", //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
-            "image":  1 //  data["image"] as? UIImage
+            "title": article.title ?? "",
+            "subtitle": article.content ?? "",
+            "picUrl":  article.picUrl ?? "",
+            "thumbUrl": article.thumbUrl ?? "",
+            "videoUrl": article.videoUrl ?? "",
+            "index": indexPath.row,
+            "liked": article.liked ?? false
         ]
-        
         let data = cellData
         cell.configureWithData(data)
         
-        let imageStringURL = "https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
-        article.picUrl = imageStringURL
-        
-        if let imageURL = URL.init(string: imageStringURL) {
-            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in }
-            cell.postImage.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
-        }
         return cell
     }
+    
+    var articleToSegue: Article?
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (delegate?.searchController.isActive)! && delegate?.searchController.searchBar.text != "" {
-            delegate?.loadDetail!(article: filteredArticles[indexPath.row])
+            articleToSegue = filteredArticles[indexPath.row]
+            delegate?.loadDetail!(article: articleToSegue!)
+
         } else {
-            delegate?.loadDetail!(article: articles[indexPath.row])
+            articleToSegue = articles[indexPath.row]
+            delegate?.loadDetail!(article: articleToSegue!)
         }
     }
     
@@ -162,7 +174,6 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
             retrieveArticle(page: atPage!+1)
             }
         }
-        
     }
     
     
@@ -212,6 +223,7 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
                     }
                 }
                 article.content = item["info"].string
+                article.thumbUrl = item["thumb_url"].string
                 article.picUrl = item["picture_url"].string
                 article.liked = item["liked"].bool
                 article.title = item["title"].string
@@ -255,6 +267,26 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider {
         self.refreshControl!.endRefreshing()
     }
     
-
+    // MARK: - PostCellTableViewDelegate
+    
+    func playVideo(index: Int) {
+        
+         tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .none)
+        tableView.delegate?.tableView!(tableView, didSelectRowAt: IndexPath(row: index, section: 0))
+        DispatchQueue.main.async {
+            self.loadVideo()
+        }
+    }
+    
+    func loadVideo() {
+        
+        let videoURL = URL(string: (articleToSegue?.videoUrl)!)
+        let player = AVPlayer(url: videoURL!)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
+        }
+    }
 
 }

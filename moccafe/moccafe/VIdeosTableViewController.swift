@@ -108,18 +108,14 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         let cellData: NSDictionary = [
             "date": article.created ?? "",
             "title": article.title ?? "", //"Coffee Drinkers May Have One Less Type Of Cancer To Worry About",
-            "subtitle": article.content ?? ""
+            "subtitle": article.content ?? "",
             //"Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+            "picUrl":  article.picUrl ?? "",
+            "thumbUrl": article.thumbUrl ?? "",
+            "videoUrl": article.videoUrl ?? "",
+            "index": indexPath.row,
+            "liked": article.liked ?? false
         ]
-        
-        let imageStringURL = "https://s-media-cache-ak0.pinimg.com/originals/33/1a/fe/331afef4a5fac893e41c4b6ca1fe8ab4.gif"
-        article.picUrl = imageStringURL
-        
-        if let imageURL = URL.init(string: imageStringURL) {
-            let myBlock: SDExternalCompletionBlock! = { (image, error, cacheType, imageURL) -> Void in
-            }
-            cell?.videoThumbnail.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
-        }
 
         cell?.configureWithData(cellData)
         
