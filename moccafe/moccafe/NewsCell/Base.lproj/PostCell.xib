@@ -84,7 +84,6 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="ffp-vk-YpR" secondAttribute="trailing" constant="20" symbolic="YES" id="7Dt-ty-m9T"/>
                 <constraint firstItem="ffp-vk-YpR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="AMd-Gu-BgW"/>

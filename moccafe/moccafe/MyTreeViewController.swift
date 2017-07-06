@@ -141,6 +141,7 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCell
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "home", for: indexPath) as? MyTreeTableViewCell
         
+        cell?.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         cell?.delegate = self
         
         let article: Article

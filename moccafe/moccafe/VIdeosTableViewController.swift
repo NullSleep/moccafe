@@ -216,29 +216,29 @@ class VideosTableViewController: UITableViewController, performNavigationDelegat
         let articles = json["blog"]["articles"].arrayValue
         let pageRetrieved = json["blog"]["page"].int
         
-        // if pageRetrieved == page {
-        self.atPage = page
-        
-        for item in articles {
-            let article = Article()
-            if let created = item["created_at"].string {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                if let date = formatter.date(from: created) {
-                    formatter.dateStyle = .medium
-                    let dato = formatter.string(from: date)
-                    article.created = dato
-                }
-            }
-            article.content = item["info"].string
-            article.picUrl = item["picture_url"].string
-            article.liked = item["liked"].bool
-            article.title = item["title"].string
-            article.videoUrl = item["video_url"].string
+         if pageRetrieved == page {
+            self.atPage = page
             
-            self.retrievedArticles.append(article)
+            for item in articles {
+                let article = Article()
+                if let created = item["created_at"].string {
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    if let date = formatter.date(from: created) {
+                        formatter.dateStyle = .medium
+                        let dato = formatter.string(from: date)
+                        article.created = dato
+                    }
+                }
+                article.content = item["info"].string
+                article.picUrl = item["picture_url"].string
+                article.liked = item["liked"].bool
+                article.title = item["title"].string
+                article.videoUrl = item["video_url"].string
+                
+                self.retrievedArticles.append(article)
+            }
         }
-        //}
     }
     
     func storeArticles(json: JSON) {
