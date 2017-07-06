@@ -179,7 +179,7 @@
         <!--Login View Controller-->
         <scene sceneID="WDX-hz-eyS">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="2iJ-If-dFj" customClass="LoginViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" modalTransitionStyle="crossDissolve" id="2iJ-If-dFj" customClass="LoginViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V0W-5L-aFa"/>
                         <viewControllerLayoutGuide type="bottom" id="fNc-B4-vjF"/>
@@ -299,7 +299,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="I1R-eC-LWm" firstAttribute="leading" secondItem="Zvd-5d-GEk" secondAttribute="trailing" constant="-42" id="4hk-73-YhV"/>
                                             <constraint firstItem="tkT-Ys-NOD" firstAttribute="top" secondItem="JEv-sr-EN3" secondAttribute="bottom" constant="13" id="5dc-eI-0pZ"/>
@@ -341,7 +341,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="q4e-Hu-YCl" firstAttribute="leading" secondItem="MfM-xO-mdP" secondAttribute="leading" id="CgY-ph-THf"/>
                             <constraint firstAttribute="trailing" secondItem="q4e-Hu-YCl" secondAttribute="trailing" id="Erk-RR-x1I"/>
@@ -368,7 +368,7 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -552,7 +552,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qR7-xg-BYD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dxv-df-U9a">
-                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWF-8Y-T2q">
@@ -638,7 +638,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="9Pg-2A-Nd1">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EM0-Dn-RdM" customClass="SignUpViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EM0-Dn-RdM" customClass="SignUpViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z1T-Nj-tJl"/>
                         <viewControllerLayoutGuide type="bottom" id="2XN-wk-4vP"/>
@@ -769,7 +769,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="mya-o7-58k" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8cx-Yl-vOO" secondAttribute="bottom" constant="41" id="2JI-aC-4qv"/>
                                             <constraint firstItem="8cx-Yl-vOO" firstAttribute="trailing" secondItem="pS7-63-qCW" secondAttribute="trailing" id="2R2-SJ-l8a"/>
@@ -815,7 +815,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qWK-q0-ZjR" firstAttribute="top" secondItem="ygu-dt-rif" secondAttribute="top" id="Uxh-Qa-s9Y"/>
                             <constraint firstItem="2XN-wk-4vP" firstAttribute="top" secondItem="qWK-q0-ZjR" secondAttribute="bottom" id="aFB-QD-etQ"/>

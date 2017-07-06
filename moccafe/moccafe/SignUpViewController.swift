@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import AVFoundation
 
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
@@ -15,6 +16,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
     // MARK: - Class Constants and Variables
     
     var delegate: SignUpTransitionDelegate?
+    var player = AVPlayer(playerItem: nil)
     
     let request = APICall()
     let myDefaults = UserDefaults.standard
@@ -45,6 +47,26 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(playerItemDidReachEnd),
+                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                               object: self.player.currentItem)
+        
+        
+        let filePath = Bundle.main.path(forResource: "MOV_2488", ofType: "mp4")
+        let fileURL = URL(fileURLWithPath: filePath!)
+    
+        player = AVPlayer(url: fileURL)
+        player.actionAtItemEnd = AVPlayerActionAtItemEnd.none
+        
+        let videoLayer = AVPlayerLayer(player: player)
+        videoLayer.frame = self.view.bounds
+        self.view.backgroundColor = UIColor.clear
+        
+        videoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        self.view.layer.insertSublayer(videoLayer, at: 0)
+        
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.delegate = self
         view.addGestureRecognizer(tap)
@@ -57,11 +79,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         emailTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Insert email", comment: ""), attributes: myAttribute)
         passwordTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Insert password", comment: ""), attributes: myAttribute)
         passwordTextField.isSecureTextEntry = true
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.registerForKeyboardNotifications()
+        player.play()
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        player.pause()
     }
     
     override func viewDidLayoutSubviews() {
@@ -85,6 +117,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
     }
     
     // MARK: - Actions
+    
+    func playerItemDidReachEnd(notification: NSNotification) {
+        self.player.seek(to: kCMTimeZero)
+        self.player.play()
+    }
     
     @IBAction func showPassword(_ sender: UIButton) {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry

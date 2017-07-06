@@ -8,12 +8,15 @@
 
 import UIKit
 import SwiftyJSON
+import AVFoundation
+
 
 
 class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
    
     // MARK: - Class Constants and Variables
     
+    var player = AVPlayer(playerItem: nil)
     let request = APICall()
     let myDefaults = UserDefaults.standard
     var delegate: SignUpTransitionDelegate?
@@ -38,6 +41,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let filePath = Bundle.main.path(forResource: "MOV_2488", ofType: "mp4")
+        let fileURL = URL(fileURLWithPath: filePath!)
+        
+        player = AVPlayer(url: fileURL)
+        player.actionAtItemEnd = AVPlayerActionAtItemEnd.none
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(playerItemDidReachEnd),
+                                                         name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                                         object: self.player.currentItem)
+        
+        let videoLayer = AVPlayerLayer(player: player)
+        videoLayer.frame = self.view.bounds
+        self.view.backgroundColor = UIColor.clear
+        
+        videoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        self.view.layer.insertSublayer(videoLayer, at: 0)
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.delegate = self
         view.addGestureRecognizer(tap)
@@ -55,6 +76,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.registerForKeyboardNotifications()
+        player.play()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        player.pause()
     }
 
     override func viewDidLayoutSubviews() {
@@ -77,6 +104,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     }
     
     // MARK: - Actions
+    
+    func playerItemDidReachEnd(notification: NSNotification) {
+        self.player.seek(to: kCMTimeZero)
+        self.player.play()
+    }
     
     @IBAction func showPassword(_ sender: UIButton) {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry

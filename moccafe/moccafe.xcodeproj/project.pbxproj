@@ -24,6 +24,7 @@
 		CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E181ED75AB700590F50 /* SignUpViewController.swift */; };
 		CD3131261F04FB2E00484BCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */; };
 		CD3D5BB71EF1C1590022298D /* MyTreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D5BB61EF1C1590022298D /* MyTreeTableViewCell.swift */; };
+		CD67DA2D1F0EE79F007AA14F /* MOV_2488.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CD67DA2C1F0EE3E3007AA14F /* MOV_2488.mp4 */; };
 		CD8036761EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */; };
 		CD8C98461EDF67CC00903A61 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */; };
 		CD8C98481EE0911300903A61 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */; };
@@ -86,6 +87,7 @@
 		CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD3D5BB61EF1C1590022298D /* MyTreeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTreeTableViewCell.swift; sourceTree = "<group>"; };
 		CD5D9AB91F01C8D600DC96B1 /* moccafe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = moccafe.entitlements; sourceTree = "<group>"; };
+		CD67DA2C1F0EE3E3007AA14F /* MOV_2488.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = MOV_2488.mp4; path = ../../../../../../../../Volumes/Ext.Drive/Videos/MOV_2488.mp4; sourceTree = "<group>"; };
 		CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		233894881ED3466900E6F78E /* moccafe */ = {
 			isa = PBXGroup;
 			children = (
+				CD67DA2C1F0EE3E3007AA14F /* MOV_2488.mp4 */,
 				CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */,
 				CD5D9AB91F01C8D600DC96B1 /* moccafe.entitlements */,
 				233894891ED3466900E6F78E /* AppDelegate.swift */,
@@ -411,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD67DA2D1F0EE79F007AA14F /* MOV_2488.mp4 in Resources */,
 				CDF65DDC1EFB33B300967136 /* Localizable.strings in Resources */,
 				233894961ED3466A00E6F78E /* LaunchScreen.storyboard in Resources */,
 				233894931ED3466A00E6F78E /* Assets.xcassets in Resources */,
