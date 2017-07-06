@@ -12,44 +12,44 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PostCell" customModule="moccafe" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="409" height="380"/>
+            <rect key="frame" x="0.0" y="0.0" width="409" height="420"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffp-vk-YpR">
-                    <rect key="frame" x="20" y="20" width="369" height="340"/>
+                <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffp-vk-YpR">
+                    <rect key="frame" x="8" y="20" width="393" height="400"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="247" verticalCompressionResistancePriority="745" translatesAutoresizingMaskIntoConstraints="NO" id="zod-kh-jIO">
-                            <rect key="frame" x="2" y="74.5" width="365" height="166"/>
+                            <rect key="frame" x="0.0" y="103.5" width="393" height="179"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="zod-kh-jIO" secondAttribute="height" multiplier="329:150" id="X16-MC-MeT"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee Drinkers May Have One Less Type Of Cancer To Worry About" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qw-bH-L4d">
-                            <rect key="frame" x="2" y="22" width="365" height="42.5"/>
+                            <rect key="frame" x="15" y="46" width="363" height="42.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="May 29" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9A-mi-cic">
-                            <rect key="frame" x="2" y="1" width="365" height="16"/>
+                            <rect key="frame" x="15" y="15" width="363" height="16"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read more..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAm-Ce-Sfz">
-                            <rect key="frame" x="2" y="316" width="76.5" height="16"/>
+                            <rect key="frame" x="15" y="369" width="76.5" height="16"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVz-5N-A82">
-                            <rect key="frame" x="2" y="250.5" width="365" height="55.5"/>
+                            <rect key="frame" x="15" y="297.5" width="363" height="56.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                             <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xa-tk-vag">
-                            <rect key="frame" x="342" y="311.5" width="25" height="25"/>
+                            <rect key="frame" x="353" y="364.5" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="7aX-Rd-Yyu"/>
                                 <constraint firstAttribute="width" constant="25" id="poV-C6-vRL"/>
@@ -59,36 +59,36 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="0qw-bH-L4d" secondAttribute="trailing" constant="2" id="30n-iz-kEE"/>
-                        <constraint firstItem="aAm-Ce-Sfz" firstAttribute="top" secondItem="PVz-5N-A82" secondAttribute="bottom" constant="10" id="8sa-Em-64g"/>
+                        <constraint firstItem="PVz-5N-A82" firstAttribute="trailing" secondItem="0qw-bH-L4d" secondAttribute="trailing" id="0K5-2Y-7ey"/>
+                        <constraint firstItem="PVz-5N-A82" firstAttribute="leading" secondItem="i9A-mi-cic" secondAttribute="leading" id="17y-nE-E7e"/>
+                        <constraint firstAttribute="trailing" secondItem="0qw-bH-L4d" secondAttribute="trailing" constant="15" id="30n-iz-kEE"/>
+                        <constraint firstItem="aAm-Ce-Sfz" firstAttribute="top" secondItem="PVz-5N-A82" secondAttribute="bottom" constant="15" id="8sa-Em-64g"/>
                         <constraint firstItem="aAm-Ce-Sfz" firstAttribute="leading" secondItem="PVz-5N-A82" secondAttribute="leading" id="C85-Va-rYT"/>
-                        <constraint firstItem="zod-kh-jIO" firstAttribute="top" secondItem="0qw-bH-L4d" secondAttribute="bottom" constant="10" id="DGs-f7-xoG"/>
-                        <constraint firstItem="zod-kh-jIO" firstAttribute="leading" secondItem="PVz-5N-A82" secondAttribute="leading" id="Gtc-V4-To6"/>
-                        <constraint firstItem="PVz-5N-A82" firstAttribute="top" secondItem="zod-kh-jIO" secondAttribute="bottom" constant="10" id="Hq0-KI-rgn"/>
-                        <constraint firstItem="6xa-tk-vag" firstAttribute="trailing" secondItem="zod-kh-jIO" secondAttribute="trailing" id="KGs-cC-f1U"/>
-                        <constraint firstItem="0qw-bH-L4d" firstAttribute="leading" secondItem="ffp-vk-YpR" secondAttribute="leading" constant="2" id="LL2-Qb-svM"/>
-                        <constraint firstItem="zod-kh-jIO" firstAttribute="trailing" secondItem="i9A-mi-cic" secondAttribute="trailing" id="Ran-kX-Pcm"/>
+                        <constraint firstItem="zod-kh-jIO" firstAttribute="top" secondItem="0qw-bH-L4d" secondAttribute="bottom" constant="15" id="DGs-f7-xoG"/>
+                        <constraint firstItem="PVz-5N-A82" firstAttribute="top" secondItem="zod-kh-jIO" secondAttribute="bottom" constant="15" id="Hq0-KI-rgn"/>
+                        <constraint firstItem="0qw-bH-L4d" firstAttribute="leading" secondItem="ffp-vk-YpR" secondAttribute="leading" constant="15" id="LL2-Qb-svM"/>
+                        <constraint firstAttribute="trailing" secondItem="zod-kh-jIO" secondAttribute="trailing" id="QFd-U3-JOL"/>
                         <constraint firstItem="i9A-mi-cic" firstAttribute="leading" secondItem="0qw-bH-L4d" secondAttribute="leading" id="S8E-dE-6Dj"/>
-                        <constraint firstItem="zod-kh-jIO" firstAttribute="leading" secondItem="i9A-mi-cic" secondAttribute="leading" id="SQB-xJ-7JT"/>
                         <constraint firstItem="i9A-mi-cic" firstAttribute="trailing" secondItem="0qw-bH-L4d" secondAttribute="trailing" id="doJ-TH-ZF3"/>
-                        <constraint firstItem="PVz-5N-A82" firstAttribute="trailing" secondItem="zod-kh-jIO" secondAttribute="trailing" id="mzv-ay-hY6"/>
-                        <constraint firstAttribute="bottom" secondItem="aAm-Ce-Sfz" secondAttribute="bottom" constant="8" id="nHt-5O-yiX"/>
+                        <constraint firstItem="zod-kh-jIO" firstAttribute="leading" secondItem="ffp-vk-YpR" secondAttribute="leading" id="ebU-U3-ICJ"/>
+                        <constraint firstAttribute="bottom" secondItem="aAm-Ce-Sfz" secondAttribute="bottom" constant="15" id="nHt-5O-yiX"/>
+                        <constraint firstItem="PVz-5N-A82" firstAttribute="trailing" secondItem="6xa-tk-vag" secondAttribute="trailing" id="nQC-lO-y2Q"/>
                         <constraint firstItem="6xa-tk-vag" firstAttribute="centerY" secondItem="aAm-Ce-Sfz" secondAttribute="centerY" id="olE-Fd-Wgg"/>
-                        <constraint firstItem="0qw-bH-L4d" firstAttribute="top" secondItem="i9A-mi-cic" secondAttribute="bottom" constant="5" id="tRE-SX-655"/>
-                        <constraint firstItem="i9A-mi-cic" firstAttribute="top" secondItem="ffp-vk-YpR" secondAttribute="top" constant="1" id="yGZ-vE-3h2"/>
+                        <constraint firstItem="0qw-bH-L4d" firstAttribute="top" secondItem="i9A-mi-cic" secondAttribute="bottom" constant="15" id="tRE-SX-655"/>
+                        <constraint firstItem="i9A-mi-cic" firstAttribute="top" secondItem="ffp-vk-YpR" secondAttribute="top" constant="15" id="yGZ-vE-3h2"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
+                            <integer key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="ffp-vk-YpR" secondAttribute="trailing" constant="20" symbolic="YES" id="7Dt-ty-m9T"/>
-                <constraint firstItem="ffp-vk-YpR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="AMd-Gu-BgW"/>
+                <constraint firstAttribute="trailing" secondItem="ffp-vk-YpR" secondAttribute="trailing" constant="8" id="7Dt-ty-m9T"/>
+                <constraint firstItem="ffp-vk-YpR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="AMd-Gu-BgW"/>
                 <constraint firstItem="ffp-vk-YpR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="CpO-gN-xtm"/>
-                <constraint firstAttribute="bottom" secondItem="ffp-vk-YpR" secondAttribute="bottom" constant="20" symbolic="YES" id="SG3-TJ-DVy"/>
+                <constraint firstAttribute="bottom" secondItem="ffp-vk-YpR" secondAttribute="bottom" id="SG3-TJ-DVy"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

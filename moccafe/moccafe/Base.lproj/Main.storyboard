@@ -589,7 +589,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" providesPresentationContextTransitionStyle="YES" id="J0q-at-cra" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="mtabhome1" id="f7b-L9-aY5"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="dm6-q2-anL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dm6-q2-anL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.25882352941176467" green="0.11764705882352941" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -828,6 +828,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="backView" destination="ygu-dt-rif" id="cUD-bC-97p"/>
+                        <outlet property="backgroundView" destination="wzz-CB-3vB" id="jwt-WR-BWy"/>
                         <outlet property="emailTextField" destination="pS7-63-qCW" id="zzZ-Xh-lw2"/>
                         <outlet property="mainScrollView" destination="qWK-q0-ZjR" id="gqZ-zO-l5G"/>
                         <outlet property="nameTextField" destination="GCV-gD-1ti" id="3DS-JP-mzU"/>
@@ -845,7 +847,7 @@
                     <tabBarItem key="tabBarItem" title="MyTree" image="mtabbean1" id="PMx-HJ-Fro"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="668"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ncR-kS-lFd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ncR-kS-lFd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.25882352941176467" green="0.11764705882352941" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -917,7 +919,6 @@
                                             <state key="normal" image="thumb"/>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="qDf-st-rg3" firstAttribute="top" secondItem="iEl-Pe-Kgp" secondAttribute="bottom" constant="10" id="24y-f5-T3c"/>
                                         <constraint firstItem="2Yb-Yc-l6L" firstAttribute="trailing" secondItem="Fxw-AF-wQ2" secondAttribute="trailing" id="8QM-rv-84U"/>
@@ -939,7 +940,6 @@
                                         <constraint firstItem="LRC-MI-v0V" firstAttribute="leading" secondItem="i0J-eO-Asw" secondAttribute="leadingMargin" constant="15" id="xh5-Li-0Dv"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="date" destination="LRC-MI-v0V" id="7rR-JM-g7F"/>
@@ -1334,7 +1334,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLs-7O-f2e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Videos" image="mtabevideo1" id="reg-PB-K53"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="pG6-vs-6I4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pG6-vs-6I4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.25882352939999997" green="0.1176470588" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1359,7 +1359,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Eer-et-UlK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Eer-et-UlK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.36078431370000003" green="0.57254901960000004" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

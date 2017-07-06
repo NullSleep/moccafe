@@ -38,7 +38,12 @@ class PostCell: UITableViewCell {
         super.awakeFromNib()
         likeButton.setImage(UIImage(named: "thumb"), for: .normal)
         likeButton.setImage(UIImage(named: "thumbfilled"), for: .selected)
-        
+        containerView.layer.borderColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
+        containerView.layer.borderWidth = 1
+//        containerView.layer.shadowColor = UIColor.lightGray.cgColor
+//        containerView.layer.shadowOpacity = 0.5
+//        containerView.layer.shadowOffset = CGSize(width: 1, height: 1)
+//        containerView.layer.shadowRadius = 5
     }
 
     func configureWithData(_ data: NSDictionary) {
@@ -96,8 +101,10 @@ class PostCell: UITableViewCell {
     func loadVideo() {
         if delegate != nil {
             delegate?.playVideo(index: index!)
+        
         }
     }
+    
  
     func changeStylToBlack() {
 //        postImage?.layer.cornerRadius = 30.0

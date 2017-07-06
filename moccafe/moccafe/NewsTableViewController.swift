@@ -62,9 +62,9 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider, pos
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 370
         tableView.register(UINib(nibName: "PostCell", bundle: Bundle.main), forCellReuseIdentifier: cellIdentifier)
-        tableView.separatorStyle = .singleLine
-        tableView.separatorColor = UIColor.lightGray
-        tableView.separatorInset = UIEdgeInsets.zero
+        tableView.separatorStyle = .none
+//        tableView.separatorColor = UIColor.lightGray
+//        tableView.separatorInset = UIEdgeInsets.zero
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         
@@ -116,9 +116,9 @@ class NewsTableViewController: UITableViewController, IndicatorInfoProvider, pos
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostCell else { return PostCell() }
-        cell.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+        cell.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
         cell.delegate = self
-
+        
         let article: Article
         
         if delegate?.searchController.searchBar.text != "" && !filteredArticles.isEmpty {

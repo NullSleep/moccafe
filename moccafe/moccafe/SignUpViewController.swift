@@ -31,6 +31,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         }
     } */
     
+    @IBOutlet var backView: UIView!
+    
+    @IBOutlet var backgroundView: UIView!
+    
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
