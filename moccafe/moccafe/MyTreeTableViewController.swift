@@ -12,7 +12,7 @@ import SDWebImage
 import AVKit
 import AVFoundation
 
-class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCellTableViewDelegate, SignUpTransitionDelegate {
+class MyTreeTableViewController: UITableViewController, UISearchBarDelegate, postCellTableViewDelegate, SignUpTransitionDelegate {
 
     var articleToSegue: Article?
     var atPage: Int?
@@ -316,7 +316,7 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCell
     
 }
 
-extension MyTreeViewController: UISearchResultsUpdating {
+extension MyTreeTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
