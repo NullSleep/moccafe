@@ -35,6 +35,39 @@ public extension UIImage {
     }
 }
 
+extension UIView {
+    func startRotating(duration: Double = 1) {
+        let kAnimationKey = "rotation"
+        
+        if self.layer.animation(forKey: kAnimationKey) == nil {
+            let animate = CABasicAnimation(keyPath: "transform.rotation")
+            animate.duration = duration
+            animate.repeatCount = Float.infinity
+            animate.fromValue = 0.0
+            animate.toValue = Float(Double.pi * 2.0)
+            self.layer.add(animate, forKey: kAnimationKey)
+        }
+    }
+    func stopRotating() {
+        let kAnimationKey = "rotation"
+        
+        if self.layer.animation(forKey: kAnimationKey) != nil {
+            self.layer.removeAnimation(forKey: kAnimationKey)
+        }
+    }
+}
+
+extension Dictionary where Value: Equatable {
+    
+    func keysForValue(value: Value) -> [Key] {
+        return flatMap { (key: Key, val: Value) -> Key? in
+            value == val ? key : nil
+        }
+    }
+}
+
+//MARK: - Protocols
+
 protocol switchHomeOptionDelegate {
     func loadBlog()
     func loadNews()
@@ -69,14 +102,7 @@ protocol ProfileActionsDelegate {
 
 }
 
-extension Dictionary where Value: Equatable {
 
-    func keysForValue(value: Value) -> [Key] {
-        return flatMap { (key: Key, val: Value) -> Key? in
-            value == val ? key : nil
-        }
-    }
-}
 
 
 

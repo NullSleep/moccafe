@@ -16,7 +16,7 @@ class ShopViewController: UIViewController, UIWebViewDelegate, SignUpTransitionD
     
     @IBOutlet var shopWebView: UIWebView!
     
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+    let spinner = UIImageView(image: UIImage(named: "spinner"), highlightedImage: nil)
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -27,23 +27,25 @@ class ShopViewController: UIViewController, UIWebViewDelegate, SignUpTransitionD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        spinner.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
+        
         shopWebView.delegate = self
         self.shopWebView.scalesPageToFit = true
         self.shopWebView.contentMode = UIViewContentMode.scaleAspectFit
         let url = URL(string: "https://github.myshopify.com/")
         let request = URLRequest(url: url!)
         shopWebView.loadRequest(request)
-        activityIndicator.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
-        activityIndicator.color = UIColor(red:0.36, green:0.57, blue:0.02, alpha:1.0)
 
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
+        view.addSubview(spinner)
+        startSpinning()
 
         // Do any additional setup after loading the view.
     }
 
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        activityIndicator.stopAnimating()
+        stopSpinning()
+        spinner.isHidden = true
+        //activityIndicator.stopAnimating()
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,7 +69,24 @@ class ShopViewController: UIViewController, UIWebViewDelegate, SignUpTransitionD
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
     
-   
+    func startSpinning() {
+        spinner.image = UIImage(named:"spinner")
+        spinner.startRotating()
+    }
+    
+    
+    func stopSpinning() {
+        spinner.stopRotating()
+        spinner.image = UIImage(named:"spinner")
+    }
+    
+    func handleSync() {
+        startSpinning()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + (3 * Double(NSEC_PER_SEC))) {
+            self.stopSpinning()
+        }
+    
+    }
 }
