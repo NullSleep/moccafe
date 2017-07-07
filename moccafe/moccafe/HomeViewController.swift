@@ -128,7 +128,9 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
-        let child_1 = NewsTableViewController(style: .plain, itemInfo: IndicatorInfo(title: NSLocalizedString("NEWS", comment: "")))
+      //  let child_1 = NewsViewController(itemInfo: IndicatorInfo(title: NSLocalizedString("NEWS", comment: "")))
+        let child_1 = NewsViewController()
+        child_1.itemInfo = IndicatorInfo(title: NSLocalizedString("NEWS", comment: ""))
         child_1.blackTheme = true
         child_1.delegate = self
         child_1.url = "https://app.moccafeusa.com/api/v1/blogs/news_articles"

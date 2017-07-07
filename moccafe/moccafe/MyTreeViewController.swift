@@ -1,10 +1,11 @@
 //
-//  SecondViewController.swift
+//  MyTreeViewController.swift
 //  moccafe
 //
-//  Created by Carlos Arenas on 5/22/17.
+//  Created by Valentina Henao on 7/7/17.
 //  Copyright © 2017 moccafe. All rights reserved.
 //
+
 
 import UIKit
 import SwiftyJSON
@@ -12,14 +13,16 @@ import SDWebImage
 import AVKit
 import AVFoundation
 
-class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCellTableViewDelegate, SignUpTransitionDelegate {
-
+class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, postCellTableViewDelegate, SignUpTransitionDelegate {
+    
     var articleToSegue: Article?
     var atPage: Int?
     let apiHandler = APICall()
     
     let searchController = UISearchController(searchResultsController: nil)
-
+    
+    @IBOutlet var tableView: UITableView!
+    
     @IBOutlet var searchBarButton: UIBarButtonItem!
     @IBOutlet var profileButton: UIBarButtonItem!
     @IBOutlet var questionButton: UIButton!
@@ -41,14 +44,22 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCell
         }
     }
     
+    var refreshControl: UIRefreshControl!
+    
     let urlQuestions = "https://app.moccafeusa.com/api/v1/questions/tree_options"
     let urlArticles = "https://app.moccafeusa.com/api/v1/blogs/tree_articles"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.delegate = self
+        tableView.dataSource = self
+        
+        refreshControl = UIRefreshControl()
+        tableView.addSubview(refreshControl)
+        
         self.navigationController?.navigationBar.tintColor = UIColor.white
-
+        
         questionButton.layer.borderColor = UIColor.white.cgColor
         questionButton.layer.cornerRadius = 12.5
         questionButton.layer.borderWidth = 1
@@ -112,24 +123,24 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCell
     
     func loadProfile() {
         if (UserDefaults.standard.value(forKey: "token") as? String) != nil {
-        
-        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
-        self.navigationController?.pushViewController(vc, animated:true)
+            
+            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
+            self.navigationController?.pushViewController(vc, animated:true)
         } else {
             let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
             vc.delegate = self
             self.present(vc, animated: true, completion: nil)
         }
     }
-        
+    
     
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    
+     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if searchController.isActive && searchController.searchBar.text != "" {
             return filteredArticles.count
@@ -137,7 +148,7 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCell
         return articles.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "home", for: indexPath) as? MyTreeTableViewCell
         
@@ -153,7 +164,7 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCell
         }
         
         //To Delete
-
+        
         article.picUrl = "https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
         article.content = "Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
         article.title = "Coffee Drinkers May Have One Less Type Of Cancer To Worry About"
@@ -172,13 +183,13 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCell
             "liked": article.liked ?? false
         ]
         
-       
+        
         cell?.configureWithData(cellData)
         
         return cell!
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if searchController.isActive && searchController.searchBar.text != "" {
             articleToSegue = filteredArticles[indexPath.row]
@@ -188,7 +199,7 @@ class MyTreeViewController: UITableViewController, UISearchBarDelegate, postCell
         performSegue(withIdentifier: "showDetail", sender: self)
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if indexPath.row == self.articles.count-1 {
             if atPage != nil {
