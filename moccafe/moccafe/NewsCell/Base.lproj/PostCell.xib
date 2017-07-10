@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffp-vk-YpR">
-                    <rect key="frame" x="8" y="15" width="393" height="400"/>
+                    <rect key="frame" x="8" y="15" width="393" height="405"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="247" verticalCompressionResistancePriority="745" translatesAutoresizingMaskIntoConstraints="NO" id="zod-kh-jIO">
                             <rect key="frame" x="0.0" y="103.5" width="393" height="179"/>
@@ -37,19 +37,19 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read more..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAm-Ce-Sfz">
-                            <rect key="frame" x="15" y="369" width="76.5" height="16"/>
+                            <rect key="frame" x="15" y="374" width="76.5" height="16"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVz-5N-A82">
-                            <rect key="frame" x="15" y="297.5" width="363" height="56.5"/>
+                            <rect key="frame" x="15" y="297.5" width="363" height="61.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                             <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xa-tk-vag">
-                            <rect key="frame" x="353" y="364.5" width="25" height="25"/>
+                            <rect key="frame" x="353" y="369.5" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="7aX-Rd-Yyu"/>
                                 <constraint firstAttribute="width" constant="25" id="poV-C6-vRL"/>
@@ -88,7 +88,7 @@
                 <constraint firstAttribute="trailing" secondItem="ffp-vk-YpR" secondAttribute="trailing" constant="8" id="7Dt-ty-m9T"/>
                 <constraint firstItem="ffp-vk-YpR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="AMd-Gu-BgW"/>
                 <constraint firstItem="ffp-vk-YpR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="CpO-gN-xtm"/>
-                <constraint firstAttribute="bottom" secondItem="ffp-vk-YpR" secondAttribute="bottom" constant="5" id="SG3-TJ-DVy"/>
+                <constraint firstAttribute="bottom" secondItem="ffp-vk-YpR" secondAttribute="bottom" id="SG3-TJ-DVy"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -100,7 +100,7 @@
                 <outlet property="postSubtitle" destination="PVz-5N-A82" id="v4s-qk-z28"/>
                 <outlet property="postTitle" destination="0qw-bH-L4d" id="pE8-hO-iQ1"/>
             </connections>
-            <point key="canvasLocation" x="14.5" y="-15.5"/>
+            <point key="canvasLocation" x="-24.5" y="-102"/>
         </view>
     </objects>
     <resources>

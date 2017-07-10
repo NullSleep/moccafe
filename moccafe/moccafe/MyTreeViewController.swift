@@ -36,6 +36,8 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    let spinner = UIImageView(image: UIImage(named: "spinner"), highlightedImage: nil)
+    
     var retrievedArticles = [Article]() {
         didSet {
             if !retrievedArticles.isEmpty {
@@ -55,6 +57,11 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.delegate = self
         tableView.dataSource = self
         
+        spinner.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
+        view.addSubview(spinner)
+        startSpinning()
+        
+        
         refreshControl = UIRefreshControl()
         tableView.addSubview(refreshControl)
         
@@ -68,6 +75,8 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 370
         tableView.tableFooterView = UIView()
+        
+        tableView.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     }
@@ -151,8 +160,6 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "home", for: indexPath) as? MyTreeTableViewCell
-        
-        cell?.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         cell?.delegate = self
         
         let article: Article
@@ -220,6 +227,8 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             var jsonValue: JSON = [:] {
                 didSet { self.createArray(json: jsonValue, page: page) }
             }
+            self.stopSpinning()
+            
             if response != nil {
                 jsonValue = response!
                 self.storeArticles(json: response!)
@@ -323,6 +332,27 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func signupDismissed() {
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func startSpinning() {
+        spinner.image = UIImage(named:"spinner")
+        spinner.startRotating()
+    }
+    
+    
+    func stopSpinning() {
+        spinner.stopRotating()
+        spinner.image = UIImage(named:"spinner")
+        spinner.isHidden = true
+    }
+    
+    func handleSync() {
+        startSpinning()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + (3 * Double(NSEC_PER_SEC))) {
+            self.stopSpinning()
+        }
+        
     }
     
 }

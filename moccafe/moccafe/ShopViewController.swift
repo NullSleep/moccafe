@@ -45,7 +45,6 @@ class ShopViewController: UIViewController, UIWebViewDelegate, SignUpTransitionD
     func webViewDidFinishLoad(_ webView: UIWebView) {
         stopSpinning()
         spinner.isHidden = true
-        //activityIndicator.stopAnimating()
     }
     
     override func didReceiveMemoryWarning() {

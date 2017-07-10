@@ -77,9 +77,11 @@ class APICall: NSObject {
         
         let url = "https://app.moccafeusa.com/api/v1/customers/update_profile"
         let params = ["customer": json.dictionaryObject ?? ["":""]]
+        
+        let headers = ["Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJtb2NjYWZldXNhLmNvbSIsInVzZXJfaWQiOjcsIm5hbWUiOiJwZXBpdG8ifQ.Q3XO7UFvN2wKn7YbUxUFjAeZie2xqYnsqSe47DzeMVk"]
 
         
-        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseString { response in
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseString { response in
             
             switch response.result {
             case .success(let value): print("value \(value)")

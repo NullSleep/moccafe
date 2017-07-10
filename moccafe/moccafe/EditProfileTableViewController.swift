@@ -108,7 +108,7 @@ class EditProfileTableViewController: UITableViewController, ProfileActionsDeleg
         request.postProfile(json: profileDataCopy) {
             json, error in
             if json != nil {
-                print("profile response \(self.profileDataCopy)")
+                print("profile response \(json)")
 
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)

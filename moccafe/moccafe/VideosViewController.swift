@@ -28,6 +28,7 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
     
     var filteredArticles = [Article]()
     
+    let spinner = UIImageView(image: UIImage(named: "spinner"), highlightedImage: nil)
     
     let apiHandler = APICall()
     
@@ -59,6 +60,10 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         self.tableView.delegate = self
         tableView.dataSource = self
         
+        spinner.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
+        view.addSubview(spinner)
+        startSpinning()
+        
         refreshControl = UIRefreshControl()
         tableView.addSubview(refreshControl)
         
@@ -71,7 +76,8 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 370
         tableView.tableFooterView = UIView()
-
+        
+        tableView.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
@@ -104,6 +110,7 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "videoCell", for: indexPath) as? VideoTableViewCell
+
         cell?.delegate = self
         
         let article: Article
@@ -211,6 +218,8 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
                     self.createArray(json: jsonValue, page: page)
                 }
             }
+            self.stopSpinning()
+
             if response != nil {
                 jsonValue = response!
                 self.storeArticles(json: response!)
@@ -294,6 +303,26 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func startSpinning() {
+        spinner.image = UIImage(named:"spinner")
+        spinner.startRotating()
+    }
+    
+    
+    func stopSpinning() {
+        spinner.stopRotating()
+        spinner.image = UIImage(named:"spinner")
+        spinner.isHidden = true
+    }
+    
+    func handleSync() {
+        startSpinning()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + (3 * Double(NSEC_PER_SEC))) {
+            self.stopSpinning()
+        }
+        
+    }
 }
 
 extension VideosViewController: UISearchResultsUpdating {

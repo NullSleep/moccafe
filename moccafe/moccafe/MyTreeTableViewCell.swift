@@ -19,6 +19,8 @@ class MyTreeTableViewCell: UITableViewCell {
     
     @IBOutlet var likeButton: UIButton!
     
+    @IBOutlet var containerView: UIView!
+    
     var delegate: postCellTableViewDelegate?
     var index: Int?
     
@@ -36,6 +38,9 @@ class MyTreeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         likeButton.setImage(UIImage(named: "thumb"), for: .normal)
         likeButton.setImage(UIImage(named: "thumbfilled"), for: .selected)
+        
+        containerView.layer.borderColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
+        containerView.layer.borderWidth = 1
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -48,6 +48,9 @@ class VideoTableViewCell: UITableViewCell {
         
         likeButton.setImage(UIImage(named: "thumb"), for: .normal)
         likeButton.setImage(UIImage(named: "thumbfilled"), for: .selected)
+        
+        containingView.layer.borderColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
+        containingView.layer.borderWidth = 1
 
     }
 

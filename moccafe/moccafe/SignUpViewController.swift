@@ -138,11 +138,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         //if token -> save token***
         
         request.signup(json: signupData) {
-            _ in
+            json, error in
+            print("json signup\(String(describing: json))")
+            print("error signup \(String(describing: error))")
             self.delegate?.signupDismissed()
             self.presentingViewController?.dismiss(animated: true, completion: nil)
         }
       
+        
+        
+        
         /*
          request.getProfile() {
             json, error in

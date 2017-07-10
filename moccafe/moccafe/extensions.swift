@@ -90,6 +90,8 @@ protocol ProfileActionsDelegate {
     var searchController: UISearchController {
         get
     }
+    
+    @objc optional func stopSpinning()
     @objc optional var searchText: String? { get }
     
     @objc optional func startWithSearch()

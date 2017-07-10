@@ -29,8 +29,6 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var tableView = UITableView()
     
-    
-    
     var articles = [Article]() {
         didSet { self.tableView.reloadData() }
     }
@@ -51,42 +49,18 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var blackTheme = false
     var itemInfo = IndicatorInfo(title: "View")
     
-//    init(itemInfo: IndicatorInfo) {
-//                    self.itemInfo = itemInfo
-//        super.init()
-//                }
-    
-//    required init?(coder aDecoder: NSCoder) {
-//     //   super.init()
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
     var refreshControl: UIRefreshControl!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-      //  self.tableView.bounds = CGRect(origin: 0, size: 0)
-    //    self.itemInfo = itemInfo
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
         tableView.clipsToBounds = false
-
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         self.view.addSubview(tableView)
 
-  //      tableView.leadingAnchor = 1
-       // tableView.clipsToBounds = true
-       // tableView.frame.origin = CGPoint(x: 0, y: 0)
-    //    tableView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-     //   tableView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         let bottom = NSLayoutConstraint(item: self.tableView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 10)
-//        
-//        let top = NSLayoutConstraint(item: self.tableView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0)
-//        
-//
+
         self.view.addConstraints([  bottom])
         
         self.tableView.delegate = self
@@ -98,16 +72,15 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.estimatedRowHeight = 370
         tableView.register(UINib(nibName: "PostCell", bundle: Bundle.main), forCellReuseIdentifier: cellIdentifier)
         tableView.separatorStyle = .none
-        //        tableView.separatorColor = UIColor.lightGray
-        //        tableView.separatorInset = UIEdgeInsets.zero
+
         tableView.tableFooterView = UIView()
-        tableView.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
+        tableView.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
+
         
         refreshControl = UIRefreshControl()
-    //    tableView.refreshControl = refreshControl
-        self.refreshControl!.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         tableView.addSubview(refreshControl!)
-        
+        self.refreshControl!.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     }
     
     
@@ -146,9 +119,11 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return articles.count
     }
     
+    
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostCell else { return PostCell() }
+        
         cell.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
         cell.delegate = self
         
@@ -226,6 +201,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     
                 }
             }
+            self.delegate?.stopSpinning!()
+
             if response != nil {
                 jsonValue = response!
                 self.storeArticles(json: response!)
@@ -233,6 +210,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } else if response == nil {
                 jsonValue = self.retrieveStoredData() ?? [:]
             }
+         
         }
     }
     
@@ -297,11 +275,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func handleRefresh(refreshControl: UIRefreshControl) {
         retrievedArticles.removeAll()
         retrieveArticle(page: 1)
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl!.endRefreshing()
-        } else {
-            // Fallback on earlier versions
-        }
+        refreshControl.endRefreshing()
+
     }
     
     // MARK: - PostCellTableViewDelegate

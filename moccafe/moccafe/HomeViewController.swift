@@ -32,6 +32,8 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
         }
     }
     
+    let spinner = UIImageView(image: UIImage(named: "spinner"), highlightedImage: nil)
+    
     var articleToSegue: Article?
     var searchText: String?
 
@@ -39,6 +41,10 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        spinner.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
+        view.addSubview(spinner)
+        startSpinning()
         
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.receivedBlog(_:)), name: NSNotification.Name(rawValue: HomeViewController.ReceivedBlogNotification), object: nil)
         
@@ -137,7 +143,8 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
         child_1.filePath = "/Library/Caches/news.txt"
         child_1.searchText = searchText
         
-        let child_2 = NewsTableViewController(style: .plain, itemInfo: IndicatorInfo(title: NSLocalizedString("BLOG", comment: "")))
+        let child_2 = NewsViewController()
+        child_2.itemInfo = IndicatorInfo(title: NSLocalizedString("BLOG", comment: ""))
         child_2.blackTheme = true
         child_2.delegate = self
         child_2.url = "https://app.moccafeusa.com/api/v1/blogs/articles"
@@ -167,7 +174,7 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         
-        let vc = viewControllers[self.currentIndex] as? NewsTableViewController
+        let vc = viewControllers[self.currentIndex] as? NewsViewController
         vc?.filteredArticles = (vc?.articles.filter { article in
             return (article.title?.lowercased().contains(searchText.lowercased()))!
             })!
@@ -184,6 +191,29 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileTableViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func startSpinning() {
+        spinner.image = UIImage(named:"spinner")
+        spinner.startRotating()
+    }
+    
+    
+    func stopSpinning() {
+        spinner.stopRotating()
+        spinner.image = UIImage(named:"spinner")
+         spinner.isHidden = true
+    }
+    
+    func handleSync() {
+        startSpinning()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + (3 * Double(NSEC_PER_SEC))) {
+            self.stopSpinning()
+        }
+        
+    }
+    
+    
 }
 
 extension HomeViewController: UISearchResultsUpdating {
