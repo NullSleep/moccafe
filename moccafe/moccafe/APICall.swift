@@ -19,15 +19,15 @@ class APICall: NSObject {
         let url = "https://app.moccafeusa.com/api/v1/customers/signup"
         let params = ["customer": json.dictionaryObject ?? ["":""]]
         
-        
-        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseString { response in
-            print("data signup \(params)")
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {
+            response in
             switch response.result {
-            case .success(let value): print("value signup \(value)")
-            let json = JSON(rawValue: value)
-            completionHandler(json, nil)
-            case .failure(let error): print("ERROR signup")
-            completionHandler(nil, error)
+                
+                case .success(let value): print("value signup \(value)")
+                let json = JSON(rawValue: value)
+                completionHandler(json, nil)
+                case .failure(let error): print("ERROR signup")
+                completionHandler(nil, error)
                 
             }
         }
@@ -42,11 +42,12 @@ class APICall: NSObject {
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             
             switch response.result {
-            case .success(let value): print("value \(value)")
-            let json = JSON(rawValue: value)
-            completionHandler(json, nil)
-            case .failure(let error): print("ERROR")
-            completionHandler(nil, error)
+                
+                case .success(let value): print("value \(value)")
+                let json = JSON(rawValue: value)
+                completionHandler(json, nil)
+                case .failure(let error): print("ERROR")
+                completionHandler(nil, error)
                 
             }
         }
@@ -157,10 +158,9 @@ class APICall: NSObject {
             print(response)
             switch response.result {
             case .success(let value):
-                print("response retrieving articles \(value)")
                 let json = JSON(rawValue: value)
                 completionHandler(json, nil)
-            case .failure(let error): print("Error")
+            case .failure(let error): 
                 completionHandler(nil, error)
                 return
             }
