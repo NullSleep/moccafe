@@ -21,16 +21,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     let myDefaults = UserDefaults.standard
     var delegate: SignUpTransitionDelegate?
     
-    /* var profile:JSON = [:] {
-        didSet {
-            self.myDefaults.set(profile["name"].string, forKey: "userName")
-            self.myDefaults.set(profile["email"].string, forKey: "userEmail")
-            self.myDefaults.set(profile["city"].string, forKey: "userCity")
-            self.myDefaults.set(profile["last_name"].string, forKey: "userLastName")
-            self.myDefaults.set(profile["info"].string, forKey: "userInfo")
-            self.myDefaults.set(profile["mobile"].string, forKey: "userMobile")
-        }
-    } */
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -128,24 +118,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         
         request.login(json: loginData) { json, error in
             
-            if let token = json?["data"]["token"].string {
-                UserDefaults.standard.set(token, forKey: "token")
-            self.delegate?.signupDismissed()
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-            }
-        }
-        
-       /*  request.getProfile() {
-            json, error in
-            
             if json != nil {
-                self.profile = json!["profile"]
-                print("json response \(json!)")
-            } else if error != nil {
-                print(error!.localizedDescription)
+                if json!["status"].boolValue == false {
+                    
+                    let error = json!["errors"]["user_errors"].dictionaryObject?.first
+                    let title = error?.key
+                    let message = (error?.value as? [String])?.first
+                    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { Void in }
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }
+                else if let token = json?["data"]["token"].string {
+                    UserDefaults.standard.set(token, forKey: "token")
+                    self.delegate?.signupDismissed()
+                    self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             }
         }
-        */
+        }
     }
     
     @IBAction func cancelLogin(_ sender: UIButton) {
