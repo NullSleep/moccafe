@@ -41,12 +41,10 @@ class ProfileTableViewController: UITableViewController {
                 
                 if json != nil {
                     self.profile = json!["profile"]
-                    print("json response \(json!)")
                 } else if error != nil {
                 }
             }
             self.clearsSelectionOnViewWillAppear = true
-       
         
     }
     

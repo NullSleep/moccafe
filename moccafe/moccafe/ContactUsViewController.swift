@@ -64,7 +64,7 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
                 
                 var options = [String: String]()
                 let optionList = json!["options"].arrayValue
-                print(optionList)
+                
                 for item in optionList {
                     let idAsArray = Array((item.dictionaryObject ?? ["":""]).keys)
                     let id = idAsArray[0]

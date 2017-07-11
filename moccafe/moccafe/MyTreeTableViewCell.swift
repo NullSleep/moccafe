@@ -64,6 +64,8 @@ class MyTreeTableViewCell: UITableViewCell {
         let video = URL.init(string: videoURL)
         
         if video != nil {
+            contentView.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
+
             contentView.addSubview(playButton)
             playButton.centerXAnchor.constraint(equalTo: postImage.centerXAnchor).isActive = true
             playButton.centerYAnchor.constraint(equalTo: postImage.centerYAnchor).isActive = true

@@ -55,13 +55,19 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.clipsToBounds = false
-        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        tableView.clipsToBounds = true
+       // tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.bounds.height))
         self.view.addSubview(tableView)
 
-        let bottom = NSLayoutConstraint(item: self.tableView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 10)
+        let top = NSLayoutConstraint(item: self.tableView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .top, multiplier: 1, constant: 10)
+        
+        let bottom = NSLayoutConstraint(item: self.tableView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: 2)
+        
+        let width = NSLayoutConstraint(item: self.tableView, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 1, constant: 0)
+        
+        let leading = NSLayoutConstraint(item: self.tableView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
 
-        self.view.addConstraints([  bottom])
+        self.view.addConstraints([top, bottom, width, leading])
         
         self.tableView.delegate = self
         tableView.dataSource = self

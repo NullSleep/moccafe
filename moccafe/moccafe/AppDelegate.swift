@@ -78,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             (granted, error) in
             
             guard granted else { return }
+            print("granted")
             self.getNotificationSettings()
         }
     }
@@ -125,10 +126,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register: \(error)")
     }
-        
     
-//    func application(received remoteMessage: MessagingRemoteMessage) {
-//        print(remoteMessage.appData)
-//    }
 }
 

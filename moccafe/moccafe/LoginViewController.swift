@@ -48,6 +48,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         
         videoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         self.view.layer.insertSublayer(videoLayer, at: 0)
+        self.mainScrollView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.delegate = self
