@@ -80,8 +80,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         passwordTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Insert password", comment: ""), attributes: myAttribute)
         passwordTextField.isSecureTextEntry = true
         
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
