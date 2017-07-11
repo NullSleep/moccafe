@@ -38,8 +38,13 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Used to download pictures from articles</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+		<string></string>
+	</array>
+	<key>UILaunchImageFile</key>
+	<string>LaunchImage</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

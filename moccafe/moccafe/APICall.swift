@@ -23,10 +23,10 @@ class APICall: NSObject {
             response in
             switch response.result {
                 
-                case .success(let value): print("value signup \(value)")
+                case .success(let value):
                 let json = JSON(rawValue: value)
                 completionHandler(json, nil)
-                case .failure(let error): print("ERROR signup")
+                case .failure(let error):
                 completionHandler(nil, error)
                 
             }
@@ -43,10 +43,10 @@ class APICall: NSObject {
             
             switch response.result {
                 
-                case .success(let value): print("value \(value)")
+                case .success(let value):
                 let json = JSON(rawValue: value)
                 completionHandler(json, nil)
-                case .failure(let error): print("ERROR")
+                case .failure(let error):
                 completionHandler(nil, error)
                 
             }
@@ -57,17 +57,18 @@ class APICall: NSObject {
     
     func getProfile(completionHandler: @escaping (JSON?, Error?) -> ()) {
         
+        let token = (UserDefaults.standard.value(forKey: "token") as? String) ?? ""
+        
         let url = "https://app.moccafeusa.com/api/v1/customers/profile"
-        let headers = ["Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJtb2NjYWZldXNhLmNvbSIsInVzZXJfaWQiOjcsIm5hbWUiOiJwZXBpdG8ifQ.Q3XO7UFvN2wKn7YbUxUFjAeZie2xqYnsqSe47DzeMVk"]
+        let headers = ["Authorization": token]
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
             switch response.result {
             case .success(let value):
-                print("get profile result \(value)")
                 let json = JSON(rawValue: value)
                 completionHandler(json, nil)
-            case .failure(let error): print("Error")
+            case .failure(let error):
             completionHandler(nil, error)
                 return
             }
@@ -76,19 +77,19 @@ class APICall: NSObject {
 
     func postProfile(json: JSON, completionHandler: @escaping (JSON?, Error?) -> ()) {
         
+        let token = (UserDefaults.standard.value(forKey: "token") as? String) ?? ""
         let url = "https://app.moccafeusa.com/api/v1/customers/update_profile"
         let params = ["customer": json.dictionaryObject ?? ["":""]]
         
-        let headers = ["Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJtb2NjYWZldXNhLmNvbSIsInVzZXJfaWQiOjcsIm5hbWUiOiJwZXBpdG8ifQ.Q3XO7UFvN2wKn7YbUxUFjAeZie2xqYnsqSe47DzeMVk"]
-
+        let headers = ["Authorization": token]
         
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseString { response in
             
             switch response.result {
-            case .success(let value): print("value \(value)")
+            case .success(let value):
             let json = JSON(rawValue: value)
             completionHandler(json, nil)
-            case .failure(let error): print("ERROR")
+            case .failure(let error):
             completionHandler(nil, error)
                 
             }
@@ -106,7 +107,7 @@ class APICall: NSObject {
                 let json = JSON(rawValue: value)
                 completionHandler(json, nil)
                 
-            case .failure(let error): print("Error")
+            case .failure(let error):
             completionHandler(nil, error)
                 return
             }
@@ -123,7 +124,7 @@ class APICall: NSObject {
             case .success(let value):
                 let json = JSON(rawValue: value)
                 completionHandler(json, nil)
-            case .failure(let error): print("Error")
+            case .failure(let error):
             completionHandler(nil, error)
                 return
             }
@@ -137,29 +138,31 @@ class APICall: NSObject {
         let url = "https://app.moccafeusa.com/api/v1/blogs/details"
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
-            print(response)
             switch response.result {
-            case .success(let value):
-                let json = JSON(rawValue: value)
-                completionHandler(json, nil)
-            case .failure(let error): print("Error")
-                completionHandler(nil, error)
-                return
+                
+                case .success(let value):
+                    let json = JSON(rawValue: value)
+                    completionHandler(json, nil)
+                
+                case .failure(let error):
+                    completionHandler(nil, error)
+                    return
             }
         }
     }
     
     func retrieveArticles(url: String, json: JSON, completionHandler: @escaping (JSON?, Error?) -> ()) {
         
-    let url = url 
-    let params = json.dictionaryObject
+        let url = url
+        let params = json.dictionaryObject
 
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON{ response in
-            print(response)
             switch response.result {
+                
             case .success(let value):
                 let json = JSON(rawValue: value)
                 completionHandler(json, nil)
+                
             case .failure(let error): 
                 completionHandler(nil, error)
                 return

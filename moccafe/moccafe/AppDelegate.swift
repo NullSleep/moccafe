@@ -10,9 +10,7 @@ import UIKit
 import Fabric
 import Crashlytics
 import UserNotifications
-import Firebase
-import FirebaseInstanceID
-import FirebaseMessaging
+
 
 
 @UIApplicationMain
@@ -31,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         
         application.registerForRemoteNotifications()
-        FirebaseApp.configure()
 
         Fabric.with([Crashlytics.self])
         
@@ -77,26 +74,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func registerForPushNotifications() {
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-                (granted, error) in
-                print("Permission granted: \(granted)")
-                
-                guard granted else { return }
-                self.getNotificationSettings()
-            }
-        } else {
-            // Fallback on earlier versions
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            
+            guard granted else { return }
+            self.getNotificationSettings()
         }
     }
     
     func getNotificationSettings() {
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-                print("Notification settings: \(settings)")
-                guard settings.authorizationStatus == .authorized else { return }
-                UIApplication.shared.registerForRemoteNotifications()
-            }
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            UIApplication.shared.registerForRemoteNotifications()
         }
     }
     
@@ -137,8 +127,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
         
     
-    func application(received remoteMessage: MessagingRemoteMessage) {
-        print(remoteMessage.appData)
-    }
+//    func application(received remoteMessage: MessagingRemoteMessage) {
+//        print(remoteMessage.appData)
+//    }
 }
 

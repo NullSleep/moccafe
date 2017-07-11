@@ -43,7 +43,6 @@ class ProfileTableViewController: UITableViewController {
                     self.profile = json!["profile"]
                     print("json response \(json!)")
                 } else if error != nil {
-                    print(error!.localizedDescription)
                 }
             }
             self.clearsSelectionOnViewWillAppear = true
@@ -110,6 +109,10 @@ class ProfileTableViewController: UITableViewController {
         }
         if indexPath.row == 2 {
             UserDefaults.standard.removeObject(forKey: "token")
+            UserDefaults.standard.removeObject(forKey: "userName")
+            UserDefaults.standard.removeObject(forKey: "userEmail")
+            UserDefaults.standard.removeObject(forKey: "userCity")
+            
             self.navigationController?.popViewController(animated: true)
         }
     }
