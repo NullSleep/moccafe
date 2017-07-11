@@ -12,9 +12,6 @@ import AVFoundation
 import SwiftyJSON
 import SDWebImage
 
-
-
-
 class VideosViewController: UIViewController, performNavigationDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, SignUpTransitionDelegate {
     
     var searchController = UISearchController(searchResultsController: nil)
@@ -26,17 +23,13 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
     @IBOutlet var questionButtonItem: UIBarButtonItem!
     @IBOutlet var questionButton: UIButton!
     
-    var filteredArticles = [Article]()
-    
-    let spinner = UIImageView(image: UIImage(named: "spinner"), highlightedImage: nil)
-    
-    let apiHandler = APICall()
-    
     var articles = [Article]() {
         didSet {
             self.tableView.reloadData()
         }
     }
+    
+    var filteredArticles = [Article]()
     
     var retrievedArticles = [Article]() {
         didSet {
@@ -46,11 +39,10 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         }
     }
     
-    var atPage: Int?
+    let spinner = UIImageView(image: UIImage(named: "spinner"), highlightedImage: nil)
     
-    @IBAction func profileAction(_ sender: UIBarButtonItem) {
-        loadProfile()
-    }
+    let apiHandler = APICall()
+    var atPage: Int?
     
     var refreshControl: UIRefreshControl!
     
@@ -66,8 +58,10 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         
         refreshControl = UIRefreshControl()
         tableView.addSubview(refreshControl)
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        
         questionButton.layer.borderColor = UIColor.white.cgColor
         questionButton.layer.cornerRadius = 12.5
         questionButton.layer.borderWidth = 1
@@ -76,16 +70,13 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 370
         tableView.tableFooterView = UIView()
-        
         tableView.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
-        
-        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-        //tableView.reloadData()
+        retrievedArticles.removeAll()
         retrieveArticle(page: 1)
         
     }
@@ -192,6 +183,10 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         self.navigationController?.pushViewController(vc, animated:true)
     }
     
+    @IBAction func profileAction(_ sender: UIBarButtonItem) {
+        loadProfile()
+    }
+    
     func loadProfile() {
         if (UserDefaults.standard.value(forKey: "token") as? String) != nil {
             
@@ -242,6 +237,7 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
                 if let created = item["created_at"].string {
                     let formatter = DateFormatter()
                     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    
                     if let date = formatter.date(from: created) {
                         formatter.dateStyle = .medium
                         let dato = formatter.string(from: date)

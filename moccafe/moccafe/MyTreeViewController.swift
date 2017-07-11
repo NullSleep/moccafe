@@ -15,10 +15,6 @@ import AVFoundation
 
 class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, postCellTableViewDelegate, SignUpTransitionDelegate {
     
-    var articleToSegue: Article?
-    var atPage: Int?
-    let apiHandler = APICall()
-    
     let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet var tableView: UITableView!
@@ -28,15 +24,13 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var questionButton: UIButton!
     @IBOutlet var questionButtonItem: UIBarButtonItem!
     
-    var filteredArticles = [Article]()
-    
     var articles = [Article]() {
         didSet {
             self.tableView.reloadData()
         }
     }
     
-    let spinner = UIImageView(image: UIImage(named: "spinner"), highlightedImage: nil)
+    var filteredArticles = [Article]()
     
     var retrievedArticles = [Article]() {
         didSet {
@@ -45,6 +39,13 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
+    
+    let spinner = UIImageView(image: UIImage(named: "spinner"), highlightedImage: nil)
+    
+    
+    var articleToSegue: Article?
+    var atPage: Int?
+    let apiHandler = APICall()
     
     var refreshControl: UIRefreshControl!
     
@@ -61,9 +62,9 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         view.addSubview(spinner)
         startSpinning()
         
-        
         refreshControl = UIRefreshControl()
         tableView.addSubview(refreshControl)
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
@@ -75,10 +76,8 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 370
         tableView.tableFooterView = UIView()
-        
         tableView.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
         
-        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -224,8 +223,10 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let url = urlArticles
         
         apiHandler.retrieveArticles(url: url, json: json) { response, error in
+            
             var jsonValue: JSON = [:] {
-                didSet { self.createArray(json: jsonValue, page: page) }
+                didSet {
+                    self.createArray(json: jsonValue, page: page) }
             }
             self.stopSpinning()
             

@@ -21,18 +21,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
     let request = APICall()
     let myDefaults = UserDefaults.standard
     
-    /*
-    var profile:JSON = [:] {
-        didSet {
-            self.myDefaults.set(profile["name"].string, forKey: "userName")
-            self.myDefaults.set(profile["email"].string, forKey: "userEmail")
-            self.myDefaults.set(profile["city"].string, forKey: "userCity")
-            self.myDefaults.set(profile["last_name"].string, forKey: "userLastName")
-            self.myDefaults.set(profile["info"].string, forKey: "userInfo")
-            self.myDefaults.set(profile["mobile"].string, forKey: "userMobile")
-        }
-    } */
-    
     @IBOutlet var backView: UIView!
     
     @IBOutlet var backgroundView: UIView!
@@ -47,11 +35,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(playerItemDidReachEnd),
-                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                                               object: self.player.currentItem)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player.currentItem)
         
         let filePath = Bundle.main.path(forResource: "MOV_2488", ofType: "mp4")
         let fileURL = URL(fileURLWithPath: filePath!)
@@ -137,27 +121,22 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         
         request.signup(json: signupData) {
             json, error in
-            print("json signup\(String(describing: json))")
-            print("error signup \(String(describing: error))")
-            self.delegate?.signupDismissed()
-            self.presentingViewController?.dismiss(animated: true, completion: nil)
-        }
-      
-        
-        
-        
-        /*
-         request.getProfile() {
-            json, error in
-            
             if json != nil {
-                self.profile = json!["profile"]
-                print("json response \(json!)")
-            } else if error != nil {
-                print(error!.localizedDescription)
+                
+                if json!["status"].boolValue == false {
+                    let error = json!["errors"]["user_errors"].dictionaryObject?.first
+                    let title = error?.key
+                    let message = (error?.value as? [String])?.first
+                    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { Void in }
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    self.delegate?.signupDismissed()
+                    self.presentingViewController?.dismiss(animated: true, completion: nil)
+                }
             }
-        } 
-         */
+        }
     }
     
     @IBAction func existingAccount(_ sender: UIButton) {
