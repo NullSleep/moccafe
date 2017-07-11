@@ -49,8 +49,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(playerItemDidReachEnd),
-                                                         name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                                                         object: self.player.currentItem)
+                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                               object: self.player.currentItem)
         
         let videoLayer = AVPlayerLayer(player: player)
         videoLayer.frame = self.view.bounds

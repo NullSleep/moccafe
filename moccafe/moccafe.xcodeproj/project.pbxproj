@@ -15,10 +15,10 @@
 		233894A11ED3466A00E6F78E /* moccafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233894A01ED3466A00E6F78E /* moccafeTests.swift */; };
 		233894AC1ED3466A00E6F78E /* moccafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233894AB1ED3466A00E6F78E /* moccafeUITests.swift */; };
 		23A7C46D1EE39BBD0001461D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7C46B1EE39BBD0001461D /* PostCell.swift */; };
+		23E115951F14CAD0006D2D66 /* MOV_2488.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 23E115941F14CA18006D2D66 /* MOV_2488.mp4 */; };
 		5A873593138284BAFA87E96E /* Pods_moccafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7354DCB6391C960C377B8B8 /* Pods_moccafe.framework */; };
 		B1094CBE64419F2785ED659E /* Pods_moccafeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B202489F2BC9D35979ED1BD /* Pods_moccafeTests.framework */; };
 		B959D3DF076BCA38AD05FEC4 /* Pods_moccafeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4345F3218021225DF0A8FB3 /* Pods_moccafeUITests.framework */; };
-		CD16A9821F104897003B625E /* MOV_2488.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CD16A9811F104897003B625E /* MOV_2488.mp4 */; };
 		CD199E0C1ED5F36900590F50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E0B1ED5F36900590F50 /* LoginViewController.swift */; };
 		CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E181ED75AB700590F50 /* SignUpViewController.swift */; };
 		CD3131261F04FB2E00484BCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */; };
@@ -77,10 +77,10 @@
 		233894AB1ED3466A00E6F78E /* moccafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moccafeUITests.swift; sourceTree = "<group>"; };
 		233894AD1ED3466A00E6F78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23A7C46B1EE39BBD0001461D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		23E115941F14CA18006D2D66 /* MOV_2488.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MOV_2488.mp4; sourceTree = "<group>"; };
 		4B202489F2BC9D35979ED1BD /* Pods_moccafeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		966F2883541951C2F718841C /* Pods-moccafeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeTests/Pods-moccafeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4345F3218021225DF0A8FB3 /* Pods_moccafeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD16A9811F104897003B625E /* MOV_2488.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MOV_2488.mp4; sourceTree = "<group>"; };
 		CD199E0B1ED5F36900590F50 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD199E181ED75AB700590F50 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 		233894881ED3466900E6F78E /* moccafe */ = {
 			isa = PBXGroup;
 			children = (
-				CD16A9811F104897003B625E /* MOV_2488.mp4 */,
+				23E115941F14CA18006D2D66 /* MOV_2488.mp4 */,
 				CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */,
 				CD5D9AB91F01C8D600DC96B1 /* moccafe.entitlements */,
 				233894891ED3466900E6F78E /* AppDelegate.swift */,
@@ -414,8 +414,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E115951F14CAD0006D2D66 /* MOV_2488.mp4 in Resources */,
 				CDF65DDC1EFB33B300967136 /* Localizable.strings in Resources */,
-				CD16A9821F104897003B625E /* MOV_2488.mp4 in Resources */,
 				233894961ED3466A00E6F78E /* LaunchScreen.storyboard in Resources */,
 				233894931ED3466A00E6F78E /* Assets.xcassets in Resources */,
 				233894911ED3466A00E6F78E /* Main.storyboard in Resources */,
