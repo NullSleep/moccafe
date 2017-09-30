@@ -103,12 +103,13 @@ class DetailViewController: UIViewController {
     
     func loadVideo() {
         
-        let videoURL = URL(string: article?.videoUrl ?? "")
-        let player = AVPlayer(url: videoURL!)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        self.present(playerViewController, animated: true) {
-            playerViewController.player!.play()
+        if let videoURL = URL(string: article?.videoUrl ?? "") {
+            let player = AVPlayer(url: videoURL)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = player
+            self.present(playerViewController, animated: true) {
+                playerViewController.player!.play()
+            }
         }
     }
     

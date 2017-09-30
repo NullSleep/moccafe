@@ -76,7 +76,7 @@
 		233894A71ED3466A00E6F78E /* moccafeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moccafeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		233894AB1ED3466A00E6F78E /* moccafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moccafeUITests.swift; sourceTree = "<group>"; };
 		233894AD1ED3466A00E6F78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23A7C46B1EE39BBD0001461D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		23A7C46B1EE39BBD0001461D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostCell.swift; path = NewsCell/PostCell.swift; sourceTree = "<group>"; };
 		23E115941F14CA18006D2D66 /* MOV_2488.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MOV_2488.mp4; sourceTree = "<group>"; };
 		4B202489F2BC9D35979ED1BD /* Pods_moccafeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moccafeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		966F2883541951C2F718841C /* Pods-moccafeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moccafeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moccafeTests/Pods-moccafeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,26 +179,9 @@
 		233894881ED3466900E6F78E /* moccafe */ = {
 			isa = PBXGroup;
 			children = (
-				23E115941F14CA18006D2D66 /* MOV_2488.mp4 */,
-				CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */,
-				CD5D9AB91F01C8D600DC96B1 /* moccafe.entitlements */,
-				233894891ED3466900E6F78E /* AppDelegate.swift */,
-				233894921ED3466A00E6F78E /* Assets.xcassets */,
-				2338948F1ED3466A00E6F78E /* Main.storyboard */,
-				233894941ED3466A00E6F78E /* LaunchScreen.storyboard */,
-				233894971ED3466A00E6F78E /* Info.plist */,
-				CDF65DDA1EFB33B300967136 /* Localizable.strings */,
-				CD1388D21EE9BECC00CBE40E /* Login and Register */,
-				CD1388D01EE9BE3300CBE40E /* Home Tab */,
-				CD3D5BB81EF1C2F90022298D /* My Tree */,
-				CD1388D31EE9BFED00CBE40E /* Videos Tab */,
-				CD1388D11EE9BE8E00CBE40E /* User Profile */,
-				CDCCB5B61ED36A900095E21D /* ShopViewController.swift */,
-				CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */,
-				CD97D3E21ED4A83C00E29753 /* APICall.swift */,
-				CDE674A71EDE286000583904 /* extensions.swift */,
-				CDB00C8A1EEB99F9003B03FF /* Article.swift */,
-				CDCBEB831EF6332A004A830D /* DetailViewController.swift */,
+				CDE9FAEA1F4625F200F55BC7 /* Classes */,
+				CD1388D21EE9BECC00CBE40E /* Cells */,
+				CD1388D01EE9BE3300CBE40E /* Supporting Files */,
 			);
 			path = moccafe;
 			sourceTree = "<group>";
@@ -221,12 +204,14 @@
 			path = moccafeUITests;
 			sourceTree = "<group>";
 		};
-		23A7C46A1EE39BBD0001461D /* NewsCell */ = {
+		23A7C46A1EE39BBD0001461D /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				23A7C46B1EE39BBD0001461D /* PostCell.swift */,
+				2338948F1ED3466A00E6F78E /* Main.storyboard */,
+				233894941ED3466A00E6F78E /* LaunchScreen.storyboard */,
 				CDF65DE01EFB38D200967136 /* PostCell.xib */,
 			);
+			name = UI;
 			path = NewsCell;
 			sourceTree = "<group>";
 		};
@@ -243,51 +228,59 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		CD1388D01EE9BE3300CBE40E /* Home Tab */ = {
+		CD1388D01EE9BE3300CBE40E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2338948B1ED3466A00E6F78E /* HomeViewController.swift */,
-				CDF1D2F01F10155E00A5ED7E /* NewsViewController.swift */,
-				23A7C46A1EE39BBD0001461D /* NewsCell */,
+				CDF65DDA1EFB33B300967136 /* Localizable.strings */,
+				233894971ED3466A00E6F78E /* Info.plist */,
+				23E115941F14CA18006D2D66 /* MOV_2488.mp4 */,
+				CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */,
+				CD5D9AB91F01C8D600DC96B1 /* moccafe.entitlements */,
+				233894891ED3466900E6F78E /* AppDelegate.swift */,
+				233894921ED3466A00E6F78E /* Assets.xcassets */,
+				CD97D3E21ED4A83C00E29753 /* APICall.swift */,
+				CDE674A71EDE286000583904 /* extensions.swift */,
+				CDB00C8A1EEB99F9003B03FF /* Article.swift */,
 			);
-			name = "Home Tab";
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CD1388D11EE9BE8E00CBE40E /* User Profile */ = {
+		CD1388D21EE9BECC00CBE40E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */,
-				CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */,
+				23A7C46B1EE39BBD0001461D /* PostCell.swift */,
+				CD3D5BB61EF1C1590022298D /* MyTreeTableViewCell.swift */,
 				CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */,
+				CDB19F5C1EE613A2004C2E11 /* VideoTableViewCell.swift */,
 			);
-			name = "User Profile";
+			name = Cells;
 			sourceTree = "<group>";
 		};
-		CD1388D21EE9BECC00CBE40E /* Login and Register */ = {
+		CDE9FAEA1F4625F200F55BC7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				23A7C46A1EE39BBD0001461D /* UI */,
+				CDE9FAEB1F4625FF00F55BC7 /* View Controllers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		CDE9FAEB1F4625FF00F55BC7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				CD199E0B1ED5F36900590F50 /* LoginViewController.swift */,
 				CD199E181ED75AB700590F50 /* SignUpViewController.swift */,
-			);
-			name = "Login and Register";
-			sourceTree = "<group>";
-		};
-		CD1388D31EE9BFED00CBE40E /* Videos Tab */ = {
-			isa = PBXGroup;
-			children = (
-				CDF1D2EC1F10028800A5ED7E /* VideosViewController.swift */,
-				CDB19F5C1EE613A2004C2E11 /* VideoTableViewCell.swift */,
-			);
-			name = "Videos Tab";
-			sourceTree = "<group>";
-		};
-		CD3D5BB81EF1C2F90022298D /* My Tree */ = {
-			isa = PBXGroup;
-			children = (
+				2338948B1ED3466A00E6F78E /* HomeViewController.swift */,
+				CDF1D2F01F10155E00A5ED7E /* NewsViewController.swift */,
 				CDF1D2EE1F10108800A5ED7E /* MyTreeViewController.swift */,
-				CD3D5BB61EF1C1590022298D /* MyTreeTableViewCell.swift */,
+				CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */,
+				CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */,
+				CDCCB5B61ED36A900095E21D /* ShopViewController.swift */,
+				CD8C98491EE0A12100903A61 /* ContactUsViewController.swift */,
+				CDF1D2EC1F10028800A5ED7E /* VideosViewController.swift */,
+				CDCBEB831EF6332A004A830D /* DetailViewController.swift */,
 			);
-			name = "My Tree";
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -660,6 +653,7 @@
 				CDF65DD81EFB2BD100967136 /* ja */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		233894941ED3466A00E6F78E /* LaunchScreen.storyboard */ = {
@@ -669,6 +663,7 @@
 				CDF65DD91EFB2BD200967136 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		CDF65DDA1EFB33B300967136 /* Localizable.strings */ = {
@@ -807,7 +802,7 @@
 				INFOPLIST_FILE = moccafe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.moccafe.moccafe;
+				PRODUCT_BUNDLE_IDENTIFIER = antai.moccafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -832,7 +827,7 @@
 				INFOPLIST_FILE = moccafe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.moccafe.moccafe;
+				PRODUCT_BUNDLE_IDENTIFIER = antai.moccafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

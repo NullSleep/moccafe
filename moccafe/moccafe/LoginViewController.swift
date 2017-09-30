@@ -116,6 +116,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         
         loginData["email"].string = emailTextField.text
         loginData["password"].string = passwordTextField.text
+        loginData["language"].string = Locale.preferredLanguages[0]
         
         request.login(json: loginData) { json, error in
             
@@ -133,6 +134,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
                 }
                 else if let token = json?["data"]["token"].string {
                     UserDefaults.standard.set(token, forKey: "token")
+                    print("token ---\(token)---")
+                    
                     self.delegate?.signupDismissed()
                     self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             }

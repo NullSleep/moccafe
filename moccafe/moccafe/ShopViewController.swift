@@ -32,7 +32,12 @@ class ShopViewController: UIViewController, UIWebViewDelegate, SignUpTransitionD
         shopWebView.delegate = self
         self.shopWebView.scalesPageToFit = true
         self.shopWebView.contentMode = UIViewContentMode.scaleAspectFit
-        let url = URL(string: "https://github.myshopify.com/")
+        var url: URL?
+        if Locale.preferredLanguages[0] == "en" {
+            url = URL(string: "https://moccafeusa.com/collections/all")
+        } else {
+            url = URL(string: "https://moccafe.jp/collections/all")
+        }
         let request = URLRequest(url: url!)
         shopWebView.loadRequest(request)
 

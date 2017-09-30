@@ -117,6 +117,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         signupData["name"].string = nameTextField.text
         signupData["email"].string = emailTextField.text
         signupData["password"].string = passwordTextField.text
+        signupData["language"].string = Locale.preferredLanguages[0]
 
         //if token -> save token***
         
@@ -132,7 +133,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
                     let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { Void in }
                     alert.addAction(action)
                     self.present(alert, animated: true, completion: nil)
-                } else {
+                } else if let token = json?["token"]["token"].string{
+                    UserDefaults.standard.set(token, forKey: "token")
+                    UserDefaults.standard.set(self.nameTextField.text, forKey: "name")
                     self.delegate?.signupDismissed()
                     self.presentingViewController?.dismiss(animated: true, completion: nil)
                 }

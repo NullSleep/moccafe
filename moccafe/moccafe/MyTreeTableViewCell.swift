@@ -67,6 +67,7 @@ class MyTreeTableViewCell: UITableViewCell {
             contentView.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
 
             contentView.addSubview(playButton)
+            
             playButton.centerXAnchor.constraint(equalTo: postImage.centerXAnchor).isActive = true
             playButton.centerYAnchor.constraint(equalTo: postImage.centerYAnchor).isActive = true
             playButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
@@ -96,7 +97,7 @@ class MyTreeTableViewCell: UITableViewCell {
             }
             postImage.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "no_image-128"), options: SDWebImageOptions.progressiveDownload, completed: myBlock)
         } else if (placeHolder == true) && (postImage.image == nil) && (video == nil) {
-                self.postImage.removeFromSuperview()
+                self.postImage.isHidden = true
                 let constraint = NSLayoutConstraint(item: self.title, attribute: .bottom, relatedBy: .equal, toItem: self.subtitle, attribute: .top, multiplier: 1, constant: -10)
                 self.contentView.addConstraint(constraint)
             }

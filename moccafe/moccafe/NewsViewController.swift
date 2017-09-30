@@ -142,14 +142,24 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         //To Delete
-        article.picUrl = "https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"
-        
-        article.title = "Coffee Drinkers May Have One Less Type Of Cancer To Worry About"
-        article.content = "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Est antiopam facilisis adolescens id. Pri graecis suscipiantur no, in usu altera virtute, eam ei enim wisi. Pro probo vidisse appetere te, odio mollis et mei. Epicurei laboramus mei ut, usu ea affert quaerendum. Delicata urbanitas has an, eum eu omnium dissentiunt. Laoreet veritus temporibus est ne, at vero eirmod aperiri per. Quis volutpat scripserit mel at, duo fugit vidisse admodum ne. Ei mea noster quaestio, duo ne dicat mundi tantas. Nisl assum bonorum te usu, doming corrumpit ei nam. Ne sed suscipit argumentum. Paulo everti suscipiantur in vel, cu mei iisque propriae corrumpit. Ex vix prompta forensibus, ea movet incorrupte elaboraret eos, etiam eripuit vix an. Quo te ignota phaedrum appellantur, in pri justo partiendo adolescens, mea agam democritum ex. Alii invidunt maluisset sit an. An nec labores perpetua. Ex ridens aperiam vix, vel ex alia nemore rationibus. Etiam tincidunt intellegam ut cum. Dico essent vim et, vis sale debet iriure ea, eu est aeterno scribentur. Ne unum scripserit duo. Ad eos tincidunt contentiones, no zril urbanitas argumentum usu. Ferri oblique tacimates ne nec, vero mollis probatus vis ne. Vis at qualisque definitiones."
-        
-        article.thumbUrl = ""//"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjhfpaXnErAFp2f6vcCEVsQv7dKQa5NfWcvOKyYr0pdLS59ryL"
-        article.videoUrl = ""//"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
-        
+//        if indexPath.row == 1 {
+//            
+//        article.picUrl = "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F31802497%2F178571484211%2F1%2Foriginal.jpg?w=1000&rect=0%2C0%2C2160%2C1080&s=35a5cb2089b503631b5631400deba8f4"
+//        
+//        article.title = "Coffee Drinkers May Have One Less Type Of Cancer To Worry About"
+//        article.content = "Coffee offers so many benefits already. Now we can add ‘cancer fighter’ to that list."
+//    }
+//    
+//        article.thumbUrl = ""//"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjhfpaXnErAFp2f6vcCEVsQv7dKQa5NfWcvOKyYr0pdLS59ryL"
+//        article.videoUrl = ""//"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+//    
+//    
+//        if indexPath.row == 0 {
+//        article.picUrl = "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F31802001%2F178571484211%2F1%2Foriginal.jpg?w=1000&rect=0%2C0%2C2160%2C1080&s=24b46ab16de8b230e06277500dd27042"
+//            article.title = "Italy's Coffee Culture Brims With Rituals And Mysterious Rules"
+//            article.content = "Coffee — it's something many can't start the day without. In Italy, it is a cultural mainstay, and the country is perhaps the beverage's spiritual home."
+//        }
+        //
         
         let cellData: NSDictionary = [
             "date": article.created ?? "",
@@ -298,12 +308,13 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func loadVideo() {
         
-        let videoURL = URL(string: (articleToSegue?.videoUrl)!)
-        let player = AVPlayer(url: videoURL!)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        self.present(playerViewController, animated: true) {
-            playerViewController.player!.play()
+        if let videoURL = URL(string: (articleToSegue?.videoUrl)!) {
+            let player = AVPlayer(url: videoURL)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = player
+            self.present(playerViewController, animated: true) {
+                playerViewController.player!.play()
+            }
         }
     }
     
