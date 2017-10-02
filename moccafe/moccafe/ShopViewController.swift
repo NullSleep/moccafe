@@ -33,13 +33,20 @@ class ShopViewController: UIViewController, UIWebViewDelegate, SignUpTransitionD
         self.shopWebView.scalesPageToFit = true
         self.shopWebView.contentMode = UIViewContentMode.scaleAspectFit
         var url: URL?
-        if Locale.preferredLanguages[0] == "en" {
-            url = URL(string: "https://moccafeusa.com/collections/all")
-        } else {
-            url = URL(string: "https://moccafe.jp/collections/all")
+        
+        
+        if let url = URL(string: (UserDefaults.standard.value(forKey: "storeUrl") ?? "") as! String) {
+            let request = URLRequest(url: url)
+            print("url \(url)")
+            shopWebView.loadRequest(request)
         }
-        let request = URLRequest(url: url!)
-        shopWebView.loadRequest(request)
+//        if Locale.preferredLanguages[0] == "en" {
+//            url = URL(string: "https://moccafeusa.com/collections/all")
+//        } else {
+//            url = URL(string: "https://moccafe.jp/collections/all")
+//        }
+//        let request = URLRequest(url: url!)
+//        shopWebView.loadRequest(request)
 
         view.addSubview(spinner)
         startSpinning()

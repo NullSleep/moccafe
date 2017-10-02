@@ -137,8 +137,8 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
     func loadVideo(index: IndexPath) {
         
         let article = articles[index.row]
-        //article.videoUrl
-        if let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4") {
+        
+        if let videoURL = URL(string: article.videoUrl ?? "") {
             let player = AVPlayer(url: videoURL)
             let playerViewController = AVPlayerViewController()
             playerViewController.player = player

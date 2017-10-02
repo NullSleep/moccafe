@@ -82,9 +82,9 @@ class VideoTableViewCell: UITableViewCell {
 
         contentView.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
         
-        let urlPic = ""//"https://c2.staticflickr.com/8/7259/7520264210_0c98a6fab2_b.jpg"// (data["picUrl"] as? String) ?? ""
-        let urlPlaceHolderImage = "https://s-media-cache-ak0.pinimg.com/originals/33/1a/fe/331afef4a5fac893e41c4b6ca1fe8ab4.gif"// data["thumbUrl"] as? String) ?? ""
-        let videoURL = "c"//(data["videoUrl"] as? String) ?? ""
+        let urlPic = (data["picUrl"] as? String) ?? ""
+        let urlPlaceHolderImage = (data["thumbUrl"] as? String) ?? ""
+        let videoURL = (data["videoUrl"] as? String) ?? ""
         
         let video = URL.init(string: videoURL)
 

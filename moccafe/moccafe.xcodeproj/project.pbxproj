@@ -361,7 +361,7 @@
 				TargetAttributes = {
 					233894851ED3466900E6F78E = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = CN4W3YSZKE;
+						DevelopmentTeam = WY6E7C6D59;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -794,7 +794,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = moccafe/moccafe.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = CN4W3YSZKE;
+				DEVELOPMENT_TEAM = WY6E7C6D59;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
@@ -819,7 +819,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = moccafe/moccafe.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = CN4W3YSZKE;
+				DEVELOPMENT_TEAM = WY6E7C6D59;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",

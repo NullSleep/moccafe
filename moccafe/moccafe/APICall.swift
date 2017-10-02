@@ -171,7 +171,6 @@ class APICall: NSObject {
                 
             case .success(let value):
                 let json = JSON(rawValue: value)
-                print("response \(json)")
                 completionHandler(json, nil)
                 
             case .failure(let error): 
@@ -180,6 +179,40 @@ class APICall: NSObject {
             }
         }
     }
+    
+    func getArticleUrl(completionHandler: @escaping (JSON?, Error?) -> ()) {
+        
+        let url = "https://app.moccafeusa.com/api/v1/settings/shop_url"
+        let language = Locale.preferredLanguages[0].localized
+        
+        
+        Alamofire.request(url, method: .get, parameters: ["language": language], encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            switch response.result {
+                
+            case .success(let value):
+                let json = JSON(rawValue: value)
+                completionHandler(json, nil)
+                
+                
+            case .failure(let error):
+                completionHandler(nil, error)
+                return
+            }
+        }
+    }
 
+}
+
+extension String {
+    
+    var localized: String {
+        if self.prefix(2) == "ja" {
+            return "jp"
+        } else if self.prefix(2) == "en" {
+            return "en"
+        }
+        return "en"
+    }
+   
 }
 

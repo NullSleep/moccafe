@@ -17,7 +17,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-
+    let request = APICall()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.tintColor = UIColor(red:0.36, green:0.57, blue:0.02, alpha:1.0)
@@ -27,8 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UIApplication.shared.statusBarStyle = .lightContent
         
-        application.registerForRemoteNotifications()
-
         Fabric.with([Crashlytics.self])
         
         if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
@@ -46,7 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 (window?.rootViewController as? UITabBarController)?.selectedIndex = index
             }
         }
-        
+        registerForPushNotifications()
+        request.getArticleUrl { json, error in
+            if (json != nil) {
+                UserDefaults.standard.set((json!["url"].string ?? "https://moccafeusa.com/collections/all"), forKey: "storeUrl")
+            }
+        }
         return true
     }
 
