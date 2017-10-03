@@ -41,6 +41,11 @@ class DetailViewController: UIViewController {
         articleDate.text = article?.created
         articleText.text = article?.content
         articleTitle.text = article?.title
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        } else {
+            // Fallback on earlier versions
+        }
         
         
         let video = URL.init(string: article?.videoUrl ?? "")

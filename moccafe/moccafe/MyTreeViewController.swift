@@ -13,7 +13,7 @@ import SDWebImage
 import AVKit
 import AVFoundation
 
-class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, postCellTableViewDelegate, SignUpTransitionDelegate {
+class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, postCellTableViewDelegate, SignUpTransitionDelegate, UIScrollViewDelegate {
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -27,8 +27,12 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var articles = [Article]() {
         didSet {
             self.tableView.reloadData()
+            refreshControl.endRefreshing()
+
         }
     }
+    
+    var scrollHeight = 0
     
     var filteredArticles = [Article]()
     
@@ -47,7 +51,7 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var atPage: Int?
     let apiHandler = APICall()
     
-    var refreshControl: UIRefreshControl!
+    var refreshControl = UIRefreshControl()
     
     let urlQuestions = "https://app.moccafeusa.com/api/v1/questions/tree_options"
     let urlArticles = "https://app.moccafeusa.com/api/v1/blogs/tree_articles"
@@ -62,15 +66,19 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         view.addSubview(spinner)
         startSpinning()
         
-        refreshControl = UIRefreshControl()
         tableView.addSubview(refreshControl)
-        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
+  
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
         
         questionButton.layer.borderColor = UIColor.white.cgColor
         questionButton.layer.cornerRadius = 12.5
         questionButton.layer.borderWidth = 1
+        questionButton.frame.size = CGSize(width: 25, height: 25)
         questionButton.addTarget(self, action: #selector(loadQuestions), for: .touchUpInside)
         
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -78,7 +86,9 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
         
+        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -86,6 +96,17 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         retrievedArticles.removeAll()
         retrieveArticle(page: 1)
         self.tabBarController?.tabBar.isHidden = false
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
+        tableView.setContentOffset(CGPoint(x: 0, y: scrollHeight), animated: true)
+    
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollHeight = Int(scrollView.contentOffset.y)
     }
     
     // MARK: - Navigation Bar Actions
@@ -97,8 +118,8 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
-        self.definesPresentationContext = true
-        self.navigationItem.titleView = searchController.searchBar
+
+        navigationItem.titleView = searchController.searchBar
         searchController.searchBar.delegate = self
         searchController.searchBar.becomeFirstResponder()
     }
@@ -113,7 +134,7 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
         self.navigationItem.leftBarButtonItem = searchBarButton
-        self.navigationItem.rightBarButtonItems = [questionButtonItem, profileButton]
+        self.navigationItem.rightBarButtonItems = [profileButton, questionButtonItem]
         self.navigationItem.hidesBackButton = false
         self.navigationItem.titleView = nil
     }
@@ -237,6 +258,8 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 jsonValue = self.retrieveStoredData() ?? [:]
             }
         }
+        
+
     }
     
     func createArray(json: JSON, page: Int) {

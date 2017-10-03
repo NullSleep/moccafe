@@ -373,7 +373,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -506,7 +506,7 @@
                             <constraint firstItem="NFw-v6-1eg" firstAttribute="centerX" secondItem="Rnj-OH-P3g" secondAttribute="centerX" id="waT-5L-OgK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Moccafe" id="XlU-uC-q88">
+                    <navigationItem key="navigationItem" title="Moccafe" largeTitleDisplayMode="always" id="XlU-uC-q88">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="74Y-0W-9TT">
                             <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -556,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V43-Jc-hbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271" y="1439"/>
+            <point key="canvasLocation" x="114" y="1259"/>
         </scene>
         <!--Shop-->
         <scene sceneID="BqM-GV-33h">
@@ -617,7 +617,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PB5-yW-SQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-820" y="564"/>
+            <point key="canvasLocation" x="-791" y="-296"/>
         </scene>
         <!--Home-->
         <scene sceneID="LYH-xd-ap5">
@@ -647,7 +647,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HqV-hH-EFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="152.80000000000001" y="563.56821589205401"/>
+            <point key="canvasLocation" x="46" y="-308"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="9Pg-2A-Nd1">
@@ -862,15 +862,22 @@
         <!--MyTree Nav-->
         <scene sceneID="GMT-bV-BAJ">
             <objects>
-                <navigationController storyboardIdentifier="NewsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N3W-QI-B2t" userLabel="MyTree Nav" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewsViewController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N3W-QI-B2t" userLabel="MyTree Nav" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="MyTree" image="mtabbean1" id="PMx-HJ-Fro"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="668"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ncR-kS-lFd">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.25882352941176467" green="0.11764705882352941" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.1176470588" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.25882352939999997" green="0.1176470588" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -878,8 +885,13 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DCR-CQ-DSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="eb5-QU-QFC">
+                    <rect key="frame" x="0.0" y="0.0" width="373" height="55"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="-719" y="-276"/>
+            <point key="canvasLocation" x="-791" y="497"/>
         </scene>
         <!--My Tree-->
         <scene sceneID="hzD-Pn-1hf">
@@ -889,8 +901,8 @@
                         <viewControllerLayoutGuide type="top" id="NGm-9U-Z8P"/>
                         <viewControllerLayoutGuide type="bottom" id="RxG-8H-zBH"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Iiw-aS-rRI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Iiw-aS-rRI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="353" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0FM-V8-ATb">
@@ -961,6 +973,7 @@
                                                         <constraint firstItem="Yuv-cV-nk8" firstAttribute="leading" secondItem="w7t-d6-MLO" secondAttribute="leading" id="Zoh-8u-P1s"/>
                                                         <constraint firstItem="9Xm-4a-7Pq" firstAttribute="leading" secondItem="6yZ-lm-Hwf" secondAttribute="leading" id="aC7-9x-xc2"/>
                                                         <constraint firstItem="QLS-IE-xxm" firstAttribute="leading" secondItem="Yuv-cV-nk8" secondAttribute="leading" id="fMT-d6-q9R"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kdo-6v-iNd" secondAttribute="trailing" constant="20" symbolic="YES" id="grB-ll-axM"/>
                                                         <constraint firstItem="x9f-dK-iWe" firstAttribute="trailing" secondItem="QLS-IE-xxm" secondAttribute="trailing" id="lls-PN-BQi"/>
                                                         <constraint firstItem="QLS-IE-xxm" firstAttribute="trailing" secondItem="Yuv-cV-nk8" secondAttribute="trailing" id="mm6-rP-boL"/>
                                                         <constraint firstItem="QLS-IE-xxm" firstAttribute="top" secondItem="9Xm-4a-7Pq" secondAttribute="bottom" constant="15" id="tnO-Yp-bYD"/>
@@ -998,12 +1011,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RxG-8H-zBH" firstAttribute="top" secondItem="0FM-V8-ATb" secondAttribute="bottom" id="2eY-qM-4Th"/>
-                            <constraint firstItem="0FM-V8-ATb" firstAttribute="top" secondItem="NGm-9U-Z8P" secondAttribute="bottom" id="43u-Xa-KaN"/>
                             <constraint firstItem="0FM-V8-ATb" firstAttribute="width" secondItem="Iiw-aS-rRI" secondAttribute="width" id="OeG-Jt-yfT"/>
                             <constraint firstItem="0FM-V8-ATb" firstAttribute="centerX" secondItem="Iiw-aS-rRI" secondAttribute="centerX" id="PFk-fp-Ibf"/>
+                            <constraint firstItem="0FM-V8-ATb" firstAttribute="top" secondItem="NGm-9U-Z8P" secondAttribute="bottom" id="mdo-hL-PVV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Moccafe" id="UJk-Tx-5cV">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Moccafe" largeTitleDisplayMode="always" id="UJk-Tx-5cV">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="WPG-uq-2bC">
                             <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -1011,19 +1025,19 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="user" id="Q2q-bR-hOn">
+                            <barButtonItem image="user" width="25" id="Q2q-bR-hOn">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="profileAction:" destination="JQk-hw-dDD" id="KoZ-OX-Iye"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem style="plain" id="mTU-sQ-nzB">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ipG-TS-A6K">
+                            <barButtonItem style="plain" id="RsM-T0-56q">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dn2-uj-uNs">
                                     <rect key="frame" x="289" y="5.5" width="30" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="25" id="9DC-D4-4x5"/>
-                                        <constraint firstAttribute="height" constant="25" id="jaD-Ep-nc3"/>
+                                        <constraint firstAttribute="width" constant="25" id="BIo-DS-HCe"/>
+                                        <constraint firstAttribute="height" constant="25" id="FT3-hu-9mB"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                     <state key="normal" title="?">
@@ -1042,10 +1056,11 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="profileButton" destination="Q2q-bR-hOn" id="76W-nX-k2Q"/>
-                        <outlet property="questionButton" destination="ipG-TS-A6K" id="pkZ-74-DAM"/>
-                        <outlet property="questionButtonItem" destination="mTU-sQ-nzB" id="X0M-pj-VVj"/>
+                        <outlet property="questionButton" destination="dn2-uj-uNs" id="3kg-fA-FRI"/>
+                        <outlet property="questionButtonItem" destination="RsM-T0-56q" id="Ofk-G3-zHF"/>
                         <outlet property="searchBarButton" destination="WPG-uq-2bC" id="EDF-sD-8OV"/>
                         <outlet property="tableView" destination="0FM-V8-ATb" id="ckw-uy-luq"/>
                         <segue destination="fQu-Xx-WJd" kind="show" identifier="showDetail" id="wOJ-A7-qWS"/>
@@ -1053,7 +1068,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rRi-Ev-yAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="153" y="-605"/>
+            <point key="canvasLocation" x="46" y="497"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="SuG-L5-gjP">
@@ -1064,7 +1079,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MNe-VH-Qaz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tCT-re-7WC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-z8-xbG">
@@ -1168,11 +1183,11 @@
                         <viewControllerLayoutGuide type="bottom" id="1P7-Dr-rFI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lbS-Ce-Eif">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="686"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-5J-MmZ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="730"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="686"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rk1-h0-yAr">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
@@ -1374,14 +1389,23 @@
         <!--Videos-->
         <scene sceneID="33P-E5-q3f">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLs-7O-f2e" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="cLs-7O-f2e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Videos" image="mtabevideo1" id="reg-PB-K53"/>
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pG6-vs-6I4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.1176470588" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.25882352939999997" green="0.1176470588" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1391,7 +1415,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idc-8o-Tv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-719" y="1450"/>
+            <point key="canvasLocation" x="-790" y="1297"/>
         </scene>
         <!--Shop-->
         <scene sceneID="VFB-0K-PDs">
@@ -1438,7 +1462,7 @@
         <image name="user" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kwl-3b-NB3"/>
+        <segue reference="y6h-oB-WjO"/>
         <segue reference="wOJ-A7-qWS"/>
     </inferredMetricsTieBreakers>
 </document>

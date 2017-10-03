@@ -109,7 +109,10 @@ class HomeViewController: ButtonBarPagerTabStripViewController, performNavigatio
 
         self.navigationItem.titleView = searchController.searchBar
         searchController.searchBar.delegate = self
+        searchController.searchBar.sizeToFit()
         searchController.searchBar.becomeFirstResponder()
+        
+        
     }
     
     func startWithSearch() {

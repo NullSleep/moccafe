@@ -29,6 +29,8 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         }
     }
     
+    var scrollHeight = 0
+
     var filteredArticles = [Article]()
     
     var retrievedArticles = [Article]() {
@@ -62,6 +64,10 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        
         questionButton.layer.borderColor = UIColor.white.cgColor
         questionButton.layer.cornerRadius = 12.5
         questionButton.layer.borderWidth = 1
@@ -75,6 +81,8 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.tabBarController?.tabBar.isHidden = false
         retrievedArticles.removeAll()
         retrieveArticle(page: 1)
@@ -105,6 +113,8 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         cell?.delegate = self
         
         let article: Article
+        cell?.playButton.isEnabled = false
+        cell?.playButton.isUserInteractionEnabled = false
         
         if searchController.isActive && searchController.searchBar.text != "" {
             article = filteredArticles[indexPath.row]
@@ -157,6 +167,7 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
+        
         self.definesPresentationContext = true
         self.navigationItem.titleView = searchController.searchBar
         searchController.searchBar.delegate = self

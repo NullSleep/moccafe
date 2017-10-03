@@ -25,6 +25,7 @@ class APICall: NSObject {
                 
                 case .success(let value):
                 let json = JSON(rawValue: value)
+                print("signup response \(json)")
                 completionHandler(json, nil)
                 case .failure(let error):
                 completionHandler(nil, error)
@@ -68,6 +69,7 @@ class APICall: NSObject {
             switch response.result {
             case .success(let value):
                 let json = JSON(rawValue: value)
+           //     print("response get profile \(json)")
                 completionHandler(json, nil)
             case .failure(let error):
             completionHandler(nil, error)
@@ -89,9 +91,14 @@ class APICall: NSObject {
         
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseString { response in
             
+//            print("params edit profile \(params)")
+//            print("url edit profile \(url)")
+//            print("headers edit profile \(headers)")
+            
             switch response.result {
             case .success(let value):
             let json = JSON(rawValue: value)
+         //   print("response edit profile \(json)")
             completionHandler(json, nil)
             case .failure(let error):
             completionHandler(nil, error)
@@ -193,6 +200,26 @@ class APICall: NSObject {
                 let json = JSON(rawValue: value)
                 completionHandler(json, nil)
                 
+                
+            case .failure(let error):
+                completionHandler(nil, error)
+                return
+            }
+        }
+    }
+    
+    func storeToken(json: JSON, completionHandler: @escaping (JSON?, Error?) -> ()) {
+        
+        let url = "https://app.moccafeusa.com/api/v1/customers/store_token"
+        var params = json.dictionaryObject
+        params?["language"] = Locale.preferredLanguages[0]
+        
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON{ response in
+            switch response.result {
+                
+            case .success(let value):
+                let json = JSON(rawValue: value)
+                completionHandler(json, nil)
                 
             case .failure(let error):
                 completionHandler(nil, error)
