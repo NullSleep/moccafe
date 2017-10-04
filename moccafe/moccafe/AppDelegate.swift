@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UITabBar.appearance().tintColor = UIColor(red:0.26, green:0.12, blue:0.08, alpha:1.0)
-        
+                window?.backgroundColor = UIColor.white
         UINavigationBar.appearance().shadowImage = UIImage()
         UIApplication.shared.statusBarStyle = .lightContent
         if #available(iOS 11.0, *) {

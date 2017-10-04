@@ -395,7 +395,7 @@
         <!--Videos-->
         <scene sceneID="zoV-DS-amQ">
             <objects>
-                <viewController id="NPP-tt-0Rw" userLabel="Videos" customClass="VideosViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="NPP-tt-0Rw" userLabel="Videos" customClass="VideosViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ehW-hM-9AU"/>
                         <viewControllerLayoutGuide type="bottom" id="Vmu-up-27c"/>
@@ -863,13 +863,11 @@
         <!--MyTree Nav-->
         <scene sceneID="GMT-bV-BAJ">
             <objects>
-                <navigationController storyboardIdentifier="NewsViewController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N3W-QI-B2t" userLabel="MyTree Nav" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewsViewController" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N3W-QI-B2t" userLabel="MyTree Nav" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="MyTree" image="mtabbean1" id="PMx-HJ-Fro"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="668"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ncR-kS-lFd">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.25882352939999997" green="0.1176470588" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.25882352939999997" green="0.1176470588" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -897,7 +895,7 @@
         <!--My Tree-->
         <scene sceneID="hzD-Pn-1hf">
             <objects>
-                <viewController id="JQk-hw-dDD" userLabel="My Tree" customClass="MyTreeViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="JQk-hw-dDD" userLabel="My Tree" customClass="MyTreeViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NGm-9U-Z8P"/>
                         <viewControllerLayoutGuide type="bottom" id="RxG-8H-zBH"/>
@@ -1074,7 +1072,7 @@
         <!--Detail View Controller-->
         <scene sceneID="SuG-L5-gjP">
             <objects>
-                <viewController storyboardIdentifier="detailVC" id="fQu-Xx-WJd" customClass="DetailViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailVC" automaticallyAdjustsScrollViewInsets="NO" id="fQu-Xx-WJd" customClass="DetailViewController" customModule="moccafe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gUN-sj-TlZ"/>
                         <viewControllerLayoutGuide type="bottom" id="MNe-VH-Qaz"/>
@@ -1084,37 +1082,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-z8-xbG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="-30" width="375" height="584"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="600" translatesAutoresizingMaskIntoConstraints="NO" id="psd-K3-lXt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="May 29" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLx-DK-P8a">
-                                                <rect key="frame" x="15" y="8" width="345" height="16"/>
+                                                <rect key="frame" x="15" y="45" width="345" height="16"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News title Lorem ipsum dolor sit amet!!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7Y-6u-pgU">
-                                                <rect key="frame" x="15" y="219" width="345" height="20.5"/>
+                                                <rect key="frame" x="15" y="256" width="345" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZK-KO-LSc">
-                                                <rect key="frame" x="15" y="251.5" width="345" height="0.0"/>
+                                                <rect key="frame" x="15" y="288.5" width="345" height="0.0"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-2f-nda">
-                                                <rect key="frame" x="0.0" y="36" width="375" height="171"/>
+                                                <rect key="frame" x="0.0" y="73" width="375" height="171"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="5fR-2f-nda" secondAttribute="height" multiplier="329:150" id="X48-0M-mVK"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdg-Zg-9jl">
-                                                <rect key="frame" x="340" y="172" width="24" height="24"/>
+                                                <rect key="frame" x="340" y="209" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="QuG-lS-EdF"/>
                                                     <constraint firstAttribute="width" constant="24" id="omd-ll-t8i"/>
@@ -1137,7 +1135,7 @@
                                             <constraint firstItem="0ZK-KO-LSc" firstAttribute="leading" secondItem="M7Y-6u-pgU" secondAttribute="leading" id="S3k-hT-xIH"/>
                                             <constraint firstItem="QLx-DK-P8a" firstAttribute="leading" secondItem="psd-K3-lXt" secondAttribute="leading" constant="15" id="bDB-UJ-reE"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0ZK-KO-LSc" secondAttribute="bottom" constant="10" id="dAx-x5-mmX"/>
-                                            <constraint firstItem="QLx-DK-P8a" firstAttribute="top" secondItem="psd-K3-lXt" secondAttribute="top" constant="8" id="fXV-3z-hUO"/>
+                                            <constraint firstItem="QLx-DK-P8a" firstAttribute="top" secondItem="psd-K3-lXt" secondAttribute="top" constant="45" id="fXV-3z-hUO"/>
                                             <constraint firstItem="5fR-2f-nda" firstAttribute="top" secondItem="QLx-DK-P8a" secondAttribute="bottom" constant="12" id="ige-tw-90K"/>
                                             <constraint firstItem="Mdg-Zg-9jl" firstAttribute="leading" secondItem="5fR-2f-nda" secondAttribute="trailing" constant="-35" id="tfV-rf-xve"/>
                                             <constraint firstItem="Mdg-Zg-9jl" firstAttribute="top" secondItem="5fR-2f-nda" secondAttribute="bottom" constant="-35" id="uV7-ds-UhM"/>
@@ -1147,21 +1145,22 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="psd-K3-lXt" firstAttribute="width" secondItem="aQs-z8-xbG" secondAttribute="width" id="37h-9u-elV"/>
-                                    <constraint firstAttribute="bottom" secondItem="psd-K3-lXt" secondAttribute="bottom" constant="20" symbolic="YES" id="4cE-e9-mHU"/>
+                                    <constraint firstAttribute="bottom" secondItem="psd-K3-lXt" secondAttribute="bottom" id="4cE-e9-mHU"/>
                                     <constraint firstAttribute="trailing" secondItem="psd-K3-lXt" secondAttribute="trailing" id="PYI-Pf-lWO"/>
                                     <constraint firstItem="psd-K3-lXt" firstAttribute="leading" secondItem="aQs-z8-xbG" secondAttribute="leading" id="V8t-wY-o1D"/>
-                                    <constraint firstItem="psd-K3-lXt" firstAttribute="top" secondItem="aQs-z8-xbG" secondAttribute="top" id="fNj-UY-Nlm"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="psd-K3-lXt" firstAttribute="top" secondItem="gUN-sj-TlZ" secondAttribute="bottom" constant="-30" id="4D8-92-Rzt"/>
                             <constraint firstAttribute="trailing" secondItem="aQs-z8-xbG" secondAttribute="trailing" id="U1p-Mk-bVB"/>
                             <constraint firstItem="MNe-VH-Qaz" firstAttribute="top" secondItem="aQs-z8-xbG" secondAttribute="bottom" id="eod-8O-Shy"/>
                             <constraint firstItem="aQs-z8-xbG" firstAttribute="leading" secondItem="tCT-re-7WC" secondAttribute="leading" id="iwc-SW-40S"/>
-                            <constraint firstItem="aQs-z8-xbG" firstAttribute="top" secondItem="gUN-sj-TlZ" secondAttribute="bottom" id="naX-Tm-SWQ"/>
+                            <constraint firstItem="aQs-z8-xbG" firstAttribute="top" secondItem="gUN-sj-TlZ" secondAttribute="bottom" constant="-30" id="naX-Tm-SWQ"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="articleDate" destination="QLx-DK-P8a" id="pXU-Pw-r46"/>
                         <outlet property="articleImage" destination="5fR-2f-nda" id="ikg-Br-fzp"/>
@@ -1184,11 +1183,11 @@
                         <viewControllerLayoutGuide type="bottom" id="1P7-Dr-rFI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lbS-Ce-Eif">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="686"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-5J-MmZ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="730"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="686"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rk1-h0-yAr">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
@@ -1462,7 +1461,7 @@
         <image name="user" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kwl-3b-NB3"/>
+        <segue reference="y6h-oB-WjO"/>
         <segue reference="wOJ-A7-qWS"/>
     </inferredMetricsTieBreakers>
 </document>

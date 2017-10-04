@@ -42,11 +42,12 @@ class DetailViewController: UIViewController {
         articleText.text = article?.content
         articleTitle.text = article?.title
         if #available(iOS 11.0, *) {
-            self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+            self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         } else {
             // Fallback on earlier versions
         }
         
+      
         
         let video = URL.init(string: article?.videoUrl ?? "")
 
@@ -71,6 +72,8 @@ class DetailViewController: UIViewController {
         //var sizeOfContent = contentView.con
         
     }
+    
+    
     
     func setImage(url: String, placeHolder: Bool, video: URL?) -> Bool {
         var bool = false
