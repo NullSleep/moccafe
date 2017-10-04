@@ -74,6 +74,8 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
+        self.navigationItem.title = NSLocalizedString("My Tree", comment: "")
+        
         
         questionButton.layer.borderColor = UIColor.white.cgColor
         questionButton.layer.cornerRadius = 12.5
@@ -99,6 +101,7 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
 
         tableView.setContentOffset(CGPoint(x: 0, y: scrollHeight), animated: true)
@@ -122,6 +125,9 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationItem.titleView = searchController.searchBar
         searchController.searchBar.delegate = self
         searchController.searchBar.becomeFirstResponder()
+        
+        
+        
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
@@ -137,6 +143,7 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigationItem.rightBarButtonItems = [profileButton, questionButtonItem]
         self.navigationItem.hidesBackButton = false
         self.navigationItem.titleView = nil
+        
     }
     
     func loadQuestions() {

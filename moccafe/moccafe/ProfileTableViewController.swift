@@ -92,6 +92,10 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return self.headerView
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 250
+    }
  
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
  

@@ -26,6 +26,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var mainScrollView: UIScrollView!
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -66,7 +74,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.registerForKeyboardNotifications()
         player.play()
     }
     
@@ -86,7 +93,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
     }
     
     func dismissKeyboard() {
-        self.view.frame.origin.y = 0
         view.endEditing(true)
     }
     
@@ -131,15 +137,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
                     alert.addAction(action)
                     self.present(alert, animated: true, completion: nil)
                     
-                }
-                else if let token = json?["data"]["token"].string {
+                } else if let token = json?["data"]["token"].string {
                     UserDefaults.standard.set(token, forKey: "token")
                     print("token ---\(token)---")
                     
                     self.delegate?.signupDismissed()
                     self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                }
             }
-        }
         }
     }
     
@@ -147,33 +152,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - Keboard Notifications Methods
-    
-    func registerForKeyboardNotifications() -> Void {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-    }
-    
-    func deregisterFromKeyboardNotifications () -> Void {
-        let center:  NotificationCenter = NotificationCenter.default
-        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-    }
-    
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-            } else if self.view.frame.origin.y < 0 {
-                self.view.frame.origin.y = 0
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-    
+
     // MARK: - UITextFieldDelegate
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        animateViewMoving(up: true, moveValue: 120)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        animateViewMoving(up: false, moveValue: 120)
+
+    }
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        let movementDuration:TimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration )
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        
+        UIView.commitAnimations()
+    }
     
     // Called when 'return' key pressed. return false to ignore.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.frame.origin.y = 0
         textField.resignFirstResponder()
         return true
     }

@@ -69,7 +69,6 @@ class APICall: NSObject {
             switch response.result {
             case .success(let value):
                 let json = JSON(rawValue: value)
-           //     print("response get profile \(json)")
                 completionHandler(json, nil)
             case .failure(let error):
             completionHandler(nil, error)
@@ -98,7 +97,7 @@ class APICall: NSObject {
             switch response.result {
             case .success(let value):
             let json = JSON(rawValue: value)
-         //   print("response edit profile \(json)")
+            print("response edit profile \(json)")
             completionHandler(json, nil)
             case .failure(let error):
             completionHandler(nil, error)

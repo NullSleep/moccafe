@@ -40,13 +40,12 @@ class ShopViewController: UIViewController, UIWebViewDelegate, SignUpTransitionD
             print("url \(url)")
             shopWebView.loadRequest(request)
         }
-//        if Locale.preferredLanguages[0] == "en" {
-//            url = URL(string: "https://moccafeusa.com/collections/all")
-//        } else {
-//            url = URL(string: "https://moccafe.jp/collections/all")
-//        }
-//        let request = URLRequest(url: url!)
-//        shopWebView.loadRequest(request)
+
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        self.navigationItem.title = NSLocalizedString("Shop", comment: "")
+
 
         view.addSubview(spinner)
         startSpinning()

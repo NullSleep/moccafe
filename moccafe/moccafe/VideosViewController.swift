@@ -12,7 +12,7 @@ import AVFoundation
 import SwiftyJSON
 import SDWebImage
 
-class VideosViewController: UIViewController, performNavigationDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, SignUpTransitionDelegate {
+class VideosViewController: UIViewController, performNavigationDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, SignUpTransitionDelegate, UIScrollViewDelegate {
     
     var searchController = UISearchController(searchResultsController: nil)
     
@@ -78,6 +78,8 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
         
+        self.navigationItem.title = NSLocalizedString("Videos", comment: "")
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +90,17 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         retrieveArticle(page: 1)
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
+        tableView.setContentOffset(CGPoint(x: 0, y: scrollHeight), animated: true)
+
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollHeight = Int(scrollView.contentOffset.y)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -113,7 +126,6 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         cell?.delegate = self
         
         let article: Article
-        cell?.playButton.isEnabled = false
         cell?.playButton.isUserInteractionEnabled = false
         
         if searchController.isActive && searchController.searchBar.text != "" {

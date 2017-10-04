@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
+class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
     var calledFrom = "https://app.moccafeusa.com/api/v1/questions/support_options"
     
@@ -49,12 +49,19 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
         questionTypeButton.layer.borderColor = UIColor.lightGray.cgColor
         questionTypeButton.addTarget(self, action: #selector(changeType), for: .touchUpInside)
         
+        titleTextField.delegate = self
+        commentsField.delegate = self
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.delegate = self
         view.addGestureRecognizer(tap)
         
         getQuestionTypes()
         setLabels()
+        
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = false
+        }
     }
     
     func getQuestionTypes() {
@@ -183,7 +190,41 @@ class ContactUsViewController: UIViewController, UIGestureRecognizerDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    // MARK: - UITextFieldDelegate
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        animateViewMoving(up: true, moveValue: 120)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        animateViewMoving(up: true, moveValue: 120)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        animateViewMoving(up: false, moveValue: 120)
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        animateViewMoving(up: false, moveValue: 120)
+    }
+    
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        let movementDuration:TimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration )
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        
+        UIView.commitAnimations()
+    }
+    
+    // Called when 'return' key pressed. return false to ignore.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
     
     func dismissKeyboard() {
         view.endEditing(true)

@@ -69,7 +69,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.registerForKeyboardNotifications()
         player.play()
 
     }
@@ -90,8 +89,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         }
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     func dismissKeyboard() {
-        self.view.frame.origin.y = 0
         view.endEditing(true)
     }
     
@@ -154,28 +160,37 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
         self.presentingViewController?.dismiss(animated: true, completion: nil)
 
         }
-    func registerForKeyboardNotifications() -> Void {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-    }
-    
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-            } else if self.view.frame.origin.y < 0 {
-                self.view.frame.origin.y = 0
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-    
+
     // MARK: - UITextFieldDelegate
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        animateViewMoving(up: true, moveValue: 120)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        animateViewMoving(up: false, moveValue: 120)
+        
+    }
+    
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        let movementDuration:TimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration )
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        
+        UIView.commitAnimations()
+    }
     
     // Called when 'return' key pressed. return false to ignore.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.frame.origin.y = 0
+        
         textField.resignFirstResponder()
         return true
     }
+    
+    
     
 }
