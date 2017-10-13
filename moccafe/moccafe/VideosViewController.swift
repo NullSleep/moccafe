@@ -231,7 +231,7 @@ class VideosViewController: UIViewController, performNavigationDelegate, UISearc
         json["blog"] = ["pagina": page]
         let url = "https://app.moccafeusa.com/api/v1/blogs/video_articles"
         
-        apiHandler.retrieveArticles(url: url, json: json) {
+        apiHandler.retrieveArticles(url: url, json: json, headers: nil) {
             response, error in
             
             var jsonValue: JSON = [:] {

@@ -133,8 +133,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
                 
                 if json!["status"].boolValue == false {
                     let error = json!["errors"]["user_errors"].dictionaryObject?.first
-                    let title = error?.key
-                    let message = (error?.value as? [String])?.first
+                    let title = error?.key  ?? "Error"
+                    let message = (error?.value as? [String])?.first ?? "Invalid Username or Password"
                     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                     let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { Void in }
                     alert.addAction(action)
@@ -145,6 +145,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIGestureReco
                     self.delegate?.signupDismissed()
                     self.presentingViewController?.dismiss(animated: true, completion: nil)
                 }
+            } else if error != nil {
+                print("Error signup ")
+                
+                let alert = UIAlertController(title: "Unable to signup", message: nil, preferredStyle: .alert)
+                let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { Void in }
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+                
             }
         }
     }

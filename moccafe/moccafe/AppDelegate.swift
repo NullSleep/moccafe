@@ -81,7 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             (granted, error) in
             
             guard granted else { return }
-            print("granted")
             self.getNotificationSettings()
         }
     }

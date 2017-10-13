@@ -130,8 +130,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
                 if json!["status"].boolValue == false {
                     
                     let error = json!["errors"]["user_errors"].dictionaryObject?.first
-                    let title = error?.key
-                    let message = (error?.value as? [String])?.first
+                    let title = error?.key ?? "Error"
+                    let message = (error?.value as? [String])?.first ?? "Invalid Username or Password"
                     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                     let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { Void in }
                     alert.addAction(action)
@@ -139,11 +139,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
                     
                 } else if let token = json?["data"]["token"].string {
                     UserDefaults.standard.set(token, forKey: "token")
-                    print("token ---\(token)---")
                     
                     self.delegate?.signupDismissed()
                     self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                 }
+            } else if error != nil {
+                    print("Error login ")
+                
+                let alert = UIAlertController(title: "Unable to login", message: nil, preferredStyle: .alert)
+                let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { Void in }
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+                
             }
         }
     }

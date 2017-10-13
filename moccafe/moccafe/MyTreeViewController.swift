@@ -12,12 +12,13 @@ import SwiftyJSON
 import SDWebImage
 import AVKit
 import AVFoundation
+import HGPlaceholders
 
 class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, postCellTableViewDelegate, SignUpTransitionDelegate, UIScrollViewDelegate {
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableView: TableView!
     
     @IBOutlet var searchBarButton: UIBarButtonItem!
     @IBOutlet var profileButton: UIBarButtonItem!
@@ -250,7 +251,10 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         json["blog"] = ["pagina": page]
         let url = urlArticles
         
-        apiHandler.retrieveArticles(url: url, json: json) { response, error in
+        let token = (UserDefaults.standard.value(forKey: "token") as? String) ?? ""
+        let headers = ["Authorization": token]
+
+        apiHandler.retrieveArticles(url: url, json: json, headers: headers) { response, error in
             
             var jsonValue: JSON = [:] {
                 didSet {
@@ -264,6 +268,7 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             } else if response == nil {
                 jsonValue = self.retrieveStoredData() ?? [:]
             }
+          //  self.tableView.showLoadingPlaceholder()
         }
         
 
@@ -320,6 +325,9 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         do {
             let data = try Data(contentsOf: filePath, options: Data.ReadingOptions.mappedIfSafe)
             let jsonData = JSON(data: data)
+            if jsonData.isEmpty {
+               
+            }
             return jsonData
         }
         catch { return nil }

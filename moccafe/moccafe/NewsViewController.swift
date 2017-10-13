@@ -208,7 +208,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var json: JSON = [:]
         json["blog"] = ["pagina": page]
         
-        self.apiHandler.retrieveArticles(url: self.url, json: json) {
+        self.apiHandler.retrieveArticles(url: self.url, json: json, headers: nil) {
             response, error in
             
             var jsonValue: JSON = [:] {
