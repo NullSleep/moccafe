@@ -146,7 +146,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UIGestureRecog
             } else if error != nil {
                     print("Error login ")
                 
-                let alert = UIAlertController(title: "Unable to login", message: nil, preferredStyle: .alert)
+                let alert = UIAlertController(title: "Unable to login, check your internet connection", message: nil, preferredStyle: .alert)
                 let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { Void in }
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)

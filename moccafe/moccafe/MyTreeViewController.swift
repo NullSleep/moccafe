@@ -12,13 +12,12 @@ import SwiftyJSON
 import SDWebImage
 import AVKit
 import AVFoundation
-import HGPlaceholders
 
-class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, postCellTableViewDelegate, SignUpTransitionDelegate, UIScrollViewDelegate {
+class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, postCellTableViewDelegate, SignUpTransitionDelegate, UIScrollViewDelegate, BackAlertDelegate {
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    @IBOutlet var tableView: TableView!
+    @IBOutlet var tableView: UITableView!
     
     @IBOutlet var searchBarButton: UIBarButtonItem!
     @IBOutlet var profileButton: UIBarButtonItem!
@@ -45,6 +44,7 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    
     let spinner = UIImageView(image: UIImage(named: "spinner"), highlightedImage: nil)
     
     
@@ -57,9 +57,26 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let urlQuestions = "https://app.moccafeusa.com/api/v1/questions/tree_options"
     let urlArticles = "https://app.moccafeusa.com/api/v1/blogs/tree_articles"
     
+    let customView = Bundle.main.loadNibNamed("BackAlert", owner: self, options: nil)?.first as? BackAlert
+ 
+    func addBackView() {
+        
+        if customView != nil {
+            self.view.addSubview(customView!)
+            
+            customView!.translatesAutoresizingMaskIntoConstraints = false
+            customView!.delegate = self
+            
+            self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[view]-10-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":customView]))
+            self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-30-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":customView]))
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+               
+
         self.tableView.delegate = self
         tableView.dataSource = self
         
@@ -89,17 +106,24 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor(red: 0.91, green: 0.92, blue: 0.92, alpha: 1.0)
         
-        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         retrievedArticles.removeAll()
-        retrieveArticle(page: 1)
+        if (UserDefaults.standard.string(forKey: "token") != nil) {
+            retrieveArticle(page: 1)
+            self.customView?.removeFromSuperview()
+        } else {
+            articles.removeAll()
+            addBackView()
+            self.stopSpinning()
+            tableView.reloadData()
+
+
+        }
         self.tabBarController?.tabBar.isHidden = false
-        
     }
     
     
@@ -107,6 +131,11 @@ class MyTreeViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         tableView.setContentOffset(CGPoint(x: 0, y: scrollHeight), animated: true)
     
+    }
+    
+    func login() {
+        
+    loadProfile()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

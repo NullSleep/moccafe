@@ -73,6 +73,10 @@ protocol switchHomeOptionDelegate {
     func loadNews()
 }
 
+protocol BackAlertDelegate {
+    func login()
+}
+
 protocol postCellTableViewDelegate {
     func playVideo(index: Int)
 }

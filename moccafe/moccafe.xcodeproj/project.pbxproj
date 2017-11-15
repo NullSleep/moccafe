@@ -23,6 +23,8 @@
 		CD199E191ED75AB700590F50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD199E181ED75AB700590F50 /* SignUpViewController.swift */; };
 		CD3131261F04FB2E00484BCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */; };
 		CD3D5BB71EF1C1590022298D /* MyTreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D5BB61EF1C1590022298D /* MyTreeTableViewCell.swift */; };
+		CD585BF81F9177DF00AEC4E8 /* BackAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD585BF71F9177DF00AEC4E8 /* BackAlert.xib */; };
+		CD585BFC1F92FE4B00AEC4E8 /* BackAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD585BFB1F92FE4B00AEC4E8 /* BackAlert.swift */; };
 		CD8036761EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */; };
 		CD8C98461EDF67CC00903A61 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */; };
 		CD8C98481EE0911300903A61 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8C98471EE0911300903A61 /* EditProfileTableViewController.swift */; };
@@ -85,6 +87,8 @@
 		CD199E181ED75AB700590F50 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CD3131251F04FB2E00484BCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD3D5BB61EF1C1590022298D /* MyTreeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTreeTableViewCell.swift; sourceTree = "<group>"; };
+		CD585BF71F9177DF00AEC4E8 /* BackAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackAlert.xib; sourceTree = "<group>"; };
+		CD585BFB1F92FE4B00AEC4E8 /* BackAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackAlert.swift; sourceTree = "<group>"; };
 		CD5D9AB91F01C8D600DC96B1 /* moccafe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = moccafe.entitlements; sourceTree = "<group>"; };
 		CD8036751EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		CD8C98451EDF67CC00903A61 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				2338948F1ED3466A00E6F78E /* Main.storyboard */,
 				233894941ED3466A00E6F78E /* LaunchScreen.storyboard */,
 				CDF65DE01EFB38D200967136 /* PostCell.xib */,
+				CD585BF71F9177DF00AEC4E8 /* BackAlert.xib */,
 			);
 			name = UI;
 			path = NewsCell;
@@ -260,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				23A7C46A1EE39BBD0001461D /* UI */,
+				CD585BFB1F92FE4B00AEC4E8 /* BackAlert.swift */,
 				CDE9FAEB1F4625FF00F55BC7 /* View Controllers */,
 			);
 			name = Classes;
@@ -417,6 +423,7 @@
 				233894911ED3466A00E6F78E /* Main.storyboard in Resources */,
 				CDF65DDE1EFB38D200967136 /* PostCell.xib in Resources */,
 				CD3131261F04FB2E00484BCD /* GoogleService-Info.plist in Resources */,
+				CD585BF81F9177DF00AEC4E8 /* BackAlert.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +622,7 @@
 				CD3D5BB71EF1C1590022298D /* MyTreeTableViewCell.swift in Sources */,
 				CDB19F5D1EE613A2004C2E11 /* VideoTableViewCell.swift in Sources */,
 				CDF1D2EF1F10108800A5ED7E /* MyTreeViewController.swift in Sources */,
+				CD585BFC1F92FE4B00AEC4E8 /* BackAlert.swift in Sources */,
 				CD8C98481EE0911300903A61 /* EditProfileTableViewController.swift in Sources */,
 				CD8C984A1EE0A12100903A61 /* ContactUsViewController.swift in Sources */,
 				CD8036761EE0CB2A00FC9D79 /* EditProfileTableViewCell.swift in Sources */,
