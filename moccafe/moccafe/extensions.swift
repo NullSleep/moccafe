@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension UIImage {
+    // This method ads color to an image because it is awesome.
     func imageWithColor(color: UIColor) -> UIImage? {
         var image = withRenderingMode(.alwaysTemplate)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
